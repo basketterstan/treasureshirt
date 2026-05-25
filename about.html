@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Over Ons — Treasureshirt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .about-hero {
+      padding: 12rem 5% 5rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+    }
+    .values {
+      background: var(--black);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .value-card {
+      padding: 2.5rem;
+      border-left: 2px solid var(--gold);
+    }
+    .value-card h3 {
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .value-card p {
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Treasureshirt</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="about-hero">
+    <p class="section-label">Ons Verhaal</p>
+    <h1 class="section-title">Over <em>Treasureshirt</em></h1>
+    <div class="divider" style="margin: 2rem auto;"></div>
+  </div>
+
+  <!-- VERHAAL -->
+  <section class="about">
+    <div class="about-grid">
+      <div class="about-visual">✦</div>
+      <div class="about-text">
+        <p class="section-label">Het Begin</p>
+        <h2 class="section-title">Gebouwd op <em>Passie</em></h2>
+        <div class="divider"></div>
+        <p>Treasureshirt werd geboren vanuit een simpele overtuiging: kleding moet meer zijn dan stof en draad. Het moet een gevoel zijn. Een statement. Een sieraad voor het dagelijks leven.</p>
+        <p>Wat begon als een droom, groeide uit tot een merk dat staat voor kwaliteit zonder compromis. Elk stuk dat we maken draagt onze naam — en die naam staat voor iets.</p>
+        <p>Wij geloven dat jij het verdient om je elke dag bijzonder te voelen. Dat is onze belofte.</p>
+        <a href="shop.html" class="btn" style="margin-top: 1rem;">Ontdek de Collectie</a>
+        <div class="about-stats">
+          <div>
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Unieke Stukken</div>
+          </div>
+          <div>
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Tevreden Klanten</div>
+          </div>
+          <div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Premium Kwaliteit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAARDEN -->
+  <section class="values">
+    <p class="section-label">Waar we voor staan</p>
+    <h2 class="section-title">Onze <em>Waarden</em></h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Kwaliteit Boven Alles</h3>
+        <p>We kiezen nooit de goedkopere weg. Elk materiaal, elke naad, elk detail wordt bewust gekozen voor de beste uitkomst.</p>
+      </div>
+      <div class="value-card">
+        <h3>Authenticiteit</h3>
+        <p>Geen trends namaken. Geen snelle mode. Wij creëren stukken die echtheid uitstralen en decennia meegaan.</p>
+      </div>
+      <div class="value-card">
+        <h3>Exclusiviteit</h3>
+        <p>Beperkte oplagen. Bewust klein. Wij geloven dat het bijzondere ook echt bijzonder moet blijven.</p>
+      </div>
+      <div class="value-card">
+        <h3>Klant Eerst</h3>
+        <p>Jouw ervaring, van de eerste klik tot de laatste levering, is voor ons net zo belangrijk als het product zelf.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Treasureshirt</span>
+    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-socials">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

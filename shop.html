@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collectie — Treasureshirt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .shop-hero {
+      padding: 12rem 5% 5rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+    }
+    .filter-bar {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      color: var(--gray);
+      padding: 0.5rem 1.5rem;
+      font-family: inherit;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Treasureshirt</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="shop-hero">
+    <p class="section-label">Treasureshirt</p>
+    <h1 class="section-title">De <em>Collectie</em></h1>
+    <div class="divider" style="margin: 2rem auto;"></div>
+    <p style="color: var(--gray); font-style: italic; max-width: 500px; margin: 0 auto;">Premium stukken voor elk seizoen — van klassieke essentials tot exclusieve limited editions.</p>
+  </div>
+
+  <section>
+    <div class="filter-bar">
+      <button class="filter-btn active">Alles</button>
+      <button class="filter-btn">T-Shirts</button>
+      <button class="filter-btn">Hoodies</button>
+      <button class="filter-btn">Limited</button>
+      <button class="filter-btn">Sale</button>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-image"><span class="product-badge">New</span>👕</div>
+        <div class="product-info">
+          <h3 class="product-name">Gold Crest Tee</h3>
+          <p class="product-desc">Premium katoen, geborduurde details</p>
+          <p class="product-price">€ 89</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image"><span class="product-badge">Bestseller</span>👕</div>
+        <div class="product-info">
+          <h3 class="product-name">Noir Signature Tee</h3>
+          <p class="product-desc">Zwaar geweven stof, slim fit</p>
+          <p class="product-price">€ 79</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image"><span class="product-badge">Limited</span>👕</div>
+        <div class="product-info">
+          <h3 class="product-name">Treasure Classic</h3>
+          <p class="product-desc">Oversized, washed black editie</p>
+          <p class="product-price">€ 95</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">👕</div>
+        <div class="product-info">
+          <h3 class="product-name">Shadow Drop Hoodie</h3>
+          <p class="product-desc">French terry, cropped fit</p>
+          <p class="product-price">€ 149</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image"><span class="product-badge">Sale</span>👕</div>
+        <div class="product-info">
+          <h3 class="product-name">Essential White Tee</h3>
+          <p class="product-desc">Pima katoen, regular fit</p>
+          <p class="product-price">€ 55 <span style="color:var(--gray);font-size:0.8rem;text-decoration:line-through;">€ 75</span></p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">👕</div>
+        <div class="product-info">
+          <h3 class="product-name">Velvet Touch Tee</h3>
+          <p class="product-desc">Velours afwerking, box fit</p>
+          <p class="product-price">€ 110</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Treasureshirt</span>
+    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-socials">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
