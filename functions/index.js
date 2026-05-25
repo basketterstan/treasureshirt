@@ -1,15 +1,18 @@
-const functions = require('firebase-functions');
-const cors      = require('cors')({ origin: true });
-const Stripe    = require('stripe');
+const { onRequest } = require('firebase-functions/v2/https');
+const { defineSecret } = require('firebase-functions/params');
+const cors   = require('cors')({ origin: true });
+const Stripe = require('stripe');
 
-exports.createCheckout = functions.https.onRequest((req, res) => {
+const stripeSecret = defineSecret('STRIPE_SECRET_KEY');
+
+exports.createCheckout = onRequest({ secrets: [stripeSecret] }, (req, res) => {
   cors(req, res, async () => {
     if (req.method !== 'POST') {
       return res.status(405).json({ error: 'Method not allowed' });
     }
 
     try {
-      const stripe = Stripe(functions.config().stripe.secret);
+      const stripe = Stripe(stripeSecret.value());
       const { items } = req.body;
 
       if (!items || !items.length) {
