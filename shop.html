@@ -76,25 +76,19 @@
 
   <div class="toast" id="toast"></div>
   <script src="js/main.js"></script>
-  <script>
-    const PRODUCTS_KEY = 'ts_products';
-    let allProducts = [];
+  <script type="module">
+    import { db } from './js/firebase-config.js';
+    import { collection, query, orderBy, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    let allProducts  = [];
     let activeFilter = 'Alles';
 
-    async function init() {
-      const saved = localStorage.getItem(PRODUCTS_KEY);
-      if (saved) {
-        allProducts = JSON.parse(saved);
-      } else {
-        try {
-          const res = await fetch('data/products.json');
-          allProducts = await res.json();
-          localStorage.setItem(PRODUCTS_KEY, JSON.stringify(allProducts));
-        } catch { allProducts = []; }
-      }
+    const q = query(collection(db, 'products'), orderBy('createdAt', 'asc'));
+    onSnapshot(q, snap => {
+      allProducts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
       renderFilters();
       renderProducts();
-    }
+    });
 
     function renderFilters() {
       const cats = ['Alles', ...new Set(allProducts.map(p => p.category))];
@@ -104,14 +98,18 @@
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           activeFilter = btn.dataset.cat;
-          document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === activeFilter));
+          document.querySelectorAll('.filter-btn').forEach(b =>
+            b.classList.toggle('active', b.dataset.cat === activeFilter)
+          );
           renderProducts();
         });
       });
     }
 
     function renderProducts() {
-      const list = activeFilter === 'Alles' ? allProducts : allProducts.filter(p => p.category === activeFilter);
+      const list = activeFilter === 'Alles'
+        ? allProducts
+        : allProducts.filter(p => p.category === activeFilter);
       const grid = document.getElementById('productsGrid');
       grid.innerHTML = list.map(p => `
         <div class="product-card">
@@ -125,7 +123,7 @@
             <p class="product-price">€ ${p.price}</p>
           </div>
         </div>
-      `).join('') || '<p style="color:var(--gray);font-style:italic">Geen producten gevonden.</p>';
+      `).join('') || '<p style="color:var(--gray);font-style:italic;padding:2rem 0">Geen producten gevonden.</p>';
 
       grid.querySelectorAll('.product-card').forEach((el, i) => {
         el.style.opacity = '0';
@@ -134,8 +132,6 @@
         requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
       });
     }
-
-    init();
   </script>
 </body>
 </html>
