@@ -106,9 +106,9 @@
       const grid = document.getElementById('productsGrid');
       grid.innerHTML = list.map(p => `
         <div class="product-card">
-          <div class="product-image">
+          <div class="product-image" style="${p.imageUrl ? `background-image:url('${p.imageUrl}');background-size:cover;background-position:center;font-size:0` : ''}">
             ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
-            ${p.emoji || '👕'}
+            ${p.imageUrl ? '' : (p.emoji || '👕')}
           </div>
           <div class="product-info">
             <h3 class="product-name">${p.name}</h3>
