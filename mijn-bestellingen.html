@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mijn Bestellingen — Treasureshirt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .orders-wrap {
+      min-height: 100vh;
+      padding: 7rem 1.5rem 4rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .orders-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(201,168,76,.15);
+      padding-bottom: 1.25rem;
+    }
+    .orders-title {
+      font-size: 1.4rem;
+      letter-spacing: .12em;
+      font-weight: 300;
+    }
+    .orders-back {
+      font-size: .68rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .orders-back:hover { color: var(--gold); }
+
+    .order-card {
+      border: 1px solid rgba(201,168,76,.15);
+      margin-bottom: 1.25rem;
+      background: #111;
+    }
+    .order-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(201,168,76,.08);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .order-number {
+      font-size: .72rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .order-date {
+      font-size: .72rem;
+      color: var(--gray);
+      font-style: italic;
+    }
+    .order-status {
+      font-size: .62rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: .3rem .7rem;
+      border: 1px solid rgba(201,168,76,.3);
+      color: var(--gold);
+    }
+    .order-status.verzonden { border-color: rgba(39,174,96,.4); color: #27ae60; }
+    .order-status.afgerond  { border-color: rgba(39,174,96,.4); color: #27ae60; }
+    .order-status.geannuleerd { border-color: rgba(231,76,60,.4); color: #e74c3c; }
+
+    .order-items { padding: 1rem 1.25rem; }
+    .order-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: .45rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      font-size: .88rem;
+      gap: 1rem;
+    }
+    .order-item-row:last-child { border-bottom: none; }
+    .order-item-name { color: var(--white); flex: 1; }
+    .order-item-qty  { color: var(--gray); font-size: .78rem; white-space: nowrap; }
+    .order-item-price { color: var(--gold); white-space: nowrap; }
+
+    .order-card-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .85rem 1.25rem;
+      border-top: 1px solid rgba(201,168,76,.08);
+      background: rgba(201,168,76,.03);
+    }
+    .order-shipping {
+      font-size: .72rem;
+      color: var(--gray);
+      font-style: italic;
+      flex: 1;
+    }
+    .order-total {
+      font-size: .95rem;
+      letter-spacing: .08em;
+    }
+    .order-total strong { color: var(--gold); }
+
+    .orders-empty {
+      text-align: center;
+      padding: 4rem 0;
+      color: var(--gray);
+      font-style: italic;
+    }
+    .orders-empty a { color: var(--gold); text-decoration: none; }
+
+    .orders-loading {
+      text-align: center;
+      padding: 4rem 0;
+      color: var(--gray);
+      font-size: .82rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Treasureshirt</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <button class="nav-cart" id="cartBtn">Winkelwagen <span class="cart-badge" id="cartCount">0</span></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="orders-wrap">
+    <div class="orders-header">
+      <h1 class="orders-title">Mijn Bestellingen</h1>
+      <a href="account.html" class="orders-back">← Mijn Account</a>
+    </div>
+    <div id="ordersList">
+      <p class="orders-loading">Laden…</p>
+    </div>
+  </div>
+
+  <div class="cart-toast" id="cartToast"></div>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script type="module">
+    import { auth } from './js/firebase-config.js';
+    import { db }   from './js/firebase-config.js';
+    import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+    import {
+      collection, query, where, orderBy, getDocs,
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    onAuthStateChanged(auth, async user => {
+      if (!user) {
+        window.location.href = 'account.html';
+        return;
+      }
+      await loadOrders(user.uid);
+    });
+
+    async function loadOrders(uid) {
+      const list = document.getElementById('ordersList');
+      try {
+        const q = query(
+          collection(db, 'orders'),
+          where('userId', '==', uid),
+          orderBy('createdAt', 'desc'),
+        );
+        const snap = await getDocs(q);
+
+        if (snap.empty) {
+          list.innerHTML = `<p class="orders-empty">Je hebt nog geen bestellingen geplaatst.<br><br><a href="shop.html">Bekijk onze collectie →</a></p>`;
+          return;
+        }
+
+        list.innerHTML = snap.docs.map(doc => {
+          const o = doc.data();
+          const date = o.createdAt?.toDate
+            ? o.createdAt.toDate().toLocaleDateString('nl-BE', { day: '2-digit', month: 'long', year: 'numeric' })
+            : '—';
+
+          const statusClass = (o.status || '').toLowerCase().replace(/\s/g, '-');
+          const statusLabel = o.status || 'Nieuw';
+
+          const itemsHtml = (o.items || []).map(item => `
+            <div class="order-item-row">
+              <span class="order-item-name">${item.name}</span>
+              <span class="order-item-qty">× ${item.quantity}</span>
+              <span class="order-item-price">€ ${parseFloat(item.subtotal).toFixed(2).replace('.', ',')}</span>
+            </div>`).join('');
+
+          const address = o.shippingAddress;
+          const addressStr = address?.line1
+            ? `${address.line1}, ${address.postal_code} ${address.city}`
+            : '';
+
+          return `
+            <div class="order-card">
+              <div class="order-card-head">
+                <span class="order-number"># ${o.orderNumber || doc.id.slice(-8).toUpperCase()}</span>
+                <span class="order-date">${date}</span>
+                <span class="order-status ${statusClass}">${statusLabel}</span>
+              </div>
+              <div class="order-items">${itemsHtml}</div>
+              <div class="order-card-foot">
+                <span class="order-shipping">${addressStr}</span>
+                <span class="order-total">Totaal: <strong>€ ${parseFloat(o.total).toFixed(2).replace('.', ',')}</strong></span>
+              </div>
+            </div>`;
+        }).join('');
+
+      } catch (err) {
+        console.error(err);
+        list.innerHTML = `<p class="orders-empty">Kon bestellingen niet laden. Probeer later opnieuw.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
