@@ -97,13 +97,19 @@
     </div>
   </footer>
 
-  <!-- SIZE PICKER -->
-  <div class="size-modal" id="sizeModal">
-    <div class="size-box">
-      <p class="size-box-label">Selecteer maat</p>
-      <p class="size-box-name" id="sizeProductName"></p>
-      <div class="size-grid" id="sizeGrid"></div>
-      <button class="size-cancel" id="sizeCancelBtn">Annuleren</button>
+  <!-- PRODUCT DETAIL MODAL -->
+  <div class="pdetail-overlay" id="pdetailOverlay">
+    <div class="pdetail-modal">
+      <button class="pdetail-close" id="pdetailClose">✕</button>
+      <div class="pdetail-image" id="pdetailImage"></div>
+      <div class="pdetail-info">
+        <h2 class="pdetail-name" id="pdetailName"></h2>
+        <p class="pdetail-desc" id="pdetailDesc"></p>
+        <p class="pdetail-price" id="pdetailPrice"></p>
+        <div id="pdetailSizes"></div>
+        <p class="pdetail-hint" id="pdetailHint">Selecteer eerst een maat</p>
+        <button class="pdetail-btn" id="pdetailAddBtn">+ Toevoegen aan winkelwagen</button>
+      </div>
     </div>
   </div>
 
@@ -111,34 +117,54 @@
   <script src="js/main.js"></script>
   <script src="js/cart.js"></script>
   <script>
-    function openSizePicker(btn) {
-      const sizes = (btn.dataset.sizes || '').split(',').filter(Boolean);
-      const product = {
-        id: btn.dataset.id, name: btn.dataset.name,
-        price: parseFloat(btn.dataset.price),
-        description: btn.dataset.desc, emoji: btn.dataset.emoji,
-      };
-      if (!sizes.length) { Cart.add(product); return; }
-      document.getElementById('sizeProductName').textContent = product.name;
-      const grid = document.getElementById('sizeGrid');
-      grid.innerHTML = sizes.map(s =>
-        `<button class="size-btn" data-size="${s}">${s}</button>`
-      ).join('');
-      grid.querySelectorAll('.size-btn').forEach(sb => {
-        sb.addEventListener('click', () => {
-          Cart.add({ ...product, size: sb.dataset.size });
-          document.getElementById('sizeModal').classList.remove('open');
-        });
-      });
-      document.getElementById('sizeModal').classList.add('open');
-    }
-    document.getElementById('sizeCancelBtn').addEventListener('click', () =>
-      document.getElementById('sizeModal').classList.remove('open')
-    );
-    document.getElementById('sizeModal').addEventListener('click', e => {
-      if (e.target === e.currentTarget)
-        document.getElementById('sizeModal').classList.remove('open');
+    document.getElementById('pdetailClose').addEventListener('click', () => {
+      document.getElementById('pdetailOverlay').classList.remove('open');
+      document.body.style.overflow = '';
     });
+    document.getElementById('pdetailOverlay').addEventListener('click', e => {
+      if (e.target === e.currentTarget) { e.currentTarget.classList.remove('open'); document.body.style.overflow = ''; }
+    });
+    function openProductModal(p) {
+      const imgEl = document.getElementById('pdetailImage');
+      if (p.imageUrl) {
+        imgEl.style.cssText = `background-image:url('${p.imageUrl}');background-size:cover;background-position:center;font-size:0`;
+        imgEl.innerHTML = p.badge ? `<span class="product-badge">${p.badge}</span>` : '';
+      } else {
+        imgEl.style.cssText = '';
+        imgEl.innerHTML = `${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}${p.emoji || '👕'}`;
+      }
+      document.getElementById('pdetailName').textContent = p.name;
+      document.getElementById('pdetailDesc').textContent = p.description;
+      document.getElementById('pdetailPrice').textContent = `€ ${p.price}`;
+      const sizesEl = document.getElementById('pdetailSizes');
+      const hintEl  = document.getElementById('pdetailHint');
+      const sizes   = p.sizes || [];
+      let selectedSize = null;
+      hintEl.classList.remove('show');
+      if (sizes.length) {
+        sizesEl.innerHTML = `<p class="pdetail-size-label">Selecteer je maat</p><div class="pdetail-size-grid">${sizes.map(s => {
+          const stock = p.stockPerSize?.[s];
+          const soldOut = stock !== undefined && stock <= 0;
+          return `<button class="pdetail-size-btn${soldOut?' sold-out':''}" data-size="${s}" ${soldOut?'disabled':''}>
+            ${s}${stock !== undefined ? `<span class="pdetail-size-stock">${stock>0?stock+' stuks':'uitverkocht'}</span>` : ''}
+          </button>`;
+        }).join('')}</div>`;
+        sizesEl.querySelectorAll('.pdetail-size-btn:not(:disabled)').forEach(btn => {
+          btn.addEventListener('click', () => {
+            sizesEl.querySelectorAll('.pdetail-size-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active'); selectedSize = btn.dataset.size; hintEl.classList.remove('show');
+          });
+        });
+      } else { sizesEl.innerHTML = ''; }
+      document.getElementById('pdetailAddBtn').onclick = () => {
+        if (sizes.length && !selectedSize) { hintEl.classList.add('show'); return; }
+        Cart.add({ id: p.id, name: p.name, price: parseFloat(p.price), description: p.description, emoji: p.emoji || '👕', size: selectedSize || '' });
+        document.getElementById('pdetailOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+      };
+      document.getElementById('pdetailOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
   </script>
   <script type="module">
     import { db } from './js/firebase-config.js';
@@ -147,34 +173,28 @@
     onSnapshot(query(collection(db, 'products'), orderBy('createdAt', 'asc'), limit(3)), snap => {
       const grid = document.getElementById('featuredGrid');
       if (!grid) return;
-      grid.innerHTML = snap.docs.map(d => {
-        const p = { id: d.id, ...d.data() };
-        return `
-          <div class="product-card">
-            <div class="product-image" style="${p.imageUrl ? `background-image:url('${p.imageUrl}');background-size:cover;background-position:center;font-size:0` : ''}">
-              ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
-              ${p.imageUrl ? '' : (p.emoji || '👕')}
+      const products = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      grid.innerHTML = products.map(p => `
+        <div class="product-card" data-id="${p.id}" style="cursor:pointer">
+          <div class="product-image" style="${p.imageUrl ? `background-image:url('${p.imageUrl}');background-size:cover;background-position:center;font-size:0` : ''}">
+            ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+            ${p.imageUrl ? '' : (p.emoji || '👕')}
+            <div class="product-img-overlay">Bekijk Product</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">${p.name}</h3>
+            <p class="product-desc">${p.description}</p>
+            <div class="product-footer">
+              <p class="product-price">€ ${p.price}</p>
+              <button class="btn-add-cart">Voeg toe →</button>
             </div>
-            <div class="product-info">
-              <h3 class="product-name">${p.name}</h3>
-              <p class="product-desc">${p.description}</p>
-              <div class="product-footer">
-                <p class="product-price">€ ${p.price}</p>
-                <button class="btn-add-cart"
-                  data-id="${p.id}" data-name="${p.name}"
-                  data-price="${p.price}" data-desc="${p.description}"
-                  data-emoji="${p.emoji || '👕'}"
-                  data-sizes="${(p.sizes||[]).join(',')}"
-                  + Toevoegen
-                </button>
-              </div>
-            </div>
-          </div>`;
-      }).join('');
+          </div>
+        </div>`).join('');
 
-      grid.querySelectorAll('.btn-add-cart').forEach(btn =>
-        btn.addEventListener('click', () => openSizePicker(btn))
-      );
+      grid.querySelectorAll('.product-card').forEach(el => {
+        const p = products.find(p => p.id === el.dataset.id);
+        el.addEventListener('click', () => openProductModal(p));
+      });
     });
   </script>
 </body>
