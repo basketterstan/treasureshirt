@@ -70,6 +70,16 @@
     <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a></div>
   </footer>
 
+  <!-- SIZE PICKER -->
+  <div class="size-modal" id="sizeModal">
+    <div class="size-box">
+      <p class="size-box-label">Selecteer maat</p>
+      <p class="size-box-name" id="sizeProductName"></p>
+      <div class="size-grid" id="sizeGrid"></div>
+      <button class="size-cancel" id="sizeCancelBtn">Annuleren</button>
+    </div>
+  </div>
+
   <div class="cart-toast" id="cartToast"></div>
   <script src="js/main.js"></script>
   <script src="js/cart.js"></script>
@@ -118,7 +128,8 @@
               <button class="btn-add-cart"
                 data-id="${p.id}" data-name="${p.name}"
                 data-price="${p.price}" data-desc="${p.description}"
-                data-emoji="${p.emoji || '👕'}">
+                data-emoji="${p.emoji || '👕'}"
+                data-sizes="${(p.sizes||[]).join(',')}">
                 + Toevoegen
               </button>
             </div>
@@ -127,11 +138,7 @@
       `).join('') || '<p style="color:var(--gray);font-style:italic;padding:2rem 0">Geen producten gevonden.</p>';
 
       grid.querySelectorAll('.btn-add-cart').forEach(btn =>
-        btn.addEventListener('click', () => Cart.add({
-          id: btn.dataset.id, name: btn.dataset.name,
-          price: parseFloat(btn.dataset.price),
-          description: btn.dataset.desc, emoji: btn.dataset.emoji,
-        }))
+        btn.addEventListener('click', () => openSizePicker(btn))
       );
 
       grid.querySelectorAll('.product-card').forEach((el, i) => {
@@ -140,6 +147,36 @@
         requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
       });
     }
+  </script>
+  <script>
+    function openSizePicker(btn) {
+      const sizes = (btn.dataset.sizes || '').split(',').filter(Boolean);
+      const product = {
+        id: btn.dataset.id, name: btn.dataset.name,
+        price: parseFloat(btn.dataset.price),
+        description: btn.dataset.desc, emoji: btn.dataset.emoji,
+      };
+      if (!sizes.length) { Cart.add(product); return; }
+      document.getElementById('sizeProductName').textContent = product.name;
+      const grid = document.getElementById('sizeGrid');
+      grid.innerHTML = sizes.map(s =>
+        `<button class="size-btn" data-size="${s}">${s}</button>`
+      ).join('');
+      grid.querySelectorAll('.size-btn').forEach(sb => {
+        sb.addEventListener('click', () => {
+          Cart.add({ ...product, size: sb.dataset.size });
+          document.getElementById('sizeModal').classList.remove('open');
+        });
+      });
+      document.getElementById('sizeModal').classList.add('open');
+    }
+    document.getElementById('sizeCancelBtn').addEventListener('click', () =>
+      document.getElementById('sizeModal').classList.remove('open')
+    );
+    document.getElementById('sizeModal').addEventListener('click', e => {
+      if (e.target === e.currentTarget)
+        document.getElementById('sizeModal').classList.remove('open');
+    });
   </script>
 </body>
 </html>
