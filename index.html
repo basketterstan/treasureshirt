@@ -74,41 +74,7 @@
     <div class="collection-intro">
       <p>Elk stuk vertelt een verhaal. Onze nieuwste collectie combineert tijdloze elegantie met moderne precision cut — voor de man en vrouw die de wereld op hun voorwaarden betreden.</p>
     </div>
-    <div class="products-grid">
-      <div class="product-card">
-        <div class="product-image">
-          <span class="product-badge">New</span>
-          👕
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Gold Crest Tee</h3>
-          <p class="product-desc">Premium katoen, geborduurde details</p>
-          <p class="product-price">€ 89</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <span class="product-badge">Bestseller</span>
-          👕
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Noir Signature Tee</h3>
-          <p class="product-desc">Zwaar geweven stof, slim fit</p>
-          <p class="product-price">€ 79</p>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">
-          <span class="product-badge">Limited</span>
-          👕
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Treasure Classic</h3>
-          <p class="product-desc">Oversized, washed black editie</p>
-          <p class="product-price">€ 95</p>
-        </div>
-      </div>
-    </div>
+    <div class="products-grid" id="featuredGrid"></div>
     <div style="text-align:center; margin-top: 3rem;">
       <a href="shop.html" class="btn">Bekijk Alle Producten</a>
     </div>
@@ -126,5 +92,37 @@
 
   <div class="toast" id="toast"></div>
   <script src="js/main.js"></script>
+  <script>
+    (async () => {
+      const saved = localStorage.getItem('ts_products');
+      let products = [];
+      if (saved) {
+        products = JSON.parse(saved);
+      } else {
+        try {
+          const res = await fetch('data/products.json');
+          products = await res.json();
+          localStorage.setItem('ts_products', JSON.stringify(products));
+        } catch {}
+      }
+      const featured = products.slice(0, 3);
+      const grid = document.getElementById('featuredGrid');
+      if (grid) {
+        grid.innerHTML = featured.map(p => `
+          <div class="product-card">
+            <div class="product-image">
+              ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+              ${p.emoji || '👕'}
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">${p.name}</h3>
+              <p class="product-desc">${p.description}</p>
+              <p class="product-price">€ ${p.price}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+    })();
+  </script>
 </body>
 </html>
