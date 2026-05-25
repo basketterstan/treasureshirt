@@ -10,8 +10,8 @@ const stripeSecret  = defineSecret('STRIPE_SECRET_KEY');
 const webhookSecret = defineSecret('STRIPE_WEBHOOK_SECRET');
 const klaviyoKey    = defineSecret('KLAVIYO_PRIVATE_KEY');
 
-const ADMIN_EMAIL = 'contact@hoopsatlas.com';
-const SITE_URL    = 'https://basketterstan.github.io/treasureshirt';
+const ADMIN_EMAIL = 'admin@treasureshirt.com';
+const SITE_URL    = 'https://treasureshirt.com'; // v2
 
 // ── CREATE CHECKOUT ──────────────────────────────────
 exports.createCheckout = onRequest(
@@ -23,6 +23,7 @@ exports.createCheckout = onRequest(
       const { items } = req.body;
       if (!items?.length) return res.status(400).json({ error: 'Geen producten' });
 
+      const userId = req.body.userId || '';
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         line_items: items.map(item => ({
@@ -37,6 +38,7 @@ exports.createCheckout = onRequest(
         shipping_address_collection: { allowed_countries: ['BE', 'NL', 'DE', 'FR', 'GB'] },
         success_url: `${SITE_URL}/success.html`,
         cancel_url:  `${SITE_URL}/cancel.html`,
+        metadata: { userId },
       });
 
       res.json({ url: session.url });
@@ -86,6 +88,7 @@ async function handleOrderComplete(session) {
   const customerEmail = session.customer_details?.email || '';
   const customerName  = session.customer_details?.name  || 'Klant';
   const address       = session.customer_details?.address || {};
+  const userId        = session.metadata?.userId || '';
   const total         = (session.amount_total / 100).toFixed(2);
   const orderNumber   = session.id.slice(-8).toUpperCase();
 
@@ -99,6 +102,7 @@ async function handleOrderComplete(session) {
     sessionId:     session.id,
     customerEmail,
     customerName,
+    userId,
     items,
     total:         parseFloat(total),
     shippingAddress: address,
