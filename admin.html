@@ -195,6 +195,15 @@
     </div>
     <div class="scanner-box" id="scannerBox" style="display:none">
       <div id="scannerReader"></div>
+
+      <!-- Handmatige invoer -->
+      <div style="display:flex;gap:.75rem;margin-top:1rem;align-items:center">
+        <input id="scannerManualInput" type="text" placeholder="Barcode handmatig invoeren..."
+          style="flex:1;background:transparent;border:1px solid rgba(201,168,76,.3);color:var(--white);font-family:inherit;font-size:.9rem;padding:.5rem .75rem;outline:none" />
+        <button class="btn-ghost" id="scannerManualBtn" style="padding:.5rem 1rem;font-size:.65rem">Zoek</button>
+      </div>
+
+      <!-- Gevonden product -->
       <div id="scannerResult" class="scanner-result">
         <div class="scanner-product-name" id="scannerProductName"></div>
         <div class="scanner-stock-val" id="scannerStockVal"></div>
@@ -206,7 +215,18 @@
         </div>
         <div class="scanner-barcode" id="scannerBarcode"></div>
       </div>
-      <div id="scannerNotFound" class="scanner-not-found">Barcode niet gevonden — voeg barcode toe aan het product.</div>
+
+      <!-- Niet gevonden -->
+      <div id="scannerNotFound" class="scanner-not-found"></div>
+
+      <!-- Koppel barcode aan product -->
+      <div id="scannerLinkPanel" style="display:none;margin-top:1rem;background:var(--black);border:1px solid rgba(201,168,76,.15);padding:1.25rem">
+        <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:.75rem">Koppel aan product</p>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
+          <select id="scannerLinkSelect" style="flex:1;background:var(--dark-gray);border:1px solid rgba(201,168,76,.3);color:var(--white);font-family:inherit;font-size:.85rem;padding:.5rem .75rem;outline:none;min-width:200px"></select>
+          <button class="btn-primary" id="scannerLinkBtn" style="padding:.5rem 1.2rem;font-size:.65rem">Koppelen</button>
+        </div>
+      </div>
     </div>
 
     <!-- BESTELLINGEN -->
@@ -286,6 +306,17 @@
         </select>
       </div>
       <div class="form-group full"><label>Barcode (EAN / UPC)</label><input type="text" id="fBarcode" placeholder="1234567890123" /></div>
+      <div class="form-group full">
+        <label>Beschikbare Maten</label>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.6rem">
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="XS" style="accent-color:var(--gold)"> XS</label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="S"  style="accent-color:var(--gold)"> S</label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="M"  style="accent-color:var(--gold)"> M</label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="L"  style="accent-color:var(--gold)"> L</label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="XL" style="accent-color:var(--gold)"> XL</label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="XXL" style="accent-color:var(--gold)"> XXL</label>
+        </div>
+      </div>
       <div class="form-group full" style="margin-top:.5rem">
         <label>Foto</label>
         <div id="imageUploadArea" style="border:1px dashed rgba(201,168,76,.3);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .3s;position:relative;margin-top:.5rem">
@@ -604,6 +635,7 @@ function openAddModal() {
   editingId = null;
   document.getElementById('modalTitle').textContent = 'Nieuw Product';
   ['fName','fDesc','fPrice','fStock','fBarcode'].forEach(id => document.getElementById(id).value = '');
+  document.querySelectorAll('input[name="fSizes"]').forEach(cb => cb.checked = false);
   document.getElementById('fCategory').value = 'T-Shirts';
   document.getElementById('fBadge').value    = '';
   resetImageUI();
@@ -622,6 +654,9 @@ function openEditModal(id) {
   document.getElementById('fCategory').value        = p.category;
   document.getElementById('fBadge').value           = p.badge || '';
   document.getElementById('fBarcode').value         = p.barcode || '';
+  document.querySelectorAll('input[name="fSizes"]').forEach(cb => {
+    cb.checked = (p.sizes || []).includes(cb.value);
+  });
   resetImageUI();
   if (p.imageUrl) setImagePreview(p.imageUrl);
   document.getElementById('modalOverlay').classList.add('open');
@@ -645,6 +680,7 @@ document.getElementById('modalSave').addEventListener('click', async () => {
   const cat     = document.getElementById('fCategory').value;
   const badge   = document.getElementById('fBadge').value;
   const barcode = document.getElementById('fBarcode').value.trim();
+  const sizes   = [...document.querySelectorAll('input[name="fSizes"]:checked')].map(cb => cb.value);
   const file    = document.getElementById('fImage').files[0];
 
   if (!name || isNaN(price)) { toast('Vul naam en prijs in', 'error'); return; }
@@ -664,7 +700,7 @@ document.getElementById('modalSave').addEventListener('click', async () => {
     document.getElementById('imageUploading').style.display = 'none';
   }
 
-  const data = { name, description: desc, price, stock, category: cat, badge, barcode, emoji: '👕', imageUrl: imageUrl || '' };
+  const data = { name, description: desc, price, stock, category: cat, badge, barcode, sizes, emoji: '👕', imageUrl: imageUrl || '' };
 
   if (editingId) {
     await updateDoc(doc(db, 'products', editingId), data);
@@ -729,27 +765,28 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
 let html5Scanner = null;
 let scannerRunning = false;
 let scannedProductId = null;
+let lastScannedCode = '';
 
 document.getElementById('scannerToggleBtn').addEventListener('click', async () => {
   const box = document.getElementById('scannerBox');
   if (!scannerRunning) {
     box.style.display = 'block';
     document.getElementById('scannerToggleBtn').textContent = '■ Stop Camera';
-    document.getElementById('scannerResult').style.display = 'none';
-    document.getElementById('scannerNotFound').style.display = 'none';
-    html5Scanner = new Html5Qrcode('scannerReader');
+    resetScannerUI();
     try {
+      html5Scanner = new Html5Qrcode('scannerReader');
       await html5Scanner.start(
         { facingMode: 'environment' },
-        { fps: 10, qrbox: { width: 260, height: 130 } },
+        { fps: 10, qrbox: { width: 250, height: 120 }, aspectRatio: 2 },
         onScanSuccess,
         () => {}
       );
       scannerRunning = true;
     } catch (err) {
-      toast('Camera niet beschikbaar: ' + err, 'error');
+      console.error('Scanner error:', err);
       box.style.display = 'none';
       document.getElementById('scannerToggleBtn').textContent = '▶ Start Camera';
+      toast('Camera niet beschikbaar — gebruik het handmatige invoerveld', 'error');
     }
   } else {
     await stopScanner();
@@ -757,21 +794,32 @@ document.getElementById('scannerToggleBtn').addEventListener('click', async () =
   }
 });
 
+function resetScannerUI() {
+  scannedProductId = null;
+  lastScannedCode = '';
+  document.getElementById('scannerResult').style.display = 'none';
+  document.getElementById('scannerNotFound').style.display = 'none';
+  document.getElementById('scannerLinkPanel').style.display = 'none';
+}
+
 async function stopScanner() {
   if (html5Scanner && scannerRunning) {
-    await html5Scanner.stop();
+    try { await html5Scanner.stop(); } catch(e) {}
     scannerRunning = false;
-    scannedProductId = null;
     document.getElementById('scannerToggleBtn').textContent = '▶ Start Camera';
+    resetScannerUI();
   }
 }
 
-async function onScanSuccess(code) {
-  document.getElementById('scannerNotFound').style.display = 'none';
-  document.getElementById('scannerResult').style.display = 'none';
-  scannedProductId = null;
+function onScanSuccess(code) {
+  if (code === lastScannedCode) return;
+  lastScannedCode = code;
+  handleBarcode(code);
+}
 
-  const match = allProducts.find(p => p.barcode === code);
+function handleBarcode(code) {
+  resetScannerUI();
+  const match = allProducts.find(p => p.barcode && p.barcode === code);
   if (match) {
     scannedProductId = match.id;
     document.getElementById('scannerProductName').textContent = match.name;
@@ -779,10 +827,40 @@ async function onScanSuccess(code) {
     document.getElementById('scannerBarcode').textContent = 'Barcode: ' + code;
     document.getElementById('scannerResult').style.display = 'block';
   } else {
-    document.getElementById('scannerNotFound').style.display = 'block';
-    document.getElementById('scannerNotFound').textContent = `Barcode ${code} niet gevonden — voeg barcode toe aan het product.`;
+    // Barcode niet gevonden — toon koppeloptie
+    lastScannedCode = code;
+    const notFound = document.getElementById('scannerNotFound');
+    notFound.textContent = `Barcode ${code} niet gekoppeld aan een product.`;
+    notFound.style.display = 'block';
+    // Vul de koppelpanel in
+    const sel = document.getElementById('scannerLinkSelect');
+    sel.innerHTML = allProducts.map(p =>
+      `<option value="${p.id}">${p.name}</option>`
+    ).join('');
+    document.getElementById('scannerLinkPanel').style.display = 'block';
   }
 }
+
+// Handmatige barcode invoer
+document.getElementById('scannerManualInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    const code = e.target.value.trim();
+    if (code) { handleBarcode(code); e.target.value = ''; }
+  }
+});
+document.getElementById('scannerManualBtn').addEventListener('click', () => {
+  const code = document.getElementById('scannerManualInput').value.trim();
+  if (code) { handleBarcode(code); document.getElementById('scannerManualInput').value = ''; }
+});
+
+// Koppel barcode aan bestaand product
+document.getElementById('scannerLinkBtn').addEventListener('click', async () => {
+  const productId = document.getElementById('scannerLinkSelect').value;
+  if (!productId || !lastScannedCode) return;
+  await updateDoc(doc(db, 'products', productId), { barcode: lastScannedCode });
+  toast('Barcode gekoppeld aan product!', 'success');
+  handleBarcode(lastScannedCode);
+});
 
 async function updateScannerStock(delta) {
   if (!scannedProductId) return;
@@ -792,7 +870,7 @@ async function updateScannerStock(delta) {
   const newStock = Math.max(0, (product.stock || 0) + delta * qty);
   await updateDoc(doc(db, 'products', scannedProductId), { stock: newStock });
   document.getElementById('scannerStockVal').textContent = newStock;
-  toast(`Stock ${delta > 0 ? '+' : ''}${delta * qty} → ${newStock} stuks`, 'success');
+  toast(`${product.name}: stock ${delta > 0 ? '+' : ''}${delta * qty} → ${newStock} stuks`, 'success');
 }
 
 document.getElementById('scannerBtnIn').addEventListener('click', () => updateScannerStock(+1));
