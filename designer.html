@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ontwerp Je Shirt — Treasureshirt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .designer-hero {
+      padding: 10rem 5% 3rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+    }
+    .designer-wrap {
+      display: grid;
+      grid-template-columns: 260px 1fr 260px;
+      gap: 2rem;
+      padding: 3rem 5% 5rem;
+      align-items: start;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .d-panel {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .d-panel h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .9rem;
+      font-weight: 400;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 .5rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid rgba(201,168,76,.2);
+    }
+    .d-canvas-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    #designerCanvas {
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid rgba(255,255,255,.06);
+      background: #111;
+      cursor: default;
+      touch-action: none;
+    }
+    #designerCanvas.can-grab { cursor: grab; }
+    #designerCanvas.dragging { cursor: grabbing; }
+
+    .color-swatches { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .color-swatch {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      outline: 2px solid transparent;
+      transition: transform .15s, outline-color .15s;
+    }
+    .color-swatch:hover { transform: scale(1.12); }
+    .color-swatch.active { outline-color: var(--gold); outline-offset: 2px; }
+
+    .d-input {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      color: var(--white);
+      padding: .5rem .75rem;
+      font-family: inherit;
+      font-size: .85rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .d-input:focus { outline: none; border-color: var(--gold); }
+
+    .d-select {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,.1);
+      color: var(--white);
+      padding: .4rem .6rem;
+      font-family: inherit;
+      font-size: .8rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .d-row { display: flex; gap: .5rem; align-items: center; }
+
+    .d-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,.35);
+      color: var(--gold);
+      padding: .55rem 1rem;
+      font-family: inherit;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .2s;
+      width: 100%;
+    }
+    .d-btn:hover { background: rgba(201,168,76,.08); border-color: var(--gold); }
+    .d-btn.primary { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 700; }
+    .d-btn.primary:hover { background: #d4aa3a; }
+    .d-btn.danger { border-color: rgba(220,60,60,.5); color: #dc4444; }
+    .d-btn.danger:hover { background: rgba(220,60,60,.08); }
+    .d-btn:disabled { opacity: .4; cursor: not-allowed; }
+
+    .elements-list { display: flex; flex-direction: column; gap: .4rem; max-height: 180px; overflow-y: auto; }
+    .element-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .4rem .6rem;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      font-size: .78rem;
+      color: var(--gray);
+      cursor: pointer;
+      transition: border-color .15s;
+    }
+    .element-item:hover { border-color: rgba(255,255,255,.15); }
+    .element-item.selected { border-color: var(--gold); color: var(--white); }
+    .element-item-del {
+      background: none; border: none;
+      color: rgba(220,60,60,.7); cursor: pointer;
+      font-size: .9rem; padding: 0 .2rem; line-height: 1;
+    }
+    .element-item-del:hover { color: #dc4444; }
+
+    .size-btns { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .size-opt {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--gray);
+      padding: .4rem .65rem;
+      font-family: inherit;
+      font-size: .75rem;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .size-opt:hover { border-color: var(--gold); color: var(--gold); }
+    .size-opt.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,.1); }
+
+    .qty-row { display: flex; align-items: center; gap: .6rem; }
+    .qty-ctrl {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--white);
+      width: 34px; height: 34px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .15s;
+    }
+    .qty-ctrl:hover { border-color: var(--gold); }
+    #designQty {
+      background: transparent; border: none;
+      color: var(--white); text-align: center;
+      width: 2.5rem; font-size: 1.1rem;
+      font-family: inherit;
+    }
+    .design-price {
+      font-size: 1.6rem;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      margin: 0;
+    }
+    .canvas-hint {
+      font-size: .72rem;
+      color: rgba(255,255,255,.3);
+      text-align: center;
+      font-style: italic;
+      margin: 0;
+    }
+    .selected-ctrl-bar {
+      width: 100%;
+      max-width: 400px;
+      display: none;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    @media (max-width: 960px) {
+      .designer-wrap { grid-template-columns: 1fr; }
+      .d-canvas-wrap { order: -1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Treasureshirt</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="designer.html">Ontwerp</a></li>
+      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <button class="nav-cart" id="cartBtn">
+        Winkelwagen <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Winkelwagen</h3>
+        <button class="cart-close" id="cartClose">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Totaal</span>
+          <span class="cart-total-amount" id="cartTotal">€ 0</span>
+        </div>
+        <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen met Stripe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="designer-hero">
+    <p class="section-label">Treasureshirt</p>
+    <h1 class="section-title">Ontwerp Je <em>Shirt</em></h1>
+    <div class="divider" style="margin:1.5rem auto"></div>
+    <p style="color:var(--gray);font-style:italic;max-width:500px;margin:0 auto">
+      Maak je eigen unieke Treasureshirt. Kies een kleur, voeg tekst of een logo toe en bestel direct.
+    </p>
+  </div>
+
+  <!-- DESIGNER -->
+  <div class="designer-wrap">
+
+    <!-- LEFT: CONTROLS -->
+    <div class="d-panel">
+
+      <div>
+        <h4>Shirt Kleur</h4>
+        <div class="color-swatches" id="shirtColors">
+          <button class="color-swatch active" data-color="#ffffff" style="background:#ffffff" title="Wit"></button>
+          <button class="color-swatch" data-color="#1a1a1a" style="background:#1a1a1a" title="Zwart"></button>
+          <button class="color-swatch" data-color="#1f3a5f" style="background:#1f3a5f" title="Navy"></button>
+          <button class="color-swatch" data-color="#5a5a5a" style="background:#5a5a5a" title="Grijs"></button>
+          <button class="color-swatch" data-color="#8b1a1a" style="background:#8b1a1a" title="Bordeaux"></button>
+          <button class="color-swatch" data-color="#1a5c2e" style="background:#1a5c2e" title="Groen"></button>
+          <button class="color-swatch" data-color="#c9a84c" style="background:#c9a84c" title="Goud"></button>
+          <button class="color-swatch" data-color="#2a2a6a" style="background:#2a2a6a" title="Paars"></button>
+        </div>
+      </div>
+
+      <div>
+        <h4>Tekst</h4>
+        <input type="text" class="d-input" id="textInput" placeholder="Jouw tekst..." maxlength="30" />
+        <div class="d-row" style="margin-top:.5rem">
+          <select class="d-select" id="fontFamily" style="flex:1">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Georgia, serif">Georgia</option>
+            <option value="Impact, sans-serif">Impact</option>
+            <option value="'Courier New', monospace">Courier</option>
+            <option value="'Trebuchet MS', sans-serif">Trebuchet</option>
+          </select>
+          <select class="d-select" id="fontSize" style="width:72px">
+            <option value="14">14</option>
+            <option value="18">18</option>
+            <option value="24" selected>24</option>
+            <option value="32">32</option>
+            <option value="44">44</option>
+          </select>
+        </div>
+        <div class="d-row" style="margin-top:.5rem">
+          <label style="font-size:.75rem;color:var(--gray);flex-shrink:0">Kleur</label>
+          <input type="color" id="textColor" value="#000000"
+            style="width:38px;height:30px;border:1px solid rgba(255,255,255,.1);background:none;cursor:pointer;padding:2px;box-sizing:border-box" />
+          <label style="font-size:.75rem;color:var(--gray);display:flex;align-items:center;gap:.3rem;margin-left:.4rem;cursor:pointer">
+            <input type="checkbox" id="textBold" /> Bold
+          </label>
+        </div>
+        <button class="d-btn" id="addTextBtn" style="margin-top:.6rem">+ Tekst toevoegen</button>
+      </div>
+
+      <div>
+        <h4>Logo / Afbeelding</h4>
+        <p style="font-size:.73rem;color:var(--gray);margin:0 0 .5rem">PNG of JPG — max 5 MB</p>
+        <label style="display:block;cursor:pointer">
+          <div class="d-btn" style="text-align:center;pointer-events:none">+ Afbeelding kiezen</div>
+          <input type="file" id="imageInput" accept="image/*" style="display:none" />
+        </label>
+        <p id="imageName" style="font-size:.72rem;color:var(--gray);margin:.4rem 0 0;font-style:italic"></p>
+      </div>
+
+    </div>
+
+    <!-- CENTER: CANVAS -->
+    <div class="d-canvas-wrap">
+      <canvas id="designerCanvas" width="400" height="480"></canvas>
+      <p class="canvas-hint">Sleep elementen naar de gewenste positie op het shirt</p>
+      <div class="selected-ctrl-bar" id="selectedCtrlBar">
+        <div class="d-row">
+          <button class="d-btn danger" id="deleteElemBtn" style="flex:1">✕ Verwijder</button>
+          <button class="d-btn" id="bringFrontBtn" style="flex:1">↑ Voorgrond</button>
+        </div>
+        <div id="textEditWrap" style="display:none">
+          <input type="text" class="d-input" id="editTextInput" placeholder="Tekst bewerken..." />
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: ORDER -->
+    <div class="d-panel">
+
+      <div>
+        <h4>Elementen</h4>
+        <div class="elements-list" id="elementsList">
+          <p style="font-size:.75rem;color:rgba(255,255,255,.28);font-style:italic;margin:0">
+            Nog geen elementen toegevoegd
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h4>Maat</h4>
+        <div class="size-btns" id="designSizes">
+          <button class="size-opt" data-size="XS">XS</button>
+          <button class="size-opt" data-size="S">S</button>
+          <button class="size-opt active" data-size="M">M</button>
+          <button class="size-opt" data-size="L">L</button>
+          <button class="size-opt" data-size="XL">XL</button>
+          <button class="size-opt" data-size="XXL">XXL</button>
+        </div>
+      </div>
+
+      <div>
+        <h4>Aantal</h4>
+        <div class="qty-row">
+          <button class="qty-ctrl" id="qtyDec">−</button>
+          <input type="number" id="designQty" value="1" min="1" max="99" readonly />
+          <button class="qty-ctrl" id="qtyInc">+</button>
+        </div>
+      </div>
+
+      <div>
+        <h4>Prijs</h4>
+        <p class="design-price" id="designPriceDisplay">€ 39,99</p>
+        <p style="font-size:.7rem;color:var(--gray);margin:.25rem 0 0">Per stuk, incl. BTW</p>
+      </div>
+
+      <button class="d-btn primary" id="addToCartDesign">Voeg toe aan winkelwagen</button>
+
+      <p style="font-size:.68rem;color:rgba(255,255,255,.28);text-align:center;margin:0;line-height:1.5">
+        Je ontwerp wordt zichtbaar in de winkelwagen en bevestigd via e-mail
+      </p>
+
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-logo">Treasureshirt</span>
+    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a></div>
+  </footer>
+
+  <div class="cart-toast" id="cartToast"></div>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+
+  <script>
+  // ============================================================
+  //  TREASURESHIRT — Custom Designer Engine
+  // ============================================================
+  (function () {
+    const canvas  = document.getElementById('designerCanvas');
+    const ctx     = canvas.getContext('2d');
+    const CW = 400, CH = 480;
+
+    // Print area (front chest)
+    const PA = { x: 112, y: 125, w: 176, h: 195 };
+
+    // Color metadata
+    const COLOR_META = {
+      '#ffffff': { outline: 'rgba(0,0,0,0.12)',   seam: 'rgba(0,0,0,0.07)',   collar: 'rgba(0,0,0,0.09)' },
+      '#1a1a1a': { outline: 'rgba(255,255,255,0.06)', seam: 'rgba(255,255,255,0.04)', collar: 'rgba(255,255,255,0.06)' },
+    };
+    function getMeta(c) {
+      return COLOR_META[c] || { outline: 'rgba(255,255,255,0.06)', seam: 'rgba(255,255,255,0.04)', collar: 'rgba(255,255,255,0.06)' };
+    }
+
+    let shirtColor  = '#ffffff';
+    let elements    = [];
+    let selectedId  = null;
+    let dragging    = false;
+    let dragOffX    = 0, dragOffY = 0;
+    let nextId      = 1;
+    let selectedSize = 'M';
+    let designQty   = 1;
+
+    // ------ T-SHIRT DRAWING ------
+    function drawShirt(color) {
+      const m = getMeta(color);
+
+      // Shadow
+      ctx.save();
+      ctx.shadowColor   = 'rgba(0,0,0,0.5)';
+      ctx.shadowBlur    = 24;
+      ctx.shadowOffsetY = 10;
+      ctx.fillStyle = color;
+      buildShirtPath();
+      ctx.fill();
+      ctx.restore();
+
+      // Outline
+      ctx.save();
+      ctx.strokeStyle = m.outline;
+      ctx.lineWidth   = 1.2;
+      buildShirtPath();
+      ctx.stroke();
+      ctx.restore();
+
+      // Collar inner line
+      ctx.save();
+      ctx.strokeStyle = m.collar;
+      ctx.lineWidth   = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(158, 64);
+      ctx.bezierCurveTo(172, 90, 228, 90, 242, 64);
+      ctx.stroke();
+      ctx.restore();
+
+      // Shoulder seam lines
+      ctx.save();
+      ctx.setLineDash([3, 5]);
+      ctx.strokeStyle = m.seam;
+      ctx.lineWidth   = 1;
+      ctx.beginPath(); ctx.moveTo(92, 70); ctx.lineTo(84, 196); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(308, 70); ctx.lineTo(316, 196); ctx.stroke();
+      ctx.restore();
+    }
+
+    function buildShirtPath() {
+      ctx.beginPath();
+      ctx.moveTo(152, 60);                                      // collar left
+      ctx.bezierCurveTo(165, 94, 235, 94, 248, 60);            // collar U-curve
+      ctx.lineTo(308, 70);                                      // right shoulder
+      ctx.bezierCurveTo(336, 80, 390, 106, 398, 134);          // right sleeve out
+      ctx.bezierCurveTo(392, 150, 370, 163, 350, 169);         // right sleeve underarm
+      ctx.bezierCurveTo(336, 174, 320, 184, 316, 196);         // right armhole
+      ctx.lineTo(320, 462);                                     // right body
+      ctx.lineTo(80, 462);                                      // bottom hem
+      ctx.lineTo(84, 196);                                      // left body
+      ctx.bezierCurveTo(80, 184, 64, 174, 50, 169);            // left armhole
+      ctx.bezierCurveTo(30, 163, 8, 150, 2, 134);              // left sleeve underarm
+      ctx.bezierCurveTo(10, 106, 64, 80, 92, 70);              // left sleeve out
+      ctx.closePath();
+    }
+
+    // ------ PRINT AREA HINT ------
+    function drawPrintAreaHint() {
+      if (elements.length) return;
+      ctx.save();
+      ctx.setLineDash([4, 5]);
+      ctx.strokeStyle = 'rgba(201,168,76,0.25)';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(PA.x, PA.y, PA.w, PA.h);
+      ctx.fillStyle = 'rgba(201,168,76,0.07)';
+      ctx.fillRect(PA.x, PA.y, PA.w, PA.h);
+      ctx.restore();
+
+      ctx.save();
+      ctx.fillStyle   = 'rgba(201,168,76,0.35)';
+      ctx.font        = '11px Arial, sans-serif';
+      ctx.textAlign   = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('Voeg tekst of logo toe', PA.x + PA.w / 2, PA.y + PA.h / 2);
+      ctx.restore();
+    }
+
+    // ------ ELEMENT RENDERING ------
+    function drawElement(el) {
+      ctx.save();
+      if (el.type === 'text') {
+        ctx.font         = `${el.bold ? 'bold ' : ''}${el.size}px ${el.font}`;
+        ctx.fillStyle    = el.color;
+        ctx.textBaseline = 'top';
+        ctx.fillText(el.text, el.x, el.y);
+      } else if (el.type === 'image') {
+        ctx.drawImage(el.img, el.x, el.y, el.w, el.h);
+      }
+      ctx.restore();
+
+      if (el.id === selectedId) {
+        const bb = getBB(el);
+        ctx.save();
+        ctx.strokeStyle = '#c9a84c';
+        ctx.lineWidth   = 1.5;
+        ctx.setLineDash([]);
+        ctx.strokeRect(bb.x - 5, bb.y - 5, bb.w + 10, bb.h + 10);
+        [[bb.x - 5, bb.y - 5],[bb.x + bb.w + 5, bb.y - 5],
+         [bb.x - 5, bb.y + bb.h + 5],[bb.x + bb.w + 5, bb.y + bb.h + 5]].forEach(([hx, hy]) => {
+          ctx.fillStyle = '#c9a84c';
+          ctx.fillRect(hx - 4, hy - 4, 8, 8);
+        });
+        ctx.restore();
+      }
+    }
+
+    function getBB(el) {
+      if (el.type === 'text') {
+        ctx.font = `${el.bold ? 'bold ' : ''}${el.size}px ${el.font}`;
+        const m = ctx.measureText(el.text);
+        return { x: el.x, y: el.y, w: m.width, h: el.size * 1.25 };
+      }
+      return { x: el.x, y: el.y, w: el.w, h: el.h };
+    }
+
+    function hitTest(el, px, py) {
+      const bb = getBB(el);
+      return px >= bb.x - 5 && px <= bb.x + bb.w + 5 &&
+             py >= bb.y - 5 && py <= bb.y + bb.h + 5;
+    }
+
+    // ------ FULL RENDER ------
+    function render() {
+      ctx.clearRect(0, 0, CW, CH);
+      drawShirt(shirtColor);
+      drawPrintAreaHint();
+      elements.forEach(drawElement);
+    }
+
+    // ------ POINTER HELPERS ------
+    function getPos(e) {
+      const rect   = canvas.getBoundingClientRect();
+      const scaleX = CW / rect.width;
+      const scaleY = CH / rect.height;
+      const src    = e.touches ? e.touches[0] : e;
+      return {
+        x: (src.clientX - rect.left) * scaleX,
+        y: (src.clientY - rect.top)  * scaleY,
+      };
+    }
+
+    canvas.addEventListener('mousedown', onDown);
+    canvas.addEventListener('mousemove', onMove);
+    canvas.addEventListener('mouseup',   onUp);
+    canvas.addEventListener('mouseleave', onUp);
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); onDown(e); }, { passive: false });
+    canvas.addEventListener('touchmove',  e => { e.preventDefault(); onMove(e); }, { passive: false });
+    canvas.addEventListener('touchend',   onUp);
+
+    function onDown(e) {
+      const { x, y } = getPos(e);
+      let hit = null;
+      for (let i = elements.length - 1; i >= 0; i--) {
+        if (hitTest(elements[i], x, y)) { hit = elements[i]; break; }
+      }
+      if (hit) {
+        selectedId = hit.id;
+        dragging   = true;
+        dragOffX   = x - hit.x;
+        dragOffY   = y - hit.y;
+        canvas.classList.add('dragging');
+        canvas.classList.remove('can-grab');
+      } else {
+        selectedId = null;
+      }
+      render();
+      updateSelectedBar();
+      refreshList();
+    }
+
+    function onMove(e) {
+      const { x, y } = getPos(e);
+      if (dragging && selectedId !== null) {
+        const el = elements.find(el => el.id === selectedId);
+        if (el) { el.x = x - dragOffX; el.y = y - dragOffY; render(); }
+      } else {
+        const hovered = elements.some(el => hitTest(el, x, y));
+        canvas.classList.toggle('can-grab', hovered);
+      }
+    }
+
+    function onUp() {
+      dragging = false;
+      canvas.classList.remove('dragging');
+    }
+
+    // ------ SHIRT COLOR ------
+    document.querySelectorAll('.color-swatch').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.color-swatch').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        shirtColor = btn.dataset.color;
+        render();
+      });
+    });
+
+    // ------ ADD TEXT ------
+    document.getElementById('addTextBtn').addEventListener('click', addText);
+    document.getElementById('textInput').addEventListener('keydown', e => { if (e.key === 'Enter') addText(); });
+
+    function addText() {
+      const text = document.getElementById('textInput').value.trim();
+      if (!text) { document.getElementById('textInput').focus(); return; }
+      const font  = document.getElementById('fontFamily').value;
+      const size  = parseInt(document.getElementById('fontSize').value);
+      const color = document.getElementById('textColor').value;
+      const bold  = document.getElementById('textBold').checked;
+
+      // Measure width to center in print area
+      ctx.font = `${bold ? 'bold ' : ''}${size}px ${font}`;
+      const tw = ctx.measureText(text).width;
+
+      elements.push({
+        id: nextId++, type: 'text', text, font, size, color, bold,
+        x: Math.round(PA.x + (PA.w - tw) / 2),
+        y: Math.round(PA.y + (PA.h - size) / 2),
+      });
+      document.getElementById('textInput').value = '';
+      selectedId = elements[elements.length - 1].id;
+      updateSelectedBar();
+      refreshList();
+      render();
+    }
+
+    // ------ ADD IMAGE ------
+    document.getElementById('imageInput').addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) { alert('Afbeelding mag maximaal 5 MB zijn.'); return; }
+      document.getElementById('imageName').textContent = file.name;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const img = new Image();
+        img.onload = () => {
+          const maxW = 140, maxH = 140;
+          const ratio = Math.min(maxW / img.naturalWidth, maxH / img.naturalHeight, 1);
+          const w = Math.round(img.naturalWidth  * ratio);
+          const h = Math.round(img.naturalHeight * ratio);
+          elements.push({
+            id: nextId++, type: 'image', img,
+            x: Math.round(PA.x + (PA.w - w) / 2),
+            y: Math.round(PA.y + (PA.h - h) / 2),
+            w, h,
+          });
+          selectedId = elements[elements.length - 1].id;
+          updateSelectedBar();
+          refreshList();
+          render();
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+      e.target.value = '';
+    });
+
+    // ------ SELECTED ELEMENT CONTROLS ------
+    function updateSelectedBar() {
+      const el  = elements.find(e => e.id === selectedId);
+      const bar = document.getElementById('selectedCtrlBar');
+      bar.style.display = el ? 'flex' : 'none';
+      const textWrap = document.getElementById('textEditWrap');
+      if (el && el.type === 'text') {
+        textWrap.style.display = 'block';
+        document.getElementById('editTextInput').value = el.text;
+      } else {
+        textWrap.style.display = 'none';
+      }
+    }
+
+    document.getElementById('deleteElemBtn').addEventListener('click', () => {
+      elements = elements.filter(e => e.id !== selectedId);
+      selectedId = null;
+      updateSelectedBar();
+      refreshList();
+      render();
+    });
+
+    document.getElementById('bringFrontBtn').addEventListener('click', () => {
+      const idx = elements.findIndex(e => e.id === selectedId);
+      if (idx > -1 && idx < elements.length - 1) {
+        const [el] = elements.splice(idx, 1);
+        elements.push(el);
+        render();
+        refreshList();
+      }
+    });
+
+    document.getElementById('editTextInput').addEventListener('input', e => {
+      const el = elements.find(el => el.id === selectedId);
+      if (el && el.type === 'text') { el.text = e.target.value; render(); }
+    });
+
+    // ------ ELEMENTS LIST ------
+    function refreshList() {
+      const list = document.getElementById('elementsList');
+      if (!elements.length) {
+        list.innerHTML = '<p style="font-size:.75rem;color:rgba(255,255,255,.28);font-style:italic;margin:0">Nog geen elementen toegevoegd</p>';
+        return;
+      }
+      list.innerHTML = elements.map((el, i) => {
+        const label = el.type === 'text'
+          ? `"${el.text.length > 16 ? el.text.slice(0, 16) + '…' : el.text}"`
+          : `Afbeelding ${i + 1}`;
+        const icon = el.type === 'text' ? 'T' : '🖼';
+        return `<div class="element-item ${el.id === selectedId ? 'selected' : ''}" data-id="${el.id}">
+          <span style="display:flex;align-items:center;gap:.4rem">
+            <span style="color:var(--gold);font-weight:700">${icon}</span> ${label}
+          </span>
+          <button class="element-item-del" data-id="${el.id}" title="Verwijder">✕</button>
+        </div>`;
+      }).join('');
+
+      list.querySelectorAll('.element-item').forEach(item => {
+        item.addEventListener('click', e => {
+          if (e.target.classList.contains('element-item-del')) return;
+          selectedId = parseInt(item.dataset.id);
+          updateSelectedBar();
+          refreshList();
+          render();
+        });
+      });
+      list.querySelectorAll('.element-item-del').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const id = parseInt(btn.dataset.id);
+          elements = elements.filter(e => e.id !== id);
+          if (selectedId === id) { selectedId = null; updateSelectedBar(); }
+          refreshList();
+          render();
+        });
+      });
+    }
+
+    // ------ SIZE ------
+    document.querySelectorAll('.size-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.size-opt').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedSize = btn.dataset.size;
+      });
+    });
+
+    // ------ QUANTITY ------
+    document.getElementById('qtyDec').addEventListener('click', () => {
+      if (designQty > 1) { designQty--; document.getElementById('designQty').value = designQty; updatePrice(); }
+    });
+    document.getElementById('qtyInc').addEventListener('click', () => {
+      if (designQty < 99) { designQty++; document.getElementById('designQty').value = designQty; updatePrice(); }
+    });
+    function updatePrice() {
+      document.getElementById('designPriceDisplay').textContent =
+        '€ ' + (39.99 * designQty).toFixed(2).replace('.', ',');
+    }
+
+    // ------ ADD TO CART ------
+    document.getElementById('addToCartDesign').addEventListener('click', () => {
+      const colorNames = {
+        '#ffffff': 'Wit', '#1a1a1a': 'Zwart', '#1f3a5f': 'Navy',
+        '#5a5a5a': 'Grijs', '#8b1a1a': 'Bordeaux', '#1a5c2e': 'Groen',
+        '#c9a84c': 'Goud', '#2a2a6a': 'Paars',
+      };
+      const colorName = colorNames[shirtColor] || 'Shirt';
+      const texts = elements.filter(e => e.type === 'text').map(e => `"${e.text}"`).join(', ');
+      const hasImg = elements.some(e => e.type === 'image');
+
+      let desc = `${colorName} shirt`;
+      if (texts) desc += ` · tekst ${texts}`;
+      if (hasImg) desc += ` · eigen logo`;
+
+      const customId = 'custom_' + Date.now();
+      Cart.add({
+        id:          customId,
+        name:        'Custom T-shirt',
+        price:       39.99,
+        description: desc,
+        emoji:       '🎨',
+        size:        selectedSize,
+      });
+
+      // Set quantity if > 1
+      if (designQty > 1) {
+        const key = `${customId}__${selectedSize}`;
+        Cart.updateQty(key, designQty);
+      }
+
+      setTimeout(() => Cart.open(), 250);
+    });
+
+    // Initial render
+    render();
+  })();
+  </script>
+</body>
+</html>
