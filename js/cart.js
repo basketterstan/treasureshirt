@@ -116,7 +116,7 @@ const Cart = (() => {
     if (btn) { btn.textContent = 'Laden...'; btn.disabled = true; }
 
     try {
-      const res  = await fetch('https://us-central1-treasureshirt-68b83.cloudfunctions.net/createCheckout', {
+      const res  = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items }),
