@@ -317,6 +317,10 @@
           <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="XXL" style="accent-color:var(--gold)"> XXL</label>
         </div>
       </div>
+      <div class="form-group full" id="stockPerSizeWrap" style="display:none">
+        <label>Stock per maat</label>
+        <div id="stockPerSizeInputs" style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.6rem"></div>
+      </div>
       <div class="form-group full" style="margin-top:.5rem">
         <label>Foto</label>
         <div id="imageUploadArea" style="border:1px dashed rgba(201,168,76,.3);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .3s;position:relative;margin-top:.5rem">
@@ -347,7 +351,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
 
 // ── AUTH ──────────────────────────────────────────
-const ADMIN_EMAIL  = 'admin@treasureshirt.com';
+const ADMIN_EMAIL  = 'admin@treasureshirt.com'; // login email
 const DEFAULT_HASH = '97f9503e5aed00dc2b170f76db62efff05e0e52b5ce5ae9d299e1966080eb286';
 const SESSION_KEY  = 'ts_admin_session';
 const SETTINGS_DOC = doc(db, 'settings', 'admin');
@@ -631,6 +635,33 @@ document.getElementById('fImage').addEventListener('change', e => {
   reader.readAsDataURL(file);
 });
 
+// ── STOCK PER MAAT ─────────────────────────────────
+function updateStockPerSizeInputs(existingStockPerSize = {}) {
+  const checked = [...document.querySelectorAll('input[name="fSizes"]:checked')].map(cb => cb.value);
+  const wrap    = document.getElementById('stockPerSizeWrap');
+  const cont    = document.getElementById('stockPerSizeInputs');
+  if (!checked.length) { wrap.style.display = 'none'; return; }
+  wrap.style.display = 'block';
+  cont.innerHTML = checked.map(s => `
+    <div style="display:flex;flex-direction:column;gap:.3rem;align-items:center">
+      <label style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray)">${s}</label>
+      <input type="number" id="fStockSize_${s}" value="${existingStockPerSize[s] ?? 0}" min="0"
+        style="width:64px;background:transparent;border:1px solid rgba(201,168,76,.3);color:var(--white);font-family:inherit;font-size:.9rem;padding:.35rem .4rem;text-align:center;outline:none" />
+    </div>`).join('');
+}
+
+function getStockPerSize() {
+  const result = {};
+  document.querySelectorAll('input[name="fSizes"]:checked').forEach(cb => {
+    result[cb.value] = parseInt(document.getElementById(`fStockSize_${cb.value}`)?.value) || 0;
+  });
+  return result;
+}
+
+document.querySelectorAll('input[name="fSizes"]').forEach(cb =>
+  cb.addEventListener('change', () => updateStockPerSizeInputs())
+);
+
 function openAddModal() {
   editingId = null;
   document.getElementById('modalTitle').textContent = 'Nieuw Product';
@@ -638,6 +669,7 @@ function openAddModal() {
   document.querySelectorAll('input[name="fSizes"]').forEach(cb => cb.checked = false);
   document.getElementById('fCategory').value = 'T-Shirts';
   document.getElementById('fBadge').value    = '';
+  document.getElementById('stockPerSizeWrap').style.display = 'none';
   resetImageUI();
   document.getElementById('modalOverlay').classList.add('open');
 }
@@ -657,6 +689,7 @@ function openEditModal(id) {
   document.querySelectorAll('input[name="fSizes"]').forEach(cb => {
     cb.checked = (p.sizes || []).includes(cb.value);
   });
+  updateStockPerSizeInputs(p.stockPerSize || {});
   resetImageUI();
   if (p.imageUrl) setImagePreview(p.imageUrl);
   document.getElementById('modalOverlay').classList.add('open');
@@ -700,7 +733,8 @@ document.getElementById('modalSave').addEventListener('click', async () => {
     document.getElementById('imageUploading').style.display = 'none';
   }
 
-  const data = { name, description: desc, price, stock, category: cat, badge, barcode, sizes, emoji: '👕', imageUrl: imageUrl || '' };
+  const stockPerSize = getStockPerSize();
+  const data = { name, description: desc, price, stock, category: cat, badge, barcode, sizes, stockPerSize, emoji: '👕', imageUrl: imageUrl || '' };
 
   if (editingId) {
     await updateDoc(doc(db, 'products', editingId), data);
