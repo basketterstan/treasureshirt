@@ -149,7 +149,9 @@
     @media(max-width:700px) {
       .admin-body { padding:1rem; }
       .modal-grid { grid-template-columns:1fr; }
-      .product-table th:nth-child(3), .product-table td:nth-child(3) { display:none; }
+      .product-table th:nth-child(3), .product-table td:nth-child(3),
+      .product-table th:nth-child(4), .product-table td:nth-child(4),
+      .product-table th:nth-child(6), .product-table td:nth-child(6) { display:none; }
     }
   </style>
 </head>
@@ -207,7 +209,7 @@
       <div id="scannerResult" class="scanner-result">
         <div class="scanner-product-name" id="scannerProductName"></div>
         <div class="scanner-stock-val" id="scannerStockVal"></div>
-        <div class="scanner-stock-label">stuks in stock</div>
+        <div class="scanner-stock-label">stuks fysieke stock</div>
         <div class="scanner-actions">
           <input class="scanner-qty" type="number" id="scannerQty" value="1" min="1" />
           <button class="btn-stock-in" id="scannerBtnIn">+ In Stock</button>
@@ -250,12 +252,13 @@
           <th>Categorie</th>
           <th>Prijs</th>
           <th>Badge</th>
-          <th>Stock</th>
+          <th>Online Stock</th>
+          <th>Fysiek</th>
           <th>Acties</th>
         </tr>
       </thead>
       <tbody id="productTableBody">
-        <tr><td colspan="6" class="loading">Verbinding maken met database...</td></tr>
+        <tr><td colspan="7" class="loading">Verbinding maken met database...</td></tr>
       </tbody>
     </table>
 
@@ -545,7 +548,7 @@ function renderTable() {
 
   if (!list.length) {
     document.getElementById('productTableBody').innerHTML =
-      '<tr><td colspan="6" class="loading">Geen producten gevonden.</td></tr>';
+      '<tr><td colspan="7" class="loading">Geen producten gevonden.</td></tr>';
     return;
   }
 
@@ -572,6 +575,9 @@ function renderTable() {
           <button class="btn-ghost" style="padding:.3rem .6rem;font-size:.6rem"
             data-save="${p.id}">✓</button>
         </div>
+      </td>
+      <td style="color:${(p.stockPhysical ?? null) !== null ? 'var(--gold)' : 'var(--gray)'};font-size:.85rem;text-align:center">
+        ${p.stockPhysical ?? '—'}
       </td>
       <td class="actions-cell">
         <button class="btn-ghost" style="padding:.4rem .8rem;font-size:.65rem" data-edit="${p.id}">Bewerk</button>
@@ -857,7 +863,7 @@ function handleBarcode(code) {
   if (match) {
     scannedProductId = match.id;
     document.getElementById('scannerProductName').textContent = match.name;
-    document.getElementById('scannerStockVal').textContent = match.stock || 0;
+    document.getElementById('scannerStockVal').textContent = match.stockPhysical ?? match.stock ?? 0;
     document.getElementById('scannerBarcode').textContent = 'Barcode: ' + code;
     document.getElementById('scannerResult').style.display = 'block';
   } else {
@@ -901,10 +907,12 @@ async function updateScannerStock(delta) {
   const product = allProducts.find(p => p.id === scannedProductId);
   if (!product) return;
   const qty = parseInt(document.getElementById('scannerQty').value) || 1;
-  const newStock = Math.max(0, (product.stock || 0) + delta * qty);
-  await updateDoc(doc(db, 'products', scannedProductId), { stock: newStock });
+  const current = product.stockPhysical ?? product.stock ?? 0;
+  const newStock = Math.max(0, current + delta * qty);
+  await updateDoc(doc(db, 'products', scannedProductId), { stockPhysical: newStock });
+  product.stockPhysical = newStock;
   document.getElementById('scannerStockVal').textContent = newStock;
-  toast(`${product.name}: stock ${delta > 0 ? '+' : ''}${delta * qty} → ${newStock} stuks`, 'success');
+  toast(`${product.name}: fysieke stock ${delta > 0 ? '+' : ''}${delta * qty} → ${newStock} stuks`, 'success');
 }
 
 document.getElementById('scannerBtnIn').addEventListener('click', () => updateScannerStock(+1));
