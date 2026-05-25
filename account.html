@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mijn Account — Treasureshirt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .account-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 1.5rem 3rem;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,.05) 0%, transparent 70%);
+    }
+    .account-box {
+      width: 100%;
+      max-width: 420px;
+      border: 1px solid rgba(201,168,76,.2);
+      background: #111;
+      padding: 2.5rem;
+    }
+    .account-logo {
+      text-align: center;
+      font-size: 1.1rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .4rem;
+    }
+    .account-sub {
+      text-align: center;
+      font-size: .65rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+    .tab-row {
+      display: flex;
+      border-bottom: 1px solid rgba(201,168,76,.15);
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      color: var(--gray);
+      font-family: inherit;
+      font-size: .68rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      padding: .75rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color .2s, border-color .2s;
+    }
+    .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.25rem; }
+    .form-group label { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gray); }
+    .form-group input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(201,168,76,.3);
+      padding: .6rem 0;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color .3s;
+    }
+    .form-group input:focus { border-bottom-color: var(--gold); }
+    .btn-submit {
+      width: 100%;
+      padding: .9rem;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      font-family: inherit;
+      font-size: .72rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background .25s;
+      margin-top: .5rem;
+    }
+    .btn-submit:hover { background: var(--gold-light); }
+    .form-error { color: #e74c3c; font-size: .78rem; text-align: center; margin-top: .75rem; font-style: italic; display: none; }
+    .form-success { color: #27ae60; font-size: .78rem; text-align: center; margin-top: .75rem; font-style: italic; display: none; }
+
+    /* Dashboard (ingelogd) */
+    .account-dashboard { display: none; }
+    .acc-greeting {
+      font-size: 1.1rem;
+      letter-spacing: .1em;
+      margin-bottom: .3rem;
+    }
+    .acc-email {
+      font-size: .78rem;
+      color: var(--gray);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    .acc-links { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 2rem; }
+    .acc-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(201,168,76,.15);
+      color: var(--white);
+      text-decoration: none;
+      font-size: .82rem;
+      letter-spacing: .08em;
+      transition: border-color .2s, background .2s;
+    }
+    .acc-link:hover { border-color: var(--gold); background: rgba(201,168,76,.05); }
+    .acc-link span { color: var(--gold); }
+    .btn-logout-acc {
+      width: 100%;
+      padding: .7rem;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--gray);
+      font-family: inherit;
+      font-size: .65rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-logout-acc:hover { border-color: var(--gold); color: var(--gold); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Treasureshirt</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <button class="nav-cart" id="cartBtn">Winkelwagen <span class="cart-badge" id="cartCount">0</span></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="account-wrap">
+    <div class="account-box">
+      <p class="account-logo">Treasureshirt</p>
+      <p class="account-sub">Mijn Account</p>
+
+      <!-- TABS (niet ingelogd) -->
+      <div id="authForms">
+        <div class="tab-row">
+          <button class="tab-btn active" data-tab="login">Inloggen</button>
+          <button class="tab-btn" data-tab="register">Account aanmaken</button>
+        </div>
+
+        <!-- LOGIN -->
+        <div class="tab-panel active" id="tab-login">
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" id="loginEmail" placeholder="jouw@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label>Wachtwoord</label>
+            <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password" />
+          </div>
+          <button class="btn-submit" id="loginBtn">Inloggen</button>
+          <p class="form-error" id="loginError"></p>
+          <p style="text-align:center;margin-top:1rem">
+            <a href="#" id="forgotLink" style="color:var(--gray);font-size:.72rem;font-style:italic">Wachtwoord vergeten?</a>
+          </p>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="tab-panel" id="tab-register">
+          <div class="form-group">
+            <label>Voornaam</label>
+            <input type="text" id="regName" placeholder="Jouw naam" autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" id="regEmail" placeholder="jouw@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label>Wachtwoord</label>
+            <input type="password" id="regPass" placeholder="Minimaal 6 tekens" autocomplete="new-password" />
+          </div>
+          <button class="btn-submit" id="registerBtn">Account aanmaken</button>
+          <p class="form-error" id="registerError"></p>
+          <p class="form-success" id="registerSuccess"></p>
+        </div>
+      </div>
+
+      <!-- DASHBOARD (ingelogd) -->
+      <div class="account-dashboard" id="accountDashboard">
+        <p class="acc-greeting" id="accGreeting">Welkom</p>
+        <p class="acc-email" id="accEmail"></p>
+        <div class="acc-links">
+          <a href="mijn-bestellingen.html" class="acc-link">
+            Mijn bestellingen <span>→</span>
+          </a>
+          <a href="shop.html" class="acc-link">
+            Verder winkelen <span>→</span>
+          </a>
+        </div>
+        <button class="btn-logout-acc" id="logoutAccBtn">Uitloggen</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-toast" id="cartToast"></div>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script type="module">
+    import { auth } from './js/firebase-config.js';
+    import {
+      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
+      updateProfile,
+      onAuthStateChanged,
+      signOut,
+      sendPasswordResetEmail,
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+    // Auth state
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        sessionStorage.setItem('ts_uid', user.uid);
+        sessionStorage.setItem('ts_uname', user.displayName || '');
+        document.getElementById('authForms').style.display = 'none';
+        document.getElementById('accountDashboard').style.display = 'block';
+        document.getElementById('accGreeting').textContent = `Welkom, ${user.displayName || user.email.split('@')[0]}`;
+        document.getElementById('accEmail').textContent = user.email;
+      } else {
+        sessionStorage.removeItem('ts_uid');
+        sessionStorage.removeItem('ts_uname');
+        document.getElementById('authForms').style.display = 'block';
+        document.getElementById('accountDashboard').style.display = 'none';
+      }
+    });
+
+    // Tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Login
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+      const email = document.getElementById('loginEmail').value.trim();
+      const pass  = document.getElementById('loginPass').value;
+      const errEl = document.getElementById('loginError');
+      errEl.style.display = 'none';
+      try {
+        await signInWithEmailAndPassword(auth, email, pass);
+      } catch (e) {
+        errEl.textContent = vertaalFout(e.code);
+        errEl.style.display = 'block';
+      }
+    });
+
+    document.getElementById('loginPass').addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('loginBtn').click();
+    });
+
+    // Register
+    document.getElementById('registerBtn').addEventListener('click', async () => {
+      const name  = document.getElementById('regName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const pass  = document.getElementById('regPass').value;
+      const errEl = document.getElementById('registerError');
+      const sucEl = document.getElementById('registerSuccess');
+      errEl.style.display = 'none';
+      sucEl.style.display = 'none';
+      if (!name) { errEl.textContent = 'Vul je naam in'; errEl.style.display = 'block'; return; }
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, pass);
+        await updateProfile(cred.user, { displayName: name });
+      } catch (e) {
+        errEl.textContent = vertaalFout(e.code);
+        errEl.style.display = 'block';
+      }
+    });
+
+    // Forgot password
+    document.getElementById('forgotLink').addEventListener('click', async e => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      if (!email) { alert('Vul eerst je e-mailadres in.'); return; }
+      try {
+        await sendPasswordResetEmail(auth, email);
+        alert('Resetlink verstuurd naar ' + email);
+      } catch (e) {
+        alert('Fout: ' + e.message);
+      }
+    });
+
+    // Logout
+    document.getElementById('logoutAccBtn').addEventListener('click', async () => {
+      await signOut(auth);
+    });
+
+    function vertaalFout(code) {
+      const map = {
+        'auth/user-not-found':      'Geen account gevonden met dit e-mailadres.',
+        'auth/wrong-password':      'Verkeerd wachtwoord.',
+        'auth/invalid-credential':  'Verkeerd e-mailadres of wachtwoord.',
+        'auth/email-already-in-use':'Dit e-mailadres is al in gebruik.',
+        'auth/weak-password':       'Wachtwoord moet minimaal 6 tekens bevatten.',
+        'auth/invalid-email':       'Ongeldig e-mailadres.',
+        'auth/too-many-requests':   'Te veel pogingen. Probeer later opnieuw.',
+      };
+      return map[code] || 'Er is iets misgegaan. Probeer opnieuw.';
+    }
+  </script>
+</body>
+</html>
