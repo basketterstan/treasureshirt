@@ -11,7 +11,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
@@ -20,10 +19,33 @@
       <li><a href="about.html">Over Ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
-      <span></span><span></span><span></span>
-    </button>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <button class="nav-cart" id="cartBtn">
+        Winkelwagen <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Winkelwagen</h3>
+        <button class="cart-close" id="cartClose">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Totaal</span>
+          <span class="cart-total-amount" id="cartTotal">€ 0</span>
+        </div>
+        <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen met Stripe</button>
+      </div>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -38,70 +60,50 @@
 
   <!-- FEATURES -->
   <section class="features">
-    <div style="text-align:center; margin-bottom: 1rem;">
+    <div style="text-align:center;margin-bottom:1rem">
       <p class="section-label">Waarom Treasureshirt</p>
       <h2 class="section-title">Onze <em>Belofte</em></h2>
     </div>
     <div class="features-grid">
-      <div class="feature-item">
-        <div class="feature-icon">✦</div>
-        <h3>Premium Kwaliteit</h3>
-        <p>Elk stuk is vervaardigd uit de fijnste materialen, zorgvuldig geselecteerd voor maximaal comfort en duurzaamheid.</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">◈</div>
-        <h3>Exclusief Design</h3>
-        <p>Unieke ontwerpen die tijdloos zijn — gemaakt voor diegenen die niet willen compromitteren over stijl.</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">◇</div>
-        <h3>Limited Editions</h3>
-        <p>Beperkte oplagen voor een echte exclusiviteit. Wees een van de weinigen die iets bijzonders draagt.</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">✧</div>
-        <h3>Snelle Levering</h3>
-        <p>Jouw bestelling zorgvuldig verpakt en snel geleverd — luxe tot aan je deur.</p>
-      </div>
+      <div class="feature-item"><div class="feature-icon">✦</div><h3>Premium Kwaliteit</h3><p>Elk stuk is vervaardigd uit de fijnste materialen, zorgvuldig geselecteerd voor maximaal comfort en duurzaamheid.</p></div>
+      <div class="feature-item"><div class="feature-icon">◈</div><h3>Exclusief Design</h3><p>Unieke ontwerpen die tijdloos zijn — gemaakt voor diegenen die niet willen compromitteren over stijl.</p></div>
+      <div class="feature-item"><div class="feature-icon">◇</div><h3>Limited Editions</h3><p>Beperkte oplagen voor een echte exclusiviteit. Wees een van de weinigen die iets bijzonders draagt.</p></div>
+      <div class="feature-item"><div class="feature-icon">✧</div><h3>Snelle Levering</h3><p>Jouw bestelling zorgvuldig verpakt en snel geleverd — luxe tot aan je deur.</p></div>
     </div>
   </section>
 
-  <!-- UITGELICHTE COLLECTIE -->
+  <!-- FEATURED PRODUCTS -->
   <section id="collectie">
     <p class="section-label">Nieuwste Drops</p>
     <h2 class="section-title">Uitgelichte <em>Collectie</em></h2>
     <div class="divider"></div>
     <div class="collection-intro">
-      <p>Elk stuk vertelt een verhaal. Onze nieuwste collectie combineert tijdloze elegantie met moderne precision cut — voor de man en vrouw die de wereld op hun voorwaarden betreden.</p>
+      <p>Elk stuk vertelt een verhaal. Onze nieuwste collectie combineert tijdloze elegantie met moderne precision cut.</p>
     </div>
     <div class="products-grid" id="featuredGrid"></div>
-    <div style="text-align:center; margin-top: 3rem;">
+    <div style="text-align:center;margin-top:3rem">
       <a href="shop.html" class="btn">Bekijk Alle Producten</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <span class="footer-logo">Treasureshirt</span>
     <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
-    <div class="footer-socials">
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
-    </div>
+    <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a></div>
   </footer>
 
-  <div class="toast" id="toast"></div>
+  <div class="cart-toast" id="cartToast"></div>
   <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
   <script type="module">
     import { db } from './js/firebase-config.js';
     import { collection, query, orderBy, limit, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
-    const q = query(collection(db, 'products'), orderBy('createdAt', 'asc'), limit(3));
-    onSnapshot(q, snap => {
+    onSnapshot(query(collection(db, 'products'), orderBy('createdAt', 'asc'), limit(3)), snap => {
       const grid = document.getElementById('featuredGrid');
       if (!grid) return;
       grid.innerHTML = snap.docs.map(d => {
-        const p = d.data();
+        const p = { id: d.id, ...d.data() };
         return `
           <div class="product-card">
             <div class="product-image">
@@ -111,10 +113,26 @@
             <div class="product-info">
               <h3 class="product-name">${p.name}</h3>
               <p class="product-desc">${p.description}</p>
-              <p class="product-price">€ ${p.price}</p>
+              <div class="product-footer">
+                <p class="product-price">€ ${p.price}</p>
+                <button class="btn-add-cart"
+                  data-id="${p.id}" data-name="${p.name}"
+                  data-price="${p.price}" data-desc="${p.description}"
+                  data-emoji="${p.emoji || '👕'}">
+                  + Toevoegen
+                </button>
+              </div>
             </div>
           </div>`;
       }).join('');
+
+      grid.querySelectorAll('.btn-add-cart').forEach(btn =>
+        btn.addEventListener('click', () => Cart.add({
+          id: btn.dataset.id, name: btn.dataset.name,
+          price: parseFloat(btn.dataset.price),
+          description: btn.dataset.desc, emoji: btn.dataset.emoji,
+        }))
+      );
     });
   </script>
 </body>
