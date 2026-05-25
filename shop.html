@@ -8,34 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .shop-hero {
-      padding: 12rem 5% 5rem;
-      text-align: center;
-      background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
-    }
-    .filter-bar {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-    .filter-btn {
-      background: transparent;
-      border: 1px solid rgba(201, 168, 76, 0.3);
-      color: var(--gray);
-      padding: 0.5rem 1.5rem;
-      font-family: inherit;
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .filter-btn:hover,
-    .filter-btn.active {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
+    .shop-hero { padding:12rem 5% 5rem; text-align:center; background:linear-gradient(to bottom,#1a1a1a,#0a0a0a); }
+    .filter-bar { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3rem; }
+    .filter-btn { background:transparent; border:1px solid rgba(201,168,76,.3); color:var(--gray); padding:.5rem 1.5rem; font-family:inherit; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; cursor:pointer; transition:all .3s; }
+    .filter-btn:hover, .filter-btn.active { border-color:var(--gold); color:var(--gold); }
   </style>
 </head>
 <body>
@@ -48,16 +24,39 @@
       <li><a href="about.html">Over Ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
-      <span></span><span></span><span></span>
-    </button>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <button class="nav-cart" id="cartBtn">
+        Winkelwagen <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Winkelwagen</h3>
+        <button class="cart-close" id="cartClose">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Totaal</span>
+          <span class="cart-total-amount" id="cartTotal">€ 0</span>
+        </div>
+        <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen met Stripe</button>
+      </div>
+    </div>
+  </div>
 
   <div class="shop-hero">
     <p class="section-label">Treasureshirt</p>
     <h1 class="section-title">De <em>Collectie</em></h1>
-    <div class="divider" style="margin: 2rem auto;"></div>
-    <p style="color: var(--gray); font-style: italic; max-width: 500px; margin: 0 auto;">Premium stukken voor elk seizoen — van klassieke essentials tot exclusieve limited editions.</p>
+    <div class="divider" style="margin:2rem auto"></div>
+    <p style="color:var(--gray);font-style:italic;max-width:500px;margin:0 auto">Premium stukken voor elk seizoen — van klassieke essentials tot exclusieve limited editions.</p>
   </div>
 
   <section>
@@ -68,14 +67,12 @@
   <footer>
     <span class="footer-logo">Treasureshirt</span>
     <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
-    <div class="footer-socials">
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
-    </div>
+    <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a></div>
   </footer>
 
-  <div class="toast" id="toast"></div>
+  <div class="cart-toast" id="cartToast"></div>
   <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
   <script type="module">
     import { db } from './js/firebase-config.js';
     import { collection, query, orderBy, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
@@ -83,8 +80,7 @@
     let allProducts  = [];
     let activeFilter = 'Alles';
 
-    const q = query(collection(db, 'products'), orderBy('createdAt', 'asc'));
-    onSnapshot(q, snap => {
+    onSnapshot(query(collection(db, 'products'), orderBy('createdAt', 'asc')), snap => {
       allProducts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
       renderFilters();
       renderProducts();
@@ -95,21 +91,18 @@
       document.getElementById('filterBar').innerHTML = cats.map(c =>
         `<button class="filter-btn ${c === activeFilter ? 'active' : ''}" data-cat="${c}">${c}</button>`
       ).join('');
-      document.querySelectorAll('.filter-btn').forEach(btn => {
+      document.querySelectorAll('.filter-btn').forEach(btn =>
         btn.addEventListener('click', () => {
           activeFilter = btn.dataset.cat;
           document.querySelectorAll('.filter-btn').forEach(b =>
-            b.classList.toggle('active', b.dataset.cat === activeFilter)
-          );
+            b.classList.toggle('active', b.dataset.cat === activeFilter));
           renderProducts();
-        });
-      });
+        })
+      );
     }
 
     function renderProducts() {
-      const list = activeFilter === 'Alles'
-        ? allProducts
-        : allProducts.filter(p => p.category === activeFilter);
+      const list = activeFilter === 'Alles' ? allProducts : allProducts.filter(p => p.category === activeFilter);
       const grid = document.getElementById('productsGrid');
       grid.innerHTML = list.map(p => `
         <div class="product-card">
@@ -120,15 +113,30 @@
           <div class="product-info">
             <h3 class="product-name">${p.name}</h3>
             <p class="product-desc">${p.description}</p>
-            <p class="product-price">€ ${p.price}</p>
+            <div class="product-footer">
+              <p class="product-price">€ ${p.price}</p>
+              <button class="btn-add-cart"
+                data-id="${p.id}" data-name="${p.name}"
+                data-price="${p.price}" data-desc="${p.description}"
+                data-emoji="${p.emoji || '👕'}">
+                + Toevoegen
+              </button>
+            </div>
           </div>
         </div>
       `).join('') || '<p style="color:var(--gray);font-style:italic;padding:2rem 0">Geen producten gevonden.</p>';
 
+      grid.querySelectorAll('.btn-add-cart').forEach(btn =>
+        btn.addEventListener('click', () => Cart.add({
+          id: btn.dataset.id, name: btn.dataset.name,
+          price: parseFloat(btn.dataset.price),
+          description: btn.dataset.desc, emoji: btn.dataset.emoji,
+        }))
+      );
+
       grid.querySelectorAll('.product-card').forEach((el, i) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = `opacity 0.5s ${i * 0.05}s ease, transform 0.5s ${i * 0.05}s ease`;
+        el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+        el.style.transition = `opacity .5s ${i*.05}s ease, transform .5s ${i*.05}s ease`;
         requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
       });
     }
