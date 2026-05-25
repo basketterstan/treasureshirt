@@ -8,7 +8,7 @@ const db = admin.firestore();
 
 const stripeSecret  = defineSecret('STRIPE_SECRET_KEY');
 const webhookSecret = defineSecret('STRIPE_WEBHOOK_SECRET');
-const resendKey     = defineSecret('RESEND_API_KEY');
+const klaviyoKey    = defineSecret('KLAVIYO_PRIVATE_KEY');
 
 const ADMIN_EMAIL = 'contact@hoopsatlas.com';
 const SITE_URL    = 'https://basketterstan.github.io/treasureshirt';
@@ -35,7 +35,6 @@ exports.createCheckout = onRequest(
         })),
         mode: 'payment',
         shipping_address_collection: { allowed_countries: ['BE', 'NL', 'DE', 'FR', 'GB'] },
-        customer_email: undefined,
         success_url: `${SITE_URL}/success.html`,
         cancel_url:  `${SITE_URL}/cancel.html`,
       });
@@ -50,7 +49,7 @@ exports.createCheckout = onRequest(
 
 // ── STRIPE WEBHOOK ───────────────────────────────────
 exports.stripeWebhook = onRequest(
-  { secrets: [stripeSecret, webhookSecret, resendKey], cors: false, invoker: 'public' },
+  { secrets: [stripeSecret, webhookSecret, klaviyoKey], cors: false, invoker: 'public' },
   async (req, res) => {
     if (req.method !== 'POST') return res.status(405).end();
 
@@ -76,7 +75,6 @@ exports.stripeWebhook = onRequest(
 async function handleOrderComplete(session) {
   const stripe = Stripe(stripeSecret.value());
 
-  // Haal bestelde items op
   const lineItemsResp = await stripe.checkout.sessions.listLineItems(session.id, { limit: 100 });
   const items = lineItemsResp.data.map(i => ({
     name:     i.description,
@@ -91,6 +89,10 @@ async function handleOrderComplete(session) {
   const total         = (session.amount_total / 100).toFixed(2);
   const orderNumber   = session.id.slice(-8).toUpperCase();
 
+  const shippingAddress = address.line1
+    ? `${address.line1}, ${address.postal_code} ${address.city}, ${address.country}`
+    : '';
+
   // Sla bestelling op in Firestore
   await db.collection('orders').add({
     orderNumber,
@@ -104,92 +106,59 @@ async function handleOrderComplete(session) {
     createdAt:     admin.firestore.FieldValue.serverTimestamp(),
   });
 
-  const apiKey = resendKey.value();
+  const apiKey = klaviyoKey.value();
+  const eventProps = {
+    order_number:     orderNumber,
+    customer_name:    customerName,
+    customer_email:   customerEmail,
+    items,
+    total,
+    shipping_address: shippingAddress,
+  };
 
-  // E-mail aan klant
-  await sendEmail(apiKey, {
-    to:      customerEmail,
-    subject: `Bestelling #${orderNumber} bevestigd — Treasureshirt`,
-    html:    customerEmailHtml(customerName, orderNumber, items, total, address),
+  // Klant e-mail via Klaviyo Flow (event: "Order Placed")
+  await trackKlaviyoEvent(apiKey, {
+    email:     customerEmail,
+    firstName: customerName.split(' ')[0],
+    lastName:  customerName.split(' ').slice(1).join(' '),
+    eventName: 'Order Placed',
+    properties: eventProps,
   });
 
-  // E-mail aan admin
-  await sendEmail(apiKey, {
-    to:      ADMIN_EMAIL,
-    subject: `🛍 Nieuwe bestelling #${orderNumber} — €${total}`,
-    html:    adminEmailHtml(orderNumber, customerName, customerEmail, items, total, address),
+  // Admin notificatie via Klaviyo Flow (event: "New Order Admin")
+  await trackKlaviyoEvent(apiKey, {
+    email:     ADMIN_EMAIL,
+    firstName: 'Admin',
+    eventName: 'New Order Admin',
+    properties: eventProps,
   });
 }
 
-async function sendEmail(apiKey, { to, subject, html }) {
-  const r = await fetch('https://api.resend.com/emails', {
+async function trackKlaviyoEvent(apiKey, { email, firstName, lastName, eventName, properties }) {
+  const r = await fetch('https://a.klaviyo.com/api/events/', {
     method: 'POST',
-    headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from: 'Treasureshirt <onboarding@resend.dev>', to: [to], subject, html }),
+    headers: {
+      'Authorization':  `Klaviyo-API-Key ${apiKey}`,
+      'Content-Type':   'application/json',
+      'revision':       '2024-02-15',
+    },
+    body: JSON.stringify({
+      data: {
+        type: 'event',
+        attributes: {
+          metric: {
+            data: { type: 'metric', attributes: { name: eventName } },
+          },
+          profile: {
+            data: {
+              type: 'profile',
+              attributes: { email, first_name: firstName || '', last_name: lastName || '' },
+            },
+          },
+          properties,
+        },
+      },
+    }),
   });
-  if (!r.ok) console.error('Email error:', await r.text());
-}
-
-function customerEmailHtml(name, orderNumber, items, total, address) {
-  const addr = address.line1
-    ? `${address.line1}, ${address.postal_code} ${address.city}, ${address.country}`
-    : '';
-  const rows = items.map(i => `
-    <tr>
-      <td style="padding:10px 0;border-bottom:1px solid #1a1a1a;color:#fff">${i.name}</td>
-      <td style="padding:10px 0;border-bottom:1px solid #1a1a1a;text-align:center;color:#888">${i.quantity}×</td>
-      <td style="padding:10px 0;border-bottom:1px solid #1a1a1a;text-align:right;color:#c9a84c">€ ${i.subtotal}</td>
-    </tr>`).join('');
-
-  return `<!DOCTYPE html><html><body style="margin:0;background:#0a0a0a">
-  <div style="max-width:560px;margin:0 auto;padding:40px 24px;font-family:Georgia,serif;color:#fff">
-    <p style="color:#c9a84c;letter-spacing:4px;text-transform:uppercase;font-size:13px;margin-bottom:4px">Treasureshirt</p>
-    <h1 style="font-size:22px;font-weight:300;letter-spacing:2px;margin-bottom:4px">Bestelling bevestigd</h1>
-    <p style="color:#888;font-size:12px;letter-spacing:2px;margin-bottom:32px">#${orderNumber}</p>
-
-    <p>Beste ${name},</p>
-    <p style="color:#888;line-height:1.9;margin-bottom:28px">Bedankt voor je bestelling bij Treasureshirt! We gaan er meteen mee aan de slag en laten je weten zodra je pakket verzonden is.</p>
-
-    <table style="width:100%;border-collapse:collapse;margin-bottom:20px">
-      <thead><tr>
-        <th style="text-align:left;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#888;padding-bottom:8px;border-bottom:1px solid #333">Product</th>
-        <th style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#888;padding-bottom:8px;border-bottom:1px solid #333">Aantal</th>
-        <th style="text-align:right;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#888;padding-bottom:8px;border-bottom:1px solid #333">Prijs</th>
-      </tr></thead>
-      <tbody>${rows}</tbody>
-      <tfoot><tr>
-        <td colspan="2" style="padding:14px 0;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#888">Totaal</td>
-        <td style="padding:14px 0;text-align:right;color:#c9a84c;font-size:20px;font-weight:300">€ ${total}</td>
-      </tr></tfoot>
-    </table>
-
-    ${addr ? `<p style="color:#888;font-size:12px;line-height:1.8"><strong style="color:#fff;letter-spacing:2px;text-transform:uppercase;font-size:10px">Leveradres</strong><br>${addr}</p>` : ''}
-
-    <div style="margin-top:40px;padding-top:24px;border-top:1px solid #1a1a1a">
-      <p style="color:#555;font-size:11px">© 2025 Treasureshirt · Vragen? Stuur een mail naar contact@treasureshirt.com</p>
-    </div>
-  </div></body></html>`;
-}
-
-function adminEmailHtml(orderNumber, name, email, items, total, address) {
-  const addr = address.line1
-    ? `${address.line1}, ${address.postal_code} ${address.city}, ${address.country}`
-    : '—';
-  const itemList = items.map(i => `${i.quantity}× ${i.name} — €${i.subtotal}`).join('<br>');
-
-  return `<!DOCTYPE html><html><body style="margin:0;background:#0a0a0a">
-  <div style="max-width:560px;margin:0 auto;padding:40px 24px;font-family:Georgia,serif;color:#fff">
-    <p style="color:#c9a84c;letter-spacing:4px;text-transform:uppercase;font-size:13px">Treasureshirt Admin</p>
-    <h1 style="font-size:22px;font-weight:300;letter-spacing:2px;margin-bottom:24px">Nieuwe Bestelling #${orderNumber}</h1>
-
-    <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
-      <tr><td style="padding:8px 0;color:#888;font-size:12px;letter-spacing:1px;width:120px">Klant</td><td style="padding:8px 0">${name}</td></tr>
-      <tr><td style="padding:8px 0;color:#888;font-size:12px;letter-spacing:1px">E-mail</td><td style="padding:8px 0">${email}</td></tr>
-      <tr><td style="padding:8px 0;color:#888;font-size:12px;letter-spacing:1px">Adres</td><td style="padding:8px 0">${addr}</td></tr>
-      <tr><td style="padding:8px 0;color:#888;font-size:12px;letter-spacing:1px;vertical-align:top">Producten</td><td style="padding:8px 0;line-height:1.8">${itemList}</td></tr>
-      <tr><td style="padding:8px 0;color:#888;font-size:12px;letter-spacing:1px">Totaal</td><td style="padding:8px 0;color:#c9a84c;font-size:20px">€ ${total}</td></tr>
-    </table>
-
-    <a href="${SITE_URL}/admin.html" style="display:inline-block;background:#c9a84c;color:#000;padding:12px 24px;text-decoration:none;font-size:11px;letter-spacing:3px;text-transform:uppercase">Bekijk in Admin →</a>
-  </div></body></html>`;
+  if (!r.ok) console.error(`Klaviyo event error (${eventName}):`, await r.text());
 }
