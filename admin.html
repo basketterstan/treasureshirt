@@ -219,6 +219,15 @@
           <option value="Sale">Sale</option>
         </select>
       </div>
+      <div class="form-group full" style="margin-top:.5rem">
+        <label>Foto</label>
+        <div id="imageUploadArea" style="border:1px dashed rgba(201,168,76,.3);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .3s;position:relative;margin-top:.5rem">
+          <img id="imagePreview" src="" style="display:none;max-height:160px;max-width:100%;object-fit:contain;margin-bottom:.75rem" />
+          <p id="imageUploadLabel" style="color:var(--gray);font-size:.8rem;font-style:italic">Klik om een foto te kiezen</p>
+          <input type="file" id="fImage" accept="image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer" />
+        </div>
+        <p id="imageUploading" style="display:none;color:var(--gold);font-size:.75rem;font-style:italic;margin-top:.5rem">Foto uploaden...</p>
+      </div>
     </div>
     <div class="modal-footer">
       <button class="btn-ghost" id="modalCancel">Annuleren</button>
@@ -230,11 +239,14 @@
 <div class="toast" id="toast"></div>
 
 <script type="module">
-import { db } from './js/firebase-config.js';
+import { db, storage } from './js/firebase-config.js';
 import {
   collection, doc, addDoc, updateDoc, deleteDoc,
   onSnapshot, query, orderBy, getDocs, writeBatch
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import {
+  ref, uploadBytes, getDownloadURL
+} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
 
 // ── AUTH ──────────────────────────────────────────
 const ADMIN_EMAIL  = 'admin@treasureshirt.com';
@@ -342,8 +354,15 @@ function renderTable() {
   document.getElementById('productTableBody').innerHTML = list.map(p => `
     <tr>
       <td>
-        <div class="product-name-cell">${p.name}</div>
-        <div class="product-desc-cell">${p.description}</div>
+        <div style="display:flex;align-items:center;gap:.75rem">
+          ${p.imageUrl
+            ? `<img src="${p.imageUrl}" style="width:40px;height:40px;object-fit:cover;border:1px solid rgba(201,168,76,.2)" />`
+            : `<span style="font-size:1.5rem">${p.emoji || '👕'}</span>`}
+          <div>
+            <div class="product-name-cell">${p.name}</div>
+            <div class="product-desc-cell">${p.description}</div>
+          </div>
+        </div>
       </td>
       <td style="color:var(--gray);font-size:.8rem">${p.category}</td>
       <td class="price-cell">€ ${p.price}</td>
@@ -392,12 +411,39 @@ function renderTable() {
 // ── MODAL ──────────────────────────────────────────
 let editingId = null;
 
+let currentImageUrl = '';
+
+function resetImageUI() {
+  currentImageUrl = '';
+  document.getElementById('fImage').value = '';
+  document.getElementById('imagePreview').style.display = 'none';
+  document.getElementById('imagePreview').src = '';
+  document.getElementById('imageUploadLabel').textContent = 'Klik om een foto te kiezen';
+}
+
+function setImagePreview(url) {
+  const preview = document.getElementById('imagePreview');
+  preview.src = url;
+  preview.style.display = 'block';
+  document.getElementById('imageUploadLabel').textContent = 'Klik om foto te wijzigen';
+  currentImageUrl = url;
+}
+
+document.getElementById('fImage').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => setImagePreview(ev.target.result);
+  reader.readAsDataURL(file);
+});
+
 function openAddModal() {
   editingId = null;
   document.getElementById('modalTitle').textContent = 'Nieuw Product';
   ['fName','fDesc','fPrice','fStock'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('fCategory').value = 'T-Shirts';
   document.getElementById('fBadge').value    = '';
+  resetImageUI();
   document.getElementById('modalOverlay').classList.add('open');
 }
 
@@ -405,13 +451,15 @@ function openEditModal(id) {
   const p = allProducts.find(x => x.id === id);
   if (!p) return;
   editingId = id;
-  document.getElementById('modalTitle').textContent    = 'Product Bewerken';
-  document.getElementById('fName').value               = p.name;
-  document.getElementById('fDesc').value               = p.description;
-  document.getElementById('fPrice').value              = p.price;
-  document.getElementById('fStock').value              = p.stock || 0;
-  document.getElementById('fCategory').value           = p.category;
-  document.getElementById('fBadge').value              = p.badge || '';
+  document.getElementById('modalTitle').textContent = 'Product Bewerken';
+  document.getElementById('fName').value            = p.name;
+  document.getElementById('fDesc').value            = p.description;
+  document.getElementById('fPrice').value           = p.price;
+  document.getElementById('fStock').value           = p.stock || 0;
+  document.getElementById('fCategory').value        = p.category;
+  document.getElementById('fBadge').value           = p.badge || '';
+  resetImageUI();
+  if (p.imageUrl) setImagePreview(p.imageUrl);
   document.getElementById('modalOverlay').classList.add('open');
 }
 
@@ -432,10 +480,26 @@ document.getElementById('modalSave').addEventListener('click', async () => {
   const stock = parseInt(document.getElementById('fStock').value) || 0;
   const cat   = document.getElementById('fCategory').value;
   const badge = document.getElementById('fBadge').value;
+  const file  = document.getElementById('fImage').files[0];
 
   if (!name || isNaN(price)) { toast('Vul naam en prijs in', 'error'); return; }
 
-  const data = { name, description: desc, price, stock, category: cat, badge, emoji: '👕' };
+  const saveBtn = document.getElementById('modalSave');
+  saveBtn.textContent = 'Opslaan...';
+  saveBtn.disabled = true;
+
+  let imageUrl = currentImageUrl;
+
+  // Upload nieuwe foto als die gekozen is
+  if (file) {
+    document.getElementById('imageUploading').style.display = 'block';
+    const storageRef = ref(storage, `products/${Date.now()}_${file.name}`);
+    await uploadBytes(storageRef, file);
+    imageUrl = await getDownloadURL(storageRef);
+    document.getElementById('imageUploading').style.display = 'none';
+  }
+
+  const data = { name, description: desc, price, stock, category: cat, badge, emoji: '👕', imageUrl: imageUrl || '' };
 
   if (editingId) {
     await updateDoc(doc(db, 'products', editingId), data);
@@ -444,6 +508,9 @@ document.getElementById('modalSave').addEventListener('click', async () => {
     await addDoc(collection(db, 'products'), { ...data, createdAt: Date.now() });
     toast('Product toegevoegd', 'success');
   }
+
+  saveBtn.textContent = 'Opslaan';
+  saveBtn.disabled = false;
   closeModal();
 });
 
