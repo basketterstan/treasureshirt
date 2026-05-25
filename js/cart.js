@@ -109,13 +109,17 @@ const Cart = (() => {
     const btn = document.getElementById('checkoutBtn');
     if (btn) { btn.textContent = 'Laden...'; btn.disabled = true; }
     try {
+      const userId = sessionStorage.getItem('ts_uid') || '';
       const res = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: items.map(i => ({
-          ...i,
-          name: i.size ? `${i.name} (${i.size})` : i.name,
-        })) }),
+        body: JSON.stringify({
+          userId,
+          items: items.map(i => ({
+            ...i,
+            name: i.size ? `${i.name} (${i.size})` : i.name,
+          })),
+        }),
       });
       const { url, error } = await res.json();
       if (error) throw new Error(error);
