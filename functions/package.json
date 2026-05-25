@@ -1,0 +1,13 @@
+{
+  "name": "functions",
+  "description": "Treasureshirt Cloud Functions",
+  "scripts": {
+    "deploy": "firebase deploy --only functions"
+  },
+  "engines": { "node": "18" },
+  "dependencies": {
+    "firebase-functions": "^4.9.0",
+    "stripe": "^14.0.0",
+    "cors": "^2.8.5"
+  }
+}
