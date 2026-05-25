@@ -92,23 +92,17 @@
 
   <div class="toast" id="toast"></div>
   <script src="js/main.js"></script>
-  <script>
-    (async () => {
-      const saved = localStorage.getItem('ts_products');
-      let products = [];
-      if (saved) {
-        products = JSON.parse(saved);
-      } else {
-        try {
-          const res = await fetch('data/products.json');
-          products = await res.json();
-          localStorage.setItem('ts_products', JSON.stringify(products));
-        } catch {}
-      }
-      const featured = products.slice(0, 3);
+  <script type="module">
+    import { db } from './js/firebase-config.js';
+    import { collection, query, orderBy, limit, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    const q = query(collection(db, 'products'), orderBy('createdAt', 'asc'), limit(3));
+    onSnapshot(q, snap => {
       const grid = document.getElementById('featuredGrid');
-      if (grid) {
-        grid.innerHTML = featured.map(p => `
+      if (!grid) return;
+      grid.innerHTML = snap.docs.map(d => {
+        const p = d.data();
+        return `
           <div class="product-card">
             <div class="product-image">
               ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
@@ -119,10 +113,9 @@
               <p class="product-desc">${p.description}</p>
               <p class="product-price">€ ${p.price}</p>
             </div>
-          </div>
-        `).join('');
-      }
-    })();
+          </div>`;
+      }).join('');
+    });
   </script>
 </body>
 </html>
