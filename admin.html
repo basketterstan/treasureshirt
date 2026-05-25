@@ -6,6 +6,7 @@
   <title>Admin — Treasureshirt</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
   <style>
     :root {
       --black: #0a0a0a; --gold: #c9a84c; --gold-light: #e8c96a;
@@ -128,6 +129,23 @@
     .status-select:focus { border-color:var(--gold); }
     .new-orders-badge { background:var(--gold); color:var(--black); font-size:.6rem; letter-spacing:.1em; padding:.2rem .6rem; font-weight:700; margin-left:.5rem; vertical-align:middle; }
 
+    /* SCANNER */
+    .scanner-box { background:var(--dark-gray); border:1px solid rgba(201,168,76,.2); padding:2rem; margin-bottom:3rem; }
+    #scannerReader { width:100%; max-width:400px; margin:0 auto; border:2px solid rgba(201,168,76,.25); }
+    #scannerReader video { border-radius:0 !important; }
+    .scanner-result { background:var(--black); border:1px solid rgba(201,168,76,.2); padding:1.5rem; margin-top:1.5rem; display:none; }
+    .scanner-product-name { font-size:1.05rem; letter-spacing:.1em; margin-bottom:.35rem; }
+    .scanner-stock-val { color:var(--gold); font-size:1.5rem; font-weight:300; }
+    .scanner-stock-label { color:var(--gray); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; margin-bottom:1.25rem; margin-top:.25rem; }
+    .scanner-actions { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+    .btn-stock-in { background:#27ae60; color:#fff; border:none; padding:.7rem 1.5rem; font-family:inherit; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; cursor:pointer; transition:opacity .3s; }
+    .btn-stock-in:hover { opacity:.85; }
+    .btn-stock-out { background:#e74c3c; color:#fff; border:none; padding:.7rem 1.5rem; font-family:inherit; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; cursor:pointer; transition:opacity .3s; }
+    .btn-stock-out:hover { opacity:.85; }
+    .scanner-qty { width:56px; background:transparent; border:1px solid rgba(201,168,76,.3); color:var(--white); font-family:inherit; font-size:.95rem; padding:.4rem .5rem; text-align:center; outline:none; }
+    .scanner-barcode { font-size:.65rem; color:var(--gray); letter-spacing:.2em; margin-top:1rem; }
+    .scanner-not-found { color:#e74c3c; font-style:italic; font-size:.85rem; margin-top:1rem; display:none; }
+
     @media(max-width:700px) {
       .admin-body { padding:1rem; }
       .modal-grid { grid-template-columns:1fr; }
@@ -168,6 +186,27 @@
   <div class="admin-body">
     <div class="stats-row" id="statsRow">
       <div class="stat-card"><div class="num">—</div><div class="lbl">Laden...</div></div>
+    </div>
+
+    <!-- SCANNER -->
+    <div class="section-header">
+      <h2>Barcode <span>Scanner</span></h2>
+      <button class="btn-primary" id="scannerToggleBtn">▶ Start Camera</button>
+    </div>
+    <div class="scanner-box" id="scannerBox" style="display:none">
+      <div id="scannerReader"></div>
+      <div id="scannerResult" class="scanner-result">
+        <div class="scanner-product-name" id="scannerProductName"></div>
+        <div class="scanner-stock-val" id="scannerStockVal"></div>
+        <div class="scanner-stock-label">stuks in stock</div>
+        <div class="scanner-actions">
+          <input class="scanner-qty" type="number" id="scannerQty" value="1" min="1" />
+          <button class="btn-stock-in" id="scannerBtnIn">+ In Stock</button>
+          <button class="btn-stock-out" id="scannerBtnOut">− Uit Stock</button>
+        </div>
+        <div class="scanner-barcode" id="scannerBarcode"></div>
+      </div>
+      <div id="scannerNotFound" class="scanner-not-found">Barcode niet gevonden — voeg barcode toe aan het product.</div>
     </div>
 
     <!-- BESTELLINGEN -->
@@ -246,6 +285,7 @@
           <option value="Sale">Sale</option>
         </select>
       </div>
+      <div class="form-group full"><label>Barcode (EAN / UPC)</label><input type="text" id="fBarcode" placeholder="1234567890123" /></div>
       <div class="form-group full" style="margin-top:.5rem">
         <label>Foto</label>
         <div id="imageUploadArea" style="border:1px dashed rgba(201,168,76,.3);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .3s;position:relative;margin-top:.5rem">
@@ -269,7 +309,7 @@
 import { db, storage } from './js/firebase-config.js';
 import {
   collection, doc, addDoc, updateDoc, deleteDoc,
-  onSnapshot, query, orderBy, getDocs, writeBatch
+  onSnapshot, query, orderBy, getDocs, writeBatch, where, getDoc, setDoc
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 import {
   ref, uploadBytes, getDownloadURL
@@ -279,15 +319,21 @@ import {
 const ADMIN_EMAIL  = 'admin@treasureshirt.com';
 const DEFAULT_HASH = '97f9503e5aed00dc2b170f76db62efff05e0e52b5ce5ae9d299e1966080eb286';
 const SESSION_KEY  = 'ts_admin_session';
-const PASS_KEY     = 'ts_admin_hash';
+const SETTINGS_DOC = doc(db, 'settings', 'admin');
 
 async function sha256(str) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
 }
 
-function getPassHash() { return localStorage.getItem(PASS_KEY) || DEFAULT_HASH; }
-function isLoggedIn()  { return sessionStorage.getItem(SESSION_KEY) === 'ok'; }
+async function getPassHash() {
+  try {
+    const snap = await getDoc(SETTINGS_DOC);
+    return snap.exists() ? (snap.data().passHash || DEFAULT_HASH) : DEFAULT_HASH;
+  } catch { return DEFAULT_HASH; }
+}
+
+function isLoggedIn() { return sessionStorage.getItem(SESSION_KEY) === 'ok'; }
 
 // ── SEED: load default products if Firestore is empty ──
 const SEED = [
@@ -557,7 +603,7 @@ document.getElementById('fImage').addEventListener('change', e => {
 function openAddModal() {
   editingId = null;
   document.getElementById('modalTitle').textContent = 'Nieuw Product';
-  ['fName','fDesc','fPrice','fStock'].forEach(id => document.getElementById(id).value = '');
+  ['fName','fDesc','fPrice','fStock','fBarcode'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('fCategory').value = 'T-Shirts';
   document.getElementById('fBadge').value    = '';
   resetImageUI();
@@ -575,6 +621,7 @@ function openEditModal(id) {
   document.getElementById('fStock').value           = p.stock || 0;
   document.getElementById('fCategory').value        = p.category;
   document.getElementById('fBadge').value           = p.badge || '';
+  document.getElementById('fBarcode').value         = p.barcode || '';
   resetImageUI();
   if (p.imageUrl) setImagePreview(p.imageUrl);
   document.getElementById('modalOverlay').classList.add('open');
@@ -595,9 +642,10 @@ document.getElementById('modalSave').addEventListener('click', async () => {
   const desc  = document.getElementById('fDesc').value.trim();
   const price = parseFloat(document.getElementById('fPrice').value);
   const stock = parseInt(document.getElementById('fStock').value) || 0;
-  const cat   = document.getElementById('fCategory').value;
-  const badge = document.getElementById('fBadge').value;
-  const file  = document.getElementById('fImage').files[0];
+  const cat     = document.getElementById('fCategory').value;
+  const badge   = document.getElementById('fBadge').value;
+  const barcode = document.getElementById('fBarcode').value.trim();
+  const file    = document.getElementById('fImage').files[0];
 
   if (!name || isNaN(price)) { toast('Vul naam en prijs in', 'error'); return; }
 
@@ -616,7 +664,7 @@ document.getElementById('modalSave').addEventListener('click', async () => {
     document.getElementById('imageUploading').style.display = 'none';
   }
 
-  const data = { name, description: desc, price, stock, category: cat, badge, emoji: '👕', imageUrl: imageUrl || '' };
+  const data = { name, description: desc, price, stock, category: cat, badge, barcode, emoji: '👕', imageUrl: imageUrl || '' };
 
   if (editingId) {
     await updateDoc(doc(db, 'products', editingId), data);
@@ -638,10 +686,10 @@ document.getElementById('changePassBtn').addEventListener('click', async () => {
   if (!np) { toast('Vul een nieuw wachtwoord in', 'error'); return; }
   if (np !== cp) { toast('Wachtwoorden komen niet overeen', 'error'); return; }
   if (np.length < 8) { toast('Minimaal 8 tekens vereist', 'error'); return; }
-  localStorage.setItem(PASS_KEY, await sha256(np));
+  await setDoc(SETTINGS_DOC, { passHash: await sha256(np) }, { merge: true });
   document.getElementById('newPass').value = '';
   document.getElementById('confirmPass').value = '';
-  toast('Wachtwoord gewijzigd', 'success');
+  toast('Wachtwoord gewijzigd — werkt nu op alle apparaten', 'success');
 });
 
 // ── TOAST ──────────────────────────────────────────
@@ -654,10 +702,11 @@ function toast(msg, type = 'success') {
 
 // ── LOGIN ──────────────────────────────────────────
 document.getElementById('loginBtn').addEventListener('click', async () => {
-  const email = document.getElementById('loginEmail').value.trim();
-  const pass  = document.getElementById('loginPass').value;
-  const hash  = await sha256(pass);
-  if (email === ADMIN_EMAIL && hash === getPassHash()) {
+  const email   = document.getElementById('loginEmail').value.trim();
+  const pass    = document.getElementById('loginPass').value;
+  const hash    = await sha256(pass);
+  const stored  = await getPassHash();
+  if (email === ADMIN_EMAIL && hash === stored) {
     sessionStorage.setItem(SESSION_KEY, 'ok');
     document.getElementById('loginError').style.display = 'none';
     showDashboard();
@@ -675,6 +724,79 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
   sessionStorage.removeItem(SESSION_KEY);
   location.reload();
 });
+
+// ── BARCODE SCANNER ────────────────────────────────
+let html5Scanner = null;
+let scannerRunning = false;
+let scannedProductId = null;
+
+document.getElementById('scannerToggleBtn').addEventListener('click', async () => {
+  const box = document.getElementById('scannerBox');
+  if (!scannerRunning) {
+    box.style.display = 'block';
+    document.getElementById('scannerToggleBtn').textContent = '■ Stop Camera';
+    document.getElementById('scannerResult').style.display = 'none';
+    document.getElementById('scannerNotFound').style.display = 'none';
+    html5Scanner = new Html5Qrcode('scannerReader');
+    try {
+      await html5Scanner.start(
+        { facingMode: 'environment' },
+        { fps: 10, qrbox: { width: 260, height: 130 } },
+        onScanSuccess,
+        () => {}
+      );
+      scannerRunning = true;
+    } catch (err) {
+      toast('Camera niet beschikbaar: ' + err, 'error');
+      box.style.display = 'none';
+      document.getElementById('scannerToggleBtn').textContent = '▶ Start Camera';
+    }
+  } else {
+    await stopScanner();
+    box.style.display = 'none';
+  }
+});
+
+async function stopScanner() {
+  if (html5Scanner && scannerRunning) {
+    await html5Scanner.stop();
+    scannerRunning = false;
+    scannedProductId = null;
+    document.getElementById('scannerToggleBtn').textContent = '▶ Start Camera';
+  }
+}
+
+async function onScanSuccess(code) {
+  document.getElementById('scannerNotFound').style.display = 'none';
+  document.getElementById('scannerResult').style.display = 'none';
+  scannedProductId = null;
+
+  const match = allProducts.find(p => p.barcode === code);
+  if (match) {
+    scannedProductId = match.id;
+    document.getElementById('scannerProductName').textContent = match.name;
+    document.getElementById('scannerStockVal').textContent = match.stock || 0;
+    document.getElementById('scannerBarcode').textContent = 'Barcode: ' + code;
+    document.getElementById('scannerResult').style.display = 'block';
+  } else {
+    document.getElementById('scannerNotFound').style.display = 'block';
+    document.getElementById('scannerNotFound').textContent = `Barcode ${code} niet gevonden — voeg barcode toe aan het product.`;
+  }
+}
+
+async function updateScannerStock(delta) {
+  if (!scannedProductId) return;
+  const product = allProducts.find(p => p.id === scannedProductId);
+  if (!product) return;
+  const qty = parseInt(document.getElementById('scannerQty').value) || 1;
+  const newStock = Math.max(0, (product.stock || 0) + delta * qty);
+  await updateDoc(doc(db, 'products', scannedProductId), { stock: newStock });
+  document.getElementById('scannerStockVal').textContent = newStock;
+  toast(`Stock ${delta > 0 ? '+' : ''}${delta * qty} → ${newStock} stuks`, 'success');
+}
+
+document.getElementById('scannerBtnIn').addEventListener('click', () => updateScannerStock(+1));
+document.getElementById('scannerBtnOut').addEventListener('click', () => updateScannerStock(-1));
 
 // ── INIT ───────────────────────────────────────────
 if (isLoggedIn()) showDashboard();
