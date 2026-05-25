@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algemene Voorwaarden — Treasureshirt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .legal-hero { padding: 10rem 5% 3rem; text-align: center; background: linear-gradient(to bottom, #1a1a1a, #0a0a0a); }
+    .legal-body { max-width: 780px; margin: 0 auto; padding: 4rem 5% 6rem; }
+    .legal-body h2 { font-size: 1.1rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin: 2.5rem 0 .75rem; font-weight: 400; }
+    .legal-body p, .legal-body li { color: #aaa; font-size: .95rem; line-height: 1.85; margin-bottom: .75rem; }
+    .legal-body ul { padding-left: 1.4rem; margin-bottom: .75rem; }
+    .legal-body a { color: var(--gold); }
+    .legal-date { font-size: .8rem; color: #666; font-style: italic; margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Treasureshirt</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <button class="nav-cart" id="cartBtn">Winkelwagen <span class="cart-badge" id="cartCount">0</span></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="legal-hero">
+    <p class="section-label">Treasureshirt</p>
+    <h1 class="section-title">Algemene <em>Voorwaarden</em></h1>
+  </div>
+
+  <div class="legal-body">
+    <p class="legal-date">Laatste update: mei 2025</p>
+
+    <h2>1. Identiteit</h2>
+    <p>Treasureshirt<br />
+    Website: treasureshirt.com<br />
+    E-mail: <a href="mailto:contact@hoopsatlas.com">contact@hoopsatlas.com</a></p>
+
+    <h2>2. Toepasselijkheid</h2>
+    <p>Deze algemene voorwaarden zijn van toepassing op alle bestellingen die via treasureshirt.com worden geplaatst. Door een bestelling te plaatsen, aanvaardt u deze voorwaarden.</p>
+
+    <h2>3. Aanbod en prijzen</h2>
+    <p>Alle prijzen op de website zijn in euro (€) en inclusief BTW. Verzendkosten worden apart vermeld tijdens het afrekenproces. Treasureshirt behoudt zich het recht voor om prijzen te wijzigen. De prijs die geldt, is de prijs die op het moment van bestelling wordt getoond.</p>
+
+    <h2>4. Bestelling en betaling</h2>
+    <p>Een bestelling is definitief na volledige betaling via Stripe. U ontvangt een bevestigingsmail na succesvolle betaling. Betaling is mogelijk met alle gangbare creditcards en debetkaarten.</p>
+
+    <h2>5. Levering</h2>
+    <ul>
+      <li>Wij leveren in België, Nederland, Duitsland, Frankrijk en het Verenigd Koninkrijk.</li>
+      <li>Levertijd: 3–7 werkdagen na bevestiging.</li>
+      <li>Treasureshirt is niet verantwoordelijk voor vertragingen door de transporteur.</li>
+    </ul>
+
+    <h2>6. Herroepingsrecht</h2>
+    <p>U heeft het recht om uw bestelling te annuleren binnen <strong>14 kalenderdagen</strong> na ontvangst, zonder opgave van reden. Zie ons <a href="retour.html">retourbeleid</a> voor de procedure.</p>
+    <p>Uitzondering: gepersonaliseerde producten (custom ontwerpen) kunnen niet worden geretourneerd, tenzij ze defect zijn.</p>
+
+    <h2>7. Garantie</h2>
+    <p>Wij garanderen dat onze producten voldoen aan de beschrijving op de website. Bij een defect product neemt u contact op via <a href="mailto:contact@hoopsatlas.com">contact@hoopsatlas.com</a>. Wij lossen dit op via vervanging of terugbetaling.</p>
+
+    <h2>8. Aansprakelijkheid</h2>
+    <p>Treasureshirt is niet aansprakelijk voor indirecte schade of gevolgschade die voortvloeit uit het gebruik van onze producten of website. Onze aansprakelijkheid is in elk geval beperkt tot het bedrag van uw bestelling.</p>
+
+    <h2>9. Toepasselijk recht</h2>
+    <p>Op alle overeenkomsten is het Belgisch recht van toepassing. Geschillen worden voorgelegd aan de bevoegde rechtbank van het arrondissement van de maatschappelijke zetel van Treasureshirt.</p>
+
+    <h2>10. Contact</h2>
+    <p>Voor vragen over deze voorwaarden: <a href="mailto:contact@hoopsatlas.com">contact@hoopsatlas.com</a></p>
+  </div>
+
+  <footer>
+    <span class="footer-logo">Treasureshirt</span>
+    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.5rem">
+      <a href="privacy.html" style="color:#666;font-size:.75rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#666;font-size:.75rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#666;font-size:.75rem;text-decoration:none">Retourbeleid</a>
+    </div>
+  </footer>
+
+  <div class="cart-toast" id="cartToast"></div>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
