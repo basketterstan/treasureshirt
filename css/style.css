@@ -896,3 +896,45 @@ footer {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+/* ── SIZE PICKER MODAL ── */
+.size-modal {
+  position: fixed; inset: 0; background: rgba(0,0,0,.82);
+  z-index: 600; display: flex; align-items: center; justify-content: center;
+  padding: 1rem; opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.size-modal.open { opacity: 1; pointer-events: all; }
+.size-box {
+  background: #111; border: 1px solid rgba(201,168,76,.3);
+  padding: 2rem; max-width: 360px; width: 100%;
+}
+.size-box-label {
+  font-size: .65rem; letter-spacing: .4em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .4rem;
+}
+.size-box-name {
+  font-size: 1.1rem; letter-spacing: .1em; margin-bottom: 1.5rem;
+}
+.size-grid {
+  display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 1.5rem;
+}
+.size-btn {
+  background: transparent; border: 1px solid rgba(201,168,76,.3);
+  color: var(--white); padding: .55rem 1rem; font-family: inherit;
+  font-size: .8rem; letter-spacing: .1em; cursor: pointer;
+  transition: all .2s; min-width: 52px; text-align: center;
+}
+.size-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,.07); }
+.size-cancel {
+  background: none; border: none; color: var(--gray);
+  font-family: inherit; font-size: .65rem; letter-spacing: .2em;
+  text-transform: uppercase; cursor: pointer; padding: 0;
+}
+.size-cancel:hover { color: var(--white); }
+
+/* ── CART ITEM SIZE TAG ── */
+.cart-item-size {
+  display: inline-block; background: rgba(201,168,76,.15);
+  color: var(--gold); font-size: .6rem; letter-spacing: .15em;
+  padding: .1rem .4rem; margin-left: .4rem; vertical-align: middle;
+}
