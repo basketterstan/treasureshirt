@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "name": "Gold Crest Tee",
+    "description": "Premium katoen, geborduurde details",
+    "price": 89,
+    "badge": "New",
+    "stock": 25,
+    "category": "T-Shirts",
+    "emoji": "👕"
+  },
+  {
+    "id": "2",
+    "name": "Noir Signature Tee",
+    "description": "Zwaar geweven stof, slim fit",
+    "price": 79,
+    "badge": "Bestseller",
+    "stock": 40,
+    "category": "T-Shirts",
+    "emoji": "👕"
+  },
+  {
+    "id": "3",
+    "name": "Treasure Classic",
+    "description": "Oversized, washed black editie",
+    "price": 95,
+    "badge": "Limited",
+    "stock": 10,
+    "category": "T-Shirts",
+    "emoji": "👕"
+  },
+  {
+    "id": "4",
+    "name": "Shadow Drop Hoodie",
+    "description": "French terry, cropped fit",
+    "price": 149,
+    "badge": "",
+    "stock": 18,
+    "category": "Hoodies",
+    "emoji": "👕"
+  },
+  {
+    "id": "5",
+    "name": "Essential White Tee",
+    "description": "Pima katoen, regular fit",
+    "price": 55,
+    "badge": "Sale",
+    "stock": 60,
+    "category": "T-Shirts",
+    "emoji": "👕"
+  },
+  {
+    "id": "6",
+    "name": "Velvet Touch Tee",
+    "description": "Velours afwerking, box fit",
+    "price": 110,
+    "badge": "",
+    "stock": 12,
+    "category": "T-Shirts",
+    "emoji": "👕"
+  }
+]
