@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burenfeest — Treasureshirt</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .event-hero {
+      padding: 10rem 5% 4rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+    }
+    .event-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: .65rem;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      padding: .4rem 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .filter-bar {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,.3);
+      color: var(--gray);
+      padding: .5rem 1.5rem;
+      font-family: inherit;
+      font-size: .7rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .3s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .empty-state {
+      text-align: center;
+      padding: 5rem 2rem;
+      color: var(--gray);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Treasureshirt</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <button class="nav-cart" id="cartBtn">
+        Winkelwagen <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Winkelwagen</h3>
+        <button class="cart-close" id="cartClose">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Totaal</span>
+          <span class="cart-total-amount" id="cartTotal">€ 0</span>
+        </div>
+        <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen met Stripe</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-hero">
+    <div class="event-badge">Exclusief evenement</div>
+    <p class="section-label">Treasureshirt</p>
+    <h1 class="section-title">Burenfeest <em>Collectie</em></h1>
+    <div class="divider" style="margin:2rem auto"></div>
+    <p style="color:var(--gray);font-style:italic;max-width:500px;margin:0 auto">
+      Speciaal samengesteld voor het burenfeest — exclusief beschikbaar via deze pagina.
+    </p>
+  </div>
+
+  <section>
+    <div class="filter-bar" id="filterBar"></div>
+    <div class="products-grid" id="productsGrid">
+      <p class="empty-state">Producten laden...</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Treasureshirt</span>
+    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </footer>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div class="pdetail-overlay" id="pdetailOverlay">
+    <div class="pdetail-modal">
+      <button class="pdetail-close" id="pdetailClose">✕</button>
+      <div class="pdetail-image" id="pdetailImage"></div>
+      <div class="pdetail-info">
+        <h2 class="pdetail-name" id="pdetailName"></h2>
+        <p class="pdetail-desc" id="pdetailDesc"></p>
+        <p class="pdetail-price" id="pdetailPrice"></p>
+        <div id="pdetailSizes"></div>
+        <p class="pdetail-hint" id="pdetailHint">Selecteer eerst een maat</p>
+        <button class="pdetail-btn" id="pdetailAddBtn">+ Toevoegen aan winkelwagen</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-toast" id="cartToast"></div>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script type="module">
+    import { db } from './js/firebase-config.js';
+    import { collection, query, orderBy, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    let allProducts  = [];
+    let activeFilter = 'Alles';
+
+    onSnapshot(query(collection(db, 'burenfeest'), orderBy('createdAt', 'asc')), snap => {
+      allProducts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      renderFilters();
+      renderProducts();
+    });
+
+    function renderFilters() {
+      const cats = ['Alles', ...new Set(allProducts.map(p => p.category).filter(Boolean))];
+      if (cats.length <= 1) { document.getElementById('filterBar').innerHTML = ''; return; }
+      document.getElementById('filterBar').innerHTML = cats.map(c =>
+        `<button class="filter-btn ${c === activeFilter ? 'active' : ''}" data-cat="${c}">${c}</button>`
+      ).join('');
+      document.querySelectorAll('.filter-btn').forEach(btn =>
+        btn.addEventListener('click', () => {
+          activeFilter = btn.dataset.cat;
+          document.querySelectorAll('.filter-btn').forEach(b =>
+            b.classList.toggle('active', b.dataset.cat === activeFilter));
+          renderProducts();
+        })
+      );
+    }
+
+    function renderProducts() {
+      const list = activeFilter === 'Alles' ? allProducts : allProducts.filter(p => p.category === activeFilter);
+      const grid = document.getElementById('productsGrid');
+      if (!list.length) {
+        grid.innerHTML = '<p class="empty-state">Nog geen producten beschikbaar.</p>';
+        return;
+      }
+      grid.innerHTML = list.map(p => `
+        <div class="product-card" data-id="${p.id}" style="cursor:pointer">
+          <div class="product-image" style="${p.imageUrl ? `background-image:url('${p.imageUrl}');background-size:cover;background-position:center;font-size:0` : ''}">
+            ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+            ${p.imageUrl ? '' : (p.emoji || '👕')}
+            <div class="product-img-overlay">Bekijk Product</div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">${p.name}</h3>
+            <p class="product-desc">${p.description}</p>
+            <div class="product-footer">
+              <p class="product-price">€ ${p.price}</p>
+              <button class="btn-add-cart">Voeg toe →</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      grid.querySelectorAll('.product-card').forEach((el, i) => {
+        const p = list.find(p => p.id === el.dataset.id);
+        el.addEventListener('click', () => openProductModal(p));
+        el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+        el.style.transition = `opacity .5s ${i*.05}s ease, transform .5s ${i*.05}s ease`;
+        requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+      });
+    }
+
+    window.openProductModal = function(p) {
+      const imgEl = document.getElementById('pdetailImage');
+      if (p.imageUrl) {
+        imgEl.style.cssText = `background-image:url('${p.imageUrl}');background-size:cover;background-position:center;font-size:0`;
+        imgEl.innerHTML = p.badge ? `<span class="product-badge">${p.badge}</span>` : '';
+      } else {
+        imgEl.style.cssText = '';
+        imgEl.innerHTML = `${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}${p.emoji || '👕'}`;
+      }
+      document.getElementById('pdetailName').textContent  = p.name;
+      document.getElementById('pdetailDesc').textContent  = p.description;
+      document.getElementById('pdetailPrice').textContent = `€ ${p.price}`;
+
+      const sizesEl = document.getElementById('pdetailSizes');
+      const hintEl  = document.getElementById('pdetailHint');
+      const sizes   = p.sizes || [];
+      let selectedSize = null;
+      hintEl.classList.remove('show');
+
+      if (sizes.length) {
+        sizesEl.innerHTML = `
+          <p class="pdetail-size-label">Selecteer je maat</p>
+          <div class="pdetail-size-grid">
+            ${sizes.map(s => {
+              const stock  = p.stockPerSize?.[s];
+              const soldOut = stock !== undefined && stock <= 0;
+              return `<button class="pdetail-size-btn${soldOut ? ' sold-out' : ''}" data-size="${s}" ${soldOut ? 'disabled' : ''}>
+                ${s}
+                ${stock !== undefined ? `<span class="pdetail-size-stock">${stock > 0 ? stock + ' stuks' : 'uitverkocht'}</span>` : ''}
+              </button>`;
+            }).join('')}
+          </div>`;
+        sizesEl.querySelectorAll('.pdetail-size-btn:not(:disabled)').forEach(btn => {
+          btn.addEventListener('click', () => {
+            sizesEl.querySelectorAll('.pdetail-size-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedSize = btn.dataset.size;
+            hintEl.classList.remove('show');
+          });
+        });
+      } else {
+        sizesEl.innerHTML = '';
+      }
+
+      document.getElementById('pdetailAddBtn').onclick = () => {
+        if (sizes.length && !selectedSize) { hintEl.classList.add('show'); return; }
+        Cart.add({ id: p.id, name: p.name, price: parseFloat(p.price), description: p.description, emoji: p.emoji || '👕', size: selectedSize || '' });
+        document.getElementById('pdetailOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+      };
+
+      document.getElementById('pdetailOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+  </script>
+  <script>
+    document.getElementById('pdetailClose').addEventListener('click', () => {
+      document.getElementById('pdetailOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    document.getElementById('pdetailOverlay').addEventListener('click', e => {
+      if (e.target === e.currentTarget) {
+        e.currentTarget.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

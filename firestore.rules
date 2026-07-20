@@ -13,5 +13,9 @@ service cloud.firestore {
       allow read: if true;
       allow write: if true;
     }
+    match /burenfeest/{id} {
+      allow read: if true;
+      allow write: if true;
+    }
   }
 }

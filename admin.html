@@ -262,6 +262,34 @@
       </tbody>
     </table>
 
+    <!-- BURENFEEST -->
+    <div class="section-header" style="margin-top:3rem">
+      <h2>Burenfeest <span>Producten</span></h2>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <a href="burenfeest.html" target="_blank" style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:color .3s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gray)'">↗ Bekijk pagina</a>
+        <button class="btn-primary" id="addBurenfeestBtn">+ Nieuw Product</button>
+      </div>
+    </div>
+    <p style="color:var(--gray);font-size:.75rem;font-style:italic;margin-bottom:1.5rem">
+      Geheime pagina via <strong style="color:var(--gold)">treasureshirt.com/burenfeest.html</strong> — enkel zichtbaar met de link.
+    </p>
+
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Categorie</th>
+          <th>Prijs</th>
+          <th>Badge</th>
+          <th>Stock</th>
+          <th>Acties</th>
+        </tr>
+      </thead>
+      <tbody id="burenfeestTableBody">
+        <tr><td colspan="6" class="loading">Laden...</td></tr>
+      </tbody>
+    </table>
+
     <div class="section-header">
       <h2>Instellingen <span>& Beveiliging</span></h2>
     </div>
@@ -341,6 +369,62 @@
   </div>
 </div>
 
+<!-- BURENFEEST MODAL -->
+<div class="modal-overlay" id="bfModalOverlay">
+  <div class="modal">
+    <h3 id="bfModalTitle">Burenfeest Product</h3>
+    <div class="modal-grid">
+      <div class="form-group full"><label>Naam</label><input type="text" id="bfName" placeholder="Productnaam" /></div>
+      <div class="form-group full"><label>Beschrijving</label><input type="text" id="bfDesc" placeholder="Korte omschrijving" /></div>
+      <div class="form-group"><label>Prijs (€)</label><input type="number" id="bfPrice" placeholder="0" min="0" step="0.01" /></div>
+      <div class="form-group"><label>Stock</label><input type="number" id="bfStock" placeholder="0" min="0" /></div>
+      <div class="form-group">
+        <label>Categorie</label>
+        <select id="bfCategory">
+          <option value="T-Shirts">T-Shirts</option>
+          <option value="Hoodies">Hoodies</option>
+          <option value="Accessoires">Accessoires</option>
+          <option value="Overig">Overig</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Badge</label>
+        <select id="bfBadge">
+          <option value="">Geen badge</option>
+          <option value="New">New</option>
+          <option value="Bestseller">Bestseller</option>
+          <option value="Limited">Limited</option>
+          <option value="Sale">Sale</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Beschikbare Maten</label>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.6rem">
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="bfSizes" value="XS" style="accent-color:var(--gold)"> XS</label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="bfSizes" value="S"  style="accent-color:var(--gold)"> S</label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="bfSizes" value="M"  style="accent-color:var(--gold)"> M</label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="bfSizes" value="L"  style="accent-color:var(--gold)"> L</label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="bfSizes" value="XL" style="accent-color:var(--gold)"> XL</label>
+          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="bfSizes" value="XXL" style="accent-color:var(--gold)"> XXL</label>
+        </div>
+      </div>
+      <div class="form-group full" style="margin-top:.5rem">
+        <label>Foto</label>
+        <div id="bfImageUploadArea" style="border:1px dashed rgba(201,168,76,.3);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .3s;position:relative;margin-top:.5rem">
+          <img id="bfImagePreview" src="" style="display:none;max-height:160px;max-width:100%;object-fit:contain;margin-bottom:.75rem" />
+          <p id="bfImageUploadLabel" style="color:var(--gray);font-size:.8rem;font-style:italic">Klik om een foto te kiezen</p>
+          <input type="file" id="bfImage" accept="image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer" />
+        </div>
+        <p id="bfImageUploading" style="display:none;color:var(--gold);font-size:.75rem;font-style:italic;margin-top:.5rem">Foto uploaden...</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" id="bfModalCancel">Annuleren</button>
+      <button class="btn-primary" id="bfModalSave">Opslaan</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script type="module">
@@ -405,6 +489,7 @@ function showDashboard() {
   document.getElementById('dashboard').style.display    = 'block';
   maybeSeed().then(startListener);
   startOrdersListener();
+  startBurenfeestListener();
 }
 
 // ── ORDERS LISTENER ────────────────────────────────
@@ -920,6 +1005,171 @@ document.getElementById('scannerBtnOut').addEventListener('click', () => updateS
 
 // ── INIT ───────────────────────────────────────────
 if (isLoggedIn()) showDashboard();
+
+// ── BURENFEEST ─────────────────────────────────────
+let allBurenfeest   = [];
+let bfEditingId     = null;
+let bfImageUrl      = '';
+let unsubBurenfeest = null;
+
+function startBurenfeestListener() {
+  const q = query(collection(db, 'burenfeest'), orderBy('createdAt', 'asc'));
+  unsubBurenfeest = onSnapshot(q, snap => {
+    allBurenfeest = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderBurenfeestTable();
+  }, err => toast('Burenfeest fout: ' + err.message, 'error'));
+}
+
+function renderBurenfeestTable() {
+  const tbody = document.getElementById('burenfeestTableBody');
+  if (!allBurenfeest.length) {
+    tbody.innerHTML = '<tr><td colspan="6" class="loading">Nog geen producten. Voeg er een toe.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = allBurenfeest.map(p => `
+    <tr>
+      <td>
+        <div style="display:flex;align-items:center;gap:.75rem">
+          ${p.imageUrl
+            ? `<img src="${p.imageUrl}" style="width:40px;height:40px;object-fit:cover;border:1px solid rgba(201,168,76,.2)" />`
+            : `<span style="font-size:1.5rem">${p.emoji || '👕'}</span>`}
+          <div>
+            <div class="product-name-cell">${p.name}</div>
+            <div class="product-desc-cell">${p.description}</div>
+          </div>
+        </div>
+      </td>
+      <td style="color:var(--gray);font-size:.8rem">${p.category || '—'}</td>
+      <td class="price-cell">€ ${p.price}</td>
+      <td>${p.badge ? `<span class="badge-pill badge-${p.badge.toLowerCase()}">${p.badge}</span>` : '<span class="badge-none">—</span>'}</td>
+      <td style="color:${(p.stock||0) <= 5 ? 'var(--gold)' : 'var(--white)'}">${p.stock || 0}</td>
+      <td class="actions-cell">
+        <button class="btn-ghost" style="padding:.4rem .8rem;font-size:.65rem" data-bf-edit="${p.id}">Bewerk</button>
+        <button class="btn-danger" data-bf-delete="${p.id}">✕</button>
+      </td>
+    </tr>
+  `).join('');
+
+  document.querySelectorAll('[data-bf-edit]').forEach(btn =>
+    btn.addEventListener('click', () => openBfEditModal(btn.dataset.bfEdit))
+  );
+  document.querySelectorAll('[data-bf-delete]').forEach(btn =>
+    btn.addEventListener('click', async () => {
+      if (!confirm('Product verwijderen?')) return;
+      await deleteDoc(doc(db, 'burenfeest', btn.dataset.bfDelete));
+      toast('Product verwijderd', 'success');
+    })
+  );
+}
+
+function openBfAddModal() {
+  bfEditingId = null;
+  bfImageUrl  = '';
+  document.getElementById('bfModalTitle').textContent = 'Nieuw Burenfeest Product';
+  ['bfName','bfDesc','bfPrice','bfStock'].forEach(id => document.getElementById(id).value = '');
+  document.querySelectorAll('input[name="bfSizes"]').forEach(cb => cb.checked = false);
+  document.getElementById('bfCategory').value = 'T-Shirts';
+  document.getElementById('bfBadge').value    = '';
+  document.getElementById('bfImagePreview').style.display = 'none';
+  document.getElementById('bfImagePreview').src = '';
+  document.getElementById('bfImageUploadLabel').textContent = 'Klik om een foto te kiezen';
+  document.getElementById('bfImage').value = '';
+  document.getElementById('bfModalOverlay').classList.add('open');
+}
+
+function openBfEditModal(id) {
+  const p = allBurenfeest.find(x => x.id === id);
+  if (!p) return;
+  bfEditingId = id;
+  bfImageUrl  = p.imageUrl || '';
+  document.getElementById('bfModalTitle').textContent = 'Burenfeest Product Bewerken';
+  document.getElementById('bfName').value     = p.name;
+  document.getElementById('bfDesc').value     = p.description;
+  document.getElementById('bfPrice').value    = p.price;
+  document.getElementById('bfStock').value    = p.stock || 0;
+  document.getElementById('bfCategory').value = p.category || 'T-Shirts';
+  document.getElementById('bfBadge').value    = p.badge || '';
+  document.querySelectorAll('input[name="bfSizes"]').forEach(cb => {
+    cb.checked = (p.sizes || []).includes(cb.value);
+  });
+  const preview = document.getElementById('bfImagePreview');
+  if (p.imageUrl) {
+    preview.src = p.imageUrl;
+    preview.style.display = 'block';
+    document.getElementById('bfImageUploadLabel').textContent = 'Klik om foto te wijzigen';
+  } else {
+    preview.style.display = 'none';
+    document.getElementById('bfImageUploadLabel').textContent = 'Klik om een foto te kiezen';
+  }
+  document.getElementById('bfImage').value = '';
+  document.getElementById('bfModalOverlay').classList.add('open');
+}
+
+function closeBfModal() {
+  document.getElementById('bfModalOverlay').classList.remove('open');
+}
+
+document.getElementById('bfImage').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    document.getElementById('bfImagePreview').src = ev.target.result;
+    document.getElementById('bfImagePreview').style.display = 'block';
+    document.getElementById('bfImageUploadLabel').textContent = 'Klik om foto te wijzigen';
+  };
+  reader.readAsDataURL(file);
+});
+
+document.getElementById('addBurenfeestBtn').addEventListener('click', openBfAddModal);
+document.getElementById('bfModalCancel').addEventListener('click', closeBfModal);
+document.getElementById('bfModalOverlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeBfModal();
+});
+
+document.getElementById('bfModalSave').addEventListener('click', async () => {
+  const name  = document.getElementById('bfName').value.trim();
+  const desc  = document.getElementById('bfDesc').value.trim();
+  const price = parseFloat(document.getElementById('bfPrice').value);
+  const stock = parseInt(document.getElementById('bfStock').value) || 0;
+  const cat   = document.getElementById('bfCategory').value;
+  const badge = document.getElementById('bfBadge').value;
+  const sizes = [...document.querySelectorAll('input[name="bfSizes"]:checked')].map(cb => cb.value);
+  const file  = document.getElementById('bfImage').files[0];
+
+  if (!name || isNaN(price)) { toast('Vul naam en prijs in', 'error'); return; }
+
+  const saveBtn = document.getElementById('bfModalSave');
+  saveBtn.textContent = 'Opslaan...';
+  saveBtn.disabled = true;
+
+  let imageUrl = bfImageUrl;
+  if (file) {
+    document.getElementById('bfImageUploading').style.display = 'block';
+    const { ref, uploadBytes, getDownloadURL } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js');
+    const { storage: stor } = await import('./js/firebase-config.js');
+    const storageRef = ref(stor, `burenfeest/${Date.now()}_${file.name}`);
+    await uploadBytes(storageRef, file);
+    imageUrl = await getDownloadURL(storageRef);
+    document.getElementById('bfImageUploading').style.display = 'none';
+  }
+
+  const data = { name, description: desc, price, stock, category: cat, badge, sizes, emoji: '👕', imageUrl: imageUrl || '' };
+
+  if (bfEditingId) {
+    await updateDoc(doc(db, 'burenfeest', bfEditingId), data);
+    toast('Product bijgewerkt', 'success');
+  } else {
+    await addDoc(collection(db, 'burenfeest'), { ...data, createdAt: Date.now() });
+    toast('Product toegevoegd', 'success');
+  }
+
+  saveBtn.textContent = 'Opslaan';
+  saveBtn.disabled = false;
+  closeBfModal();
+});
+
+
 </script>
 </body>
 </html>
