@@ -1013,11 +1013,14 @@ let bfImageUrl      = '';
 let unsubBurenfeest = null;
 
 function startBurenfeestListener() {
-  const q = query(collection(db, 'burenfeest'), orderBy('createdAt', 'asc'));
-  unsubBurenfeest = onSnapshot(q, snap => {
-    allBurenfeest = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  unsubBurenfeest = onSnapshot(collection(db, 'burenfeest'), snap => {
+    allBurenfeest = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+      .sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
     renderBurenfeestTable();
-  }, err => toast('Burenfeest fout: ' + err.message, 'error'));
+  }, err => {
+    document.getElementById('burenfeestTableBody').innerHTML =
+      `<tr><td colspan="6" style="color:#e74c3c;padding:1rem;font-style:italic">Fout: ${err.message}</td></tr>`;
+  });
 }
 
 function renderBurenfeestTable() {
@@ -1146,9 +1149,7 @@ document.getElementById('bfModalSave').addEventListener('click', async () => {
   let imageUrl = bfImageUrl;
   if (file) {
     document.getElementById('bfImageUploading').style.display = 'block';
-    const { ref, uploadBytes, getDownloadURL } = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js');
-    const { storage: stor } = await import('./js/firebase-config.js');
-    const storageRef = ref(stor, `burenfeest/${Date.now()}_${file.name}`);
+    const storageRef = ref(storage, `burenfeest/${Date.now()}_${file.name}`);
     await uploadBytes(storageRef, file);
     imageUrl = await getDownloadURL(storageRef);
     document.getElementById('bfImageUploading').style.display = 'none';
