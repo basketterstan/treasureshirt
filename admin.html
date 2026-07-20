@@ -1003,14 +1003,14 @@ async function updateScannerStock(delta) {
 document.getElementById('scannerBtnIn').addEventListener('click', () => updateScannerStock(+1));
 document.getElementById('scannerBtnOut').addEventListener('click', () => updateScannerStock(-1));
 
-// ── INIT ───────────────────────────────────────────
-if (isLoggedIn()) showDashboard();
-
-// ── BURENFEEST ─────────────────────────────────────
+// ── BURENFEEST STATE ───────────────────────────────
 let allBurenfeest   = [];
 let bfEditingId     = null;
 let bfImageUrl      = '';
 let unsubBurenfeest = null;
+
+// ── INIT ───────────────────────────────────────────
+if (isLoggedIn()) showDashboard();
 
 function startBurenfeestListener() {
   unsubBurenfeest = onSnapshot(collection(db, 'burenfeest'), snap => {
