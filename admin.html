@@ -1146,28 +1146,33 @@ document.getElementById('bfModalSave').addEventListener('click', async () => {
   saveBtn.textContent = 'Opslaan...';
   saveBtn.disabled = true;
 
-  let imageUrl = bfImageUrl;
-  if (file) {
-    document.getElementById('bfImageUploading').style.display = 'block';
-    const storageRef = ref(storage, `burenfeest/${Date.now()}_${file.name}`);
-    await uploadBytes(storageRef, file);
-    imageUrl = await getDownloadURL(storageRef);
+  try {
+    let imageUrl = bfImageUrl;
+    if (file) {
+      document.getElementById('bfImageUploading').style.display = 'block';
+      const storageRef = ref(storage, `burenfeest/${Date.now()}_${file.name}`);
+      await uploadBytes(storageRef, file);
+      imageUrl = await getDownloadURL(storageRef);
+      document.getElementById('bfImageUploading').style.display = 'none';
+    }
+
+    const data = { name, description: desc, price, stock, category: cat, badge, sizes, emoji: '👕', imageUrl: imageUrl || '' };
+
+    if (bfEditingId) {
+      await updateDoc(doc(db, 'burenfeest', bfEditingId), data);
+      toast('Product bijgewerkt', 'success');
+    } else {
+      await addDoc(collection(db, 'burenfeest'), { ...data, createdAt: Date.now() });
+      toast('Product toegevoegd', 'success');
+    }
+    closeBfModal();
+  } catch (err) {
+    toast('Fout bij opslaan: ' + err.message, 'error');
     document.getElementById('bfImageUploading').style.display = 'none';
-  }
-
-  const data = { name, description: desc, price, stock, category: cat, badge, sizes, emoji: '👕', imageUrl: imageUrl || '' };
-
-  if (bfEditingId) {
-    await updateDoc(doc(db, 'burenfeest', bfEditingId), data);
-    toast('Product bijgewerkt', 'success');
-  } else {
-    await addDoc(collection(db, 'burenfeest'), { ...data, createdAt: Date.now() });
-    toast('Product toegevoegd', 'success');
   }
 
   saveBtn.textContent = 'Opslaan';
   saveBtn.disabled = false;
-  closeBfModal();
 });
 
 
