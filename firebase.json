@@ -5,7 +5,10 @@
   "firestore": {
     "rules": "firestore.rules"
   },
-  "storage": {
-    "rules": "storage.rules"
-  }
+  "storage": [
+    {
+      "bucket": "treasureshirt-68b83.firebasestorage.app",
+      "rules": "storage.rules"
+    }
+  ]
 }
