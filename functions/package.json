@@ -4,7 +4,7 @@
   "scripts": {
     "deploy": "firebase deploy --only functions"
   },
-  "engines": { "node": "18" },
+  "engines": { "node": "20" },
   "dependencies": {
     "firebase-functions": "^4.9.0",
     "stripe": "^14.0.0",
