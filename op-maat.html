@@ -699,7 +699,28 @@
     import { collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
     // ── STATE ──
-    let selectedType      = null; // 'tshirt' | 'hoodie'
+    const DRAFT_KEY = 'ts_opmaat_draft';
+
+    function saveDraft() {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify({
+        naam:        document.getElementById('fieldNaam').value,
+        thema:       document.getElementById('fieldThema').value,
+        opmerkingen: document.getElementById('fieldOpmerkingen').value,
+        type:        selectedType,
+        maat:        selectedMaat,
+        stijl:       selectedStijl,
+        kleuren:     selectedKleuren,
+        plaatsing:   selectedPlaatsing,
+      }));
+    }
+
+    function loadDraft() {
+      try { return JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null'); } catch { return null; }
+    }
+
+    function clearDraft() { localStorage.removeItem(DRAFT_KEY); }
+
+    let selectedType      = null;
     let selectedMaat      = null;
     let selectedStijl     = null;
     let selectedKleuren   = [];
@@ -740,9 +761,52 @@
         }
         updateColorNote();
         updateSummary();
+        saveDraft();
       });
       colorGrid.appendChild(sw);
     });
+
+    // ── HERSTEL DRAFT ──
+    (function restoreDraft() {
+      const d = loadDraft();
+      if (!d) return;
+
+      if (d.naam) document.getElementById('fieldNaam').value = d.naam;
+      if (d.thema) document.getElementById('fieldThema').value = d.thema;
+      if (d.opmerkingen) document.getElementById('fieldOpmerkingen').value = d.opmerkingen;
+
+      if (d.type) {
+        selectedType = d.type;
+        const radio = document.querySelector(`input[name="typeKleding"][value="${d.type}"]`);
+        if (radio) { radio.checked = true; radio.closest('.card-choice').classList.add('selected'); }
+      }
+      if (d.maat) {
+        selectedMaat = d.maat;
+        document.querySelectorAll('.size-btn').forEach(b => {
+          if (b.dataset.size === d.maat) b.classList.add('active');
+        });
+      }
+      if (d.stijl) {
+        selectedStijl = d.stijl;
+        const radio = document.querySelector(`input[name="stijl"][value="${d.stijl}"]`);
+        if (radio) { radio.checked = true; radio.closest('.style-option').classList.add('selected'); }
+      }
+      if (d.kleuren?.length) {
+        selectedKleuren = d.kleuren;
+        document.querySelectorAll('.color-swatch').forEach(sw => {
+          if (sw.dataset.naam === d.kleuren[0]) sw.classList.add('selected');
+        });
+      }
+      if (d.plaatsing) {
+        selectedPlaatsing = d.plaatsing;
+        document.querySelectorAll('.placement-btn').forEach(b => {
+          if (b.dataset.place === d.plaatsing) b.classList.add('active');
+        });
+      }
+
+      updateColorNote();
+      updateSummary();
+    })();
 
     function updateColorNote() {
       const note = document.getElementById('colorLimitNote');
@@ -757,7 +821,7 @@
         selectedType = radio.value;
         document.querySelectorAll('.card-choice').forEach(c => c.classList.remove('selected'));
         radio.closest('.card-choice').classList.add('selected');
-        updateSummary();
+        updateSummary(); saveDraft();
       });
     });
 
@@ -767,7 +831,7 @@
         document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         selectedMaat = btn.dataset.size;
-        updateSummary();
+        updateSummary(); saveDraft();
       });
     });
 
@@ -777,7 +841,7 @@
         selectedStijl = radio.value;
         document.querySelectorAll('.style-option').forEach(o => o.classList.remove('selected'));
         radio.closest('.style-option').classList.add('selected');
-        updateSummary();
+        updateSummary(); saveDraft();
       });
     });
 
@@ -787,7 +851,7 @@
         document.querySelectorAll('.placement-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         selectedPlaatsing = btn.dataset.place;
-        updateSummary();
+        updateSummary(); saveDraft();
       });
     });
 
@@ -815,8 +879,9 @@
       }
     }
 
-    document.getElementById('fieldNaam').addEventListener('input', updateSummary);
-    document.getElementById('fieldThema').addEventListener('input', updateSummary);
+    document.getElementById('fieldNaam').addEventListener('input', () => { updateSummary(); saveDraft(); });
+    document.getElementById('fieldThema').addEventListener('input', () => { updateSummary(); saveDraft(); });
+    document.getElementById('fieldOpmerkingen').addEventListener('input', saveDraft);
 
     // ── VALIDATIE ──
     function validate() {
@@ -885,6 +950,7 @@
 
         const { url, error } = await res.json();
         if (error) throw new Error(error);
+        clearDraft();
         window.location.href = url;
 
       } catch (err) {
