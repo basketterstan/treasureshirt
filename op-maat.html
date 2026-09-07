@@ -616,21 +616,9 @@
 
     <div class="opmaat-divider"></div>
 
-    <!-- STAP 7 — KLEUREN -->
+    <!-- STAP 7 — PLAATSING -->
     <div class="form-step">
       <p class="form-step-label">Stap 7</p>
-      <h3>Kleur<em>voorkeur</em></h3>
-      <div class="color-grid" id="colorGrid">
-        <!-- Swatches rendered by JS -->
-      </div>
-      <p class="color-limit-note" id="colorLimitNote">Kies 1 kleur — vinyl print is altijd eenkleurig</p>
-    </div>
-
-    <div class="opmaat-divider"></div>
-
-    <!-- STAP 8 — PLAATSING -->
-    <div class="form-step">
-      <p class="form-step-label">Stap 8</p>
       <h3>Plaatsing van het <em>design</em></h3>
       <div class="placement-grid" id="placementGrid">
         <button class="placement-btn" data-place="Voorkant">Voorkant</button>
@@ -641,9 +629,9 @@
 
     <div class="opmaat-divider"></div>
 
-    <!-- STAP 9 — LEVERING -->
+    <!-- STAP 8 — LEVERING -->
     <div class="form-step">
-      <p class="form-step-label">Stap 9</p>
+      <p class="form-step-label">Stap 8</p>
       <h3>Levering <em>adres</em></h3>
       <p class="input-hint" style="margin-bottom:1.25rem">Levering in België — € 7 verzendkosten.</p>
       <input type="text" id="fieldStraat" class="form-input" placeholder="Straat en huisnummer" style="margin-bottom:1rem" maxlength="100" />
@@ -657,7 +645,7 @@
 
     <!-- STAP 10 — EXTRA OPMERKINGEN -->
     <div class="form-step">
-      <p class="form-step-label">Stap 10 — Optioneel</p>
+      <p class="form-step-label">Stap 9 — Optioneel</p>
       <h3>Extra <em>opmerkingen</em></h3>
       <textarea id="fieldOpmerkingen" class="form-input" placeholder="Bijv. specifieke lettertypes, symbolen, een naam op het design, kleurverhouding..." maxlength="400"></textarea>
       <p class="input-hint">Alles wat je kwijt wil dat niet in de vorige stappen past.</p>
@@ -691,10 +679,6 @@
         <div class="summary-row">
           <span class="summary-row-label">Stijl</span>
           <span class="summary-row-value" id="sumStijl">—</span>
-        </div>
-        <div class="summary-row">
-          <span class="summary-row-label">Kleuren</span>
-          <span class="summary-row-value" id="sumKleuren">—</span>
         </div>
         <div class="summary-row">
           <span class="summary-row-label">Plaatsing</span>
@@ -759,7 +743,6 @@
         kledingKleur: selectedKledingKleur,
         maat:        selectedMaat,
         stijl:       selectedStijl,
-        kleuren:     selectedKleuren,
         plaatsing:   selectedPlaatsing,
         straat:      document.getElementById('fieldStraat')?.value || '',
         postcode:    document.getElementById('fieldPostcode')?.value || '',
@@ -777,49 +760,11 @@
     let selectedKledingKleur = null;
     let selectedMaat        = null;
     let selectedStijl       = null;
-    let selectedKleuren     = [];
     let selectedPlaatsing   = null;
 
     const PRIJZEN     = { tshirt: 35, hoodie: 65 };
     const VERZENDKOST = 7;
 
-    const KLEUREN = [
-      { naam: 'Zwart',    hex: '#111111' },
-      { naam: 'Wit',      hex: '#f0f0f0' },
-      { naam: 'Navy',     hex: '#1b2a4a' },
-      { naam: 'Rood',     hex: '#c0392b' },
-      { naam: 'Goud',     hex: '#c9a84c' },
-      { naam: 'Groen',    hex: '#27643a' },
-      { naam: 'Paars',    hex: '#6c3483' },
-      { naam: 'Oranje',   hex: '#d35400' },
-      { naam: 'Roze',     hex: '#c0457a' },
-      { naam: 'Grijs',    hex: '#707070' },
-    ];
-
-    // ── RENDER KLEUREN ──
-    const colorGrid = document.getElementById('colorGrid');
-    KLEUREN.forEach(k => {
-      const sw = document.createElement('div');
-      sw.className = 'color-swatch';
-      sw.style.background = k.hex;
-      sw.title = k.naam;
-      sw.dataset.naam = k.naam;
-      sw.addEventListener('click', () => {
-        if (sw.classList.contains('selected')) {
-          sw.classList.remove('selected');
-          selectedKleuren = [];
-        } else {
-          document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
-          selectedKleuren = [];
-          sw.classList.add('selected');
-          selectedKleuren.push(k.naam);
-        }
-        updateColorNote();
-        updateSummary();
-        saveDraft();
-      });
-      colorGrid.appendChild(sw);
-    });
 
     // ── HERSTEL DRAFT ──
     (function restoreDraft() {
@@ -852,12 +797,6 @@
         const radio = document.querySelector(`input[name="stijl"][value="${d.stijl}"]`);
         if (radio) { radio.checked = true; radio.closest('.style-option').classList.add('selected'); }
       }
-      if (d.kleuren?.length) {
-        selectedKleuren = d.kleuren;
-        document.querySelectorAll('.color-swatch').forEach(sw => {
-          if (sw.dataset.naam === d.kleuren[0]) sw.classList.add('selected');
-        });
-      }
       if (d.plaatsing) {
         selectedPlaatsing = d.plaatsing;
         document.querySelectorAll('.placement-btn').forEach(b => {
@@ -868,16 +807,8 @@
       if (d.postcode)  document.getElementById('fieldPostcode').value  = d.postcode;
       if (d.gemeente)  document.getElementById('fieldGemeente').value  = d.gemeente;
 
-      updateColorNote();
       updateSummary();
     })();
-
-    function updateColorNote() {
-      const note = document.getElementById('colorLimitNote');
-      note.textContent = selectedKleuren.length
-        ? `Geselecteerd: ${selectedKleuren[0]} — klik opnieuw om te wijzigen`
-        : 'Kies 1 kleur — vinyl print is altijd eenkleurig';
-    }
 
     // ── TYPE KLEDING ──
     document.querySelectorAll('input[name="typeKleding"]').forEach(radio => {
@@ -942,7 +873,6 @@
       document.getElementById('sumKledingKleur').textContent  = selectedKledingKleur || '—';
       document.getElementById('sumThema').textContent     = thema || '—';
       document.getElementById('sumStijl').textContent     = selectedStijl || '—';
-      document.getElementById('sumKleuren').textContent   = selectedKleuren.length ? selectedKleuren.join(', ') : '—';
       document.getElementById('sumPlaatsing').textContent = selectedPlaatsing || '—';
       document.getElementById('sumLevering').textContent  = 'Levering België';
       document.getElementById('sumVerzend').textContent   = `€ ${VERZENDKOST}`;
@@ -968,7 +898,7 @@
       const straat   = document.getElementById('fieldStraat').value.trim();
       const postcode = document.getElementById('fieldPostcode').value.trim();
       const gemeente = document.getElementById('fieldGemeente').value.trim();
-      if (!naam || !selectedType || !selectedKledingKleur || !selectedMaat || !thema || !selectedStijl || !selectedKleuren.length || !selectedPlaatsing) return false;
+      if (!naam || !selectedType || !selectedKledingKleur || !selectedMaat || !thema || !selectedStijl || !selectedPlaatsing) return false;
       if (!straat || !postcode || !gemeente) return false;
       return true;
     }
@@ -1006,7 +936,6 @@
         maat:          selectedMaat,
         thema,
         stijl:        selectedStijl,
-        kleuren:      selectedKleuren,
         plaatsing:    selectedPlaatsing,
         opmerkingen:  opmerkingen || '',
         totaalprijs:  prijs,
@@ -1025,8 +954,8 @@
           cartKey:     orderId,
           type:        'custom',
           name:        `Op Maat ${productNaam} (${selectedMaat})`,
-          description: `Design: ${thema} | Stijl: ${selectedStijl} | Kleur design: ${selectedKleuren.join(', ')} | Kleur kledingstuk: ${selectedKledingKleur} | Plaatsing: ${selectedPlaatsing}${opmerkingen ? ` | Extra: ${opmerkingen}` : ''} | OrderID: ${orderId}`,
-          brief:       `${thema} — ${selectedStijl} — ${selectedKleuren.join(', ')} op ${selectedKledingKleur}`,
+          description: `Design: ${thema} | Stijl: ${selectedStijl} | Kleur kledingstuk: ${selectedKledingKleur} | Plaatsing: ${selectedPlaatsing}${opmerkingen ? ` | Extra: ${opmerkingen}` : ''} | OrderID: ${orderId}`,
+          brief:       `${thema} — ${selectedStijl} — ${selectedKledingKleur}`,
           price:       prijs,
           basisprijs,
           verzend,
@@ -1056,13 +985,10 @@
       selectedKledingKleur = null;
       selectedMaat = null;
       selectedStijl = null;
-      selectedKleuren = [];
       selectedPlaatsing = null;
       document.querySelectorAll('.card-choice').forEach(c => c.classList.remove('selected'));
       document.querySelectorAll('input[name="typeKleding"], input[name="stijl"]').forEach(r => r.checked = false);
       document.querySelectorAll('.size-btn, .placement-btn, .kkleur-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
-      updateColorNote();
       updateSummary();
     }
 
