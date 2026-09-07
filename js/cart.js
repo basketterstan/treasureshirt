@@ -8,6 +8,13 @@ const Cart = (() => {
 
   function add(product) {
     const items = get();
+    if (product.type === 'custom') {
+      items.push(product);
+      save(items);
+      flashBadge();
+      showAddedToast(product.name);
+      return;
+    }
     const key = cartKey(product.id, product.size);
     const existing = items.find(i => (i.cartKey || i.id) === key);
     if (existing) existing.quantity++;
