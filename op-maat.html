@@ -67,6 +67,14 @@
       border-bottom-color: var(--gold);
     }
 
+    .form-input.field-error {
+      border-color: #c0392b;
+    }
+    .grid-error {
+      outline: 1px solid #c0392b;
+      outline-offset: 4px;
+    }
+
     .form-input::placeholder {
       color: var(--gray);
       font-style: italic;
@@ -530,7 +538,7 @@
     <div class="form-step">
       <p class="form-step-label">Stap 2</p>
       <h3>Type <em>kleding</em></h3>
-      <div class="card-choice-grid">
+      <div class="card-choice-grid" id="typeGrid">
         <label class="card-choice" id="cardTshirt">
           <input type="radio" name="typeKleding" value="tshirt" />
           <span class="card-choice-check">✓</span>
@@ -816,6 +824,7 @@
         selectedType = radio.value;
         document.querySelectorAll('.card-choice').forEach(c => c.classList.remove('selected'));
         radio.closest('.card-choice').classList.add('selected');
+        document.getElementById('typeGrid').classList.remove('grid-error');
         updateSummary(); saveDraft();
       });
     });
@@ -826,6 +835,7 @@
         document.querySelectorAll('.kkleur-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         selectedKledingKleur = btn.dataset.kkleur;
+        document.getElementById('kledingKleurGrid').classList.remove('grid-error');
         updateSummary(); saveDraft();
       });
     });
@@ -836,6 +846,7 @@
         document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         selectedMaat = btn.dataset.size;
+        document.getElementById('sizeGrid').classList.remove('grid-error');
         updateSummary(); saveDraft();
       });
     });
@@ -846,6 +857,7 @@
         selectedStijl = radio.value;
         document.querySelectorAll('.style-option').forEach(o => o.classList.remove('selected'));
         radio.closest('.style-option').classList.add('selected');
+        document.getElementById('styleGrid').classList.remove('grid-error');
         updateSummary(); saveDraft();
       });
     });
@@ -856,6 +868,7 @@
         document.querySelectorAll('.placement-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         selectedPlaatsing = btn.dataset.place;
+        document.getElementById('placementGrid').classList.remove('grid-error');
         updateSummary(); saveDraft();
       });
     });
@@ -887,20 +900,43 @@
       }
     }
 
-    document.getElementById('fieldNaam').addEventListener('input', () => { updateSummary(); saveDraft(); });
-    document.getElementById('fieldThema').addEventListener('input', () => { updateSummary(); saveDraft(); });
+    document.getElementById('fieldNaam').addEventListener('input', () => {
+      document.getElementById('fieldNaam').classList.remove('field-error');
+      updateSummary(); saveDraft();
+    });
+    document.getElementById('fieldThema').addEventListener('input', () => {
+      document.getElementById('fieldThema').classList.remove('field-error');
+      updateSummary(); saveDraft();
+    });
+    document.getElementById('fieldStraat').addEventListener('input', () => document.getElementById('fieldStraat').classList.remove('field-error'));
+    document.getElementById('fieldPostcode').addEventListener('input', () => document.getElementById('fieldPostcode').classList.remove('field-error'));
+    document.getElementById('fieldGemeente').addEventListener('input', () => document.getElementById('fieldGemeente').classList.remove('field-error'));
     document.getElementById('fieldOpmerkingen').addEventListener('input', saveDraft);
 
     // ── VALIDATIE ──
-    function validate() {
+    function markErrors() {
       const naam     = document.getElementById('fieldNaam').value.trim();
       const thema    = document.getElementById('fieldThema').value.trim();
       const straat   = document.getElementById('fieldStraat').value.trim();
       const postcode = document.getElementById('fieldPostcode').value.trim();
       const gemeente = document.getElementById('fieldGemeente').value.trim();
-      if (!naam || !selectedType || !selectedKledingKleur || !selectedMaat || !thema || !selectedStijl || !selectedPlaatsing) return false;
-      if (!straat || !postcode || !gemeente) return false;
-      return true;
+      let valid = true;
+
+      function errInput(id, bad) { document.getElementById(id).classList.toggle('field-error', bad); if (bad) valid = false; }
+      function errGrid(id, bad)  { document.getElementById(id).classList.toggle('grid-error',  bad); if (bad) valid = false; }
+
+      errInput('fieldNaam',     !naam);
+      errGrid('typeGrid',       !selectedType);
+      errGrid('kledingKleurGrid', !selectedKledingKleur);
+      errGrid('sizeGrid',       !selectedMaat);
+      errInput('fieldThema',    !thema);
+      errGrid('styleGrid',      !selectedStijl);
+      errGrid('placementGrid',  !selectedPlaatsing);
+      errInput('fieldStraat',   !straat);
+      errInput('fieldPostcode', !postcode);
+      errInput('fieldGemeente', !gemeente);
+
+      return valid;
     }
 
     // ── BESTEL ──
@@ -908,9 +944,10 @@
       const errEl = document.getElementById('formError');
       errEl.classList.remove('show');
 
-      if (!validate()) {
+      if (!markErrors()) {
         errEl.classList.add('show');
-        errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const firstErr = document.querySelector('.field-error, .grid-error');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
