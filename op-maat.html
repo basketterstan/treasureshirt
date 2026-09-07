@@ -619,6 +619,16 @@
 
     <div class="opmaat-divider"></div>
 
+    <!-- STAP 8 — EXTRA OPMERKINGEN -->
+    <div class="form-step">
+      <p class="form-step-label">Stap 8 — Optioneel</p>
+      <h3>Extra <em>opmerkingen</em></h3>
+      <textarea id="fieldOpmerkingen" class="form-input" placeholder="Bijv. specifieke lettertypes, symbolen, een naam op het design, kleurverhouding..." maxlength="400"></textarea>
+      <p class="input-hint">Alles wat je kwijt wil dat niet in de vorige stappen past.</p>
+    </div>
+
+    <div class="opmaat-divider"></div>
+
     <!-- SAMENVATTING + BESTEL -->
     <div class="form-step">
       <p class="form-step-label">Samenvatting</p>
@@ -830,9 +840,10 @@
       btn.disabled = true;
       btn.textContent = 'Bestelling opslaan...';
 
-      const naam   = document.getElementById('fieldNaam').value.trim();
-      const thema  = document.getElementById('fieldThema').value.trim();
-      const prijs  = PRIJZEN[selectedType];
+      const naam        = document.getElementById('fieldNaam').value.trim();
+      const thema       = document.getElementById('fieldThema').value.trim();
+      const opmerkingen = document.getElementById('fieldOpmerkingen').value.trim();
+      const prijs       = PRIJZEN[selectedType];
 
       const orderData = {
         naam,
@@ -842,6 +853,7 @@
         stijl:        selectedStijl,
         kleuren:      selectedKleuren,
         plaatsing:    selectedPlaatsing,
+        opmerkingen:  opmerkingen || '',
         totaalprijs:  prijs,
         betaald:      prijs,
         status:       'pending_payment',
@@ -864,7 +876,7 @@
             userId,
             items: [{
               name:        `Op Maat ${productNaam} (${selectedMaat})`,
-              description: `Design: ${thema} | Stijl: ${selectedStijl} | Kleuren: ${selectedKleuren.join(', ')} | Plaatsing: ${selectedPlaatsing} | OrderID: ${orderId}`,
+              description: `Design: ${thema} | Stijl: ${selectedStijl} | Kleuren: ${selectedKleuren.join(', ')} | Plaatsing: ${selectedPlaatsing}${opmerkingen ? ` | Extra: ${opmerkingen}` : ''} | OrderID: ${orderId}`,
               price:       prijs,
               quantity:    1,
             }],
