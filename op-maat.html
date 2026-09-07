@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Op Maat — Treasureshirt</title>
+  <meta name="description" content="Laat een uniek design maken op maat — jouw thema, jouw stijl, jouw shirt." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── PAGE HERO ── */
+    .opmaat-hero {
+      padding: 12rem 5% 5rem;
+      text-align: center;
+      background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+    }
+
+    /* ── FORM LAYOUT ── */
+    .opmaat-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 5%;
+    }
+
+    .form-step {
+      margin-bottom: 3.5rem;
+    }
+
+    .form-step-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-step h3 {
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .form-step h3 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ── TEXT INPUT ── */
+    .form-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.4);
+      color: var(--white);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      padding: 0.75rem 0;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-input:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    .form-input::placeholder {
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 90px;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      padding: 0.75rem 1rem;
+    }
+
+    textarea.form-input:focus {
+      border-color: var(--gold);
+    }
+
+    .input-hint {
+      font-size: 0.75rem;
+      color: var(--gray);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    .input-warning {
+      font-size: 0.75rem;
+      color: #c9784c;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* ── CARD CHOICE (type kleding) ── */
+    .card-choice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .card-choice {
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .card-choice:hover {
+      border-color: rgba(201, 168, 76, 0.5);
+    }
+
+    .card-choice.selected {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.06);
+    }
+
+    .card-choice input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .card-choice-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-choice-name {
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.35rem;
+    }
+
+    .card-choice-price {
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .card-choice-check {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      color: transparent;
+      transition: all 0.3s;
+    }
+
+    .card-choice.selected .card-choice-check {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--black);
+    }
+
+    /* ── SIZE GRID ── */
+    .size-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .size-btn {
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      background: transparent;
+      color: var(--gray);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .size-btn:hover {
+      border-color: var(--gold);
+      color: var(--white);
+    }
+
+    .size-btn.active {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    /* ── STYLE OPTIONS ── */
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+
+    .style-option {
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .style-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .style-option:hover {
+      border-color: rgba(201, 168, 76, 0.5);
+    }
+
+    .style-option.selected {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.06);
+    }
+
+    .style-option-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .style-option-name {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    /* ── COLOR SWATCHES ── */
+    .color-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .color-swatch {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .color-swatch:hover {
+      transform: scale(1.1);
+    }
+
+    .color-swatch.selected {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.3);
+    }
+
+    .color-swatch.selected::after {
+      content: '✓';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.9);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    }
+
+    .color-limit-note {
+      font-size: 0.72rem;
+      color: var(--gray);
+      font-style: italic;
+      margin-top: 0.75rem;
+    }
+
+    /* ── PLACEMENT ── */
+    .placement-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .placement-btn {
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      background: transparent;
+      color: var(--gray);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .placement-btn:hover {
+      border-color: var(--gold);
+      color: var(--white);
+    }
+
+    .placement-btn.active {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    /* ── SUMMARY BOX ── */
+    .summary-box {
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      background: rgba(201, 168, 76, 0.03);
+    }
+
+    .summary-box h3 {
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9rem;
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .summary-row-label {
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    .summary-row-value {
+      color: var(--white);
+    }
+
+    .summary-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(201, 168, 76, 0.3);
+    }
+
+    .summary-total-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .summary-total-price {
+      font-size: 1.6rem;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .deposit-note {
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-style: italic;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    .deposit-note strong {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ── CTA / ERROR ── */
+    .btn-opmaat {
+      width: 100%;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      padding: 1.25rem 2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-opmaat:hover:not(:disabled) {
+      background: var(--gold-light);
+    }
+
+    .btn-opmaat:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .form-error {
+      background: rgba(201, 80, 76, 0.1);
+      border: 1px solid rgba(201, 80, 76, 0.4);
+      color: #e88a88;
+      font-size: 0.82rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+
+    .form-error.show { display: block; }
+
+    /* ── DIVIDER ── */
+    .opmaat-divider {
+      width: 60px;
+      height: 1px;
+      background: rgba(201, 168, 76, 0.4);
+      margin: 3rem 0;
+    }
+
+    @media (max-width: 600px) {
+      .card-choice-grid { grid-template-columns: 1fr; }
+      .style-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Treasureshirt</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="op-maat.html" style="color:var(--gold)">Op Maat</a></li>
+      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
+      <button class="nav-cart" id="cartBtn">
+        Winkelwagen <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Winkelwagen</h3>
+        <button class="cart-close" id="cartClose">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Totaal</span>
+          <span class="cart-total-amount" id="cartTotal">€ 0</span>
+        </div>
+        <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen met Stripe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="opmaat-hero">
+    <p class="section-label">Treasureshirt — Exclusief</p>
+    <h1 class="section-title">Jouw Design,<br /><em>Op Maat</em></h1>
+    <div class="divider" style="margin:2rem auto"></div>
+    <p style="color:var(--gray);font-style:italic;max-width:520px;margin:0 auto;line-height:1.8">
+      Vertel ons jouw verhaal. Wij maken een uniek design — persoonlijk gedrukt op premium kwaliteit.
+      Klaar binnen 30 minuten.
+    </p>
+  </div>
+
+  <!-- FORM -->
+  <section class="opmaat-section">
+
+    <!-- STAP 1 — NAAM -->
+    <div class="form-step">
+      <p class="form-step-label">Stap 1</p>
+      <h3>Jouw <em>naam</em></h3>
+      <input type="text" id="fieldNaam" class="form-input" placeholder="Voornaam (verschijnt vaak op het design)" maxlength="40" />
+    </div>
+
+    <div class="opmaat-divider"></div>
+
+    <!-- STAP 2 — TYPE KLEDING -->
+    <div class="form-step">
+      <p class="form-step-label">Stap 2</p>
+      <h3>Type <em>kleding</em></h3>
+      <div class="card-choice-grid">
+        <label class="card-choice" id="cardTshirt">
+          <input type="radio" name="typeKleding" value="tshirt" />
+          <span class="card-choice-check">✓</span>
+          <div class="card-choice-icon">👕</div>
+          <p class="card-choice-name">T-Shirt</p>
+          <p class="card-choice-price">€ 35</p>
+        </label>
+        <label class="card-choice" id="cardHoodie">
+          <input type="radio" name="typeKleding" value="hoodie" />
+          <span class="card-choice-check">✓</span>
+          <div class="card-choice-icon">🧥</div>
+          <p class="card-choice-name">Hoodie</p>
+          <p class="card-choice-price">€ 65</p>
+        </label>
+      </div>
+    </div>
+
+    <div class="opmaat-divider"></div>
+
+    <!-- STAP 3 — MAAT -->
+    <div class="form-step">
+      <p class="form-step-label">Stap 3</p>
+      <h3>Jouw <em>maat</em></h3>
+      <div class="size-grid" id="sizeGrid">
+        <button class="size-btn" data-size="XS">XS</button>
+        <button class="size-btn" data-size="S">S</button>
+        <button class="size-btn" data-size="M">M</button>
+        <button class="size-btn" data-size="L">L</button>
+        <button class="size-btn" data-size="XL">XL</button>
+        <button class="size-btn" data-size="XXL">XXL</button>
+      </div>
+    </div>
+
+    <div class="opmaat-divider"></div>
+
+    <!-- STAP 4 — THEMA -->
+    <div class="form-step">
+      <p class="form-step-label">Stap 4</p>
+      <h3>Hobby of <em>thema</em></h3>
+      <textarea id="fieldThema" class="form-input" placeholder="Bijv. basketbal, muziek, gaming, natuur, hip-hop..." maxlength="200"></textarea>
+      <p class="input-warning">⚠ Geen bestaande logo's, merknamen of filmfiguren — we maken een origineel design in die stijl.</p>
+    </div>
+
+    <div class="opmaat-divider"></div>
+
+    <!-- STAP 5 — STIJL -->
+    <div class="form-step">
+      <p class="form-step-label">Stap 5</p>
+      <h3>Stijl<em>voorkeur</em></h3>
+      <div class="style-grid" id="styleGrid">
+        <label class="style-option">
+          <input type="radio" name="stijl" value="Minimalistisch" />
+          <div class="style-option-icon">◼</div>
+          <p class="style-option-name">Minimalistisch</p>
+        </label>
+        <label class="style-option">
+          <input type="radio" name="stijl" value="Cartoon" />
+          <div class="style-option-icon">✦</div>
+          <p class="style-option-name">Cartoon</p>
+        </label>
+        <label class="style-option">
+          <input type="radio" name="stijl" value="Retro" />
+          <div class="style-option-icon">◈</div>
+          <p class="style-option-name">Retro</p>
+        </label>
+        <label class="style-option">
+          <input type="radio" name="stijl" value="Typografisch" />
+          <div class="style-option-icon">Aa</div>
+          <p class="style-option-name">Typografisch</p>
+        </label>
+        <label class="style-option">
+          <input type="radio" name="stijl" value="Aquarel" />
+          <div class="style-option-icon">◇</div>
+          <p class="style-option-name">Aquarel</p>
+        </label>
+      </div>
+    </div>
+
+    <div class="opmaat-divider"></div>
+
+    <!-- STAP 6 — KLEUREN -->
+    <div class="form-step">
+      <p class="form-step-label">Stap 6</p>
+      <h3>Kleur<em>voorkeur</em></h3>
+      <div class="color-grid" id="colorGrid">
+        <!-- Swatches rendered by JS -->
+      </div>
+      <p class="color-limit-note" id="colorLimitNote">Kies 1 tot 3 kleuren</p>
+    </div>
+
+    <div class="opmaat-divider"></div>
+
+    <!-- STAP 7 — PLAATSING -->
+    <div class="form-step">
+      <p class="form-step-label">Stap 7</p>
+      <h3>Plaatsing van het <em>design</em></h3>
+      <div class="placement-grid" id="placementGrid">
+        <button class="placement-btn" data-place="Voorkant">Voorkant</button>
+        <button class="placement-btn" data-place="Achterkant">Achterkant</button>
+        <button class="placement-btn" data-place="Borst-logo">Borst-logo</button>
+      </div>
+    </div>
+
+    <div class="opmaat-divider"></div>
+
+    <!-- SAMENVATTING + BESTEL -->
+    <div class="form-step">
+      <p class="form-step-label">Samenvatting</p>
+      <h3>Jouw <em>bestelling</em></h3>
+
+      <div class="summary-box" id="summaryBox">
+        <h3>Overzicht</h3>
+        <div class="summary-row">
+          <span class="summary-row-label">Product</span>
+          <span class="summary-row-value" id="sumProduct">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Maat</span>
+          <span class="summary-row-value" id="sumMaat">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Thema</span>
+          <span class="summary-row-value" id="sumThema" style="max-width:60%;text-align:right;font-style:italic">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Stijl</span>
+          <span class="summary-row-value" id="sumStijl">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Kleuren</span>
+          <span class="summary-row-value" id="sumKleuren">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-row-label">Plaatsing</span>
+          <span class="summary-row-value" id="sumPlaatsing">—</span>
+        </div>
+        <div class="summary-total-row">
+          <span class="summary-total-label">Totaalprijs</span>
+          <span class="summary-total-price" id="sumTotaal">—</span>
+        </div>
+        <p class="deposit-note">
+          Je betaalt nu een <strong>aanbetaling van € 5</strong> om je bestelling te bevestigen.<br />
+          Het restbedrag (<span id="sumRest">—</span>) betaal je bij afhaling of levering van je shirt.
+        </p>
+      </div>
+
+      <div class="form-error" id="formError">Vul alle velden in voor je verder gaat.</div>
+
+      <button class="btn-opmaat" id="bestelBtn">
+        Aanbetaling betalen — € 5
+      </button>
+    </div>
+
+  </section>
+
+  <footer>
+    <span class="footer-logo">Treasureshirt</span>
+    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-socials"><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a></div>
+    <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
+      <a href="privacy.html" style="color:#555;font-size:.72rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#555;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#555;font-size:.72rem;text-decoration:none">Retourbeleid</a>
+    </div>
+  </footer>
+
+  <div class="cart-toast" id="cartToast"></div>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+
+  <script type="module">
+    import { db } from './js/firebase-config.js';
+    import { collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    // ── STATE ──
+    let selectedType      = null; // 'tshirt' | 'hoodie'
+    let selectedMaat      = null;
+    let selectedStijl     = null;
+    let selectedKleuren   = [];
+    let selectedPlaatsing = null;
+
+    const PRIJZEN = { tshirt: 35, hoodie: 65 };
+
+    const KLEUREN = [
+      { naam: 'Zwart',    hex: '#111111' },
+      { naam: 'Wit',      hex: '#f0f0f0' },
+      { naam: 'Navy',     hex: '#1b2a4a' },
+      { naam: 'Rood',     hex: '#c0392b' },
+      { naam: 'Goud',     hex: '#c9a84c' },
+      { naam: 'Groen',    hex: '#27643a' },
+      { naam: 'Paars',    hex: '#6c3483' },
+      { naam: 'Oranje',   hex: '#d35400' },
+      { naam: 'Roze',     hex: '#c0457a' },
+      { naam: 'Grijs',    hex: '#707070' },
+    ];
+
+    // ── RENDER KLEUREN ──
+    const colorGrid = document.getElementById('colorGrid');
+    KLEUREN.forEach(k => {
+      const sw = document.createElement('div');
+      sw.className = 'color-swatch';
+      sw.style.background = k.hex;
+      sw.title = k.naam;
+      sw.dataset.naam = k.naam;
+      sw.addEventListener('click', () => {
+        if (sw.classList.contains('selected')) {
+          sw.classList.remove('selected');
+          selectedKleuren = selectedKleuren.filter(n => n !== k.naam);
+        } else {
+          if (selectedKleuren.length >= 3) return;
+          sw.classList.add('selected');
+          selectedKleuren.push(k.naam);
+        }
+        updateColorNote();
+        updateSummary();
+      });
+      colorGrid.appendChild(sw);
+    });
+
+    function updateColorNote() {
+      const note = document.getElementById('colorLimitNote');
+      const left = 3 - selectedKleuren.length;
+      note.textContent = left > 0
+        ? `Kies nog ${left} kleur${left !== 1 ? 'en' : ''} (max 3)`
+        : 'Maximum bereikt — deselecteer om te wijzigen';
+    }
+
+    // ── TYPE KLEDING ──
+    document.querySelectorAll('input[name="typeKleding"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        selectedType = radio.value;
+        document.querySelectorAll('.card-choice').forEach(c => c.classList.remove('selected'));
+        radio.closest('.card-choice').classList.add('selected');
+        updateSummary();
+      });
+    });
+
+    // ── MAAT ──
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedMaat = btn.dataset.size;
+        updateSummary();
+      });
+    });
+
+    // ── STIJL ──
+    document.querySelectorAll('input[name="stijl"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        selectedStijl = radio.value;
+        document.querySelectorAll('.style-option').forEach(o => o.classList.remove('selected'));
+        radio.closest('.style-option').classList.add('selected');
+        updateSummary();
+      });
+    });
+
+    // ── PLAATSING ──
+    document.querySelectorAll('.placement-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.placement-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedPlaatsing = btn.dataset.place;
+        updateSummary();
+      });
+    });
+
+    // ── LIVE SUMMARY ──
+    function updateSummary() {
+      const naam   = document.getElementById('fieldNaam').value.trim();
+      const thema  = document.getElementById('fieldThema').value.trim();
+      const prijs  = selectedType ? PRIJZEN[selectedType] : null;
+
+      document.getElementById('sumProduct').textContent =
+        selectedType === 'tshirt' ? 'T-Shirt' : selectedType === 'hoodie' ? 'Hoodie' : '—';
+      document.getElementById('sumMaat').textContent      = selectedMaat || '—';
+      document.getElementById('sumThema').textContent     = thema || '—';
+      document.getElementById('sumStijl').textContent     = selectedStijl || '—';
+      document.getElementById('sumKleuren').textContent   = selectedKleuren.length ? selectedKleuren.join(', ') : '—';
+      document.getElementById('sumPlaatsing').textContent = selectedPlaatsing || '—';
+
+      if (prijs) {
+        document.getElementById('sumTotaal').textContent = `€ ${prijs}`;
+        document.getElementById('sumRest').textContent   = `€ ${prijs - 5}`;
+      } else {
+        document.getElementById('sumTotaal').textContent = '—';
+        document.getElementById('sumRest').textContent   = '—';
+      }
+    }
+
+    document.getElementById('fieldNaam').addEventListener('input', updateSummary);
+    document.getElementById('fieldThema').addEventListener('input', updateSummary);
+
+    // ── VALIDATIE ──
+    function validate() {
+      const naam   = document.getElementById('fieldNaam').value.trim();
+      const thema  = document.getElementById('fieldThema').value.trim();
+      return naam && selectedType && selectedMaat && thema && selectedStijl && selectedKleuren.length && selectedPlaatsing;
+    }
+
+    // ── BESTEL ──
+    document.getElementById('bestelBtn').addEventListener('click', async () => {
+      const errEl = document.getElementById('formError');
+      errEl.classList.remove('show');
+
+      if (!validate()) {
+        errEl.classList.add('show');
+        errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const btn = document.getElementById('bestelBtn');
+      btn.disabled = true;
+      btn.textContent = 'Bestelling opslaan...';
+
+      const naam   = document.getElementById('fieldNaam').value.trim();
+      const thema  = document.getElementById('fieldThema').value.trim();
+      const prijs  = PRIJZEN[selectedType];
+
+      const orderData = {
+        naam,
+        typeKleding:  selectedType,
+        maat:         selectedMaat,
+        thema,
+        stijl:        selectedStijl,
+        kleuren:      selectedKleuren,
+        plaatsing:    selectedPlaatsing,
+        totaalprijs:  prijs,
+        aanbetaling:  5,
+        status:       'pending_payment',
+        createdAt:    serverTimestamp(),
+      };
+
+      try {
+        const docRef = await addDoc(collection(db, 'custom-orders'), orderData);
+        const orderId = docRef.id;
+
+        btn.textContent = 'Doorsturen naar betaling...';
+
+        const productNaam = selectedType === 'tshirt' ? 'T-Shirt' : 'Hoodie';
+        const userId = sessionStorage.getItem('ts_uid') || '';
+
+        const res = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            userId,
+            items: [{
+              name:        `Aanbetaling — Op Maat ${productNaam} (${selectedMaat})`,
+              description: `Design: ${thema} | Stijl: ${selectedStijl} | Kleuren: ${selectedKleuren.join(', ')} | Plaatsing: ${selectedPlaatsing} | OrderID: ${orderId}`,
+              price:       5,
+              quantity:    1,
+            }],
+          }),
+        });
+
+        const { url, error } = await res.json();
+        if (error) throw new Error(error);
+        window.location.href = url;
+
+      } catch (err) {
+        errEl.textContent = 'Er ging iets mis: ' + err.message;
+        errEl.classList.add('show');
+        btn.disabled = false;
+        btn.textContent = 'Aanbetaling betalen — € 5';
+      }
+    });
+
+    updateSummary();
+  </script>
+</body>
+</html>
