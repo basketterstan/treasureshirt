@@ -68,6 +68,20 @@ const Cart = (() => {
 
     itemsEl.innerHTML = items.map(item => {
       const key = item.cartKey || item.id;
+      if (item.type === 'custom') {
+        return `
+          <div class="cart-item" data-key="${key}">
+            <div class="cart-item-emoji">✦</div>
+            <div class="cart-item-info">
+              <p class="cart-item-name">${item.name}</p>
+              <p class="cart-item-brief">${item.brief || ''}</p>
+              <p class="cart-item-price">€ ${item.price}</p>
+            </div>
+            <div class="cart-item-controls">
+              <button class="remove-btn" data-key="${key}">✕</button>
+            </div>
+          </div>`;
+      }
       return `
         <div class="cart-item" data-key="${key}">
           <div class="cart-item-emoji">${item.emoji}</div>
@@ -110,16 +124,19 @@ const Cart = (() => {
     if (btn) { btn.textContent = 'Laden...'; btn.disabled = true; }
     try {
       const userId = sessionStorage.getItem('ts_uid') || '';
+      const stripeItems = [];
+      items.forEach(i => {
+        if (i.type === 'custom') {
+          stripeItems.push({ name: i.name, description: i.description || '', price: i.basisprijs, quantity: 1 });
+          if (i.verzend > 0) stripeItems.push({ name: 'Verzending België', description: '', price: i.verzend, quantity: 1 });
+        } else {
+          stripeItems.push({ name: i.size ? `${i.name} (${i.size})` : i.name, description: i.description || '', price: i.price, quantity: i.quantity });
+        }
+      });
       const res = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          userId,
-          items: items.map(i => ({
-            ...i,
-            name: i.size ? `${i.name} (${i.size})` : i.name,
-          })),
-        }),
+        body: JSON.stringify({ userId, items: stripeItems }),
       });
       const { url, error } = await res.json();
       if (error) throw new Error(error);

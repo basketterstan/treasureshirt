@@ -755,6 +755,14 @@ footer {
   margin-bottom: 0.25rem;
 }
 
+.cart-item-brief {
+  font-size: 0.72rem;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
 .cart-item-price {
   font-size: 0.85rem;
   color: var(--gold);
