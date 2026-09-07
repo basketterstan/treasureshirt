@@ -654,15 +654,15 @@
           <span class="summary-total-price" id="sumTotaal">—</span>
         </div>
         <p class="deposit-note">
-          Je betaalt nu een <strong>aanbetaling van € 5</strong> om je bestelling te bevestigen.<br />
-          Het restbedrag (<span id="sumRest">—</span>) betaal je bij afhaling of levering van je shirt.
+          Je betaalt het <strong>volledige bedrag</strong> veilig online via Stripe.
+          Na betaling ontvang je een bevestiging en starten we direct met jouw design.
         </p>
       </div>
 
       <div class="form-error" id="formError">Vul alle velden in voor je verder gaat.</div>
 
       <button class="btn-opmaat" id="bestelBtn">
-        Aanbetaling betalen — € 5
+        Selecteer een product
       </button>
     </div>
 
@@ -794,12 +794,13 @@
       document.getElementById('sumKleuren').textContent   = selectedKleuren.length ? selectedKleuren.join(', ') : '—';
       document.getElementById('sumPlaatsing').textContent = selectedPlaatsing || '—';
 
+      const btn = document.getElementById('bestelBtn');
       if (prijs) {
         document.getElementById('sumTotaal').textContent = `€ ${prijs}`;
-        document.getElementById('sumRest').textContent   = `€ ${prijs - 5}`;
+        btn.textContent = `Betalen — € ${prijs}`;
       } else {
         document.getElementById('sumTotaal').textContent = '—';
-        document.getElementById('sumRest').textContent   = '—';
+        btn.textContent = 'Selecteer een product';
       }
     }
 
@@ -841,7 +842,7 @@
         kleuren:      selectedKleuren,
         plaatsing:    selectedPlaatsing,
         totaalprijs:  prijs,
-        aanbetaling:  5,
+        betaald:      prijs,
         status:       'pending_payment',
         createdAt:    serverTimestamp(),
       };
@@ -861,9 +862,9 @@
           body: JSON.stringify({
             userId,
             items: [{
-              name:        `Aanbetaling — Op Maat ${productNaam} (${selectedMaat})`,
+              name:        `Op Maat ${productNaam} (${selectedMaat})`,
               description: `Design: ${thema} | Stijl: ${selectedStijl} | Kleuren: ${selectedKleuren.join(', ')} | Plaatsing: ${selectedPlaatsing} | OrderID: ${orderId}`,
-              price:       5,
+              price:       prijs,
               quantity:    1,
             }],
           }),
@@ -877,7 +878,7 @@
         errEl.textContent = 'Er ging iets mis: ' + err.message;
         errEl.classList.add('show');
         btn.disabled = false;
-        btn.textContent = 'Aanbetaling betalen — € 5';
+        btn.textContent = `Betalen — € ${prijs}`;
       }
     });
 
