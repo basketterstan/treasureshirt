@@ -612,17 +612,12 @@
     <!-- STAP 8 — LEVERING -->
     <div class="form-step">
       <p class="form-step-label">Stap 8</p>
-      <h3>Levering of <em>afhalen</em></h3>
-      <div class="placement-grid" id="leveringGrid">
-        <button class="placement-btn" data-levering="afhalen">Afhalen — Gratis</button>
-        <button class="placement-btn" data-levering="levering">Levering België — € 7</button>
-      </div>
-      <div id="adresVelden" style="display:none;margin-top:1.5rem">
-        <input type="text" id="fieldStraat" class="form-input" placeholder="Straat en huisnummer" style="margin-bottom:1rem" maxlength="100" />
-        <div style="display:grid;grid-template-columns:1fr 2fr;gap:1rem">
-          <input type="text" id="fieldPostcode" class="form-input" placeholder="Postcode" maxlength="10" />
-          <input type="text" id="fieldGemeente" class="form-input" placeholder="Gemeente" maxlength="60" />
-        </div>
+      <h3>Levering <em>adres</em></h3>
+      <p class="input-hint" style="margin-bottom:1.25rem">Levering in België — € 7 verzendkosten.</p>
+      <input type="text" id="fieldStraat" class="form-input" placeholder="Straat en huisnummer" style="margin-bottom:1rem" maxlength="100" />
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:1rem">
+        <input type="text" id="fieldPostcode" class="form-input" placeholder="Postcode" maxlength="10" />
+        <input type="text" id="fieldGemeente" class="form-input" placeholder="Gemeente" maxlength="60" />
       </div>
     </div>
 
@@ -728,7 +723,6 @@
         stijl:       selectedStijl,
         kleuren:     selectedKleuren,
         plaatsing:   selectedPlaatsing,
-        levering:    selectedLevering,
         straat:      document.getElementById('fieldStraat')?.value || '',
         postcode:    document.getElementById('fieldPostcode')?.value || '',
         gemeente:    document.getElementById('fieldGemeente')?.value || '',
@@ -746,7 +740,6 @@
     let selectedStijl     = null;
     let selectedKleuren   = [];
     let selectedPlaatsing = null;
-    let selectedLevering  = null; // 'afhalen' | 'levering'
 
     const PRIJZEN     = { tshirt: 35, hoodie: 65 };
     const VERZENDKOST = 7;
@@ -826,18 +819,9 @@
           if (b.dataset.place === d.plaatsing) b.classList.add('active');
         });
       }
-      if (d.levering) {
-        selectedLevering = d.levering;
-        document.querySelectorAll('[data-levering]').forEach(b => {
-          if (b.dataset.levering === d.levering) b.classList.add('active');
-        });
-        if (d.levering === 'levering') {
-          document.getElementById('adresVelden').style.display = 'block';
-          if (d.straat)    document.getElementById('fieldStraat').value    = d.straat;
-          if (d.postcode)  document.getElementById('fieldPostcode').value  = d.postcode;
-          if (d.gemeente)  document.getElementById('fieldGemeente').value  = d.gemeente;
-        }
-      }
+      if (d.straat)    document.getElementById('fieldStraat').value    = d.straat;
+      if (d.postcode)  document.getElementById('fieldPostcode').value  = d.postcode;
+      if (d.gemeente)  document.getElementById('fieldGemeente').value  = d.gemeente;
 
       updateColorNote();
       updateSummary();
@@ -890,23 +874,11 @@
       });
     });
 
-    // ── LEVERING ──
-    document.querySelectorAll('[data-levering]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('[data-levering]').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        selectedLevering = btn.dataset.levering;
-        document.getElementById('adresVelden').style.display =
-          selectedLevering === 'levering' ? 'block' : 'none';
-        updateSummary(); saveDraft();
-      });
-    });
-
     // ── LIVE SUMMARY ──
     function updateSummary() {
       const thema        = document.getElementById('fieldThema').value.trim();
       const basisprijs   = selectedType ? PRIJZEN[selectedType] : null;
-      const verzend      = selectedLevering === 'levering' ? VERZENDKOST : 0;
+      const verzend      = VERZENDKOST;
       const totaal       = basisprijs !== null ? basisprijs + verzend : null;
 
       document.getElementById('sumProduct').textContent =
@@ -916,10 +888,8 @@
       document.getElementById('sumStijl').textContent     = selectedStijl || '—';
       document.getElementById('sumKleuren').textContent   = selectedKleuren.length ? selectedKleuren.join(', ') : '—';
       document.getElementById('sumPlaatsing').textContent = selectedPlaatsing || '—';
-      document.getElementById('sumLevering').textContent  =
-        selectedLevering === 'afhalen' ? 'Afhalen' : selectedLevering === 'levering' ? 'Levering België' : '—';
-      document.getElementById('sumVerzend').textContent   =
-        selectedLevering === 'afhalen' ? 'Gratis' : selectedLevering === 'levering' ? `€ ${VERZENDKOST}` : '—';
+      document.getElementById('sumLevering').textContent  = 'Levering België';
+      document.getElementById('sumVerzend').textContent   = `€ ${VERZENDKOST}`;
 
       const btn = document.getElementById('bestelBtn');
       if (totaal !== null) {
@@ -937,15 +907,13 @@
 
     // ── VALIDATIE ──
     function validate() {
-      const naam   = document.getElementById('fieldNaam').value.trim();
-      const thema  = document.getElementById('fieldThema').value.trim();
-      if (!naam || !selectedType || !selectedMaat || !thema || !selectedStijl || !selectedKleuren.length || !selectedPlaatsing || !selectedLevering) return false;
-      if (selectedLevering === 'levering') {
-        const straat    = document.getElementById('fieldStraat').value.trim();
-        const postcode  = document.getElementById('fieldPostcode').value.trim();
-        const gemeente  = document.getElementById('fieldGemeente').value.trim();
-        if (!straat || !postcode || !gemeente) return false;
-      }
+      const naam     = document.getElementById('fieldNaam').value.trim();
+      const thema    = document.getElementById('fieldThema').value.trim();
+      const straat   = document.getElementById('fieldStraat').value.trim();
+      const postcode = document.getElementById('fieldPostcode').value.trim();
+      const gemeente = document.getElementById('fieldGemeente').value.trim();
+      if (!naam || !selectedType || !selectedMaat || !thema || !selectedStijl || !selectedKleuren.length || !selectedPlaatsing) return false;
+      if (!straat || !postcode || !gemeente) return false;
       return true;
     }
 
@@ -971,7 +939,7 @@
       const postcode    = document.getElementById('fieldPostcode').value.trim();
       const gemeente    = document.getElementById('fieldGemeente').value.trim();
       const basisprijs  = PRIJZEN[selectedType];
-      const verzend     = selectedLevering === 'levering' ? VERZENDKOST : 0;
+      const verzend     = VERZENDKOST;
       const prijs       = basisprijs + verzend;
 
       const orderData = {
@@ -985,9 +953,9 @@
         opmerkingen:  opmerkingen || '',
         totaalprijs:  prijs,
         betaald:      prijs,
-        levering:     selectedLevering,
+        levering:     'levering',
         verzendkost:  verzend,
-        adres:        selectedLevering === 'levering' ? `${straat}, ${postcode} ${gemeente}` : 'Afhalen',
+        adres:        `${straat}, ${postcode} ${gemeente}`,
         status:       'pending_payment',
         createdAt:    serverTimestamp(),
       };
@@ -1007,9 +975,7 @@
           price:       basisprijs,
           quantity:    1,
         }];
-        if (verzend > 0) {
-          stripeItems.push({ name: 'Verzending België', description: '', price: verzend, quantity: 1 });
-        }
+        stripeItems.push({ name: 'Verzending België', description: '', price: verzend, quantity: 1 });
 
         const res = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
           method: 'POST',
