@@ -363,6 +363,11 @@ function startCustomOrdersListener() {
     renderCustomOrdersBadge();
     renderCustomOrdersFilter();
     renderCustomOrders();
+  }, err => {
+    document.getElementById('customOrdersContainer').innerHTML =
+      `<p style="color:#e74c3c;font-style:italic;padding:1rem">Fout: ${err.message}<br><small style="color:var(--gray)">Deploy de Firestore rules via: firebase deploy --only firestore:rules</small></p>`;
+    document.getElementById('statsRow').innerHTML =
+      `<div class="stat-card"><div class="num" style="color:#e74c3c">!</div><div class="lbl">Firestore rules niet gedeployeerd</div></div>`;
   });
 }
 
