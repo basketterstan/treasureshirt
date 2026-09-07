@@ -186,81 +186,18 @@
   </nav>
 
   <div class="admin-body">
+
+    <!-- STATS -->
     <div class="stats-row" id="statsRow">
       <div class="stat-card"><div class="num">—</div><div class="lbl">Laden...</div></div>
     </div>
 
-    <!-- SCANNER -->
+    <!-- OP MAAT BESTELLINGEN -->
     <div class="section-header">
-      <h2>Barcode <span>Scanner</span></h2>
-      <button class="btn-primary" id="scannerToggleBtn">▶ Start Camera</button>
+      <h2>Op Maat <span id="customOrdersBadge">Bestellingen</span></h2>
     </div>
-    <div class="scanner-box" id="scannerBox" style="display:none">
-      <div id="scannerReader"></div>
-
-      <!-- Handmatige invoer -->
-      <div style="display:flex;gap:.75rem;margin-top:1rem;align-items:center">
-        <input id="scannerManualInput" type="text" placeholder="Barcode handmatig invoeren..."
-          style="flex:1;background:transparent;border:1px solid rgba(201,168,76,.3);color:var(--white);font-family:inherit;font-size:.9rem;padding:.5rem .75rem;outline:none" />
-        <button class="btn-ghost" id="scannerManualBtn" style="padding:.5rem 1rem;font-size:.65rem">Zoek</button>
-      </div>
-
-      <!-- Gevonden product -->
-      <div id="scannerResult" class="scanner-result">
-        <div class="scanner-product-name" id="scannerProductName"></div>
-        <div class="scanner-stock-val" id="scannerStockVal"></div>
-        <div class="scanner-stock-label">stuks fysieke stock</div>
-        <div class="scanner-actions">
-          <input class="scanner-qty" type="number" id="scannerQty" value="1" min="1" />
-          <button class="btn-stock-in" id="scannerBtnIn">+ In Stock</button>
-          <button class="btn-stock-out" id="scannerBtnOut">− Uit Stock</button>
-        </div>
-        <div class="scanner-barcode" id="scannerBarcode"></div>
-      </div>
-
-      <!-- Niet gevonden -->
-      <div id="scannerNotFound" class="scanner-not-found"></div>
-
-      <!-- Koppel barcode aan product -->
-      <div id="scannerLinkPanel" style="display:none;margin-top:1rem;background:var(--black);border:1px solid rgba(201,168,76,.15);padding:1.25rem">
-        <p style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:.75rem">Koppel aan product</p>
-        <div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
-          <select id="scannerLinkSelect" style="flex:1;background:var(--dark-gray);border:1px solid rgba(201,168,76,.3);color:var(--white);font-family:inherit;font-size:.85rem;padding:.5rem .75rem;outline:none;min-width:200px"></select>
-          <button class="btn-primary" id="scannerLinkBtn" style="padding:.5rem 1.2rem;font-size:.65rem">Koppelen</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- BESTELLINGEN -->
-    <div class="section-header">
-      <h2>Bestellingen <span id="newOrdersBadge"></span></h2>
-    </div>
-    <div class="orders-filter" id="ordersFilter"></div>
-    <div id="ordersContainer"><p class="loading">Bestellingen laden...</p></div>
-
-    <div class="section-header" style="margin-top:3rem">
-      <h2>Producten <span>& Stock</span></h2>
-      <button class="btn-primary" id="addProductBtn">+ Nieuw Product</button>
-    </div>
-
-    <div class="cat-filter" id="catFilter"></div>
-
-    <table class="product-table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Categorie</th>
-          <th>Prijs</th>
-          <th>Badge</th>
-          <th>Online Stock</th>
-          <th>Fysiek</th>
-          <th>Acties</th>
-        </tr>
-      </thead>
-      <tbody id="productTableBody">
-        <tr><td colspan="7" class="loading">Verbinding maken met database...</td></tr>
-      </tbody>
-    </table>
+    <div class="orders-filter" id="customOrdersFilter"></div>
+    <div id="customOrdersContainer"><p class="loading">Bestellingen laden...</p></div>
 
     <!-- BURENFEEST -->
     <div class="section-header" style="margin-top:3rem">
@@ -273,24 +210,17 @@
     <p style="color:var(--gray);font-size:.75rem;font-style:italic;margin-bottom:1.5rem">
       Geheime pagina via <strong style="color:var(--gold)">treasureshirt.com/burenfeest.html</strong> — enkel zichtbaar met de link.
     </p>
-
     <table class="product-table">
       <thead>
-        <tr>
-          <th>Product</th>
-          <th>Categorie</th>
-          <th>Prijs</th>
-          <th>Badge</th>
-          <th>Stock</th>
-          <th>Acties</th>
-        </tr>
+        <tr><th>Product</th><th>Categorie</th><th>Prijs</th><th>Badge</th><th>Stock</th><th>Acties</th></tr>
       </thead>
       <tbody id="burenfeestTableBody">
         <tr><td colspan="6" class="loading">Laden...</td></tr>
       </tbody>
     </table>
 
-    <div class="section-header">
+    <!-- INSTELLINGEN -->
+    <div class="section-header" style="margin-top:3rem">
       <h2>Instellingen <span>& Beveiliging</span></h2>
     </div>
     <div class="settings-box">
@@ -304,67 +234,6 @@
         <input type="password" id="confirmPass" placeholder="Herhaal wachtwoord" />
       </div>
       <button class="btn-primary" id="changePassBtn">Wachtwoord Opslaan</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <h3 id="modalTitle">Nieuw Product</h3>
-    <div class="modal-grid">
-      <div class="form-group full"><label>Naam</label><input type="text" id="fName" placeholder="Productnaam" /></div>
-      <div class="form-group full"><label>Beschrijving</label><input type="text" id="fDesc" placeholder="Korte omschrijving" /></div>
-      <div class="form-group"><label>Prijs (€)</label><input type="number" id="fPrice" placeholder="0" min="0" step="0.01" /></div>
-      <div class="form-group"><label>Stock</label><input type="number" id="fStock" placeholder="0" min="0" /></div>
-      <div class="form-group">
-        <label>Categorie</label>
-        <select id="fCategory">
-          <option value="T-Shirts">T-Shirts</option>
-          <option value="Hoodies">Hoodies</option>
-          <option value="Accessoires">Accessoires</option>
-          <option value="Overig">Overig</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Badge</label>
-        <select id="fBadge">
-          <option value="">Geen badge</option>
-          <option value="New">New</option>
-          <option value="Bestseller">Bestseller</option>
-          <option value="Limited">Limited</option>
-          <option value="Sale">Sale</option>
-        </select>
-      </div>
-      <div class="form-group full"><label>Barcode (EAN / UPC)</label><input type="text" id="fBarcode" placeholder="1234567890123" /></div>
-      <div class="form-group full">
-        <label>Beschikbare Maten</label>
-        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.6rem">
-          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="XS" style="accent-color:var(--gold)"> XS</label>
-          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="S"  style="accent-color:var(--gold)"> S</label>
-          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="M"  style="accent-color:var(--gold)"> M</label>
-          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="L"  style="accent-color:var(--gold)"> L</label>
-          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="XL" style="accent-color:var(--gold)"> XL</label>
-          <label style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-size:.85rem;color:var(--gray)"><input type="checkbox" name="fSizes" value="XXL" style="accent-color:var(--gold)"> XXL</label>
-        </div>
-      </div>
-      <div class="form-group full" id="stockPerSizeWrap" style="display:none">
-        <label>Stock per maat</label>
-        <div id="stockPerSizeInputs" style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.6rem"></div>
-      </div>
-      <div class="form-group full" style="margin-top:.5rem">
-        <label>Foto</label>
-        <div id="imageUploadArea" style="border:1px dashed rgba(201,168,76,.3);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .3s;position:relative;margin-top:.5rem">
-          <img id="imagePreview" src="" style="display:none;max-height:160px;max-width:100%;object-fit:contain;margin-bottom:.75rem" />
-          <p id="imageUploadLabel" style="color:var(--gray);font-size:.8rem;font-style:italic">Klik om een foto te kiezen</p>
-          <input type="file" id="fImage" accept="image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer" />
-        </div>
-        <p id="imageUploading" style="display:none;color:var(--gold);font-size:.75rem;font-style:italic;margin-top:.5rem">Foto uploaden...</p>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn-ghost" id="modalCancel">Annuleren</button>
-      <button class="btn-primary" id="modalSave">Opslaan</button>
     </div>
   </div>
 </div>
@@ -457,113 +326,153 @@ async function getPassHash() {
 
 function isLoggedIn() { return sessionStorage.getItem(SESSION_KEY) === 'ok'; }
 
-// ── SEED: load default products if Firestore is empty ──
-const SEED = [
-  { name:'Gold Crest Tee',      description:'Premium katoen, geborduurde details', price:89,  stock:25, badge:'New',        category:'T-Shirts', emoji:'👕' },
-  { name:'Noir Signature Tee',  description:'Zwaar geweven stof, slim fit',        price:79,  stock:40, badge:'Bestseller', category:'T-Shirts', emoji:'👕' },
-  { name:'Treasure Classic',    description:'Oversized, washed black editie',       price:95,  stock:10, badge:'Limited',    category:'T-Shirts', emoji:'👕' },
-  { name:'Shadow Drop Hoodie',  description:'French terry, cropped fit',            price:149, stock:18, badge:'',           category:'Hoodies',  emoji:'👕' },
-  { name:'Essential White Tee', description:'Pima katoen, regular fit',             price:55,  stock:60, badge:'Sale',       category:'T-Shirts', emoji:'👕' },
-  { name:'Velvet Touch Tee',    description:'Velours afwerking, box fit',           price:110, stock:12, badge:'',           category:'T-Shirts', emoji:'👕' },
-];
-
-async function maybeSeed() {
-  const snap = await getDocs(collection(db, 'products'));
-  if (snap.empty) {
-    const batch = writeBatch(db);
-    SEED.forEach(p => batch.set(doc(collection(db, 'products')), { ...p, createdAt: Date.now() }));
-    await batch.commit();
-  }
-}
-
 // ── DASHBOARD ──────────────────────────────────────
-let activeCategory  = 'Alles';
-let allProducts     = [];
-let allOrders       = [];
-let activeOrderFilter = 'Alles';
-let unsubscribe     = null;
-let unsubOrders     = null;
+let allCustomOrders      = [];
+let activeCustomFilter   = 'Alles';
+let unsubCustomOrders    = null;
 
 function showDashboard() {
-  document.getElementById('loginScreen').style.display  = 'none';
-  document.getElementById('dashboard').style.display    = 'block';
-  maybeSeed().then(startListener);
-  startOrdersListener();
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('dashboard').style.display   = 'block';
+  startCustomOrdersListener();
   startBurenfeestListener();
 }
 
-// ── ORDERS LISTENER ────────────────────────────────
-function startOrdersListener() {
-  const q = query(collection(db, 'orders'), orderBy('createdAt', 'desc'));
-  unsubOrders = onSnapshot(q, snap => {
-    allOrders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-    renderOrdersBadge();
-    renderOrdersFilter();
-    renderOrders();
+// ── CUSTOM ORDERS ──────────────────────────────────
+const CUSTOM_STATUSES = ['pending_payment', 'betaald', 'in_productie', 'klaar', 'geleverd'];
+const CUSTOM_LABELS   = {
+  pending_payment: 'Wacht op betaling',
+  betaald:         'Betaald',
+  in_productie:    'In Productie',
+  klaar:           'Klaar',
+  geleverd:        'Geleverd',
+};
+const CUSTOM_COLORS = {
+  pending_payment: '#888',
+  betaald:         'var(--gold)',
+  in_productie:    '#3498db',
+  klaar:           '#27ae60',
+  geleverd:        '#8e44ad',
+};
+
+function startCustomOrdersListener() {
+  const q = query(collection(db, 'custom-orders'), orderBy('createdAt', 'desc'));
+  unsubCustomOrders = onSnapshot(q, snap => {
+    allCustomOrders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderStats();
+    renderCustomOrdersBadge();
+    renderCustomOrdersFilter();
+    renderCustomOrders();
   });
 }
 
-function renderOrdersBadge() {
-  const nieuw = allOrders.filter(o => o.status === 'nieuw').length;
-  const badge = document.getElementById('newOrdersBadge');
-  if (nieuw > 0) {
-    badge.innerHTML = `<span class="new-orders-badge">${nieuw} nieuw</span>`;
-  } else {
-    badge.innerHTML = '<span style="color:var(--gold);font-style:italic">Bestellingen</span>';
-  }
+function renderStats() {
+  const totaal       = allCustomOrders.length;
+  const nieuw        = allCustomOrders.filter(o => o.status === 'betaald').length;
+  const inProductie  = allCustomOrders.filter(o => o.status === 'in_productie').length;
+  const omzet        = allCustomOrders
+    .filter(o => o.status !== 'pending_payment')
+    .reduce((s, o) => s + (o.totaalprijs || 0), 0);
+
+  document.getElementById('statsRow').innerHTML = `
+    <div class="stat-card"><div class="num">${totaal}</div><div class="lbl">Totaal Bestellingen</div></div>
+    <div class="stat-card"><div class="num" style="color:var(--gold)">${nieuw}</div><div class="lbl">Te Starten</div></div>
+    <div class="stat-card"><div class="num" style="color:#3498db">${inProductie}</div><div class="lbl">In Productie</div></div>
+    <div class="stat-card"><div class="num">€ ${omzet}</div><div class="lbl">Totale Omzet</div></div>
+  `;
 }
 
-function renderOrdersFilter() {
-  const statuses = ['Alles', 'nieuw', 'verwerkt', 'verzonden', 'geleverd'];
-  const counts   = Object.fromEntries(statuses.map(s => [s, s === 'Alles' ? allOrders.length : allOrders.filter(o => o.status === s).length]));
-  document.getElementById('ordersFilter').innerHTML = statuses.map(s =>
-    `<button class="cat-btn ${activeOrderFilter === s ? 'active' : ''}" data-status="${s}">
-      ${s.charAt(0).toUpperCase() + s.slice(1)} (${counts[s]})
+function renderCustomOrdersBadge() {
+  const nieuw = allCustomOrders.filter(o => o.status === 'betaald').length;
+  const badge = document.getElementById('customOrdersBadge');
+  badge.innerHTML = nieuw > 0
+    ? `<span class="new-orders-badge">${nieuw} te starten</span>`
+    : '<span style="color:var(--gold);font-style:italic">Bestellingen</span>';
+}
+
+function renderCustomOrdersFilter() {
+  const all = ['Alles', ...CUSTOM_STATUSES];
+  const counts = Object.fromEntries(all.map(s => [
+    s,
+    s === 'Alles' ? allCustomOrders.length : allCustomOrders.filter(o => o.status === s).length
+  ]));
+  document.getElementById('customOrdersFilter').innerHTML = all.map(s =>
+    `<button class="cat-btn ${activeCustomFilter === s ? 'active' : ''}" data-status="${s}">
+      ${s === 'Alles' ? 'Alles' : CUSTOM_LABELS[s]} (${counts[s]})
     </button>`
   ).join('');
-  document.querySelectorAll('#ordersFilter .cat-btn').forEach(btn =>
+  document.querySelectorAll('#customOrdersFilter .cat-btn').forEach(btn =>
     btn.addEventListener('click', () => {
-      activeOrderFilter = btn.dataset.status;
-      renderOrdersFilter();
-      renderOrders();
+      activeCustomFilter = btn.dataset.status;
+      renderCustomOrdersFilter();
+      renderCustomOrders();
     })
   );
 }
 
-function renderOrders() {
-  const list = activeOrderFilter === 'Alles'
-    ? allOrders
-    : allOrders.filter(o => o.status === activeOrderFilter);
+function renderCustomOrders() {
+  const list = activeCustomFilter === 'Alles'
+    ? allCustomOrders
+    : allCustomOrders.filter(o => o.status === activeCustomFilter);
 
   if (!list.length) {
-    document.getElementById('ordersContainer').innerHTML = '<p class="loading">Geen bestellingen gevonden.</p>';
+    document.getElementById('customOrdersContainer').innerHTML = '<p class="loading">Geen bestellingen gevonden.</p>';
     return;
   }
 
-  const statusLabels = { nieuw: 'Nieuw', verwerkt: 'Verwerkt', verzonden: 'Verzonden', geleverd: 'Geleverd' };
-
-  document.getElementById('ordersContainer').innerHTML = list.map(o => {
+  document.getElementById('customOrdersContainer').innerHTML = list.map(o => {
     const date = o.createdAt?.toDate
       ? o.createdAt.toDate().toLocaleDateString('nl-BE', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' })
       : '—';
-    const itemsSummary = (o.items || []).map(i => `${i.quantity}× ${i.name}`).join(', ');
+    const kleurDots = (o.kleuren || []).map(k => {
+      const hex = { Zwart:'#111', Wit:'#f0f0f0', Navy:'#1b2a4a', Rood:'#c0392b', Goud:'#c9a84c', Groen:'#27643a', Paars:'#6c3483', Oranje:'#d35400', Roze:'#c0457a', Grijs:'#707070' }[k] || '#888';
+      return `<span title="${k}" style="display:inline-block;width:14px;height:14px;border-radius:50%;background:${hex};border:1px solid rgba(255,255,255,.2);margin-right:3px"></span>`;
+    }).join('');
+    const borderColor = CUSTOM_COLORS[o.status] || 'var(--gray)';
 
     return `
-      <div class="order-card status-${o.status}" data-order-id="${o.id}">
+      <div class="order-card" style="border-left:3px solid ${borderColor}" data-order-id="${o.id}">
         <div class="order-header">
-          <span class="order-number">#${o.orderNumber || o.id.slice(-8).toUpperCase()}</span>
+          <span class="order-number">#${o.id.slice(-8).toUpperCase()}</span>
           <span class="order-date">${date}</span>
         </div>
-        <div class="order-customer">
-          <strong>${o.customerName}</strong>
-          <span>${o.customerEmail}</span>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 2rem;margin-bottom:1rem;font-size:.82rem">
+          <div>
+            <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Klant</span><br>
+            <strong style="font-size:.95rem">${o.naam || '—'}</strong>
+          </div>
+          <div>
+            <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Product</span><br>
+            <span style="color:var(--gold)">${o.typeKleding === 'tshirt' ? 'T-Shirt' : 'Hoodie'} — ${o.maat} — € ${o.totaalprijs}</span>
+          </div>
+          <div style="grid-column:1/-1">
+            <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Thema / Brief</span><br>
+            <span style="font-style:italic;line-height:1.6">${o.thema || '—'}</span>
+          </div>
+          <div>
+            <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Stijl</span><br>
+            ${o.stijl || '—'}
+          </div>
+          <div>
+            <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Plaatsing</span><br>
+            ${o.plaatsing || '—'}
+          </div>
+          <div>
+            <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Kleuren</span><br>
+            ${kleurDots} <span style="font-size:.8rem;color:var(--gray)">${(o.kleuren || []).join(', ')}</span>
+          </div>
+          ${o.opmerkingen ? `<div style="grid-column:1/-1">
+            <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Extra opmerkingen</span><br>
+            <span style="font-style:italic;color:var(--gold)">${o.opmerkingen}</span>
+          </div>` : ''}
         </div>
-        <div class="order-items">${itemsSummary}</div>
+
         <div class="order-footer">
-          <span class="order-total">€ ${o.total?.toFixed(2).replace('.', ',') || '—'}</span>
+          <span style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:${borderColor}">${CUSTOM_LABELS[o.status] || o.status}</span>
           <select class="status-select" data-order="${o.id}">
-            ${['nieuw','verwerkt','verzonden','geleverd'].map(s =>
-              `<option value="${s}" ${o.status === s ? 'selected' : ''}>${statusLabels[s]}</option>`
+            ${CUSTOM_STATUSES.map(s =>
+              `<option value="${s}" ${o.status === s ? 'selected' : ''}>${CUSTOM_LABELS[s]}</option>`
             ).join('')}
           </select>
         </div>
@@ -572,273 +481,11 @@ function renderOrders() {
 
   document.querySelectorAll('.status-select').forEach(sel =>
     sel.addEventListener('change', async () => {
-      await updateDoc(doc(db, 'orders', sel.dataset.order), { status: sel.value });
-      toast(`Status gewijzigd naar ${sel.value}`, 'success');
+      await updateDoc(doc(db, 'custom-orders', sel.dataset.order), { status: sel.value });
+      toast(`Status → ${CUSTOM_LABELS[sel.value]}`, 'success');
     })
   );
 }
-
-function startListener() {
-  const q = query(collection(db, 'products'), orderBy('createdAt', 'asc'));
-  unsubscribe = onSnapshot(q, snap => {
-    allProducts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-    renderStats();
-    renderCatFilter();
-    renderTable();
-  }, err => {
-    toast('Database fout: ' + err.message, 'error');
-  });
-}
-
-// ── STATS ──────────────────────────────────────────
-function renderStats() {
-  const total    = allProducts.length;
-  const stock    = allProducts.reduce((s,p) => s + (p.stock||0), 0);
-  const low      = allProducts.filter(p => (p.stock||0) <= 5).length;
-  const cats     = new Set(allProducts.map(p => p.category)).size;
-  document.getElementById('statsRow').innerHTML = `
-    <div class="stat-card"><div class="num">${total}</div><div class="lbl">Producten</div></div>
-    <div class="stat-card"><div class="num">${stock}</div><div class="lbl">Totale Stock</div></div>
-    <div class="stat-card"><div class="num ${low > 0 ? 'stock-low' : 'stock-ok'}">${low}</div><div class="lbl">Laag in Stock (≤5)</div></div>
-    <div class="stat-card"><div class="num">${cats}</div><div class="lbl">Categorieën</div></div>
-  `;
-}
-
-// ── FILTER ─────────────────────────────────────────
-function renderCatFilter() {
-  const cats = ['Alles', ...new Set(allProducts.map(p => p.category))];
-  document.getElementById('catFilter').innerHTML = cats.map(c =>
-    `<button class="cat-btn ${activeCategory === c ? 'active' : ''}" data-cat="${c}">${c}</button>`
-  ).join('');
-  document.querySelectorAll('.cat-btn').forEach(btn =>
-    btn.addEventListener('click', () => {
-      activeCategory = btn.dataset.cat;
-      renderCatFilter();
-      renderTable();
-    })
-  );
-}
-
-// ── TABLE ──────────────────────────────────────────
-function badgePill(badge) {
-  if (!badge) return '<span class="badge-none">—</span>';
-  const cls = { New:'badge-new', Sale:'badge-sale', Limited:'badge-limited', Bestseller:'badge-bestseller' }[badge] || '';
-  return `<span class="badge-pill ${cls}">${badge}</span>`;
-}
-
-function renderTable() {
-  const list = activeCategory === 'Alles'
-    ? allProducts
-    : allProducts.filter(p => p.category === activeCategory);
-
-  if (!list.length) {
-    document.getElementById('productTableBody').innerHTML =
-      '<tr><td colspan="7" class="loading">Geen producten gevonden.</td></tr>';
-    return;
-  }
-
-  document.getElementById('productTableBody').innerHTML = list.map(p => `
-    <tr>
-      <td>
-        <div style="display:flex;align-items:center;gap:.75rem">
-          ${p.imageUrl
-            ? `<img src="${p.imageUrl}" style="width:40px;height:40px;object-fit:cover;border:1px solid rgba(201,168,76,.2)" />`
-            : `<span style="font-size:1.5rem">${p.emoji || '👕'}</span>`}
-          <div>
-            <div class="product-name-cell">${p.name}</div>
-            <div class="product-desc-cell">${p.description}</div>
-          </div>
-        </div>
-      </td>
-      <td style="color:var(--gray);font-size:.8rem">${p.category}</td>
-      <td class="price-cell">€ ${p.price}</td>
-      <td>${badgePill(p.badge)}</td>
-      <td>
-        <div class="stock-cell">
-          <input class="stock-input ${(p.stock||0) <= 5 ? 'stock-low' : ''}"
-            type="number" value="${p.stock||0}" min="0" data-id="${p.id}" />
-          <button class="btn-ghost" style="padding:.3rem .6rem;font-size:.6rem"
-            data-save="${p.id}">✓</button>
-        </div>
-      </td>
-      <td style="color:${(p.stockPhysical ?? null) !== null ? 'var(--gold)' : 'var(--gray)'};font-size:.85rem;text-align:center">
-        ${p.stockPhysical ?? '—'}
-      </td>
-      <td class="actions-cell">
-        <button class="btn-ghost" style="padding:.4rem .8rem;font-size:.65rem" data-edit="${p.id}">Bewerk</button>
-        <button class="btn-danger" data-delete="${p.id}">✕</button>
-      </td>
-    </tr>
-  `).join('');
-
-  // Stock save
-  document.querySelectorAll('[data-save]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const id    = btn.dataset.save;
-      const input = document.querySelector(`.stock-input[data-id="${id}"]`);
-      const val   = parseInt(input.value) || 0;
-      await updateDoc(doc(db, 'products', id), { stock: val });
-      toast('Stock opgeslagen', 'success');
-    });
-  });
-
-  // Edit
-  document.querySelectorAll('[data-edit]').forEach(btn =>
-    btn.addEventListener('click', () => openEditModal(btn.dataset.edit))
-  );
-
-  // Delete
-  document.querySelectorAll('[data-delete]').forEach(btn =>
-    btn.addEventListener('click', async () => {
-      if (!confirm('Product verwijderen?')) return;
-      await deleteDoc(doc(db, 'products', btn.dataset.delete));
-      toast('Product verwijderd', 'success');
-    })
-  );
-}
-
-// ── MODAL ──────────────────────────────────────────
-let editingId = null;
-
-let currentImageUrl = '';
-
-function resetImageUI() {
-  currentImageUrl = '';
-  document.getElementById('fImage').value = '';
-  document.getElementById('imagePreview').style.display = 'none';
-  document.getElementById('imagePreview').src = '';
-  document.getElementById('imageUploadLabel').textContent = 'Klik om een foto te kiezen';
-}
-
-function setImagePreview(url) {
-  const preview = document.getElementById('imagePreview');
-  preview.src = url;
-  preview.style.display = 'block';
-  document.getElementById('imageUploadLabel').textContent = 'Klik om foto te wijzigen';
-  currentImageUrl = url;
-}
-
-document.getElementById('fImage').addEventListener('change', e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => setImagePreview(ev.target.result);
-  reader.readAsDataURL(file);
-});
-
-// ── STOCK PER MAAT ─────────────────────────────────
-function updateStockPerSizeInputs(existingStockPerSize = {}) {
-  const checked = [...document.querySelectorAll('input[name="fSizes"]:checked')].map(cb => cb.value);
-  const wrap    = document.getElementById('stockPerSizeWrap');
-  const cont    = document.getElementById('stockPerSizeInputs');
-  if (!checked.length) { wrap.style.display = 'none'; return; }
-  wrap.style.display = 'block';
-  cont.innerHTML = checked.map(s => `
-    <div style="display:flex;flex-direction:column;gap:.3rem;align-items:center">
-      <label style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray)">${s}</label>
-      <input type="number" id="fStockSize_${s}" value="${existingStockPerSize[s] ?? 0}" min="0"
-        style="width:64px;background:transparent;border:1px solid rgba(201,168,76,.3);color:var(--white);font-family:inherit;font-size:.9rem;padding:.35rem .4rem;text-align:center;outline:none" />
-    </div>`).join('');
-}
-
-function getStockPerSize() {
-  const result = {};
-  document.querySelectorAll('input[name="fSizes"]:checked').forEach(cb => {
-    result[cb.value] = parseInt(document.getElementById(`fStockSize_${cb.value}`)?.value) || 0;
-  });
-  return result;
-}
-
-document.querySelectorAll('input[name="fSizes"]').forEach(cb =>
-  cb.addEventListener('change', () => updateStockPerSizeInputs())
-);
-
-function openAddModal() {
-  editingId = null;
-  document.getElementById('modalTitle').textContent = 'Nieuw Product';
-  ['fName','fDesc','fPrice','fStock','fBarcode'].forEach(id => document.getElementById(id).value = '');
-  document.querySelectorAll('input[name="fSizes"]').forEach(cb => cb.checked = false);
-  document.getElementById('fCategory').value = 'T-Shirts';
-  document.getElementById('fBadge').value    = '';
-  document.getElementById('stockPerSizeWrap').style.display = 'none';
-  resetImageUI();
-  document.getElementById('modalOverlay').classList.add('open');
-}
-
-function openEditModal(id) {
-  const p = allProducts.find(x => x.id === id);
-  if (!p) return;
-  editingId = id;
-  document.getElementById('modalTitle').textContent = 'Product Bewerken';
-  document.getElementById('fName').value            = p.name;
-  document.getElementById('fDesc').value            = p.description;
-  document.getElementById('fPrice').value           = p.price;
-  document.getElementById('fStock').value           = p.stock || 0;
-  document.getElementById('fCategory').value        = p.category;
-  document.getElementById('fBadge').value           = p.badge || '';
-  document.getElementById('fBarcode').value         = p.barcode || '';
-  document.querySelectorAll('input[name="fSizes"]').forEach(cb => {
-    cb.checked = (p.sizes || []).includes(cb.value);
-  });
-  updateStockPerSizeInputs(p.stockPerSize || {});
-  resetImageUI();
-  if (p.imageUrl) setImagePreview(p.imageUrl);
-  document.getElementById('modalOverlay').classList.add('open');
-}
-
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
-}
-
-document.getElementById('addProductBtn').addEventListener('click', openAddModal);
-document.getElementById('modalCancel').addEventListener('click', closeModal);
-document.getElementById('modalOverlay').addEventListener('click', e => {
-  if (e.target === e.currentTarget) closeModal();
-});
-
-document.getElementById('modalSave').addEventListener('click', async () => {
-  const name  = document.getElementById('fName').value.trim();
-  const desc  = document.getElementById('fDesc').value.trim();
-  const price = parseFloat(document.getElementById('fPrice').value);
-  const stock = parseInt(document.getElementById('fStock').value) || 0;
-  const cat     = document.getElementById('fCategory').value;
-  const badge   = document.getElementById('fBadge').value;
-  const barcode = document.getElementById('fBarcode').value.trim();
-  const sizes   = [...document.querySelectorAll('input[name="fSizes"]:checked')].map(cb => cb.value);
-  const file    = document.getElementById('fImage').files[0];
-
-  if (!name || isNaN(price)) { toast('Vul naam en prijs in', 'error'); return; }
-
-  const saveBtn = document.getElementById('modalSave');
-  saveBtn.textContent = 'Opslaan...';
-  saveBtn.disabled = true;
-
-  let imageUrl = currentImageUrl;
-
-  // Upload nieuwe foto als die gekozen is
-  if (file) {
-    document.getElementById('imageUploading').style.display = 'block';
-    const storageRef = ref(storage, `products/${Date.now()}_${file.name}`);
-    await uploadBytes(storageRef, file);
-    imageUrl = await getDownloadURL(storageRef);
-    document.getElementById('imageUploading').style.display = 'none';
-  }
-
-  const stockPerSize = getStockPerSize();
-  const data = { name, description: desc, price, stock, category: cat, badge, barcode, sizes, stockPerSize, emoji: '👕', imageUrl: imageUrl || '' };
-
-  if (editingId) {
-    await updateDoc(doc(db, 'products', editingId), data);
-    toast('Product bijgewerkt', 'success');
-  } else {
-    await addDoc(collection(db, 'products'), { ...data, createdAt: Date.now() });
-    toast('Product toegevoegd', 'success');
-  }
-
-  saveBtn.textContent = 'Opslaan';
-  saveBtn.disabled = false;
-  closeModal();
-});
 
 // ── WACHTWOORD ─────────────────────────────────────
 document.getElementById('changePassBtn').addEventListener('click', async () => {
@@ -881,127 +528,11 @@ document.getElementById('loginPass').addEventListener('keydown', e => {
 });
 
 document.getElementById('logoutBtn').addEventListener('click', () => {
-  if (unsubscribe) unsubscribe();
+  if (unsubCustomOrders) unsubCustomOrders();
+  if (unsubBurenfeest) unsubBurenfeest();
   sessionStorage.removeItem(SESSION_KEY);
   location.reload();
 });
-
-// ── BARCODE SCANNER ────────────────────────────────
-let html5Scanner = null;
-let scannerRunning = false;
-let scannedProductId = null;
-let lastScannedCode = '';
-
-document.getElementById('scannerToggleBtn').addEventListener('click', async () => {
-  const box = document.getElementById('scannerBox');
-  if (!scannerRunning) {
-    box.style.display = 'block';
-    document.getElementById('scannerToggleBtn').textContent = '■ Stop Camera';
-    resetScannerUI();
-    try {
-      html5Scanner = new Html5Qrcode('scannerReader');
-      await html5Scanner.start(
-        { facingMode: 'environment' },
-        { fps: 10, qrbox: { width: 250, height: 120 }, aspectRatio: 2 },
-        onScanSuccess,
-        () => {}
-      );
-      scannerRunning = true;
-    } catch (err) {
-      console.error('Scanner error:', err);
-      box.style.display = 'none';
-      document.getElementById('scannerToggleBtn').textContent = '▶ Start Camera';
-      toast('Camera niet beschikbaar — gebruik het handmatige invoerveld', 'error');
-    }
-  } else {
-    await stopScanner();
-    box.style.display = 'none';
-  }
-});
-
-function resetScannerUI() {
-  scannedProductId = null;
-  lastScannedCode = '';
-  document.getElementById('scannerResult').style.display = 'none';
-  document.getElementById('scannerNotFound').style.display = 'none';
-  document.getElementById('scannerLinkPanel').style.display = 'none';
-}
-
-async function stopScanner() {
-  if (html5Scanner && scannerRunning) {
-    try { await html5Scanner.stop(); } catch(e) {}
-    scannerRunning = false;
-    document.getElementById('scannerToggleBtn').textContent = '▶ Start Camera';
-    resetScannerUI();
-  }
-}
-
-function onScanSuccess(code) {
-  if (code === lastScannedCode) return;
-  lastScannedCode = code;
-  handleBarcode(code);
-}
-
-function handleBarcode(code) {
-  resetScannerUI();
-  const match = allProducts.find(p => p.barcode && p.barcode === code);
-  if (match) {
-    scannedProductId = match.id;
-    document.getElementById('scannerProductName').textContent = match.name;
-    document.getElementById('scannerStockVal').textContent = match.stockPhysical ?? match.stock ?? 0;
-    document.getElementById('scannerBarcode').textContent = 'Barcode: ' + code;
-    document.getElementById('scannerResult').style.display = 'block';
-  } else {
-    // Barcode niet gevonden — toon koppeloptie
-    lastScannedCode = code;
-    const notFound = document.getElementById('scannerNotFound');
-    notFound.textContent = `Barcode ${code} niet gekoppeld aan een product.`;
-    notFound.style.display = 'block';
-    // Vul de koppelpanel in
-    const sel = document.getElementById('scannerLinkSelect');
-    sel.innerHTML = allProducts.map(p =>
-      `<option value="${p.id}">${p.name}</option>`
-    ).join('');
-    document.getElementById('scannerLinkPanel').style.display = 'block';
-  }
-}
-
-// Handmatige barcode invoer
-document.getElementById('scannerManualInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    const code = e.target.value.trim();
-    if (code) { handleBarcode(code); e.target.value = ''; }
-  }
-});
-document.getElementById('scannerManualBtn').addEventListener('click', () => {
-  const code = document.getElementById('scannerManualInput').value.trim();
-  if (code) { handleBarcode(code); document.getElementById('scannerManualInput').value = ''; }
-});
-
-// Koppel barcode aan bestaand product
-document.getElementById('scannerLinkBtn').addEventListener('click', async () => {
-  const productId = document.getElementById('scannerLinkSelect').value;
-  if (!productId || !lastScannedCode) return;
-  await updateDoc(doc(db, 'products', productId), { barcode: lastScannedCode });
-  toast('Barcode gekoppeld aan product!', 'success');
-  handleBarcode(lastScannedCode);
-});
-
-async function updateScannerStock(delta) {
-  if (!scannedProductId) return;
-  const product = allProducts.find(p => p.id === scannedProductId);
-  if (!product) return;
-  const qty = parseInt(document.getElementById('scannerQty').value) || 1;
-  const current = product.stockPhysical ?? product.stock ?? 0;
-  const newStock = Math.max(0, current + delta * qty);
-  await updateDoc(doc(db, 'products', scannedProductId), { stockPhysical: newStock });
-  product.stockPhysical = newStock;
-  document.getElementById('scannerStockVal').textContent = newStock;
-  toast(`${product.name}: fysieke stock ${delta > 0 ? '+' : ''}${delta * qty} → ${newStock} stuks`, 'success');
-}
-
-document.getElementById('scannerBtnIn').addEventListener('click', () => updateScannerStock(+1));
-document.getElementById('scannerBtnOut').addEventListener('click', () => updateScannerStock(-1));
 
 // ── BURENFEEST STATE ───────────────────────────────
 let allBurenfeest   = [];

@@ -585,9 +585,9 @@
           <p class="style-option-name">Typografisch</p>
         </label>
         <label class="style-option">
-          <input type="radio" name="stijl" value="Aquarel" />
+          <input type="radio" name="stijl" value="Graffiti" />
           <div class="style-option-icon">◇</div>
-          <p class="style-option-name">Aquarel</p>
+          <p class="style-option-name">Graffiti</p>
         </label>
       </div>
     </div>
@@ -601,7 +601,7 @@
       <div class="color-grid" id="colorGrid">
         <!-- Swatches rendered by JS -->
       </div>
-      <p class="color-limit-note" id="colorLimitNote">Kies 1 tot 3 kleuren</p>
+      <p class="color-limit-note" id="colorLimitNote">Kies 1 kleur — vinyl print is altijd eenkleurig</p>
     </div>
 
     <div class="opmaat-divider"></div>
@@ -731,9 +731,10 @@
       sw.addEventListener('click', () => {
         if (sw.classList.contains('selected')) {
           sw.classList.remove('selected');
-          selectedKleuren = selectedKleuren.filter(n => n !== k.naam);
+          selectedKleuren = [];
         } else {
-          if (selectedKleuren.length >= 3) return;
+          document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
+          selectedKleuren = [];
           sw.classList.add('selected');
           selectedKleuren.push(k.naam);
         }
@@ -745,10 +746,9 @@
 
     function updateColorNote() {
       const note = document.getElementById('colorLimitNote');
-      const left = 3 - selectedKleuren.length;
-      note.textContent = left > 0
-        ? `Kies nog ${left} kleur${left !== 1 ? 'en' : ''} (max 3)`
-        : 'Maximum bereikt — deselecteer om te wijzigen';
+      note.textContent = selectedKleuren.length
+        ? `Geselecteerd: ${selectedKleuren[0]} — klik opnieuw om te wijzigen`
+        : 'Kies 1 kleur — vinyl print is altijd eenkleurig';
     }
 
     // ── TYPE KLEDING ──

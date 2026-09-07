@@ -17,5 +17,9 @@ service cloud.firestore {
       allow read: if true;
       allow write: if true;
     }
+    match /custom-orders/{id} {
+      allow read: if true;
+      allow write: if true;
+    }
   }
 }
