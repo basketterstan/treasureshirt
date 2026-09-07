@@ -529,7 +529,12 @@
     <div class="form-step">
       <p class="form-step-label">Stap 1</p>
       <h3>Jouw <em>naam</em></h3>
-      <input type="text" id="fieldNaam" class="form-input" placeholder="Voornaam (verschijnt vaak op het design)" maxlength="40" />
+      <input type="text" id="fieldNaam" class="form-input" placeholder="Voornaam" maxlength="40" style="margin-bottom:1.5rem" />
+      <p style="font-size:.8rem;color:#666;text-transform:uppercase;letter-spacing:.15em;margin-bottom:.75rem">Naam verwerken in het design?</p>
+      <div class="placement-grid" id="naamInDesignGrid" style="max-width:260px">
+        <button class="kkleur-btn" data-naam-in-design="ja">Ja</button>
+        <button class="kkleur-btn" data-naam-in-design="nee">Nee</button>
+      </div>
     </div>
 
     <div class="opmaat-divider"></div>
@@ -747,8 +752,9 @@
         naam:        document.getElementById('fieldNaam').value,
         thema:       document.getElementById('fieldThema').value,
         opmerkingen: document.getElementById('fieldOpmerkingen').value,
-        type:        selectedType,
-        kledingKleur: selectedKledingKleur,
+        type:          selectedType,
+        naamInDesign:  selectedNaamInDesign,
+        kledingKleur:  selectedKledingKleur,
         maat:        selectedMaat,
         stijl:       selectedStijl,
         plaatsing:   selectedPlaatsing,
@@ -765,6 +771,7 @@
     function clearDraft() { localStorage.removeItem(DRAFT_KEY); }
 
     let selectedType        = null;
+    let selectedNaamInDesign = null; // 'ja' | 'nee'
     let selectedKledingKleur = null;
     let selectedMaat        = null;
     let selectedStijl       = null;
@@ -787,6 +794,12 @@
         selectedType = d.type;
         const radio = document.querySelector(`input[name="typeKleding"][value="${d.type}"]`);
         if (radio) { radio.checked = true; radio.closest('.card-choice').classList.add('selected'); }
+      }
+      if (d.naamInDesign) {
+        selectedNaamInDesign = d.naamInDesign;
+        document.querySelectorAll('[data-naam-in-design]').forEach(b => {
+          if (b.dataset.naamInDesign === d.naamInDesign) b.classList.add('active');
+        });
       }
       if (d.kledingKleur) {
         selectedKledingKleur = d.kledingKleur;
@@ -826,6 +839,17 @@
         radio.closest('.card-choice').classList.add('selected');
         document.getElementById('typeGrid').classList.remove('grid-error');
         updateSummary(); saveDraft();
+      });
+    });
+
+    // ── NAAM IN DESIGN ──
+    document.querySelectorAll('[data-naam-in-design]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-naam-in-design]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedNaamInDesign = btn.dataset.naamInDesign;
+        document.getElementById('naamInDesignGrid').classList.remove('grid-error');
+        saveDraft();
       });
     });
 
@@ -925,8 +949,9 @@
       function errInput(id, bad) { document.getElementById(id).classList.toggle('field-error', bad); if (bad) valid = false; }
       function errGrid(id, bad)  { document.getElementById(id).classList.toggle('grid-error',  bad); if (bad) valid = false; }
 
-      errInput('fieldNaam',     !naam);
-      errGrid('typeGrid',       !selectedType);
+      errInput('fieldNaam',       !naam);
+      errGrid('naamInDesignGrid', !selectedNaamInDesign);
+      errGrid('typeGrid',         !selectedType);
       errGrid('kledingKleurGrid', !selectedKledingKleur);
       errGrid('sizeGrid',       !selectedMaat);
       errInput('fieldThema',    !thema);
@@ -969,6 +994,7 @@
       const orderData = {
         naam,
         typeKleding:   selectedType,
+        naamInDesign:  selectedNaamInDesign,
         kledingKleur:  selectedKledingKleur,
         maat:          selectedMaat,
         thema,
@@ -991,7 +1017,7 @@
           cartKey:     orderId,
           type:        'custom',
           name:        `Op Maat ${productNaam} (${selectedMaat})`,
-          description: `Design: ${thema} | Stijl: ${selectedStijl} | Kleur kledingstuk: ${selectedKledingKleur} | Plaatsing: ${selectedPlaatsing}${opmerkingen ? ` | Extra: ${opmerkingen}` : ''} | OrderID: ${orderId}`,
+          description: `Design: ${thema} | Naam in design: ${selectedNaamInDesign} | Stijl: ${selectedStijl} | Kleur kledingstuk: ${selectedKledingKleur} | Plaatsing: ${selectedPlaatsing}${opmerkingen ? ` | Extra: ${opmerkingen}` : ''} | OrderID: ${orderId}`,
           brief:       `${thema} — ${selectedStijl} — ${selectedKledingKleur}`,
           price:       prijs,
           basisprijs,
@@ -1019,6 +1045,7 @@
       document.getElementById('fieldPostcode').value = '';
       document.getElementById('fieldGemeente').value = '';
       selectedType = null;
+      selectedNaamInDesign = null;
       selectedKledingKleur = null;
       selectedMaat = null;
       selectedStijl = null;
