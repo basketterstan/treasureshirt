@@ -642,23 +642,9 @@
 
     <div class="opmaat-divider"></div>
 
-    <!-- STAP 8 — LEVERING -->
+    <!-- STAP 8 — EXTRA OPMERKINGEN -->
     <div class="form-step">
-      <p class="form-step-label">Stap 8</p>
-      <h3>Levering <em>adres</em></h3>
-      <p class="input-hint" style="margin-bottom:1.25rem">Levering in België — € 7 verzendkosten.</p>
-      <input type="text" id="fieldStraat" class="form-input" placeholder="Straat en huisnummer" style="margin-bottom:1rem" maxlength="100" />
-      <div style="display:grid;grid-template-columns:1fr 2fr;gap:1rem">
-        <input type="text" id="fieldPostcode" class="form-input" placeholder="Postcode" maxlength="10" />
-        <input type="text" id="fieldGemeente" class="form-input" placeholder="Gemeente" maxlength="60" />
-      </div>
-    </div>
-
-    <div class="opmaat-divider"></div>
-
-    <!-- STAP 10 — EXTRA OPMERKINGEN -->
-    <div class="form-step">
-      <p class="form-step-label">Stap 9 — Optioneel</p>
+      <p class="form-step-label">Stap 8 — Optioneel</p>
       <h3>Extra <em>opmerkingen</em></h3>
       <textarea id="fieldOpmerkingen" class="form-input" placeholder="Bijv. specifieke lettertypes, symbolen, een naam op het design, kleurverhouding..." maxlength="400"></textarea>
       <p class="input-hint">Alles wat je kwijt wil dat niet in de vorige stappen past.</p>
@@ -697,21 +683,13 @@
           <span class="summary-row-label">Plaatsing</span>
           <span class="summary-row-value" id="sumPlaatsing">—</span>
         </div>
-        <div class="summary-row">
-          <span class="summary-row-label">Levering</span>
-          <span class="summary-row-value" id="sumLevering">—</span>
-        </div>
-        <div class="summary-row">
-          <span class="summary-row-label">Verzendkosten</span>
-          <span class="summary-row-value" id="sumVerzend">—</span>
-        </div>
         <div class="summary-total-row">
-          <span class="summary-total-label">Totaal incl. verzending</span>
+          <span class="summary-total-label">Prijs (excl. verzending)</span>
           <span class="summary-total-price" id="sumTotaal">—</span>
         </div>
         <p class="deposit-note">
-          Je betaalt het <strong>volledige bedrag</strong> veilig online via Stripe.
-          Geen preview — je ziet jouw unieke design pas als het shirt klaar is. Dat is de verrassing.
+          Verzendkosten (€ 7) worden berekend bij het afrekenen.<br />
+          Geen preview — je ziet jouw unieke design pas als het shirt klaar is.
         </p>
       </div>
 
@@ -758,9 +736,6 @@
         maat:        selectedMaat,
         stijl:       selectedStijl,
         plaatsing:   selectedPlaatsing,
-        straat:      document.getElementById('fieldStraat')?.value || '',
-        postcode:    document.getElementById('fieldPostcode')?.value || '',
-        gemeente:    document.getElementById('fieldGemeente')?.value || '',
       }));
     }
 
@@ -777,8 +752,7 @@
     let selectedStijl       = null;
     let selectedPlaatsing   = null;
 
-    const PRIJZEN     = { tshirt: 35, hoodie: 65 };
-    const VERZENDKOST = 7;
+    const PRIJZEN = { tshirt: 35, hoodie: 65 };
 
 
     // ── HERSTEL DRAFT ──
@@ -824,9 +798,6 @@
           if (b.dataset.place === d.plaatsing) b.classList.add('active');
         });
       }
-      if (d.straat)    document.getElementById('fieldStraat').value    = d.straat;
-      if (d.postcode)  document.getElementById('fieldPostcode').value  = d.postcode;
-      if (d.gemeente)  document.getElementById('fieldGemeente').value  = d.gemeente;
 
       updateSummary();
     })();
@@ -901,8 +872,7 @@
     function updateSummary() {
       const thema        = document.getElementById('fieldThema').value.trim();
       const basisprijs   = selectedType ? PRIJZEN[selectedType] : null;
-      const verzend      = VERZENDKOST;
-      const totaal       = basisprijs !== null ? basisprijs + verzend : null;
+      const totaal       = basisprijs;
 
       document.getElementById('sumProduct').textContent =
         selectedType === 'tshirt' ? 'T-Shirt' : selectedType === 'hoodie' ? 'Hoodie' : '—';
@@ -911,9 +881,6 @@
       document.getElementById('sumThema').textContent     = thema || '—';
       document.getElementById('sumStijl').textContent     = selectedStijl || '—';
       document.getElementById('sumPlaatsing').textContent = selectedPlaatsing || '—';
-      document.getElementById('sumLevering').textContent  = 'Levering België';
-      document.getElementById('sumVerzend').textContent   = `€ ${VERZENDKOST}`;
-
       const btn = document.getElementById('bestelBtn');
       if (totaal !== null) {
         document.getElementById('sumTotaal').textContent = `€ ${totaal}`;
@@ -932,18 +899,12 @@
       document.getElementById('fieldThema').classList.remove('field-error');
       updateSummary(); saveDraft();
     });
-    document.getElementById('fieldStraat').addEventListener('input', () => document.getElementById('fieldStraat').classList.remove('field-error'));
-    document.getElementById('fieldPostcode').addEventListener('input', () => document.getElementById('fieldPostcode').classList.remove('field-error'));
-    document.getElementById('fieldGemeente').addEventListener('input', () => document.getElementById('fieldGemeente').classList.remove('field-error'));
     document.getElementById('fieldOpmerkingen').addEventListener('input', saveDraft);
 
     // ── VALIDATIE ──
     function markErrors() {
       const naam     = document.getElementById('fieldNaam').value.trim();
       const thema    = document.getElementById('fieldThema').value.trim();
-      const straat   = document.getElementById('fieldStraat').value.trim();
-      const postcode = document.getElementById('fieldPostcode').value.trim();
-      const gemeente = document.getElementById('fieldGemeente').value.trim();
       let valid = true;
 
       function errInput(id, bad) { document.getElementById(id).classList.toggle('field-error', bad); if (bad) valid = false; }
@@ -957,9 +918,6 @@
       errInput('fieldThema',    !thema);
       errGrid('styleGrid',      !selectedStijl);
       errGrid('placementGrid',  !selectedPlaatsing);
-      errInput('fieldStraat',   !straat);
-      errInput('fieldPostcode', !postcode);
-      errInput('fieldGemeente', !gemeente);
 
       return valid;
     }
@@ -983,12 +941,7 @@
       const naam        = document.getElementById('fieldNaam').value.trim();
       const thema       = document.getElementById('fieldThema').value.trim();
       const opmerkingen = document.getElementById('fieldOpmerkingen').value.trim();
-      const straat      = document.getElementById('fieldStraat').value.trim();
-      const postcode    = document.getElementById('fieldPostcode').value.trim();
-      const gemeente    = document.getElementById('fieldGemeente').value.trim();
       const basisprijs  = PRIJZEN[selectedType];
-      const verzend     = VERZENDKOST;
-      const prijs       = basisprijs + verzend;
       const productNaam = selectedType === 'tshirt' ? 'T-Shirt' : 'Hoodie';
 
       const orderData = {
@@ -998,15 +951,12 @@
         kledingKleur:  selectedKledingKleur,
         maat:          selectedMaat,
         thema,
-        stijl:        selectedStijl,
-        plaatsing:    selectedPlaatsing,
-        opmerkingen:  opmerkingen || '',
-        totaalprijs:  prijs,
-        levering:     'levering',
-        verzendkost:  verzend,
-        adres:        `${straat}, ${postcode} ${gemeente}`,
-        status:       'pending_payment',
-        createdAt:    serverTimestamp(),
+        stijl:         selectedStijl,
+        plaatsing:     selectedPlaatsing,
+        opmerkingen:   opmerkingen || '',
+        totaalprijs:   basisprijs,
+        status:        'pending_payment',
+        createdAt:     serverTimestamp(),
       };
 
       try {
@@ -1019,9 +969,7 @@
           name:        `Op Maat ${productNaam} (${selectedMaat})`,
           description: `Design: ${thema} | Naam in design: ${selectedNaamInDesign} | Stijl: ${selectedStijl} | Kleur kledingstuk: ${selectedKledingKleur} | Plaatsing: ${selectedPlaatsing}${opmerkingen ? ` | Extra: ${opmerkingen}` : ''} | OrderID: ${orderId}`,
           brief:       `${thema} — ${selectedStijl} — ${selectedKledingKleur}`,
-          price:       prijs,
-          basisprijs,
-          verzend,
+          price:       basisprijs,
           quantity:    1,
         });
 
@@ -1033,7 +981,7 @@
         errEl.textContent = 'Er ging iets mis: ' + err.message;
         errEl.classList.add('show');
         btn.disabled = false;
-        btn.textContent = `Toevoegen aan winkelwagen — € ${prijs}`;
+        btn.textContent = `Toevoegen aan winkelwagen — € ${basisprijs}`;
       }
     });
 
@@ -1041,9 +989,6 @@
       document.getElementById('fieldNaam').value = '';
       document.getElementById('fieldThema').value = '';
       document.getElementById('fieldOpmerkingen').value = '';
-      document.getElementById('fieldStraat').value = '';
-      document.getElementById('fieldPostcode').value = '';
-      document.getElementById('fieldGemeente').value = '';
       selectedType = null;
       selectedNaamInDesign = null;
       selectedKledingKleur = null;

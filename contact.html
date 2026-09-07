@@ -28,11 +28,29 @@
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
       <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
+      <button class="nav-cart" id="cartBtn">Winkelwagen <span class="cart-badge" id="cartCount">0</span></button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
+
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Winkelwagen</h3>
+        <button class="cart-close" id="cartClose">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Subtotaal</span>
+          <span class="cart-total-amount" id="cartTotal">€ 0</span>
+        </div>
+        <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
+      </div>
+    </div>
+  </div>
 
   <div class="contact-hero">
     <p class="section-label">Neem Contact Op</p>
@@ -101,5 +119,7 @@
 
   <div class="toast" id="toast"></div>
   <script src="js/main.js"></script>
+  <div class="cart-toast" id="cartToast"></div>
+  <script src="js/cart.js"></script>
 </body>
 </html>

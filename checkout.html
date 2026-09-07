@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afrekenen — Treasureshirt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .checkout-hero { padding: 10rem 5% 3rem; text-align: center; background: linear-gradient(to bottom, #1a1a1a, #0a0a0a); }
+    .checkout-body { max-width: 680px; margin: 0 auto; padding: 4rem 5% 6rem; }
+    .checkout-section { margin-bottom: 3rem; }
+    .checkout-label {
+      font-size: .65rem; letter-spacing: .4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.25rem; display: block;
+    }
+    .checkout-input {
+      width: 100%; background: transparent; border: none;
+      border-bottom: 1px solid rgba(201,168,76,.4);
+      color: var(--white); font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.05rem; padding: .7rem 0; outline: none;
+      transition: border-color .3s; margin-bottom: 1.25rem; box-sizing: border-box;
+    }
+    .checkout-input:focus { border-bottom-color: var(--gold); }
+    .checkout-input.err { border-color: #c0392b; }
+    .checkout-input::placeholder { color: var(--gray); font-style: italic; }
+    .checkout-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; }
+    .order-items { border: 1px solid rgba(201,168,76,.15); }
+    .order-item {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 1rem 1.25rem; border-bottom: 1px solid rgba(201,168,76,.08);
+    }
+    .order-item:last-child { border-bottom: none; }
+    .order-item-name { font-size: .9rem; color: var(--white); margin-bottom: .2rem; }
+    .order-item-brief { font-size: .75rem; color: #555; font-style: italic; }
+    .order-item-price { font-size: .9rem; color: var(--gold); white-space: nowrap; margin-left: 1rem; }
+    .order-totals { margin-top: 1rem; }
+    .totals-row { display: flex; justify-content: space-between; padding: .5rem 0; border-bottom: 1px solid rgba(201,168,76,.08); font-size: .88rem; color: #aaa; }
+    .totals-row.grand { font-size: 1rem; color: var(--white); border-bottom: none; padding-top: .75rem; font-weight: 300; }
+    .totals-row.grand span:last-child { color: var(--gold); font-size: 1.15rem; font-style: italic; }
+    .checkout-btn {
+      width: 100%; padding: 1.1rem; background: var(--gold); color: var(--black);
+      border: none; font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1rem; letter-spacing: .2em; text-transform: uppercase;
+      cursor: pointer; margin-top: 2rem; transition: opacity .2s;
+    }
+    .checkout-btn:hover { opacity: .85; }
+    .checkout-btn:disabled { opacity: .4; cursor: not-allowed; }
+    .checkout-err { color: #c0392b; font-size: .85rem; font-style: italic; margin-top: .75rem; display: none; }
+    .checkout-err.show { display: block; }
+    .account-bar {
+      border: 1px solid rgba(201,168,76,.15); padding: 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 2rem; flex-wrap: wrap; gap: .75rem;
+    }
+    .account-bar p { color: #888; font-size: .85rem; font-style: italic; }
+    .account-bar a { color: var(--gold); font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; text-decoration: none; }
+    .empty-cart { text-align: center; padding: 4rem 0; color: #555; font-style: italic; }
+    .empty-cart a { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Treasureshirt</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="op-maat.html">Op Maat</a></li>
+      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="checkout-hero">
+    <p class="section-label">Bijna klaar</p>
+    <h1 class="section-title">Af<em>rekenen</em></h1>
+  </div>
+
+  <div class="checkout-body" id="checkoutBody">
+
+    <div id="emptyState" class="empty-cart" style="display:none">
+      <p>Je winkelwagen is leeg.</p>
+      <a href="op-maat.html">← Maak een design</a>
+    </div>
+
+    <div id="checkoutContent">
+
+      <!-- Account balk -->
+      <div class="account-bar">
+        <p>Heb je al een account? Log in om je adres automatisch in te vullen.</p>
+        <a href="account.html">Inloggen / Registreren →</a>
+      </div>
+
+      <!-- Bestelling overzicht -->
+      <div class="checkout-section">
+        <span class="checkout-label">Jouw bestelling</span>
+        <div class="order-items" id="orderItems"></div>
+        <div class="order-totals">
+          <div class="totals-row"><span>Subtotaal</span><span id="totSubtotaal">—</span></div>
+          <div class="totals-row"><span>Verzending België</span><span>€ 7</span></div>
+          <div class="totals-row grand"><span>Totaal</span><span id="totGrand">—</span></div>
+        </div>
+      </div>
+
+      <!-- Leveringsadres -->
+      <div class="checkout-section">
+        <span class="checkout-label">Leveringsadres</span>
+        <input type="text" id="chkNaam" class="checkout-input" placeholder="Naam ontvanger" maxlength="80" />
+        <input type="text" id="chkStraat" class="checkout-input" placeholder="Straat en huisnummer" maxlength="100" />
+        <div class="checkout-grid">
+          <input type="text" id="chkPostcode" class="checkout-input" placeholder="Postcode" maxlength="10" />
+          <input type="text" id="chkGemeente" class="checkout-input" placeholder="Gemeente" maxlength="60" />
+        </div>
+        <input type="text" id="chkLand" class="checkout-input" placeholder="Land" value="België" maxlength="60" />
+      </div>
+
+      <div class="checkout-err" id="checkoutErr">Vul alle velden in om verder te gaan.</div>
+
+      <button class="checkout-btn" id="payBtn">Betalen via Stripe</button>
+
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-logo">Treasureshirt</span>
+    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.5rem">
+      <a href="privacy.html" style="color:#666;font-size:.75rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#666;font-size:.75rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#666;font-size:.75rem;text-decoration:none">Retourbeleid</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { getFirestore, doc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    const app = initializeApp({
+      apiKey: "AIzaSyBzYuSBONE4ZdlkMIJ8h9NmZaTu6r5dVFw",
+      authDomain: "treasureshirt-68b83.firebaseapp.com",
+      projectId: "treasureshirt-68b83",
+      storageBucket: "treasureshirt-68b83.appspot.com",
+      messagingSenderId: "730624863800",
+      appId: "1:730624863800:web:3c4f5c7ae3e8b62b4f7c9d"
+    });
+    const db = getFirestore(app);
+
+    const VERZENDKOST = 7;
+    const CART_KEY = 'ts_cart';
+
+    function getCart() {
+      try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch { return []; }
+    }
+
+    const cart = getCart();
+
+    if (!cart.length) {
+      document.getElementById('checkoutContent').style.display = 'none';
+      document.getElementById('emptyState').style.display = 'block';
+    } else {
+      const subtotaal = cart.reduce((s, i) => s + i.price * (i.quantity || 1), 0);
+      const grand = subtotaal + VERZENDKOST;
+
+      document.getElementById('totSubtotaal').textContent = `€ ${subtotaal}`;
+      document.getElementById('totGrand').textContent = `€ ${grand}`;
+
+      document.getElementById('orderItems').innerHTML = cart.map(i => `
+        <div class="order-item">
+          <div>
+            <p class="order-item-name">${i.name}</p>
+            ${i.brief ? `<p class="order-item-brief">${i.brief}</p>` : ''}
+          </div>
+          <span class="order-item-price">€ ${i.price}</span>
+        </div>
+      `).join('');
+    }
+
+    // Prefill from account if logged in
+    const uid = sessionStorage.getItem('ts_uid');
+    const savedNaam = sessionStorage.getItem('ts_naam') || '';
+    if (savedNaam) document.getElementById('chkNaam').value = savedNaam;
+
+    function validate() {
+      const fields = ['chkNaam', 'chkStraat', 'chkPostcode', 'chkGemeente', 'chkLand'];
+      let ok = true;
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        const empty = !el.value.trim();
+        el.classList.toggle('err', empty);
+        if (empty) ok = false;
+      });
+      return ok;
+    }
+
+    ['chkNaam','chkStraat','chkPostcode','chkGemeente','chkLand'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => {
+        document.getElementById(id).classList.remove('err');
+      });
+    });
+
+    document.getElementById('payBtn').addEventListener('click', async () => {
+      if (!validate()) {
+        document.getElementById('checkoutErr').classList.add('show');
+        return;
+      }
+      document.getElementById('checkoutErr').classList.remove('show');
+
+      const btn = document.getElementById('payBtn');
+      btn.disabled = true;
+      btn.textContent = 'Laden...';
+
+      const naam     = document.getElementById('chkNaam').value.trim();
+      const straat   = document.getElementById('chkStraat').value.trim();
+      const postcode = document.getElementById('chkPostcode').value.trim();
+      const gemeente = document.getElementById('chkGemeente').value.trim();
+      const land     = document.getElementById('chkLand').value.trim();
+      const adres    = `${straat}, ${postcode} ${gemeente}, ${land}`;
+
+      try {
+        // Update address on each custom order in Firestore
+        const customItems = cart.filter(i => i.type === 'custom');
+        await Promise.all(customItems.map(i =>
+          updateDoc(doc(db, 'custom-orders', i.cartKey), {
+            leveringsNaam: naam,
+            adres,
+            verzendkost: VERZENDKOST,
+            levering: 'levering',
+          })
+        ));
+
+        // Build Stripe items
+        const stripeItems = cart.map(i => ({
+          name: i.name,
+          description: i.description || '',
+          price: i.price,
+          quantity: i.quantity || 1,
+        }));
+        stripeItems.push({ name: 'Verzending België', description: '', price: VERZENDKOST, quantity: 1 });
+
+        const userId = uid || '';
+        const res = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId, items: stripeItems }),
+        });
+
+        const { url, error } = await res.json();
+        if (error) throw new Error(error);
+        window.location.href = url;
+
+      } catch (err) {
+        document.getElementById('checkoutErr').textContent = 'Er ging iets mis: ' + err.message;
+        document.getElementById('checkoutErr').classList.add('show');
+        btn.disabled = false;
+        btn.textContent = 'Betalen via Stripe';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -117,34 +117,10 @@ const Cart = (() => {
   function open() { document.getElementById('cartOverlay')?.classList.add('open'); render(); }
   function close() { document.getElementById('cartOverlay')?.classList.remove('open'); }
 
-  async function checkout() {
+  function checkout() {
     const items = get();
     if (!items.length) return;
-    const btn = document.getElementById('checkoutBtn');
-    if (btn) { btn.textContent = 'Laden...'; btn.disabled = true; }
-    try {
-      const userId = sessionStorage.getItem('ts_uid') || '';
-      const stripeItems = [];
-      items.forEach(i => {
-        if (i.type === 'custom') {
-          stripeItems.push({ name: i.name, description: i.description || '', price: i.basisprijs, quantity: 1 });
-          if (i.verzend > 0) stripeItems.push({ name: 'Verzending België', description: '', price: i.verzend, quantity: 1 });
-        } else {
-          stripeItems.push({ name: i.size ? `${i.name} (${i.size})` : i.name, description: i.description || '', price: i.price, quantity: i.quantity });
-        }
-      });
-      const res = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, items: stripeItems }),
-      });
-      const { url, error } = await res.json();
-      if (error) throw new Error(error);
-      window.location.href = url;
-    } catch (err) {
-      alert('Betalingsfout: ' + err.message);
-      if (btn) { btn.textContent = 'Afrekenen met Stripe'; btn.disabled = false; }
-    }
+    window.location.href = 'checkout.html';
   }
 
   function showAddedToast(name) {
