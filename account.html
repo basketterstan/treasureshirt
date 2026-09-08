@@ -342,9 +342,12 @@
         'auth/email-already-in-use':'Dit e-mailadres is al in gebruik.',
         'auth/weak-password':       'Wachtwoord moet minimaal 6 tekens bevatten.',
         'auth/invalid-email':       'Ongeldig e-mailadres.',
-        'auth/too-many-requests':   'Te veel pogingen. Probeer later opnieuw.',
+        'auth/too-many-requests':       'Te veel pogingen. Probeer later opnieuw.',
+        'auth/operation-not-allowed':   'E-mail/wachtwoord inloggen is niet ingeschakeld. Contacteer de beheerder.',
+        'auth/network-request-failed':  'Netwerkfout. Controleer je internetverbinding.',
+        'auth/user-disabled':           'Dit account is uitgeschakeld.',
       };
-      return map[code] || 'Er is iets misgegaan. Probeer opnieuw.';
+      return map[code] || `Er is iets misgegaan (${code}). Probeer opnieuw.`;
     }
   </script>
 </body>
