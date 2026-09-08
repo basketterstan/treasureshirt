@@ -78,7 +78,7 @@ const Cart = (() => {
       if (item.type === 'custom') {
         return `
           <div class="cart-item" data-key="${key}">
-            <div class="cart-item-emoji">✦</div>
+            <div class="cart-item-emoji">👕</div>
             <div class="cart-item-info">
               <p class="cart-item-name">${item.name}</p>
               <p class="cart-item-brief">${item.brief || ''}</p>
