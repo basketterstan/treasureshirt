@@ -120,7 +120,7 @@
 
       <div class="checkout-err" id="checkoutErr">Vul alle velden in om verder te gaan.</div>
 
-      <button class="checkout-btn" id="payBtn">Betalen via Stripe</button>
+      <button class="checkout-btn" id="payBtn" disabled>Betalen via Stripe</button>
 
     </div>
   </div>
@@ -187,11 +187,21 @@
       return ok;
     }
 
-    ['chkNaam','chkStraat','chkPostcode','chkGemeente','chkLand'].forEach(id => {
+    const REQUIRED_FIELDS = ['chkNaam','chkStraat','chkPostcode','chkGemeente','chkLand'];
+
+    function updatePayBtn() {
+      const allFilled = REQUIRED_FIELDS.every(id => document.getElementById(id).value.trim());
+      document.getElementById('payBtn').disabled = !allFilled;
+    }
+
+    REQUIRED_FIELDS.forEach(id => {
       document.getElementById(id).addEventListener('input', () => {
         document.getElementById(id).classList.remove('err');
+        updatePayBtn();
       });
     });
+
+    updatePayBtn();
 
     document.getElementById('payBtn').addEventListener('click', async () => {
       if (!validate()) {
