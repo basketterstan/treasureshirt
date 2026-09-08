@@ -29,7 +29,7 @@ exports.createCheckout = onRequest(
         line_items: items.map(item => ({
           price_data: {
             currency: 'eur',
-            product_data: { name: item.name, description: item.description || '' },
+            product_data: { name: item.name, ...(item.description ? { description: item.description } : {}) },
             unit_amount: Math.round(item.price * 100),
           },
           quantity: item.quantity,
