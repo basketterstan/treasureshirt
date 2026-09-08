@@ -23,8 +23,9 @@ exports.createCheckout = onRequest(
       const { items } = req.body;
       if (!items?.length) return res.status(400).json({ error: 'Geen producten' });
 
-      const userId = req.body.userId || '';
-      const session = await stripe.checkout.sessions.create({
+      const userId    = req.body.userId    || '';
+      const userEmail = req.body.userEmail || '';
+      const sessionParams = {
         payment_method_types: ['card', 'bancontact'],
         line_items: items.map(item => ({
           price_data: {
@@ -35,11 +36,12 @@ exports.createCheckout = onRequest(
           quantity: item.quantity,
         })),
         mode: 'payment',
-        shipping_address_collection: { allowed_countries: ['BE', 'NL', 'DE', 'FR', 'GB'] },
         success_url: `${SITE_URL}/success.html`,
         cancel_url:  `${SITE_URL}/cancel.html`,
         metadata: { userId },
-      });
+      };
+      if (userEmail) sessionParams.customer_email = userEmail;
+      const session = await stripe.checkout.sessions.create(sessionParams);
 
       res.json({ url: session.url });
     } catch (err) {

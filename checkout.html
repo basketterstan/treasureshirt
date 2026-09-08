@@ -265,10 +265,11 @@
         stripeItems.push({ name: 'Verzending België', price: VERZENDKOST, quantity: 1 });
 
         const userId = uid || '';
+        const userEmail = auth.currentUser?.email || '';
         const res = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ userId, items: stripeItems }),
+          body: JSON.stringify({ userId, userEmail, items: stripeItems }),
         });
 
         const { url, error } = await res.json();
