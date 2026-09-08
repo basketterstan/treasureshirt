@@ -4,7 +4,7 @@ import { getAuth }       from 'https://www.gstatic.com/firebasejs/10.12.0/fireba
 
 // Firebase web API keys are public client identifiers — security is enforced by Firestore Security Rules.
 export const firebaseConfig = {
-  apiKey: "AIzaSyBzYuSBONE4ZdlkMIJ8h9NmZaTu6r5dVFw",
+  apiKey: "AIzaSyDSa4HDuZn5K21Ty1E-uFBF9IXA_Pg8Sus",
   authDomain: "treasureshirt-68b83.firebaseapp.com",
   projectId: "treasureshirt-68b83",
   storageBucket: "treasureshirt-68b83.appspot.com",
