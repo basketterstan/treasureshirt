@@ -234,13 +234,12 @@
         ));
 
         // Build Stripe items
-        const stripeItems = cart.map(i => ({
-          name: i.name,
-          description: i.description || '',
-          price: i.price,
-          quantity: i.quantity || 1,
-        }));
-        stripeItems.push({ name: 'Verzending België', description: '', price: VERZENDKOST, quantity: 1 });
+        const stripeItems = cart.map(i => {
+          const item = { name: i.name, price: i.price, quantity: i.quantity || 1 };
+          if (i.description) item.description = i.description;
+          return item;
+        });
+        stripeItems.push({ name: 'Verzending België', price: VERZENDKOST, quantity: 1 });
 
         const userId = uid || '';
         const res = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
