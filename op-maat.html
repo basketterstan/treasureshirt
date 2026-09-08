@@ -719,8 +719,12 @@
   <script src="js/cart.js"></script>
 
   <script type="module">
-    import { db } from './js/firebase-config.js';
+    import { db, auth } from './js/firebase-config.js';
     import { collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+    import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+    let currentUserId = null;
+    onAuthStateChanged(auth, user => { currentUserId = user ? user.uid : null; });
 
     // ── STATE ──
     const DRAFT_KEY = 'ts_opmaat_draft';
@@ -957,6 +961,7 @@
         totaalprijs:   basisprijs,
         status:        'pending_payment',
         createdAt:     serverTimestamp(),
+        userId:        currentUserId || null,
       };
 
       try {

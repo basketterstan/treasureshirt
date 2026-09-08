@@ -193,14 +193,14 @@
       const list = document.getElementById('ordersList');
       try {
         const q = query(
-          collection(db, 'orders'),
+          collection(db, 'custom-orders'),
           where('userId', '==', uid),
           orderBy('createdAt', 'desc'),
         );
         const snap = await getDocs(q);
 
         if (snap.empty) {
-          list.innerHTML = `<p class="orders-empty">Je hebt nog geen bestellingen geplaatst.<br><br><a href="shop.html">Bekijk onze collectie →</a></p>`;
+          list.innerHTML = `<p class="orders-empty">Je hebt nog geen bestellingen geplaatst.<br><br><a href="op-maat.html">Maak een design →</a></p>`;
           return;
         }
 
@@ -211,31 +211,34 @@
             : '—';
 
           const statusClass = (o.status || '').toLowerCase().replace(/\s/g, '-');
-          const statusLabel = o.status || 'Nieuw';
+          const statusLabel = {
+            'pending_payment': 'Wacht op betaling',
+            'paid': 'Betaald',
+            'in_productie': 'In productie',
+            'verzonden': 'Verzonden',
+            'geleverd': 'Geleverd',
+          }[o.status] || o.status || 'Nieuw';
 
-          const itemsHtml = (o.items || []).map(item => `
-            <div class="order-item-row">
-              <span class="order-item-name">${item.name}</span>
-              <span class="order-item-qty">× ${item.quantity}</span>
-              <span class="order-item-price">€ ${parseFloat(item.subtotal).toFixed(2).replace('.', ',')}</span>
-            </div>`).join('');
-
-          const address = o.shippingAddress;
-          const addressStr = address?.line1
-            ? `${address.line1}, ${address.postal_code} ${address.city}`
-            : '';
+          const product = o.typeKleding === 'hoodie' ? 'Hoodie' : 'T-Shirt';
 
           return `
             <div class="order-card">
               <div class="order-card-head">
-                <span class="order-number"># ${o.orderNumber || doc.id.slice(-8).toUpperCase()}</span>
+                <span class="order-number"># ${doc.id.slice(-8).toUpperCase()}</span>
                 <span class="order-date">${date}</span>
                 <span class="order-status ${statusClass}">${statusLabel}</span>
               </div>
-              <div class="order-items">${itemsHtml}</div>
+              <div class="order-items">
+                <div class="order-item-row">
+                  <span class="order-item-name">Op Maat ${product} — ${o.maat || ''} — ${o.kledingKleur || ''}</span>
+                </div>
+                <div class="order-item-row" style="color:#666;font-size:.8rem;font-style:italic">
+                  ${o.thema || ''}
+                </div>
+              </div>
               <div class="order-card-foot">
-                <span class="order-shipping">${addressStr}</span>
-                <span class="order-total">Totaal: <strong>€ ${parseFloat(o.total).toFixed(2).replace('.', ',')}</strong></span>
+                <span class="order-shipping">${o.adres || ''}</span>
+                <span class="order-total">Totaal: <strong>€ ${o.totaalprijs || '—'}</strong></span>
               </div>
             </div>`;
         }).join('');
