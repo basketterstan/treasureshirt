@@ -36,6 +36,7 @@ exports.createCheckout = onRequest(
           quantity: item.quantity,
         })),
         mode: 'payment',
+        allow_promotion_codes: true,
         success_url: `${SITE_URL}/success.html`,
         cancel_url:  `${SITE_URL}/cancel.html`,
         metadata: { userId },
