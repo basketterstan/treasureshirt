@@ -266,10 +266,11 @@
 
         const userId = uid || '';
         const userEmail = auth.currentUser?.email || '';
+        const customOrderIds = cart.filter(i => i.type === 'custom').map(i => i.cartKey).join(',');
         const res = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ userId, userEmail, items: stripeItems }),
+          body: JSON.stringify({ userId, userEmail, customOrderIds, items: stripeItems }),
         });
 
         const { url, error } = await res.json();

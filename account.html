@@ -310,6 +310,11 @@
       try {
         const cred = await createUserWithEmailAndPassword(auth, email, pass);
         await updateProfile(cred.user, { displayName: name });
+        fetch('https://notifynewuser-kelvdlqp7a-uc.a.run.app', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email }),
+        }).catch(() => {});
       } catch (e) {
         errEl.textContent = vertaalFout(e.code);
         errEl.style.display = 'block';

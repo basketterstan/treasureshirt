@@ -9,9 +9,40 @@ const db = admin.firestore();
 const stripeSecret  = defineSecret('STRIPE_SECRET_KEY');
 const webhookSecret = defineSecret('STRIPE_WEBHOOK_SECRET');
 const klaviyoKey    = defineSecret('KLAVIYO_PRIVATE_KEY');
+const resendKey     = defineSecret('RESEND_API_KEY');
 
-const ADMIN_EMAIL = 'admin@treasureshirt.com';
-const SITE_URL    = 'https://treasureshirt.com'; // v2
+const ADMIN_EMAIL = 'contact@treasureshirt.com';
+const ADMIN_EMAIL2 = 'daenen.stan@gmail.com';
+const SITE_URL = 'https://treasureshirt.com';
+
+// ── NOTIFY NEW USER ──────────────────────────────────
+exports.notifyNewUser = onRequest(
+  { secrets: [resendKey], cors: true, invoker: 'public' },
+  async (req, res) => {
+    if (req.method !== 'POST') return res.status(405).end();
+    const { name, email } = req.body;
+    try {
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${resendKey.value()}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: 'Treasureshirt <noreply@treasureshirt.com>',
+          to: ADMIN_EMAIL,
+          subject: `Nieuw account — ${name || email}`,
+          html: `
+            <div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;color:#222">
+              <h2>Nieuw account aangemaakt</h2>
+              <p><strong>Naam:</strong> ${name || '—'}</p>
+              <p><strong>E-mail:</strong> ${email}</p>
+            </div>`,
+        }),
+      });
+    } catch (e) {
+      console.error('notifyNewUser mail fout:', e.message);
+    }
+    res.json({ ok: true });
+  }
+);
 
 // ── CREATE CHECKOUT ──────────────────────────────────
 exports.createCheckout = onRequest(
@@ -23,8 +54,9 @@ exports.createCheckout = onRequest(
       const { items } = req.body;
       if (!items?.length) return res.status(400).json({ error: 'Geen producten' });
 
-      const userId    = req.body.userId    || '';
-      const userEmail = req.body.userEmail || '';
+      const userId         = req.body.userId         || '';
+      const userEmail      = req.body.userEmail      || '';
+      const customOrderIds = req.body.customOrderIds || '';
       const sessionParams = {
         payment_method_types: ['card', 'bancontact'],
         line_items: items.map(item => ({
@@ -39,7 +71,7 @@ exports.createCheckout = onRequest(
         allow_promotion_codes: true,
         success_url: `${SITE_URL}/success.html`,
         cancel_url:  `${SITE_URL}/cancel.html`,
-        metadata: { userId },
+        metadata: { userId, customOrderIds },
       };
       if (userEmail) sessionParams.customer_email = userEmail;
       const session = await stripe.checkout.sessions.create(sessionParams);
@@ -54,7 +86,7 @@ exports.createCheckout = onRequest(
 
 // ── STRIPE WEBHOOK ───────────────────────────────────
 exports.stripeWebhook = onRequest(
-  { secrets: [stripeSecret, webhookSecret, klaviyoKey], cors: false, invoker: 'public' },
+  { secrets: [stripeSecret, webhookSecret, klaviyoKey, resendKey], cors: false, invoker: 'public' },
   async (req, res) => {
     if (req.method !== 'POST') return res.status(405).end();
 
@@ -88,57 +120,83 @@ async function handleOrderComplete(session) {
     subtotal: (i.amount_total / 100).toFixed(2),
   }));
 
-  const customerEmail = session.customer_details?.email || '';
-  const customerName  = session.customer_details?.name  || 'Klant';
-  const address       = session.customer_details?.address || {};
-  const userId        = session.metadata?.userId || '';
-  const total         = (session.amount_total / 100).toFixed(2);
-  const orderNumber   = session.id.slice(-8).toUpperCase();
+  const customerEmail    = session.customer_details?.email || '';
+  const customerName     = session.customer_details?.name  || 'Klant';
+  const userId           = session.metadata?.userId        || '';
+  const customOrderIds   = session.metadata?.customOrderIds || '';
+  const total            = (session.amount_total / 100).toFixed(2);
+  const orderNumber      = session.id.slice(-8).toUpperCase();
 
-  const shippingAddress = address.line1
-    ? `${address.line1}, ${address.postal_code} ${address.city}, ${address.country}`
-    : '';
+  // Update custom-orders status naar 'paid'
+  if (customOrderIds) {
+    const ids = customOrderIds.split(',').filter(Boolean);
+    await Promise.all(ids.map(id =>
+      db.collection('custom-orders').doc(id).update({ status: 'paid' }).catch(() => {})
+    ));
+  }
 
-  // Sla bestelling op in Firestore
+  // Sla betaalde bestelling op in orders collectie
   await db.collection('orders').add({
     orderNumber,
     sessionId:     session.id,
     customerEmail,
     customerName,
     userId,
+    customOrderIds,
     items,
     total:         parseFloat(total),
-    shippingAddress: address,
     status:        'nieuw',
     createdAt:     admin.firestore.FieldValue.serverTimestamp(),
   });
 
-  const apiKey = klaviyoKey.value();
-  const eventProps = {
-    order_number:     orderNumber,
-    customer_name:    customerName,
-    customer_email:   customerEmail,
-    items,
-    total,
-    shipping_address: shippingAddress,
-  };
+  // E-mails via Resend
+  try {
+    async function sendMail({ to, subject, html }) {
+      const r = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${resendKey.value()}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ from: 'Treasureshirt <noreply@treasureshirt.com>', to, subject, html }),
+      });
+      if (!r.ok) console.error('Resend fout:', await r.text());
+    }
 
-  // Klant e-mail via Klaviyo Flow (event: "Order Placed")
-  await trackKlaviyoEvent(apiKey, {
-    email:     customerEmail,
-    firstName: customerName.split(' ')[0],
-    lastName:  customerName.split(' ').slice(1).join(' '),
-    eventName: 'Order Placed',
-    properties: eventProps,
-  });
+    const itemsHtml = items.map(i =>
+      `<tr><td style="padding:6px 0">${i.name} × ${i.quantity}</td><td style="padding:6px 0;text-align:right">€ ${i.subtotal}</td></tr>`
+    ).join('');
 
-  // Admin notificatie via Klaviyo Flow (event: "New Order Admin")
-  await trackKlaviyoEvent(apiKey, {
-    email:     ADMIN_EMAIL,
-    firstName: 'Admin',
-    eventName: 'New Order Admin',
-    properties: eventProps,
-  });
+    if (customerEmail) {
+      await sendMail({
+        to: customerEmail,
+        subject: `Bestelling bevestigd — #${orderNumber}`,
+        html: `
+          <div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;color:#222">
+            <h2>Bedankt voor je bestelling, ${customerName.split(' ')[0]}!</h2>
+            <p>We zijn direct gestart met jouw unieke design. Je ontvangt een update zodra het klaar is.</p>
+            <table style="width:100%;border-top:1px solid #ddd;margin:1.5rem 0">${itemsHtml}
+              <tr><td colspan="2" style="border-top:1px solid #ddd;padding-top:8px"><strong>Totaal: € ${total}</strong></td></tr>
+            </table>
+            <p style="color:#888;font-size:.85em">Vragen? Mail ons op <a href="mailto:${ADMIN_EMAIL}">${ADMIN_EMAIL}</a></p>
+            <p style="color:#888;font-size:.85em;margin-top:2rem">— Treasureshirt</p>
+          </div>`,
+      });
+    }
+
+    await sendMail({
+      to: [ADMIN_EMAIL, ADMIN_EMAIL2],
+      subject: `Nieuwe bestelling #${orderNumber} — € ${total}`,
+      html: `
+        <div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;color:#222">
+          <h2>Nieuwe bestelling #${orderNumber}</h2>
+          <p><strong>Klant:</strong> ${customerName} (${customerEmail})</p>
+          <table style="width:100%;border-top:1px solid #ddd;margin:1.5rem 0">${itemsHtml}
+            <tr><td colspan="2" style="border-top:1px solid #ddd;padding-top:8px"><strong>Totaal: € ${total}</strong></td></tr>
+          </table>
+          ${customOrderIds ? `<p><strong>Firestore IDs:</strong> ${customOrderIds}</p>` : ''}
+        </div>`,
+    });
+  } catch (mailErr) {
+    console.error('E-mail fout:', mailErr.message);
+  }
 }
 
 async function trackKlaviyoEvent(apiKey, { email, firstName, lastName, eventName, properties }) {

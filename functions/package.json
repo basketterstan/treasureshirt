@@ -4,10 +4,13 @@
   "scripts": {
     "deploy": "firebase deploy --only functions"
   },
-  "engines": { "node": "20" },
+  "engines": {
+    "node": "20"
+  },
   "dependencies": {
+    "cors": "^2.8.5",
     "firebase-functions": "^4.9.0",
-    "stripe": "^14.0.0",
-    "cors": "^2.8.5"
+    "nodemailer": "^10.0.1",
+    "stripe": "^14.0.0"
   }
 }

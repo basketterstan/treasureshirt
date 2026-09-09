@@ -178,7 +178,7 @@
     import { db }   from './js/firebase-config.js';
     import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
     import {
-      collection, query, where, orderBy, getDocs,
+      collection, query, where, getDocs,
     } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
     onAuthStateChanged(auth, async user => {
@@ -195,7 +195,6 @@
         const q = query(
           collection(db, 'custom-orders'),
           where('userId', '==', uid),
-          orderBy('createdAt', 'desc'),
         );
         const snap = await getDocs(q);
 
@@ -204,7 +203,8 @@
           return;
         }
 
-        list.innerHTML = snap.docs.map(doc => {
+        const sortedDocs = snap.docs.sort((a, b) => (b.data().createdAt?.seconds || 0) - (a.data().createdAt?.seconds || 0));
+        list.innerHTML = sortedDocs.map(doc => {
           const o = doc.data();
           const date = o.createdAt?.toDate
             ? o.createdAt.toDate().toLocaleDateString('nl-BE', { day: '2-digit', month: 'long', year: 'numeric' })
