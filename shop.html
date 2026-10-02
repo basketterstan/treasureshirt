@@ -82,7 +82,10 @@
   <div class="pdetail-overlay" id="pdetailOverlay">
     <div class="pdetail-modal">
       <button class="pdetail-close" id="pdetailClose">✕</button>
-      <div class="pdetail-image" id="pdetailImage"></div>
+      <div class="pdetail-image-col" id="pdetailImageCol">
+        <div class="pdetail-image-main" id="pdetailImage"></div>
+        <div class="pdetail-thumb-strip" id="pdetailThumbs"></div>
+      </div>
       <div class="pdetail-info">
         <h2 class="pdetail-name" id="pdetailName"></h2>
         <p class="pdetail-desc" id="pdetailDesc"></p>
@@ -104,11 +107,30 @@
     let allProducts  = [];
     let activeFilter = 'Alles';
 
-    onSnapshot(query(collection(db, 'products'), orderBy('createdAt', 'asc')), snap => {
-      allProducts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+
+    async function loadLocalProducts() {
+      try {
+        const res = await fetch('data/products.json');
+        allProducts = await res.json();
+      } catch { allProducts = []; }
       renderFilters();
       renderProducts();
-    });
+    }
+
+    if (isLocal) {
+      loadLocalProducts();
+    } else {
+      onSnapshot(query(collection(db, 'products'), orderBy('createdAt', 'asc')), snap => {
+        if (snap.docs.length > 0) {
+          allProducts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        } else {
+          loadLocalProducts(); return;
+        }
+        renderFilters();
+        renderProducts();
+      });
+    }
 
     function renderFilters() {
       const cats = ['Alles', ...new Set(allProducts.map(p => p.category).filter(Boolean))];
@@ -130,7 +152,7 @@
       const grid = document.getElementById('productsGrid');
       grid.innerHTML = list.map(p => `
         <div class="product-card" data-id="${p.id}" style="cursor:pointer">
-          <div class="product-image" style="${p.imageUrl ? `background-image:url('${p.imageUrl}');background-size:cover;background-position:center;font-size:0` : ''}">
+          <div class="product-image" style="${p.imageUrl ? `background-image:url('${p.imageUrl}');background-size:contain;background-position:center;background-repeat:no-repeat;font-size:0` : ''}">
             ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
             ${p.imageUrl ? '' : (p.emoji || '👕')}
             <div class="product-img-overlay">Bekijk Product</div>
@@ -156,13 +178,29 @@
     }
 
     window.openProductModal = function(p) {
-      const imgEl = document.getElementById('pdetailImage');
-      if (p.imageUrl) {
-        imgEl.style.cssText = `background-image:url('${p.imageUrl}');background-size:cover;background-position:center;font-size:0`;
-        imgEl.innerHTML = p.badge ? `<span class="product-badge">${p.badge}</span>` : '';
+      const imgEl    = document.getElementById('pdetailImage');
+      const thumbsEl = document.getElementById('pdetailThumbs');
+      const gallery  = (p.images && p.images.length) ? p.images : (p.imageUrl ? [p.imageUrl] : []);
+
+      function showImg(url) {
+        imgEl.style.cssText = '';
+        imgEl.innerHTML = `<img src="${url}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;display:block">
+          ${p.badge ? `<span class="product-badge" style="position:absolute;top:.75rem;left:.75rem">${p.badge}</span>` : ''}`;
+        thumbsEl.querySelectorAll('.pdetail-thumb').forEach(t =>
+          t.classList.toggle('active', t.dataset.src === url));
+      }
+
+      if (gallery.length) {
+        thumbsEl.innerHTML = gallery.map((url, i) =>
+          `<img class="pdetail-thumb${i === 0 ? ' active' : ''}" src="${url}" data-src="${url}" alt="${i === 0 ? 'Navy' : 'Grijs'}">`
+        ).join('');
+        thumbsEl.querySelectorAll('.pdetail-thumb').forEach(t =>
+          t.addEventListener('click', () => showImg(t.dataset.src)));
+        showImg(gallery[0]);
       } else {
         imgEl.style.cssText = '';
         imgEl.innerHTML = `${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}${p.emoji || '👕'}`;
+        thumbsEl.innerHTML = '';
       }
       document.getElementById('pdetailName').textContent = p.name;
       document.getElementById('pdetailDesc').textContent = p.description;

@@ -1,62 +1,240 @@
 [
   {
     "id": "1",
-    "name": "Gold Crest Tee",
-    "description": "Premium katoen, geborduurde details",
-    "price": 89,
+    "name": "Graduated with ChatGPT",
+    "description": "Voor de student die zijn diploma haalde mét AI-hulp",
+    "price": 25,
     "badge": "New",
-    "stock": 25,
-    "category": "T-Shirts",
-    "emoji": "👕"
+    "stock": 30,
+    "category": "Afstuderen",
+    "emoji": "👕",
+    "imageUrl": "images/products/01-graduated-with-chatgpt-navy.png",
+    "images": [
+      "images/products/01-graduated-with-chatgpt-navy.png",
+      "images/products/01-graduated-with-chatgpt-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
   },
   {
     "id": "2",
-    "name": "Noir Signature Tee",
-    "description": "Zwaar geweven stof, slim fit",
-    "price": 79,
-    "badge": "Bestseller",
-    "stock": 40,
-    "category": "T-Shirts",
-    "emoji": "👕"
+    "name": "Degree Unlocked — Powered by AI",
+    "description": "Achievement unlocked: diploma gehaald op AI-kracht",
+    "price": 25,
+    "badge": "",
+    "stock": 30,
+    "category": "Afstuderen",
+    "emoji": "👕",
+    "imageUrl": "images/products/02-degree-unlocked-navy.png",
+    "images": [
+      "images/products/02-degree-unlocked-navy.png",
+      "images/products/02-degree-unlocked-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
   },
   {
     "id": "3",
-    "name": "Treasure Classic",
-    "description": "Oversized, washed black editie",
-    "price": 95,
-    "badge": "Limited",
-    "stock": 10,
-    "category": "T-Shirts",
-    "emoji": "👕"
+    "name": "Ctrl+Alt Graduate",
+    "description": "Herstart je leven na de studies — met stijl",
+    "price": 25,
+    "badge": "Bestseller",
+    "stock": 30,
+    "category": "Afstuderen",
+    "emoji": "👕",
+    "imageUrl": "images/products/03-ctrl-alt-graduate-navy.png",
+    "images": [
+      "images/products/03-ctrl-alt-graduate-navy.png",
+      "images/products/03-ctrl-alt-graduate-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
   },
   {
     "id": "4",
-    "name": "Shadow Drop Hoodie",
-    "description": "French terry, cropped fit",
-    "price": 149,
-    "badge": "",
-    "stock": 18,
-    "category": "Hoodies",
-    "emoji": "👕"
+    "name": "Summa Cum Prompt",
+    "description": "Magna cum laude? Nee — Summa Cum Prompt",
+    "price": 25,
+    "badge": "Limited",
+    "stock": 20,
+    "category": "Afstuderen",
+    "emoji": "👕",
+    "imageUrl": "images/products/04-summa-cum-prompt-navy.png",
+    "images": [
+      "images/products/04-summa-cum-prompt-navy.png",
+      "images/products/04-summa-cum-prompt-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 3, "M": 5, "L": 6, "XL": 4, "XXL": 2 }
   },
   {
     "id": "5",
-    "name": "Essential White Tee",
-    "description": "Pima katoen, regular fit",
-    "price": 55,
-    "badge": "Sale",
-    "stock": 60,
-    "category": "T-Shirts",
-    "emoji": "👕"
+    "name": "Social Battery 1%",
+    "description": "Batterij op 1% — bel mij absoluut niet",
+    "price": 25,
+    "badge": "",
+    "stock": 30,
+    "category": "Lifestyle",
+    "emoji": "👕",
+    "imageUrl": "images/products/05-social-battery-navy.png",
+    "images": [
+      "images/products/05-social-battery-navy.png",
+      "images/products/05-social-battery-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
   },
   {
     "id": "6",
-    "name": "Velvet Touch Tee",
-    "description": "Velours afwerking, box fit",
-    "price": 110,
+    "name": "Espresso Yourself",
+    "description": "Koffie is zelfexpressie. Jij ook.",
+    "price": 25,
+    "badge": "Bestseller",
+    "stock": 35,
+    "category": "Lifestyle",
+    "emoji": "👕",
+    "imageUrl": "images/products/06-espresso-yourself-navy.png",
+    "images": [
+      "images/products/06-espresso-yourself-navy.png",
+      "images/products/06-espresso-yourself-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 6, "M": 9, "L": 9, "XL": 7, "XXL": 4 }
+  },
+  {
+    "id": "7",
+    "name": "Do Not Disturb — Side Quest In Progress",
+    "description": "Niet storen. Bezig met een side quest.",
+    "price": 25,
     "badge": "",
-    "stock": 12,
-    "category": "T-Shirts",
-    "emoji": "👕"
+    "stock": 30,
+    "category": "Gaming",
+    "emoji": "👕",
+    "imageUrl": "images/products/07-side-quest-navy.png",
+    "images": [
+      "images/products/07-side-quest-navy.png",
+      "images/products/07-side-quest-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
+  },
+  {
+    "id": "8",
+    "name": "Professional Procrastinator",
+    "description": "Gecertificeerd expert in uitstellen",
+    "price": 25,
+    "badge": "New",
+    "stock": 30,
+    "category": "Lifestyle",
+    "emoji": "👕",
+    "imageUrl": "images/products/08-professional-procrastinator-navy.png",
+    "images": [
+      "images/products/08-professional-procrastinator-navy.png",
+      "images/products/08-professional-procrastinator-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
+  },
+  {
+    "id": "9",
+    "name": "Weekend Mode",
+    "description": "Gepauzeerd. Niet beschikbaar tot maandag.",
+    "price": 25,
+    "badge": "",
+    "stock": 30,
+    "category": "Lifestyle",
+    "emoji": "👕",
+    "imageUrl": "images/products/09-weekend-mode-navy.png",
+    "images": [
+      "images/products/09-weekend-mode-navy.png",
+      "images/products/09-weekend-mode-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
+  },
+  {
+    "id": "10",
+    "name": "Running on Coffee & Chaos",
+    "description": "Koffie + chaos = de perfecte brandstof",
+    "price": 25,
+    "badge": "",
+    "stock": 30,
+    "category": "Lifestyle",
+    "emoji": "👕",
+    "imageUrl": "images/products/10-coffee-and-chaos-navy.png",
+    "images": [
+      "images/products/10-coffee-and-chaos-navy.png",
+      "images/products/10-coffee-and-chaos-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
+  },
+  {
+    "id": "11",
+    "name": "Overthinking Club — Open 24/7",
+    "description": "Lid van de Overthinking Club. Onvrijwillig.",
+    "price": 25,
+    "badge": "Bestseller",
+    "stock": 30,
+    "category": "Lifestyle",
+    "emoji": "👕",
+    "imageUrl": "images/products/11-overthinking-club-navy.png",
+    "images": [
+      "images/products/11-overthinking-club-navy.png",
+      "images/products/11-overthinking-club-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
+  },
+  {
+    "id": "12",
+    "name": "Offline is the New Luxury",
+    "description": "Geen notificaties. Geen stress. Pure luxe.",
+    "price": 25,
+    "badge": "Limited",
+    "stock": 20,
+    "category": "Lifestyle",
+    "emoji": "👕",
+    "imageUrl": "images/products/12-offline-luxury-navy.png",
+    "images": [
+      "images/products/12-offline-luxury-navy.png",
+      "images/products/12-offline-luxury-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 3, "M": 5, "L": 6, "XL": 4, "XXL": 2 }
+  },
+  {
+    "id": "13",
+    "name": "Low Expectations, High Standards",
+    "description": "Verwacht weinig, eis alles — de perfecte balans",
+    "price": 25,
+    "badge": "",
+    "stock": 30,
+    "category": "Lifestyle",
+    "emoji": "👕",
+    "imageUrl": "images/products/13-low-expectations-high-standards-navy.png",
+    "images": [
+      "images/products/13-low-expectations-high-standards-navy.png",
+      "images/products/13-low-expectations-high-standards-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
+  },
+  {
+    "id": "14",
+    "name": "Currently Unavailable — Try Again Never",
+    "description": "Op dit moment niet beschikbaar. Probeer het nooit.",
+    "price": 25,
+    "badge": "New",
+    "stock": 30,
+    "category": "Lifestyle",
+    "emoji": "👕",
+    "imageUrl": "images/products/14-currently-unavailable-navy.png",
+    "images": [
+      "images/products/14-currently-unavailable-navy.png",
+      "images/products/14-currently-unavailable-grey.png"
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stockPerSize": { "S": 5, "M": 8, "L": 8, "XL": 6, "XXL": 3 }
   }
 ]
