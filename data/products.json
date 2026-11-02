@@ -186,11 +186,6 @@
    "|navy": "images/kerst/kersttas-navy.jpg"
   },
   "sizes": [],
-  "personalize": {
-   "price": 5,
-   "label": "Naam erop",
-   "maxLength": 14
-  },
   "price": 6.99
  },
  {
