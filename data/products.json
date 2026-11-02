@@ -1,5 +1,119 @@
 [
  {
+  "id": "kerst-beer",
+  "name": "Beer met shirtje",
+  "description": "Zachte knuffelbeer met een eigen shirtje. Laat er een naam of korte tekst op zetten — een cadeau dat ze nooit vergeten.",
+  "category": "Kerst",
+  "badge": "Cadeau",
+  "types": [
+   {
+    "id": "M",
+    "label": "Medium",
+    "price": 19.99
+   },
+   {
+    "id": "L",
+    "label": "Large",
+    "price": 24.99
+   }
+  ],
+  "colors": [
+   {
+    "id": "creme",
+    "label": "Crème",
+    "hex": "#efe3c8"
+   }
+  ],
+  "images": {
+   "|creme": "images/kerst/beer-bedrukt.jpg"
+  },
+  "sizes": [],
+  "personalize": {
+   "price": 0,
+   "label": "Naam of tekst op het shirtje (inbegrepen)",
+   "maxLength": 14
+  },
+  "price": 19.99
+ },
+ {
+  "id": "kerst-schort",
+  "name": "Keukenschort “Koekje erbij?”",
+  "description": "Keukenschort voor de kerstbakker. Met je naam erop wordt het een top-cadeau.",
+  "category": "Kerst",
+  "badge": "Cadeau",
+  "colors": [
+   {
+    "id": "bordeaux",
+    "label": "Bordeaux",
+    "hex": "#6b1f2a"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   },
+   {
+    "id": "taupe",
+    "label": "Taupe",
+    "hex": "#a39684"
+   },
+   {
+    "id": "zwart",
+    "label": "Zwart",
+    "hex": "#151515"
+   }
+  ],
+  "images": {
+   "|bordeaux": "images/kerst/koekje-schort-bordeaux.jpg",
+   "|navy": "images/kerst/koekje-schort-navy.jpg",
+   "|taupe": "images/kerst/koekje-schort-taupe.jpg",
+   "|zwart": "images/kerst/koekje-schort-zwart.jpg"
+  },
+  "sizes": [],
+  "personalize": {
+   "price": 5,
+   "label": "Naam erop",
+   "maxLength": 14
+  },
+  "price": 17.99
+ },
+ {
+  "id": "kerst-tas",
+  "name": "Kersttas met koord",
+  "description": "Katoenen tas met rendier — ideaal om cadeaus in te verpakken of onder de boom te leggen.",
+  "category": "Kerst",
+  "badge": "Cadeau",
+  "colors": [
+   {
+    "id": "rood",
+    "label": "Rood",
+    "hex": "#b3242c"
+   },
+   {
+    "id": "naturel",
+    "label": "Naturel",
+    "hex": "#e8dcc4"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   }
+  ],
+  "images": {
+   "|rood": "images/kerst/kersttas-rood.jpg",
+   "|naturel": "images/kerst/kersttas-naturel.jpg",
+   "|navy": "images/kerst/kersttas-navy.jpg"
+  },
+  "sizes": [],
+  "personalize": {
+   "price": 5,
+   "label": "Naam erop",
+   "maxLength": 14
+  },
+  "price": 6.99
+ },
+ {
   "id": "kerst-foutetrui",
   "name": "Foute trui?",
   "description": "“Foute trui? Ik heb een shirt.” Voor wie het kersttruien-gedoe net iets te ver vindt gaan.",
@@ -920,120 +1034,6 @@
    "maxLength": 14
   },
   "price": 20
- },
- {
-  "id": "kerst-schort",
-  "name": "Keukenschort “Koekje erbij?”",
-  "description": "Keukenschort voor de kerstbakker. Met je naam erop wordt het een top-cadeau.",
-  "category": "Kerst",
-  "badge": "Cadeau",
-  "colors": [
-   {
-    "id": "bordeaux",
-    "label": "Bordeaux",
-    "hex": "#6b1f2a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "taupe",
-    "label": "Taupe",
-    "hex": "#a39684"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "|bordeaux": "images/kerst/koekje-schort-bordeaux.jpg",
-   "|navy": "images/kerst/koekje-schort-navy.jpg",
-   "|taupe": "images/kerst/koekje-schort-taupe.jpg",
-   "|zwart": "images/kerst/koekje-schort-zwart.jpg"
-  },
-  "sizes": [],
-  "personalize": {
-   "price": 5,
-   "label": "Naam erop",
-   "maxLength": 14
-  },
-  "price": 17.99
- },
- {
-  "id": "kerst-tas",
-  "name": "Kersttas met koord",
-  "description": "Katoenen tas met rendier — ideaal om cadeaus in te verpakken of onder de boom te leggen.",
-  "category": "Kerst",
-  "badge": "Cadeau",
-  "colors": [
-   {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
-    "id": "naturel",
-    "label": "Naturel",
-    "hex": "#e8dcc4"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   }
-  ],
-  "images": {
-   "|rood": "images/kerst/kersttas-rood.jpg",
-   "|naturel": "images/kerst/kersttas-naturel.jpg",
-   "|navy": "images/kerst/kersttas-navy.jpg"
-  },
-  "sizes": [],
-  "personalize": {
-   "price": 5,
-   "label": "Naam erop",
-   "maxLength": 14
-  },
-  "price": 6.99
- },
- {
-  "id": "kerst-beer",
-  "name": "Beer met shirtje",
-  "description": "Zachte knuffelbeer met een eigen shirtje. Laat er een naam of korte tekst op zetten — een cadeau dat ze nooit vergeten.",
-  "category": "Kerst",
-  "badge": "Cadeau",
-  "types": [
-   {
-    "id": "M",
-    "label": "Medium",
-    "price": 19.99
-   },
-   {
-    "id": "L",
-    "label": "Large",
-    "price": 24.99
-   }
-  ],
-  "colors": [
-   {
-    "id": "creme",
-    "label": "Crème",
-    "hex": "#efe3c8"
-   }
-  ],
-  "images": {
-   "|creme": "images/kerst/beer.jpg"
-  },
-  "sizes": [],
-  "personalize": {
-   "price": 0,
-   "label": "Naam of tekst op het shirtje (inbegrepen)",
-   "maxLength": 14
-  },
-  "price": 19.99
  },
  {
   "id": "1",

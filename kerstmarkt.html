@@ -107,7 +107,7 @@
       <div class="km-collage" aria-hidden="true">
         <img src="images/kerst/gluhwein-hoodie-zwart.jpg" alt="" />
         <img src="images/kerst/kerstzin-tee-rood.jpg" alt="" />
-        <img src="images/kerst/beer.jpg" alt="" />
+        <img src="images/kerst/beer-bedrukt.jpg" alt="" />
         <img src="images/kerst/foutetrui-trui-groen.jpg" alt="" />
       </div>
     </div>
@@ -176,7 +176,7 @@
       if (!open) item.classList.add('open');
     }));
     Catalog.load().then(all => {
-      const pick = ['kerst-gluhwein', 'kerst-kerstzin', 'kerst-foutetrui', 'kerst-ikpiek', 'kerst-beer', 'kerst-schort', 'kerst-kerstwarmer', 'kerst-hohoho'];
+      const pick = ['kerst-beer','kerst-schort','kerst-tas','kerst-gluhwein','kerst-kerstzin','kerst-foutetrui','kerst-kerstmodus','kerst-ikpiek'];
       const list = pick.map(id => all.find(p => p.id === id)).filter(Boolean);
       const { esc, euro } = Catalog;
       document.getElementById('kmGrid').innerHTML = list.map(p => `

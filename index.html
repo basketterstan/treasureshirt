@@ -211,7 +211,7 @@
       if (!open) item.classList.add('open');
     }));
     Catalog.load().then(all => {
-      const pick = ['kerst-gluhwein','kerst-kerstzin','kerst-foutetrui','kerst-kerstmodus','kerst-ikpiek','kerst-stillenacht','kerst-beer','kerst-schort'];
+      const pick = ['kerst-beer','kerst-schort','kerst-tas','kerst-gluhwein','kerst-kerstzin','kerst-foutetrui','kerst-kerstmodus','kerst-ikpiek'];
       const list = pick.map(id => all.find(p => p.id === id)).filter(Boolean);
       const { esc, euro } = Catalog;
       document.getElementById('homeGrid').innerHTML = list.map(p => `
