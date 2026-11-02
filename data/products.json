@@ -4,7 +4,7 @@
   "name": "Ho ho ho maar",
   "description": "Ho ho ho… maar dan op jouw manier.",
   "category": "Kerst",
-  "badge": "Kerst",
+  "badge": "",
   "types": [
    {
     "id": "tee",
@@ -149,7 +149,13 @@
    "label": "Naam erop",
    "maxLength": 14
   },
-  "price": 17.99
+  "price": 17.99,
+  "models": {
+   "|bordeaux": "images/kerst/koekje-schort-bordeaux-model.jpg",
+   "|navy": "images/kerst/koekje-schort-navy-model.jpg",
+   "|taupe": "images/kerst/koekje-schort-taupe-model.jpg",
+   "|zwart": "images/kerst/koekje-schort-zwart-model.jpg"
+  }
  },
  {
   "id": "kerst-tas",
@@ -441,7 +447,7 @@
   "name": "Ik piek met kerst",
   "description": "Altijd op je best rond de feestdagen? Dan is dit jouw shirt.",
   "category": "Kerst",
-  "badge": "Kerst",
+  "badge": "",
   "types": [
    {
     "id": "tee",
@@ -524,7 +530,7 @@
   "name": "Kerstclub",
   "description": "Lid van de officiële kerstclub. Geen inschrijving nodig.",
   "category": "Kerst",
-  "badge": "Kerst",
+  "badge": "",
   "types": [
    {
     "id": "tee",
@@ -607,7 +613,7 @@
   "name": "Kerstmodus aan",
   "description": "Schakel over: de kerstmodus staat aan.",
   "category": "Kerst",
-  "badge": "Kerst",
+  "badge": "",
   "types": [
    {
     "id": "tee",
@@ -690,7 +696,7 @@
   "name": "Jij maakt kerst warmer",
   "description": "Het perfecte cadeau voor die ene persoon die kerst warmer maakt.",
   "category": "Kerst",
-  "badge": "Kerst",
+  "badge": "",
   "types": [
    {
     "id": "tee",
@@ -747,14 +753,24 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/kerstwarmer-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/kerstwarmer-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/kerstwarmer-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/kerstwarmer-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/kerstwarmer-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/kerstwarmer-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/kerstwarmer-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/kerstwarmer-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-kerstzin",
   "name": "Kerstzin",
   "description": "“Dit shirt heeft kerstzin.” Jij ook?",
   "category": "Kerst",
-  "badge": "Kerst",
+  "badge": "",
   "types": [
    {
     "id": "tee",
@@ -837,7 +853,7 @@
   "name": "Koekje erbij?",
   "description": "Voor de koekjesbakkers en de koekjeseters.",
   "category": "Kerst",
-  "badge": "Kerst",
+  "badge": "",
   "types": [
    {
     "id": "tee",
@@ -894,14 +910,24 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/koekje-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/koekje-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/koekje-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/koekje-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/koekje-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/koekje-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/koekje-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/koekje-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-lieve",
   "name": "Lieve kerstman",
   "description": "Een briefje aan de kerstman, maar dan op je borst.",
   "category": "Kerst",
-  "badge": "Kerst",
+  "badge": "",
   "types": [
    {
     "id": "tee",
@@ -984,7 +1010,7 @@
   "name": "Stille nacht?",
   "description": "Stille nacht? Niet bij ons thuis.",
   "category": "Kerst",
-  "badge": "Kerst",
+  "badge": "",
   "types": [
    {
     "id": "tee",
@@ -1067,7 +1093,7 @@
   "name": "Koud weer",
   "description": "Koud buiten, warm in deze trui.",
   "category": "Kerst",
-  "badge": "Kerst",
+  "badge": "",
   "types": [
    {
     "id": "tee",
