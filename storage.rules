@@ -3,7 +3,9 @@ service firebase.storage {
   match /b/{bucket}/o {
     match /{allPaths=**} {
       allow read: if true;
-      allow write: if true;
+      // Only the admin (see firestore.rules) may upload or delete files.
+      allow write: if request.auth != null
+        && request.auth.token.email in ['daenen.stan@gmail.com', 'contact@treasureshirt.com'];
     }
   }
 }

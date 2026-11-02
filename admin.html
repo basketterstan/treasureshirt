@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
   <style>
-    :root {
+    :root { --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
       --black: #0a0a0a; --gold: #ffc83d; --gold-light: #e8c96a;
       --white: #ffffff; --gray: #888888; --dark-gray: #1a1a1a;
     }
@@ -128,6 +128,7 @@
     .status-select { background:var(--black); border:1px solid rgba(255,200,61,.3); color:var(--white); font-family:inherit; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; padding:.4rem .75rem; cursor:pointer; outline:none; transition:border-color .3s; }
     .status-select:focus { border-color:var(--gold); }
     .new-orders-badge { background:var(--gold); color:var(--black); font-size:.6rem; letter-spacing:.1em; padding:.2rem .6rem; font-weight:700; margin-left:.5rem; vertical-align:middle; }
+    .section-header h2 .new-orders-badge { color:var(--black); }
 
     /* SCANNER */
     .scanner-box { background:var(--dark-gray); border:1px solid rgba(255,200,61,.2); padding:2rem; margin-bottom:3rem; }
@@ -164,7 +165,7 @@
     <p class="login-sub">Admin Portaal</p>
     <div class="form-group">
       <label>E-mail</label>
-      <input type="email" id="loginEmail" placeholder="admin@treasureshirt.com" autocomplete="username" />
+      <input type="email" id="loginEmail" placeholder="jouw admin e-mailadres" autocomplete="username" />
     </div>
     <div class="form-group">
       <label>Wachtwoord</label>
@@ -172,6 +173,7 @@
     </div>
     <button class="btn-login" id="loginBtn">Inloggen</button>
     <p class="login-error" id="loginError">Verkeerd wachtwoord of e-mail.</p>
+    <button type="button" id="forgotBtn" style="display:block;margin:1.25rem auto 0;background:none;border:none;color:var(--gray);font-family:inherit;font-size:.8rem;cursor:pointer;text-decoration:underline">Wachtwoord vergeten?</button>
   </div>
 </div>
 
@@ -192,7 +194,15 @@
       <div class="stat-card"><div class="num">—</div><div class="lbl">Laden...</div></div>
     </div>
 
+    <!-- WEBSHOP BESTELLINGEN -->
+    <div class="section-header">
+      <h2>Webshop <span id="shopOrdersBadge">Bestellingen</span></h2>
+    </div>
+    <div class="orders-filter" id="shopOrdersFilter"></div>
+    <div id="shopOrdersContainer"><p class="loading">Bestellingen laden...</p></div>
+
     <!-- OP MAAT BESTELLINGEN -->
+    <div style="height:2.5rem"></div>
     <div class="section-header">
       <h2>Op Maat <span id="customOrdersBadge">Bestellingen</span></h2>
     </div>
@@ -224,16 +234,9 @@
       <h2>Instellingen <span>& Beveiliging</span></h2>
     </div>
     <div class="settings-box">
-      <h3>Wachtwoord wijzigen</h3>
-      <div class="form-group" style="margin-bottom:1rem">
-        <label>Nieuw wachtwoord</label>
-        <input type="password" id="newPass" placeholder="Nieuw wachtwoord" />
-      </div>
-      <div class="form-group" style="margin-bottom:1.5rem">
-        <label>Bevestig wachtwoord</label>
-        <input type="password" id="confirmPass" placeholder="Herhaal wachtwoord" />
-      </div>
-      <button class="btn-primary" id="changePassBtn">Wachtwoord Opslaan</button>
+      <h3>Wachtwoord</h3>
+      <p style="color:var(--gray);font-size:.85rem;margin-bottom:1rem">Je logt in met je Firebase-account. Klik hieronder om een mail te krijgen waarmee je een nieuw wachtwoord kiest.</p>
+      <button class="btn-primary" id="changePassBtn">Stuur reset-mail</button>
     </div>
   </div>
 </div>
@@ -297,7 +300,8 @@
 <div class="toast" id="toast"></div>
 
 <script type="module">
-import { db, storage } from './js/firebase-config.js';
+import { db, storage, auth } from './js/firebase-config.js';
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 import {
   collection, doc, addDoc, updateDoc, deleteDoc,
   onSnapshot, query, orderBy, getDocs, writeBatch, where, getDoc, setDoc
@@ -307,24 +311,10 @@ import {
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
 
 // ── AUTH ──────────────────────────────────────────
-const ADMIN_EMAIL  = 'admin@treasureshirt.com'; // login email
-const DEFAULT_HASH = '97f9503e5aed00dc2b170f76db62efff05e0e52b5ce5ae9d299e1966080eb286';
-const SESSION_KEY  = 'ts_admin_session';
-const SETTINGS_DOC = doc(db, 'settings', 'admin');
-
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
-}
-
-async function getPassHash() {
-  try {
-    const snap = await getDoc(SETTINGS_DOC);
-    return snap.exists() ? (snap.data().passHash || DEFAULT_HASH) : DEFAULT_HASH;
-  } catch { return DEFAULT_HASH; }
-}
-
-function isLoggedIn() { return sessionStorage.getItem(SESSION_KEY) === 'ok'; }
+// Keep in sync with isAdmin() in firestore.rules and storage.rules.
+const ADMIN_EMAILS = ['daenen.stan@gmail.com', 'contact@treasureshirt.com'];
+const isAdminUser = u => !!u && ADMIN_EMAILS.includes((u.email || '').toLowerCase());
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 // ── DASHBOARD ──────────────────────────────────────
 let allCustomOrders      = [];
@@ -334,8 +324,73 @@ let unsubCustomOrders    = null;
 function showDashboard() {
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('dashboard').style.display   = 'block';
+  startShopOrdersListener();
   startCustomOrdersListener();
   startBurenfeestListener();
+}
+
+// ── WEBSHOP ORDERS (Stripe) ────────────────────────
+const SHOP_STATUSES = ['nieuw', 'in_productie', 'klaar', 'afgehaald', 'verzonden'];
+const SHOP_LABELS = { nieuw: 'Nieuw', in_productie: 'In productie', klaar: 'Klaar', afgehaald: 'Afgehaald', verzonden: 'Verzonden' };
+const SHOP_COLORS = { nieuw: 'var(--gold)', in_productie: '#3498db', klaar: '#27ae60', afgehaald: '#8e44ad', verzonden: '#8e44ad' };
+let allShopOrders = [];
+let shopFilter = 'open';
+let unsubShopOrders = null;
+
+function startShopOrdersListener() {
+  unsubShopOrders = onSnapshot(query(collection(db, 'orders'), orderBy('createdAt', 'desc')), snap => {
+    allShopOrders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderShopOrders();
+  }, err => {
+    document.getElementById('shopOrdersContainer').innerHTML = `<p style="color:#e74c3c;padding:1rem">Fout: ${esc(err.message)}</p>`;
+  });
+}
+
+function renderShopOrders() {
+  const filters = {
+    open: ['Nog te doen', o => !['afgehaald', 'verzonden'].includes(o.status)],
+    afhalen: ['🎄 Afhalen', o => o.levering === 'afhalen-kerstmarkt'],
+    verzending: ['📦 Verzenden', o => o.levering !== 'afhalen-kerstmarkt'],
+    alles: ['Alles', () => true],
+  };
+  const open = allShopOrders.filter(filters.open[1]).length;
+  document.getElementById('shopOrdersBadge').innerHTML = open ? `<span class="new-orders-badge">${open} te doen</span>` : '<span style="color:var(--gold)">Bestellingen</span>';
+  document.getElementById('shopOrdersFilter').innerHTML = Object.entries(filters).map(([k, [label, fn]]) =>
+    `<button class="cat-btn ${shopFilter === k ? 'active' : ''}" data-f="${k}">${label} (${allShopOrders.filter(fn).length})</button>`).join('');
+  document.querySelectorAll('#shopOrdersFilter .cat-btn').forEach(b => b.addEventListener('click', () => { shopFilter = b.dataset.f; renderShopOrders(); }));
+
+  const list = allShopOrders.filter(filters[shopFilter][1]);
+  const box = document.getElementById('shopOrdersContainer');
+  if (!list.length) { box.innerHTML = '<p class="loading">Geen bestellingen.</p>'; return; }
+  box.innerHTML = list.map(o => {
+    const date = o.createdAt?.toDate ? o.createdAt.toDate().toLocaleString('nl-BE', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '—';
+    const pickup = o.levering === 'afhalen-kerstmarkt';
+    const color = SHOP_COLORS[o.status] || 'var(--gray)';
+    return `
+      <div class="order-card" style="border-left:3px solid ${color}">
+        <div class="order-header">
+          <span class="order-number">#${esc(o.orderNumber)}</span>
+          <span class="order-date">${date}</span>
+        </div>
+        <p style="margin-bottom:.5rem"><strong>${pickup ? '🎄 Afhalen op de kerstmarkt' : '📦 Verzenden'}</strong></p>
+        <p style="font-size:.9rem;margin-bottom:.75rem">${esc(o.customerName)} — <a href="mailto:${esc(o.customerEmail)}" style="color:var(--gold)">${esc(o.customerEmail)}</a>${o.telefoon ? ` — ${esc(o.telefoon)}` : ''}</p>
+        ${o.adres ? `<p style="font-size:.9rem;margin-bottom:.75rem;color:var(--gray)">${esc(o.adres)}</p>` : ''}
+        <ul style="list-style:none;font-size:.9rem;margin-bottom:.75rem">
+          ${(o.items || []).map(i => `<li style="padding:.25rem 0;border-bottom:1px solid rgba(255,255,255,.05)">${esc(i.quantity)}× ${esc(i.name)} <span style="color:var(--gray)">€ ${esc(i.subtotal)}</span></li>`).join('')}
+        </ul>
+        ${o.opmerking ? `<p style="font-size:.85rem;color:var(--gold);margin-bottom:.75rem">Opmerking: ${esc(o.opmerking)}</p>` : ''}
+        <div class="order-footer">
+          <strong>€ ${Number(o.total || 0).toFixed(2).replace('.', ',')}</strong>
+          <select class="status-select shop-status" data-order="${esc(o.id)}">
+            ${SHOP_STATUSES.map(st => `<option value="${st}" ${o.status === st ? 'selected' : ''}>${SHOP_LABELS[st]}</option>`).join('')}
+          </select>
+        </div>
+      </div>`;
+  }).join('');
+  box.querySelectorAll('.shop-status').forEach(sel => sel.addEventListener('change', async () => {
+    try { await updateDoc(doc(db, 'orders', sel.dataset.order), { status: sel.value }); toast(`Status → ${SHOP_LABELS[sel.value]}`, 'success'); }
+    catch (e) { toast('Fout: ' + e.message, 'error'); }
+  }));
 }
 
 // ── CUSTOM ORDERS ──────────────────────────────────
@@ -445,31 +500,31 @@ function renderCustomOrders() {
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 2rem;margin-bottom:1rem;font-size:.82rem">
           <div>
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Klant</span><br>
-            <strong style="font-size:.95rem">${o.naam || '—'}</strong>
+            <strong style="font-size:.95rem">${esc(o.naam || '—')}</strong>
           </div>
           <div>
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Product</span><br>
-            <span style="color:var(--gold)">${o.typeKleding === 'tshirt' ? 'T-Shirt' : 'Hoodie'} — ${o.maat} — € ${o.totaalprijs}</span>
+            <span style="color:var(--gold)">${o.typeKleding === 'tshirt' ? 'T-Shirt' : 'Hoodie'} — ${esc(o.maat)} — € ${o.totaalprijs}</span>
           </div>
           <div style="grid-column:1/-1">
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Thema / Brief</span><br>
-            <span style="line-height:1.6">${o.thema || '—'}</span>
+            <span style="line-height:1.6">${esc(o.thema || '—')}</span>
           </div>
           <div>
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Stijl</span><br>
-            ${o.stijl || '—'}
+            ${esc(o.stijl || '—')}
           </div>
           <div>
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Plaatsing</span><br>
-            ${o.plaatsing || '—'}
+            ${esc(o.plaatsing || '—')}
           </div>
           <div>
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Kleuren</span><br>
-            ${kleurDots} <span style="font-size:.8rem;color:var(--gray)">${(o.kleuren || []).join(', ')}</span>
+            ${kleurDots} <span style="font-size:.8rem;color:var(--gray)">${esc((o.kleuren || []).join(', '))}</span>
           </div>
           ${o.opmerkingen ? `<div style="grid-column:1/-1">
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Extra opmerkingen</span><br>
-            <span style="color:var(--gold)">${o.opmerkingen}</span>
+            <span style="color:var(--gold)">${esc(o.opmerkingen)}</span>
           </div>` : ''}
         </div>
 
@@ -484,7 +539,7 @@ function renderCustomOrders() {
       </div>`;
   }).join('');
 
-  document.querySelectorAll('.status-select').forEach(sel =>
+  document.querySelectorAll('#customOrdersContainer .status-select').forEach(sel =>
     sel.addEventListener('change', async () => {
       await updateDoc(doc(db, 'custom-orders', sel.dataset.order), { status: sel.value });
       toast(`Status → ${CUSTOM_LABELS[sel.value]}`, 'success');
@@ -494,15 +549,10 @@ function renderCustomOrders() {
 
 // ── WACHTWOORD ─────────────────────────────────────
 document.getElementById('changePassBtn').addEventListener('click', async () => {
-  const np = document.getElementById('newPass').value;
-  const cp = document.getElementById('confirmPass').value;
-  if (!np) { toast('Vul een nieuw wachtwoord in', 'error'); return; }
-  if (np !== cp) { toast('Wachtwoorden komen niet overeen', 'error'); return; }
-  if (np.length < 8) { toast('Minimaal 8 tekens vereist', 'error'); return; }
-  await setDoc(SETTINGS_DOC, { passHash: await sha256(np) }, { merge: true });
-  document.getElementById('newPass').value = '';
-  document.getElementById('confirmPass').value = '';
-  toast('Wachtwoord gewijzigd — werkt nu op alle apparaten', 'success');
+  try {
+    await sendPasswordResetEmail(auth, auth.currentUser.email);
+    toast('Reset-mail verstuurd naar ' + auth.currentUser.email, 'success');
+  } catch (e) { toast('Fout: ' + e.message, 'error'); }
 });
 
 // ── TOAST ──────────────────────────────────────────
@@ -515,17 +565,24 @@ function toast(msg, type = 'success') {
 
 // ── LOGIN ──────────────────────────────────────────
 document.getElementById('loginBtn').addEventListener('click', async () => {
-  const email   = document.getElementById('loginEmail').value.trim();
-  const pass    = document.getElementById('loginPass').value;
-  const hash    = await sha256(pass);
-  const stored  = await getPassHash();
-  if (email === ADMIN_EMAIL && hash === stored) {
-    sessionStorage.setItem(SESSION_KEY, 'ok');
-    document.getElementById('loginError').style.display = 'none';
-    showDashboard();
-  } else {
-    document.getElementById('loginError').style.display = 'block';
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pass  = document.getElementById('loginPass').value;
+  const errEl = document.getElementById('loginError');
+  errEl.style.display = 'none';
+  if (!ADMIN_EMAILS.includes(email)) { errEl.textContent = 'Dit e-mailadres heeft geen admin-toegang.'; errEl.style.display = 'block'; return; }
+  try {
+    await signInWithEmailAndPassword(auth, email, pass);
+  } catch (e) {
+    errEl.textContent = 'Verkeerd wachtwoord of e-mail.'; errEl.style.display = 'block';
   }
+});
+
+document.getElementById('forgotBtn').addEventListener('click', async () => {
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const errEl = document.getElementById('loginError');
+  if (!ADMIN_EMAILS.includes(email)) { errEl.textContent = 'Vul eerst je admin e-mailadres in.'; errEl.style.display = 'block'; return; }
+  try { await sendPasswordResetEmail(auth, email); toast('Reset-mail verstuurd', 'success'); }
+  catch (e) { errEl.textContent = 'Fout: ' + e.message; errEl.style.display = 'block'; }
 });
 
 document.getElementById('loginPass').addEventListener('keydown', e => {
@@ -535,8 +592,8 @@ document.getElementById('loginPass').addEventListener('keydown', e => {
 document.getElementById('logoutBtn').addEventListener('click', () => {
   if (unsubCustomOrders) unsubCustomOrders();
   if (unsubBurenfeest) unsubBurenfeest();
-  sessionStorage.removeItem(SESSION_KEY);
-  location.reload();
+  if (unsubShopOrders) unsubShopOrders();
+  signOut(auth).then(() => location.reload());
 });
 
 // ── BURENFEEST STATE ───────────────────────────────
@@ -546,7 +603,16 @@ let bfImageUrl      = '';
 let unsubBurenfeest = null;
 
 // ── INIT ───────────────────────────────────────────
-if (isLoggedIn()) showDashboard();
+let dashboardShown = false;
+onAuthStateChanged(auth, user => {
+  if (isAdminUser(user)) {
+    if (!dashboardShown) { dashboardShown = true; showDashboard(); }
+  } else if (user) {
+    const errEl = document.getElementById('loginError');
+    errEl.textContent = 'Dit account heeft geen admin-toegang.'; errEl.style.display = 'block';
+    signOut(auth);
+  }
+});
 
 function startBurenfeestListener() {
   unsubBurenfeest = onSnapshot(collection(db, 'burenfeest'), snap => {

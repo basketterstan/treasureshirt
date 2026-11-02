@@ -1,28 +1,55 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    // Admin = logged in with Firebase Auth using one of these e-mail addresses.
+    // Keep this list in sync with ADMIN_EMAILS in admin.html.
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email in ['daenen.stan@gmail.com', 'contact@treasureshirt.com'];
+    }
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    // Products are read from data/products.json; this collection is kept read-only.
     match /products/{id} {
       allow read: if true;
-      allow write: if true;
+      allow write: if isAdmin();
     }
+
+    // Paid orders are written by the Stripe webhook (Admin SDK bypasses rules).
     match /orders/{id} {
-      allow read: if true;
-      allow write: if true;
+      allow get: if isAdmin() || (request.auth != null && resource.data.userId == request.auth.uid);
+      allow list, update, delete: if isAdmin();
+      allow create: if false;
     }
+
     match /settings/{id} {
-      allow read: if true;
-      allow write: if true;
+      allow read, write: if isAdmin();
     }
+
     match /burenfeest/{id} {
       allow read: if true;
-      allow write: if true;
+      allow write: if isAdmin();
     }
+
+    // Custom ("op maat") orders: anyone may create one (guests too), only the
+    // owner or the admin can read them. Before payment the checkout may add the
+    // delivery details; everything else is admin-only.
     match /custom-orders/{id} {
-      allow read: if true;
-      allow write: if true;
+      allow create: if request.resource.data.status == 'pending_payment'
+        && (request.resource.data.userId == null || isOwner(request.resource.data.userId));
+      allow read: if isAdmin() || (resource.data.userId != null && isOwner(resource.data.userId));
+      allow update: if isAdmin()
+        || (resource.data.status == 'pending_payment'
+            && request.resource.data.diff(resource.data).affectedKeys()
+                 .hasOnly(['leveringsNaam', 'adres', 'verzendkost', 'levering']));
+      allow delete: if isAdmin();
     }
+
     match /users/{uid} {
-      allow read, write: if true;
+      allow read, write: if isOwner(uid) || isAdmin();
     }
   }
 }
