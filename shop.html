@@ -158,7 +158,7 @@
         const u = new URL(location.href);
         if (active === 'Alles') u.searchParams.delete('c'); else u.searchParams.set('c', active.toLowerCase());
         u.searchParams.delete('p');
-        history.replaceState(null, '', u);
+        try { history.replaceState(null, '', u); } catch {}
         renderFilters(); setHeader(); renderGrid();
       }));
     }
@@ -198,7 +198,7 @@
     const overlay = document.getElementById('pdetailOverlay');
     function closeModal() {
       overlay.classList.remove('open'); document.body.style.overflow = '';
-      const u = new URL(location.href); u.searchParams.delete('p'); history.replaceState(null, '', u);
+      const u = new URL(location.href); u.searchParams.delete('p'); try { history.replaceState(null, '', u); } catch {}
     }
     document.getElementById('pdetailClose').addEventListener('click', closeModal);
     overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
@@ -284,7 +284,7 @@
 
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
-      const u = new URL(location.href); u.searchParams.set('p', p.id); history.replaceState(null, '', u);
+      const u = new URL(location.href); u.searchParams.set('p', p.id); try { history.replaceState(null, '', u); } catch {}
     }
 
     renderFilters(); setHeader(); renderGrid();
