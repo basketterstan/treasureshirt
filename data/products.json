@@ -1,5 +1,79 @@
 [
  {
+  "id": "kerst-hohoho",
+  "name": "Ho ho ho maar",
+  "description": "Ho ho ho… maar dan op jouw manier.",
+  "category": "Kerst",
+  "badge": "Kerst",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 20
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 39
+   }
+  ],
+  "colors": [
+   {
+    "id": "groen",
+    "label": "Groen",
+    "hex": "#1e5b3a"
+   },
+   {
+    "id": "rood",
+    "label": "Rood",
+    "hex": "#b3242c"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   },
+   {
+    "id": "zwart",
+    "label": "Zwart",
+    "hex": "#151515"
+   }
+  ],
+  "images": {
+   "tee|zwart": "images/kerst/hohoho-tee-zwart.jpg",
+   "tee|navy": "images/kerst/hohoho-tee-navy.jpg",
+   "tee|groen": "images/kerst/hohoho-tee-groen.jpg",
+   "tee|rood": "images/kerst/hohoho-tee-rood.jpg",
+   "hoodie|zwart": "images/kerst/hohoho-hoodie-zwart.jpg",
+   "hoodie|navy": "images/kerst/hohoho-hoodie-navy.jpg",
+   "hoodie|groen": "images/kerst/hohoho-hoodie-groen.jpg",
+   "hoodie|rood": "images/kerst/hohoho-hoodie-rood.jpg"
+  },
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "personalize": {
+   "price": 5,
+   "label": "Naam erop (bv. op de mouw of achterkant)",
+   "maxLength": 14
+  },
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/hohoho-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/hohoho-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/hohoho-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/hohoho-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/hohoho-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/hohoho-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/hohoho-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/hohoho-hoodie-rood-model.jpg"
+  }
+ },
+ {
   "id": "kerst-beer",
   "name": "Beer met bedrukt shirtje",
   "description": "Zachte knuffelbeer met een eigen shirtje. Laat er een naam of korte tekst op zetten — een cadeau dat ze nooit vergeten.",
@@ -1010,80 +1084,6 @@
    "maxLength": 14
   },
   "price": 20
- },
- {
-  "id": "kerst-hohoho",
-  "name": "Ho ho ho maar",
-  "description": "Ho ho ho… maar dan op jouw manier.",
-  "category": "Kerst",
-  "badge": "Kerst",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 20
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 39
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/hohoho-tee-zwart.jpg",
-   "tee|navy": "images/kerst/hohoho-tee-navy.jpg",
-   "tee|groen": "images/kerst/hohoho-tee-groen.jpg",
-   "tee|rood": "images/kerst/hohoho-tee-rood.jpg",
-   "hoodie|zwart": "images/kerst/hohoho-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/hohoho-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/hohoho-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/hohoho-hoodie-rood.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL"
-  ],
-  "personalize": {
-   "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
-  },
-  "price": 20,
-  "models": {
-   "tee|zwart": "images/kerst/hohoho-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/hohoho-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/hohoho-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/hohoho-tee-rood-model.jpg",
-   "hoodie|zwart": "images/kerst/hohoho-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/hohoho-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/hohoho-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/hohoho-hoodie-rood-model.jpg"
-  }
  },
  {
   "id": "1",
