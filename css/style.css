@@ -501,3 +501,8 @@ footer {
 .market-date { text-decoration: none; }
 .cart-toast { bottom: auto; top: 84px; transform: translateX(-50%) translateY(-10px); }
 .cart-toast.show { transform: translateX(-50%) translateY(0); }
+/* model photo: shown on hover over the product card */
+.product-image .model-img { position: absolute; inset: 0; opacity: 0; transition: opacity .3s; }
+.product-card:hover .product-image .model-img { opacity: 1; }
+@media (hover: none) { .product-image .model-img { display: none; } }
+.pdetail-thumb-model { border-color: rgba(0,0,0,.15); }

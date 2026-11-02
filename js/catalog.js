@@ -35,6 +35,12 @@ const Catalog = (() => {
       || Object.values(imgs)[0] || '';
   }
 
+  // Photo of a person wearing this variant, if we have one.
+  function modelFor(p, type, color) {
+    const m = p.models || {};
+    return m[`${type || (p.types && p.types[0] && p.types[0].id) || ''}|${color}`] || '';
+  }
+
   // Types that actually have images (so we never show a type that can't be made)
   function typesFor(p) { return p.types || []; }
 
@@ -47,5 +53,5 @@ const Catalog = (() => {
     return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
-  return { load, priceFor, fromPrice, imageFor, typesFor, euro, esc };
+  return { load, priceFor, fromPrice, imageFor, modelFor, typesFor, euro, esc };
 })();

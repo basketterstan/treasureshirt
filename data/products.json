@@ -549,7 +549,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/kerstmodus-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/kerstmodus-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/kerstmodus-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/kerstmodus-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/kerstmodus-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/kerstmodus-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/kerstmodus-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/kerstmodus-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-kerstwarmer",
@@ -1033,7 +1043,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/hohoho-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/hohoho-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/hohoho-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/hohoho-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/hohoho-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/hohoho-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/hohoho-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/hohoho-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "1",
