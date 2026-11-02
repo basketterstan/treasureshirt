@@ -424,7 +424,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/goede-smaak-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/goede-smaak-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/goede-smaak-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/goede-smaak-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/goede-smaak-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/goede-smaak-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/goede-smaak-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/goede-smaak-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-ikpiek",
@@ -497,7 +507,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/ikpiek-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/ikpiek-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/ikpiek-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/ikpiek-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/ikpiek-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/ikpiek-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/ikpiek-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/ikpiek-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-kerstclub",
@@ -800,7 +820,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/kerstzin-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/kerstzin-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/kerstzin-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/kerstzin-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/kerstzin-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/kerstzin-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/kerstzin-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/kerstzin-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-koekje",
@@ -937,7 +967,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/lieve-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/lieve-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/lieve-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/lieve-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/lieve-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/lieve-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/lieve-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/lieve-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-stillenacht",
@@ -1010,7 +1050,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/stillenacht-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/stillenacht-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/stillenacht-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/stillenacht-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/stillenacht-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/stillenacht-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/stillenacht-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/stillenacht-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-warm",
@@ -1083,7 +1133,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/warm-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/warm-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/warm-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/warm-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/warm-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/warm-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/warm-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/warm-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "1",
