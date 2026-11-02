@@ -216,7 +216,7 @@
       const { esc, euro } = Catalog;
       document.getElementById('homeGrid').innerHTML = list.map(p => `
         <a class="product-card" href="shop.html?c=kerst&p=${encodeURIComponent(p.id)}" style="text-decoration:none;color:inherit">
-          <div class="product-image"><img src="${esc(Catalog.imageFor(p, null, p.colors?.[0]?.id))}" alt="${esc(p.name)}" loading="lazy"></div>
+          <div class="product-image"><img src="${esc(Catalog.modelFor(p, null, p.colors?.[0]?.id) || Catalog.imageFor(p, null, p.colors?.[0]?.id))}" alt="${esc(p.name)}" loading="lazy"></div>
           <div class="product-info">
             <h3 class="product-name">${esc(p.name)}</h3>
             <div class="product-footer"><p class="product-price">${p.types && p.types.length > 1 ? '<small>vanaf</small>' : ''}${euro(Catalog.fromPrice(p))}</p></div>

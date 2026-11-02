@@ -171,8 +171,8 @@
         <article class="product-card" data-id="${esc(p.id)}" tabindex="0">
           <div class="product-image">
             ${p.badge ? `<span class="product-badge ${p.category === 'Kerst' ? 'kerst' : ''}">${esc(p.badge)}</span>` : ''}
-            ${img ? `<img src="${esc(img)}" alt="${esc(p.name)}" loading="lazy">` : '👕'}
-            ${model ? `<img class="model-img" src="${esc(model)}" alt="" loading="lazy">` : ''}
+            ${model ? `<img src="${esc(model)}" alt="${esc(p.name)}" loading="lazy">` : (img ? `<img src="${esc(img)}" alt="${esc(p.name)}" loading="lazy">` : '👕')}
+            ${model && img ? `<img class="model-img" src="${esc(img)}" alt="" loading="lazy">` : ''}
           </div>
           <div class="product-info">
             <h3 class="product-name">${esc(p.name)}</h3>
@@ -220,15 +220,19 @@
       }
       function refresh() {
         document.getElementById('pdetailPrice').textContent = euro(Catalog.priceFor(p, sel));
-        showImage(Catalog.imageFor(p, sel.type, sel.color));
+        const modelMain = Catalog.modelFor(p, sel.type, sel.color);
+        showImage(modelMain || Catalog.imageFor(p, sel.type, sel.color));
         const thumbs = (p.colors || []).map(c => ({ c, url: Catalog.imageFor(p, sel.type, c.id) })).filter(x => x.url);
         const model = Catalog.modelFor(p, sel.type, sel.color);
         const strip = thumbs.length > 1 ? thumbs.map(({ c, url }) =>
-          `<img class="pdetail-thumb ${c.id === sel.color ? 'active' : ''}" src="${esc(url)}" data-color="${esc(c.id)}" alt="${esc(c.label)}">`).join('') : '';
+          `<img class="pdetail-thumb ${c.id === sel.color && !model ? 'active' : ''}" src="${esc(url)}" data-color="${esc(c.id)}" alt="${esc(c.label)}">`).join('') : '';
         document.getElementById('pdetailThumbs').innerHTML = strip + (model
-          ? `<img class="pdetail-thumb pdetail-thumb-model" src="${esc(model)}" data-model="1" alt="Gedragen" title="Zo staat hij aan">` : '');
+          ? `<img class="pdetail-thumb pdetail-thumb-model active" src="${esc(model)}" data-model="1" alt="Gedragen" title="Zo staat hij aan">` : '');
         document.querySelectorAll('#pdetailThumbs .pdetail-thumb').forEach(t => t.addEventListener('click', () => {
           if (t.dataset.model) {
+            showImage(t.src);
+            document.querySelectorAll('#pdetailThumbs .pdetail-thumb').forEach(x => x.classList.toggle('active', x === t));
+          } else if (t.dataset.color === sel.color) {
             showImage(t.src);
             document.querySelectorAll('#pdetailThumbs .pdetail-thumb').forEach(x => x.classList.toggle('active', x === t));
           } else { sel.color = t.dataset.color; draw(); }
