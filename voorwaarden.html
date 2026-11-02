@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Algemene Voorwaarden — Treasureshirt</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .legal-hero { padding: 10rem 5% 3rem; text-align: center; background: linear-gradient(to bottom, #1a1a1a, #0a0a0a); }
@@ -14,7 +14,7 @@
     .legal-body p, .legal-body li { color: #aaa; font-size: .95rem; line-height: 1.85; margin-bottom: .75rem; }
     .legal-body ul { padding-left: 1.4rem; margin-bottom: .75rem; }
     .legal-body a { color: var(--gold); }
-    .legal-date { font-size: .8rem; color: #666; font-style: italic; margin-bottom: 2rem; }
+    .legal-date { font-size: .8rem; color:#8f8b83; margin-bottom: 2rem; }
   </style>
 </head>
 <body>
@@ -22,15 +22,16 @@
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      
+      <li><a href="shop.html?c=kerst" class="nav-kerst">🎄 Kerst</a></li>
       <li><a href="shop.html">Collectie</a></li>
-      <li><a href="op-maat.html">Op Maat</a></li>
-      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="op-maat.html">Op maat</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
-      <button class="nav-cart" id="cartBtn">Winkelwagen <span class="cart-badge" id="cartCount">0</span></button>
+      <button class="nav-cart" id="cartBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span></button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -39,7 +40,7 @@
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
         <h3>Winkelwagen</h3>
-        <button class="cart-close" id="cartClose">✕</button>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
@@ -47,6 +48,7 @@
           <span class="cart-total-label">Subtotaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7) — je kiest bij het afrekenen.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
@@ -58,12 +60,12 @@
   </div>
 
   <div class="legal-body">
-    <p class="legal-date">Laatste update: mei 2025</p>
+    <p class="legal-date">Laatste update: november 2026</p>
 
     <h2>1. Identiteit</h2>
     <p>Treasureshirt<br />
     Website: treasureshirt.com<br />
-    E-mail: <a href="mailto:contact@hoopsatlas.com">contact@hoopsatlas.com</a></p>
+    E-mail: <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a></p>
 
     <h2>2. Toepasselijkheid</h2>
     <p>Deze algemene voorwaarden zijn van toepassing op alle bestellingen die via treasureshirt.com worden geplaatst. Door een bestelling te plaatsen, aanvaardt u deze voorwaarden.</p>
@@ -83,12 +85,12 @@
 
     <h2>6. Herroepingsrecht</h2>
     <p>In beginsel heeft u als consument het recht om een overeenkomst op afstand te herroepen binnen <strong>14 kalenderdagen</strong> na ontvangst van het product, zonder opgave van reden.</p>
-    <p><strong>Uitzondering — gepersonaliseerde producten:</strong> Alle producten van Treasureshirt worden op individuele bestelling en naar persoonlijke specificaties vervaardigd (eigen thema, stijl, kleur en plaatsing). Deze producten zijn uitdrukkelijk uitgesloten van het herroepingsrecht conform <strong>artikel VI.53, 3° van het Wetboek Economisch Recht (WER)</strong>, dat bepaalt dat het herroepingsrecht niet geldt voor goederen die volgens de specificaties van de consument zijn vervaardigd of die een duidelijk persoonlijk karakter hebben.</p>
-    <p>Door een bestelling te plaatsen en te betalen, erkent u uitdrukkelijk dat u afstand doet van uw herroepingsrecht zodra de productie van uw gepersonaliseerd design is gestart.</p>
-    <p><strong>Uitzondering op de uitzondering:</strong> Bij een aantoonbaar productiedefect (verkeerde maat geleverd, drukfout door ons, beschadigd product) voorzien wij in vervanging of terugbetaling. Neem hiervoor binnen 48 uur na ontvangst contact op via <a href="mailto:contact@hoopsatlas.com">contact@hoopsatlas.com</a> met foto's als bewijs.</p>
+    <p><strong>Uitzondering — gepersonaliseerde producten:</strong> Producten op maat (eigen thema, stijl, kleur en plaatsing via "Op maat") en producten waarop wij op uw vraag een naam of tekst drukken, worden volgens uw specificaties vervaardigd. Deze producten zijn uitgesloten van het herroepingsrecht conform <strong>artikel VI.53, 3° van het Wetboek Economisch Recht (WER)</strong>.</p>
+    <p>Door zo'n gepersonaliseerd product te bestellen en te betalen, erkent u dat u afstand doet van uw herroepingsrecht zodra de productie is gestart. Voor producten uit de collectie zonder personalisatie (bv. een kersttrui zonder naam) geldt het gewone herroepingsrecht van 14 dagen — zie ons <a href="retour.html">retourbeleid</a>.</p>
+    <p><strong>Uitzondering op de uitzondering:</strong> Bij een aantoonbaar productiedefect (verkeerde maat geleverd, drukfout door ons, beschadigd product) voorzien wij in vervanging of terugbetaling. Neem hiervoor binnen 48 uur na ontvangst contact op via <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a> met foto's als bewijs.</p>
 
     <h2>7. Garantie</h2>
-    <p>Wij garanderen dat onze producten voldoen aan de beschrijving op de website. Bij een defect product neemt u contact op via <a href="mailto:contact@hoopsatlas.com">contact@hoopsatlas.com</a>. Wij lossen dit op via vervanging of terugbetaling.</p>
+    <p>Wij garanderen dat onze producten voldoen aan de beschrijving op de website. Bij een defect product neemt u contact op via <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a>. Wij lossen dit op via vervanging of terugbetaling.</p>
 
     <h2>8. Aansprakelijkheid</h2>
     <p>Treasureshirt is niet aansprakelijk voor indirecte schade of gevolgschade die voortvloeit uit het gebruik van onze producten of website. Onze aansprakelijkheid is in elk geval beperkt tot het bedrag van uw bestelling.</p>
@@ -97,16 +99,16 @@
     <p>Op alle overeenkomsten is het Belgisch recht van toepassing. Geschillen worden voorgelegd aan de bevoegde rechtbank van het arrondissement van de maatschappelijke zetel van Treasureshirt.</p>
 
     <h2>10. Contact</h2>
-    <p>Voor vragen over deze voorwaarden: <a href="mailto:contact@hoopsatlas.com">contact@hoopsatlas.com</a></p>
+    <p>Voor vragen over deze voorwaarden: <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a></p>
   </div>
 
   <footer>
     <span class="footer-logo">Treasureshirt</span>
-    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
     <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.5rem">
-      <a href="privacy.html" style="color:#666;font-size:.75rem;text-decoration:none">Privacybeleid</a>
-      <a href="voorwaarden.html" style="color:#666;font-size:.75rem;text-decoration:none">Algemene Voorwaarden</a>
-      <a href="retour.html" style="color:#666;font-size:.75rem;text-decoration:none">Retourbeleid</a>
+      <a href="privacy.html" style="color:#8f8b83;font-size:.75rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#8f8b83;font-size:.75rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#8f8b83;font-size:.75rem;text-decoration:none">Retourbeleid</a>
     </div>
   </footer>
 

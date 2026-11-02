@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mijn Bestellingen — Treasureshirt</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .orders-wrap {
@@ -19,7 +19,7 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(201,168,76,.15);
+      border-bottom: 1px solid rgba(255,200,61,.15);
       padding-bottom: 1.25rem;
     }
     .orders-title {
@@ -38,7 +38,7 @@
     .orders-back:hover { color: var(--gold); }
 
     .order-card {
-      border: 1px solid rgba(201,168,76,.15);
+      border: 1px solid rgba(255,200,61,.15);
       margin-bottom: 1.25rem;
       background: #111;
     }
@@ -47,7 +47,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 1.25rem;
-      border-bottom: 1px solid rgba(201,168,76,.08);
+      border-bottom: 1px solid rgba(255,200,61,.08);
       gap: 1rem;
       flex-wrap: wrap;
     }
@@ -60,14 +60,13 @@
     .order-date {
       font-size: .72rem;
       color: var(--gray);
-      font-style: italic;
-    }
+      }
     .order-status {
       font-size: .62rem;
       letter-spacing: .2em;
       text-transform: uppercase;
       padding: .3rem .7rem;
-      border: 1px solid rgba(201,168,76,.3);
+      border: 1px solid rgba(255,200,61,.3);
       color: var(--gold);
     }
     .order-status.verzonden { border-color: rgba(39,174,96,.4); color: #27ae60; }
@@ -94,13 +93,12 @@
       justify-content: space-between;
       align-items: center;
       padding: .85rem 1.25rem;
-      border-top: 1px solid rgba(201,168,76,.08);
-      background: rgba(201,168,76,.03);
+      border-top: 1px solid rgba(255,200,61,.08);
+      background: rgba(255,200,61,.03);
     }
     .order-shipping {
       font-size: .72rem;
       color: var(--gray);
-      font-style: italic;
       flex: 1;
     }
     .order-total {
@@ -113,8 +111,7 @@
       text-align: center;
       padding: 4rem 0;
       color: var(--gray);
-      font-style: italic;
-    }
+      }
     .orders-empty a { color: var(--gold); text-decoration: none; }
 
     .orders-loading {
@@ -131,15 +128,16 @@
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      
+      <li><a href="shop.html?c=kerst" class="nav-kerst">🎄 Kerst</a></li>
       <li><a href="shop.html">Collectie</a></li>
-      <li><a href="op-maat.html">Op Maat</a></li>
-      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="op-maat.html">Op maat</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
-      <button class="nav-cart" id="cartBtn">Winkelwagen <span class="cart-badge" id="cartCount">0</span></button>
+      <button class="nav-cart" id="cartBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span></button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -148,7 +146,7 @@
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
         <h3>Winkelwagen</h3>
-        <button class="cart-close" id="cartClose">✕</button>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
@@ -156,6 +154,7 @@
           <span class="cart-total-label">Subtotaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7) — je kiest bij het afrekenen.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
@@ -233,7 +232,7 @@
                 <div class="order-item-row">
                   <span class="order-item-name">Op Maat ${product} — ${o.maat || ''} — ${o.kledingKleur || ''}</span>
                 </div>
-                <div class="order-item-row" style="color:#666;font-size:.8rem;font-style:italic">
+                <div class="order-item-row" style="color:#8f8b83;font-size:.8rem;">
                   ${o.thema || ''}
                 </div>
               </div>

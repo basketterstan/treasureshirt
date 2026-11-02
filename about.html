@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Over Ons — Treasureshirt</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .about-hero {
@@ -35,7 +35,6 @@
     }
     .value-card p {
       color: var(--gray);
-      font-style: italic;
       line-height: 1.9;
     }
   </style>
@@ -45,16 +44,17 @@
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      
+      <li><a href="shop.html?c=kerst" class="nav-kerst">🎄 Kerst</a></li>
       <li><a href="shop.html">Collectie</a></li>
-      <li><a href="op-maat.html">Op Maat</a></li>
-      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="op-maat.html">Op maat</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
       <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
-      <button class="nav-cart" id="cartBtn">Winkelwagen <span class="cart-badge" id="cartCount">0</span></button>
+      <button class="nav-cart" id="cartBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span></button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
         <span></span><span></span><span></span>
       </button>
@@ -65,7 +65,7 @@
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
         <h3>Winkelwagen</h3>
-        <button class="cart-close" id="cartClose">✕</button>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
@@ -73,6 +73,7 @@
           <span class="cart-total-label">Subtotaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7) — je kiest bij het afrekenen.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
@@ -142,15 +143,15 @@
 
   <footer>
     <span class="footer-logo">Treasureshirt</span>
-    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
     <div class="footer-socials">
       <a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a>
     </div>
     <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
-      <a href="privacy.html" style="color:#555;font-size:.72rem;text-decoration:none">Privacybeleid</a>
-      <a href="voorwaarden.html" style="color:#555;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
-      <a href="retour.html" style="color:#555;font-size:.72rem;text-decoration:none">Retourbeleid</a>
+      <a href="privacy.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Retourbeleid</a>
     </div>
   </footer>
 

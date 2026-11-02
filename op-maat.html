@@ -6,7 +6,7 @@
   <title>Op Maat — Treasureshirt</title>
   <meta name="description" content="Beschrijf jouw thema en stijl — wij maken het design. Je ziet het pas als je shirt klaar is." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     /* ── PAGE HERO ── */
@@ -45,7 +45,6 @@
     }
 
     .form-step h3 em {
-      font-style: italic;
       color: var(--gold);
     }
 
@@ -54,9 +53,9 @@
       width: 100%;
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(201, 168, 76, 0.4);
+      border-bottom: 1px solid rgba(255,200,61, 0.4);
       color: var(--white);
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: var(--font);
       font-size: 1.1rem;
       padding: 0.75rem 0;
       outline: none;
@@ -77,13 +76,12 @@
 
     .form-input::placeholder {
       color: var(--gray);
-      font-style: italic;
-    }
+      }
 
     textarea.form-input {
       resize: vertical;
       min-height: 90px;
-      border: 1px solid rgba(201, 168, 76, 0.4);
+      border: 1px solid rgba(255,200,61, 0.4);
       padding: 0.75rem 1rem;
     }
 
@@ -94,14 +92,12 @@
     .input-hint {
       font-size: 0.75rem;
       color: var(--gray);
-      font-style: italic;
       margin-top: 0.5rem;
     }
 
     .input-warning {
       font-size: 0.75rem;
       color: #c9784c;
-      font-style: italic;
       margin-top: 0.5rem;
     }
 
@@ -113,7 +109,7 @@
     }
 
     .card-choice {
-      border: 1px solid rgba(201, 168, 76, 0.2);
+      border: 1px solid rgba(255,200,61, 0.2);
       padding: 2rem 1.5rem;
       text-align: center;
       cursor: pointer;
@@ -122,12 +118,12 @@
     }
 
     .card-choice:hover {
-      border-color: rgba(201, 168, 76, 0.5);
+      border-color: rgba(255,200,61, 0.5);
     }
 
     .card-choice.selected {
       border-color: var(--gold);
-      background: rgba(201, 168, 76, 0.06);
+      background: rgba(255,200,61, 0.06);
     }
 
     .card-choice input[type="radio"] {
@@ -153,8 +149,7 @@
     .card-choice-price {
       font-size: 1.3rem;
       color: var(--gold);
-      font-style: italic;
-    }
+      }
 
     .card-choice-check {
       position: absolute;
@@ -163,7 +158,7 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      border: 1px solid rgba(201, 168, 76, 0.4);
+      border: 1px solid rgba(255,200,61, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -188,10 +183,10 @@
     .size-btn {
       width: 52px;
       height: 52px;
-      border: 1px solid rgba(201, 168, 76, 0.3);
+      border: 1px solid rgba(255,200,61, 0.3);
       background: transparent;
       color: var(--gray);
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: var(--font);
       font-size: 0.85rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -218,7 +213,7 @@
     }
 
     .style-option {
-      border: 1px solid rgba(201, 168, 76, 0.2);
+      border: 1px solid rgba(255,200,61, 0.2);
       padding: 1.25rem 1rem;
       text-align: center;
       cursor: pointer;
@@ -234,12 +229,12 @@
     }
 
     .style-option:hover {
-      border-color: rgba(201, 168, 76, 0.5);
+      border-color: rgba(255,200,61, 0.5);
     }
 
     .style-option.selected {
       border-color: var(--gold);
-      background: rgba(201, 168, 76, 0.06);
+      background: rgba(255,200,61, 0.06);
     }
 
     .style-option-icon {
@@ -277,7 +272,7 @@
 
     .color-swatch.selected {
       border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.3);
+      box-shadow: 0 0 0 3px rgba(255,200,61, 0.3);
     }
 
     .color-swatch.selected::after {
@@ -295,7 +290,6 @@
     .color-limit-note {
       font-size: 0.72rem;
       color: var(--gray);
-      font-style: italic;
       margin-top: 0.75rem;
     }
 
@@ -307,10 +301,10 @@
     }
 
     .placement-btn {
-      border: 1px solid rgba(201, 168, 76, 0.3);
+      border: 1px solid rgba(255,200,61, 0.3);
       background: transparent;
       color: var(--gray);
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: var(--font);
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -332,10 +326,10 @@
 
     .kkleur-btn {
       padding: .75rem 1.25rem;
-      border: 1px solid rgba(201,168,76,.3);
+      border: 1px solid rgba(255,200,61,.3);
       background: transparent;
       color: var(--white);
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: var(--font);
       font-size: .9rem;
       letter-spacing: .08em;
       cursor: pointer;
@@ -350,10 +344,10 @@
 
     /* ── SUMMARY BOX ── */
     .summary-box {
-      border: 1px solid rgba(201, 168, 76, 0.3);
+      border: 1px solid rgba(255,200,61, 0.3);
       padding: 2rem;
       margin-bottom: 2.5rem;
-      background: rgba(201, 168, 76, 0.03);
+      background: rgba(255,200,61, 0.03);
     }
 
     .summary-box h3 {
@@ -379,8 +373,7 @@
 
     .summary-row-label {
       color: var(--gray);
-      font-style: italic;
-    }
+      }
 
     .summary-row-value {
       color: var(--white);
@@ -392,7 +385,7 @@
       align-items: baseline;
       margin-top: 1.25rem;
       padding-top: 1.25rem;
-      border-top: 1px solid rgba(201, 168, 76, 0.3);
+      border-top: 1px solid rgba(255,200,61, 0.3);
     }
 
     .summary-total-label {
@@ -405,13 +398,11 @@
     .summary-total-price {
       font-size: 1.6rem;
       color: var(--gold);
-      font-style: italic;
-    }
+      }
 
     .deposit-note {
       font-size: 0.8rem;
       color: var(--gray);
-      font-style: italic;
       margin-top: 1rem;
       line-height: 1.6;
     }
@@ -427,7 +418,7 @@
       background: var(--gold);
       color: var(--black);
       border: none;
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: var(--font);
       font-size: 0.8rem;
       letter-spacing: 0.4em;
       text-transform: uppercase;
@@ -461,7 +452,7 @@
     .opmaat-divider {
       width: 60px;
       height: 1px;
-      background: rgba(201, 168, 76, 0.4);
+      background: rgba(255,200,61, 0.4);
       margin: 3rem 0;
     }
 
@@ -476,17 +467,17 @@
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      
+      <li><a href="shop.html?c=kerst" class="nav-kerst">🎄 Kerst</a></li>
       <li><a href="shop.html">Collectie</a></li>
-      <li><a href="op-maat.html" style="color:var(--gold)">Op Maat</a></li>
-      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="op-maat.html">Op maat</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
       <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
       <button class="nav-cart" id="cartBtn">
-        Winkelwagen <span class="cart-badge" id="cartCount">0</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span>
       </button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
         <span></span><span></span><span></span>
@@ -499,7 +490,7 @@
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
         <h3>Winkelwagen</h3>
-        <button class="cart-close" id="cartClose">✕</button>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
@@ -507,6 +498,7 @@
           <span class="cart-total-label">Totaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7) — je kiest bij het afrekenen.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
@@ -517,7 +509,7 @@
     <p class="section-label">Treasureshirt — Exclusief</p>
     <h1 class="section-title">Jouw Design,<br /><em>Op Maat</em></h1>
     <div class="divider" style="margin:2rem auto"></div>
-    <p style="color:var(--gray);font-style:italic;max-width:520px;margin:0 auto;line-height:1.8">
+    <p style="color:var(--gray);max-width:520px;margin:0 auto;line-height:1.8">
       Jij beschrijft. Wij maken. Jij ziet het pas als het klaar is.<br />
       <em style="font-size:.9rem">Dat is het concept van Treasureshirt.</em>
     </p>
@@ -531,7 +523,7 @@
       <p class="form-step-label">Stap 1</p>
       <h3>Jouw <em>naam</em></h3>
       <input type="text" id="fieldNaam" class="form-input" placeholder="Voornaam" maxlength="40" style="margin-bottom:1.5rem" />
-      <p style="font-size:.8rem;color:#666;text-transform:uppercase;letter-spacing:.15em;margin-bottom:.75rem">Naam verwerken in het design?</p>
+      <p style="font-size:.8rem;color:#8f8b83;text-transform:uppercase;letter-spacing:.15em;margin-bottom:.75rem">Naam verwerken in het design?</p>
       <div class="placement-grid" id="naamInDesignGrid" style="max-width:260px">
         <button class="kkleur-btn" data-naam-in-design="ja">Ja</button>
         <button class="kkleur-btn" data-naam-in-design="nee">Nee</button>
@@ -674,7 +666,7 @@
         </div>
         <div class="summary-row">
           <span class="summary-row-label">Thema</span>
-          <span class="summary-row-value" id="sumThema" style="max-width:60%;text-align:right;font-style:italic">—</span>
+          <span class="summary-row-value" id="sumThema" style="max-width:60%;text-align:right;">—</span>
         </div>
         <div class="summary-row">
           <span class="summary-row-label">Stijl</span>
@@ -699,19 +691,19 @@
       <button class="btn-opmaat" id="bestelBtn">
         Selecteer een product
       </button>
-      <p style="text-align:center;color:#555;font-size:.8rem;margin-top:1rem;font-style:italic">Je kan meerdere shirts toevoegen voor je afrekent.</p>
+      <p style="text-align:center;color:#8f8b83;font-size:.8rem;margin-top:1rem;">Je kan meerdere shirts toevoegen voor je afrekent.</p>
     </div>
 
   </section>
 
   <footer>
     <span class="footer-logo">Treasureshirt</span>
-    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
     <div class="footer-socials"><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a></div>
     <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
-      <a href="privacy.html" style="color:#555;font-size:.72rem;text-decoration:none">Privacybeleid</a>
-      <a href="voorwaarden.html" style="color:#555;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
-      <a href="retour.html" style="color:#555;font-size:.72rem;text-decoration:none">Retourbeleid</a>
+      <a href="privacy.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Retourbeleid</a>
     </div>
   </footer>
 

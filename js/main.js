@@ -1,47 +1,37 @@
 // Mobile nav
 const toggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
-
 toggle?.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+  const open = navLinks.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 });
 
-// Filter buttons (shop page)
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+// Highlight the current page in the nav
+(() => {
+  const here = location.pathname.split('/').pop() || 'index.html';
+  const isKerst = new URLSearchParams(location.search).get('c') === 'kerst';
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const [file, q] = a.getAttribute('href').split('?');
+    if (file === here && !a.classList.contains('nav-kerst') && !(isKerst && file === 'shop.html')) a.classList.add('active');
+    if (q && isKerst && a.classList.contains('nav-kerst')) a.setAttribute('aria-current', 'page');
   });
-});
+})();
 
-// Contact form
+// Contact form: the site has no mail backend for this form, so open the
+// visitor's mail app with the message filled in instead of pretending to send.
 document.getElementById('contactForm')?.addEventListener('submit', e => {
   e.preventDefault();
-  showToast('Bericht verstuurd — we nemen snel contact op!');
-  e.target.reset();
+  const v = id => (document.getElementById(id)?.value || '').trim();
+  const subject = v('subject') || 'Vraag via treasureshirt.com';
+  const body = `${v('message')}\n\n— ${v('name')} (${v('email')})`;
+  window.location.href = `mailto:contact@treasureshirt.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  showToast('Je mailprogramma opent met je bericht — druk daar op verzenden.');
 });
 
-// Toast helper
 function showToast(msg) {
-  const toast = document.getElementById('toast');
+  const toast = document.getElementById('toast') || document.getElementById('cartToast');
+  if (!toast) return;
   toast.textContent = msg;
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3500);
+  setTimeout(() => toast.classList.remove('show'), 4000);
 }
-
-// Fade-in on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.product-card, .feature-item, .value-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
-});

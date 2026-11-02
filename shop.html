@@ -3,32 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Collectie — Treasureshirt</title>
+  <title>Collectie — Treasureshirt</title>
+  <meta name="description" content="Grappige T-shirts, hoodies en kersttruien, zelf ontworpen en gedrukt in Landen. Bestel online of haal af op de kerstmarkt." />
+  <meta property="og:title" content="Collectie — Treasureshirt" />
+  <meta property="og:description" content="Grappige T-shirts, hoodies en kersttruien, zelf ontworpen en gedrukt in Landen. Bestel online of haal af op de kerstmarkt." />
+  <meta property="og:image" content="https://treasureshirt.com/images/kerst/kerstzin-tee-rood.jpg" />
+  <meta name="theme-color" content="#0d0d0f" />
+  <link rel="icon" href="images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .shop-hero { padding:12rem 5% 5rem; text-align:center; background:linear-gradient(to bottom,#1a1a1a,#0a0a0a); }
-    .filter-bar { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3rem; }
-    .filter-btn { background:transparent; border:1px solid rgba(201,168,76,.3); color:var(--gray); padding:.5rem 1.5rem; font-family:inherit; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; cursor:pointer; transition:all .3s; }
-    .filter-btn:hover, .filter-btn.active { border-color:var(--gold); color:var(--gold); }
-  </style>
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html?c=kerst" class="nav-kerst">🎄 Kerst</a></li>
       <li><a href="shop.html">Collectie</a></li>
-      <li><a href="op-maat.html">Op Maat</a></li>
-      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="op-maat.html">Op maat</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
       <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
       <button class="nav-cart" id="cartBtn">
-        Winkelwagen <span class="cart-badge" id="cartCount">0</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span>
       </button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
         <span></span><span></span><span></span>
@@ -41,7 +43,7 @@
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
         <h3>Winkelwagen</h3>
-        <button class="cart-close" id="cartClose">✕</button>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
@@ -49,215 +51,245 @@
           <span class="cart-total-label">Totaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7) — je kiest bij het afrekenen.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
   </div>
 
-  <div class="shop-hero">
-    <p class="section-label">Treasureshirt</p>
-    <h1 class="section-title">De <em>Collectie</em></h1>
-    <div class="divider" style="margin:2rem auto"></div>
-    <p style="color:var(--gray);font-style:italic;max-width:500px;margin:0 auto">Premium stukken voor elk seizoen — van klassieke essentials tot exclusieve limited editions.</p>
-  </div>
 
-  <section>
+  <header class="page-hero">
+    <p class="section-label" id="shopLabel">De collectie</p>
+    <h1 class="section-title" id="shopTitle">Shirts met <em>een verhaal</em></h1>
+    <p class="section-sub" id="shopSub">Grappige, originele designs — zelf ontworpen en gedrukt in Landen.</p>
+  </header>
+
+  <section class="shop-section">
+    <div class="market-banner" id="marketBanner" hidden>
+      <div>
+        <p class="section-label" style="color:#ffd970">Kerstmarkt Landen</p>
+        <h2>Bestel nu, haal af in onze chalet</h2>
+        <p>Bestel je kerstshirt of cadeau online en haal het gratis af op de kerstmarkt van Landen. Of laat het verzenden in heel België.</p>
+        <div class="pill-row">
+          <span class="pill">🎁 Gratis afhalen</span>
+          <span class="pill">✏️ Naam erop mogelijk</span>
+          <span class="pill">🚚 Verzending € 7</span>
+        </div>
+      </div>
+      <a class="market-date" href="kerstmarkt.html">
+        <span>december</span>
+        <b>11–13</b>
+        <span>Meer info →</span>
+      </a>
+    </div>
+
     <div class="filter-bar" id="filterBar"></div>
-    <div class="products-grid" id="productsGrid"></div>
+    <div class="products-grid" id="productsGrid"><p style="color:var(--gray)">Laden…</p></div>
   </section>
 
-  <footer>
-    <span class="footer-logo">Treasureshirt</span>
-    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
-    <div class="footer-socials"><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a></div>
-    <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
-      <a href="privacy.html" style="color:#555;font-size:.72rem;text-decoration:none">Privacybeleid</a>
-      <a href="voorwaarden.html" style="color:#555;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
-      <a href="retour.html" style="color:#555;font-size:.72rem;text-decoration:none">Retourbeleid</a>
-    </div>
-  </footer>
-
-  <!-- PRODUCT DETAIL MODAL -->
-  <div class="pdetail-overlay" id="pdetailOverlay">
+  <!-- PRODUCT DETAIL -->
+  <div class="pdetail-overlay" id="pdetailOverlay" role="dialog" aria-modal="true" aria-labelledby="pdetailName">
     <div class="pdetail-modal">
-      <button class="pdetail-close" id="pdetailClose">✕</button>
-      <div class="pdetail-image-col" id="pdetailImageCol">
+      <button class="pdetail-close" id="pdetailClose" aria-label="Sluiten">✕</button>
+      <div class="pdetail-image-col">
         <div class="pdetail-image-main" id="pdetailImage"></div>
         <div class="pdetail-thumb-strip" id="pdetailThumbs"></div>
       </div>
       <div class="pdetail-info">
+        <p class="pdetail-cat" id="pdetailCat"></p>
         <h2 class="pdetail-name" id="pdetailName"></h2>
         <p class="pdetail-desc" id="pdetailDesc"></p>
         <p class="pdetail-price" id="pdetailPrice"></p>
-        <div id="pdetailSizes"></div>
-        <p class="pdetail-hint" id="pdetailHint">Selecteer eerst een maat</p>
-        <button class="pdetail-btn" id="pdetailAddBtn">+ Toevoegen aan winkelwagen</button>
+        <div id="pdetailOptions"></div>
+        <p class="pdetail-hint" id="pdetailHint"></p>
+        <button class="pdetail-btn" id="pdetailAddBtn">In winkelwagen</button>
+        <p class="pdetail-pickup" id="pdetailPickup" hidden>🎄 <strong>Gratis afhalen</strong> op de kerstmarkt van Landen (11–13 december) of verzending in België voor € 7.</p>
       </div>
     </div>
   </div>
 
+  <footer>
+    <span class="footer-logo">Treasureshirt</span>
+    <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-socials"><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a></div>
+    <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
+      <a href="privacy.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Retourbeleid</a>
+    </div>
+  </footer>
+
   <div class="cart-toast" id="cartToast"></div>
   <script src="js/main.js"></script>
+  <script src="js/catalog.js"></script>
   <script src="js/cart.js"></script>
-  <script type="module">
-    import { db } from './js/firebase-config.js';
-    import { collection, query, orderBy, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+  <script>
+  (async () => {
+    const { esc, euro } = Catalog;
+    const params = new URLSearchParams(location.search);
+    const CAT_ORDER = ['Kerst', 'Lifestyle', 'Afstuderen', 'Gaming'];
+    let all = [];
+    try { all = await Catalog.load(); } catch { all = []; }
+    const cats = ['Alles', ...[...new Set(all.map(p => p.category))].sort((a, b) => {
+      const ia = CAT_ORDER.indexOf(a), ib = CAT_ORDER.indexOf(b);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+    })];
+    const wanted = (params.get('c') || '').toLowerCase();
+    let active = cats.find(c => c.toLowerCase() === wanted) || 'Alles';
 
-    let allProducts  = [];
-    let activeFilter = 'Alles';
+    const grid = document.getElementById('productsGrid');
+    const filterBar = document.getElementById('filterBar');
 
-    const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
-
-    async function loadLocalProducts() {
-      try {
-        const res = await fetch('data/products.json');
-        allProducts = await res.json();
-      } catch { allProducts = []; }
-      renderFilters();
-      renderProducts();
-    }
-
-    if (isLocal) {
-      loadLocalProducts();
-    } else {
-      onSnapshot(query(collection(db, 'products'), orderBy('createdAt', 'asc')), snap => {
-        if (snap.docs.length > 0) {
-          allProducts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-        } else {
-          loadLocalProducts(); return;
-        }
-        renderFilters();
-        renderProducts();
-      });
+    function setHeader() {
+      const kerst = active === 'Kerst';
+      document.getElementById('marketBanner').hidden = !(kerst || active === 'Alles');
+      document.getElementById('shopLabel').textContent = kerst ? 'Kerstcollectie 2026' : 'De collectie';
+      document.getElementById('shopTitle').innerHTML = kerst ? 'Kerst, maar dan <em>grappig</em>' : 'Shirts met <em>een verhaal</em>';
+      document.getElementById('shopSub').textContent = kerst
+        ? 'T-shirts, hoodies en truien voor de feestdagen — met je naam erop als je wil. Plus cadeaus: schorten, tassen en knuffelberen.'
+        : 'Grappige, originele designs — zelf ontworpen en gedrukt in Landen.';
     }
 
     function renderFilters() {
-      const cats = ['Alles', ...new Set(allProducts.map(p => p.category).filter(Boolean))];
-      document.getElementById('filterBar').innerHTML = cats.map(c =>
-        `<button class="filter-btn ${c === activeFilter ? 'active' : ''}" data-cat="${c}">${c}</button>`
-      ).join('');
-      document.querySelectorAll('.filter-btn').forEach(btn =>
-        btn.addEventListener('click', () => {
-          activeFilter = btn.dataset.cat;
-          document.querySelectorAll('.filter-btn').forEach(b =>
-            b.classList.toggle('active', b.dataset.cat === activeFilter));
-          renderProducts();
-        })
-      );
+      filterBar.innerHTML = cats.map(c =>
+        `<button class="filter-btn ${c === active ? 'active' : ''}" data-cat="${esc(c)}">${c === 'Kerst' ? '🎄 ' : ''}${esc(c)}</button>`).join('');
+      filterBar.querySelectorAll('.filter-btn').forEach(b => b.addEventListener('click', () => {
+        active = b.dataset.cat;
+        const u = new URL(location.href);
+        if (active === 'Alles') u.searchParams.delete('c'); else u.searchParams.set('c', active.toLowerCase());
+        u.searchParams.delete('p');
+        history.replaceState(null, '', u);
+        renderFilters(); setHeader(); renderGrid();
+      }));
     }
 
-    function renderProducts() {
-      const list = activeFilter === 'Alles' ? allProducts : allProducts.filter(p => p.category === activeFilter);
-      const grid = document.getElementById('productsGrid');
-      grid.innerHTML = list.map(p => `
-        <div class="product-card" data-id="${p.id}" style="cursor:pointer">
-          <div class="product-image" style="${p.imageUrl ? `background-image:url('${p.imageUrl}');background-size:contain;background-position:center;background-repeat:no-repeat;font-size:0` : ''}">
-            ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
-            ${p.imageUrl ? '' : (p.emoji || '👕')}
-            <div class="product-img-overlay">Bekijk Product</div>
+    function card(p) {
+      const img = Catalog.imageFor(p, null, p.colors?.[0]?.id);
+      const multi = p.types && p.types.length > 1;
+      return `
+        <article class="product-card" data-id="${esc(p.id)}" tabindex="0">
+          <div class="product-image">
+            ${p.badge ? `<span class="product-badge ${p.category === 'Kerst' ? 'kerst' : ''}">${esc(p.badge)}</span>` : ''}
+            ${img ? `<img src="${esc(img)}" alt="${esc(p.name)}" loading="lazy">` : '👕'}
           </div>
           <div class="product-info">
-            <h3 class="product-name">${p.name}</h3>
-            <p class="product-desc">${p.description}</p>
+            <h3 class="product-name">${esc(p.name)}</h3>
+            <p class="product-desc">${esc(p.types ? p.types.map(t => t.label).join(' · ') : p.description)}</p>
+            ${p.colors && p.colors.length > 1 ? `<div class="product-swatches">${p.colors.map(c => `<span class="swatch-dot" style="background:${c.hex}" title="${esc(c.label)}"></span>`).join('')}</div>` : ''}
             <div class="product-footer">
-              <p class="product-price">€ ${p.price}</p>
-              <button class="btn-add-cart">Voeg toe →</button>
+              <p class="product-price">${multi ? '<small>vanaf</small>' : ''}${euro(Catalog.fromPrice(p))}</p>
+              <button class="btn-add-cart" tabindex="-1">Bekijk</button>
             </div>
           </div>
-        </div>
-      `).join('') || '<p style="color:var(--gray);font-style:italic;padding:2rem 0">Geen producten gevonden.</p>';
+        </article>`;
+    }
 
-      grid.querySelectorAll('.product-card').forEach((el, i) => {
-        const p = list.find(p => p.id === el.dataset.id);
-        el.addEventListener('click', () => openProductModal(p));
-        el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
-        el.style.transition = `opacity .5s ${i*.05}s ease, transform .5s ${i*.05}s ease`;
-        requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+    function renderGrid() {
+      const list = active === 'Alles' ? all : all.filter(p => p.category === active);
+      grid.innerHTML = list.map(card).join('') || '<p style="color:var(--gray)">Geen producten gevonden.</p>';
+      grid.querySelectorAll('.product-card').forEach(el => {
+        const p = all.find(x => x.id === el.dataset.id);
+        el.addEventListener('click', () => openProduct(p));
+        el.addEventListener('keydown', e => { if (e.key === 'Enter') openProduct(p); });
       });
     }
 
-    window.openProductModal = function(p) {
-      const imgEl    = document.getElementById('pdetailImage');
-      const thumbsEl = document.getElementById('pdetailThumbs');
-      const gallery  = (p.images && p.images.length) ? p.images : (p.imageUrl ? [p.imageUrl] : []);
+    // ── PRODUCT MODAL ──
+    const overlay = document.getElementById('pdetailOverlay');
+    function closeModal() {
+      overlay.classList.remove('open'); document.body.style.overflow = '';
+      const u = new URL(location.href); u.searchParams.delete('p'); history.replaceState(null, '', u);
+    }
+    document.getElementById('pdetailClose').addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
 
-      function showImg(url) {
-        imgEl.style.cssText = '';
-        imgEl.innerHTML = `<img src="${url}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;display:block">
-          ${p.badge ? `<span class="product-badge" style="position:absolute;top:.75rem;left:.75rem">${p.badge}</span>` : ''}`;
-        thumbsEl.querySelectorAll('.pdetail-thumb').forEach(t =>
-          t.classList.toggle('active', t.dataset.src === url));
-      }
-
-      if (gallery.length) {
-        thumbsEl.innerHTML = gallery.map((url, i) =>
-          `<img class="pdetail-thumb${i === 0 ? ' active' : ''}" src="${url}" data-src="${url}" alt="${i === 0 ? 'Navy' : 'Grijs'}">`
-        ).join('');
-        thumbsEl.querySelectorAll('.pdetail-thumb').forEach(t =>
-          t.addEventListener('click', () => showImg(t.dataset.src)));
-        showImg(gallery[0]);
-      } else {
-        imgEl.style.cssText = '';
-        imgEl.innerHTML = `${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}${p.emoji || '👕'}`;
-        thumbsEl.innerHTML = '';
-      }
+    function openProduct(p) {
+      if (!p) return;
+      const sel = { type: p.types?.[0]?.id || '', color: p.colors?.[0]?.id || '', size: '', personalName: '' };
+      const hint = document.getElementById('pdetailHint');
+      document.getElementById('pdetailCat').textContent = p.category === 'Kerst' ? '🎄 Kerstcollectie' : p.category;
       document.getElementById('pdetailName').textContent = p.name;
       document.getElementById('pdetailDesc').textContent = p.description;
-      document.getElementById('pdetailPrice').textContent = `€ ${p.price}`;
+      document.getElementById('pdetailPickup').hidden = false;
 
-      const sizesEl = document.getElementById('pdetailSizes');
-      const hintEl  = document.getElementById('pdetailHint');
-      const sizes   = p.sizes || [];
-      let selectedSize = null;
-      hintEl.classList.remove('show');
-
-      if (sizes.length) {
-        sizesEl.innerHTML = `
-          <p class="pdetail-size-label">Selecteer je maat</p>
-          <div class="pdetail-size-grid">
-            ${sizes.map(s => {
-              const stock = p.stockPerSize?.[s];
-              const soldOut = stock !== undefined && stock <= 0;
-              return `<button class="pdetail-size-btn${soldOut ? ' sold-out' : ''}" data-size="${s}" ${soldOut ? 'disabled' : ''}>
-                ${s}
-                ${stock !== undefined ? `<span class="pdetail-size-stock">${stock > 0 ? stock + ' stuks' : 'uitverkocht'}</span>` : ''}
-              </button>`;
-            }).join('')}
-          </div>`;
-        sizesEl.querySelectorAll('.pdetail-size-btn:not(:disabled)').forEach(btn => {
-          btn.addEventListener('click', () => {
-            sizesEl.querySelectorAll('.pdetail-size-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            selectedSize = btn.dataset.size;
-            hintEl.classList.remove('show');
-          });
-        });
-      } else {
-        sizesEl.innerHTML = '';
+      function showImage(url) {
+        document.getElementById('pdetailImage').innerHTML = url ? `<img src="${esc(url)}" alt="${esc(p.name)}">` : '👕';
       }
+      function refresh() {
+        document.getElementById('pdetailPrice').textContent = euro(Catalog.priceFor(p, sel));
+        showImage(Catalog.imageFor(p, sel.type, sel.color));
+        const thumbs = (p.colors || []).map(c => ({ c, url: Catalog.imageFor(p, sel.type, c.id) })).filter(x => x.url);
+        document.getElementById('pdetailThumbs').innerHTML = thumbs.length > 1 ? thumbs.map(({ c, url }) =>
+          `<img class="pdetail-thumb ${c.id === sel.color ? 'active' : ''}" src="${esc(url)}" data-color="${esc(c.id)}" alt="${esc(c.label)}">`).join('') : '';
+        document.querySelectorAll('#pdetailThumbs .pdetail-thumb').forEach(t => t.addEventListener('click', () => { sel.color = t.dataset.color; draw(); }));
+      }
+
+      function draw() {
+        const opts = [];
+        if (p.types && p.types.length) {
+          opts.push(`<div><p class="opt-label">${p.id === 'kerst-beer' ? 'Grootte' : 'Soort'}</p><div class="opt-grid">${p.types.map(t =>
+            `<button class="opt-btn ${t.id === sel.type ? 'active' : ''}" data-type="${esc(t.id)}">${esc(t.label)}<small>${euro(t.price)}</small></button>`).join('')}</div></div>`);
+        }
+        if (p.colors && p.colors.length > 1) {
+          const cur = p.colors.find(c => c.id === sel.color);
+          opts.push(`<div><p class="opt-label">Kleur <span>— ${esc(cur?.label || '')}</span></p><div class="opt-grid">${p.colors.map(c =>
+            `<button class="color-btn ${c.id === sel.color ? 'active' : ''}" data-color="${esc(c.id)}" style="background:${c.hex}" aria-label="${esc(c.label)}" title="${esc(c.label)}"></button>`).join('')}</div></div>`);
+        }
+        if (p.sizes && p.sizes.length) {
+          opts.push(`<div><p class="opt-label">Maat</p><div class="opt-grid">${p.sizes.map(s => {
+            const stock = p.stockPerSize?.[s]; const out = stock !== undefined && stock !== null && stock <= 0;
+            return `<button class="opt-btn ${s === sel.size ? 'active' : ''}" data-size="${esc(s)}" ${out ? 'disabled' : ''}>${esc(s)}${out ? '<small>op</small>' : ''}</button>`;
+          }).join('')}</div></div>`);
+        }
+        if (p.personalize) {
+          const extra = Number(p.personalize.price) ? ` (+ ${euro(p.personalize.price)})` : '';
+          opts.push(`<div><p class="opt-label">${esc(p.personalize.label)}${extra} <span>— optioneel</span></p>
+            <input class="pdetail-input" id="pdName" maxlength="${p.personalize.maxLength || 14}" placeholder="Bv. Lotte" value="${esc(sel.personalName)}"></div>`);
+        }
+        const box = document.getElementById('pdetailOptions');
+        box.style.cssText = 'display:flex;flex-direction:column;gap:1rem';
+        box.innerHTML = opts.join('');
+        box.querySelectorAll('[data-type]').forEach(b => b.addEventListener('click', () => { sel.type = b.dataset.type; draw(); }));
+        box.querySelectorAll('[data-color]').forEach(b => b.addEventListener('click', () => { sel.color = b.dataset.color; draw(); }));
+        box.querySelectorAll('[data-size]').forEach(b => b.addEventListener('click', () => { sel.size = b.dataset.size; hint.classList.remove('show'); draw(); }));
+        const nameInput = document.getElementById('pdName');
+        nameInput?.addEventListener('input', () => {
+          sel.personalName = nameInput.value.replace(/[<>]/g, '');
+          document.getElementById('pdetailPrice').textContent = euro(Catalog.priceFor(p, { ...sel, personalName: sel.personalName.trim() }));
+        });
+        refresh();
+      }
+
+      hint.classList.remove('show');
+      draw();
 
       document.getElementById('pdetailAddBtn').onclick = () => {
-        if (sizes.length && !selectedSize) { hintEl.classList.add('show'); return; }
-        Cart.add({ id: p.id, name: p.name, price: parseFloat(p.price), description: p.description, emoji: p.emoji || '👕', size: selectedSize || '' });
-        document.getElementById('pdetailOverlay').classList.remove('open');
-        document.body.style.overflow = '';
+        if (p.sizes && p.sizes.length && !sel.size) {
+          hint.textContent = 'Kies eerst je maat.'; hint.classList.add('show'); return;
+        }
+        const t = p.types?.find(t => t.id === sel.type);
+        const c = p.colors?.find(c => c.id === sel.color);
+        const personalName = sel.personalName.trim();
+        Cart.add({
+          id: p.id, name: p.name, price: Catalog.priceFor(p, { ...sel, personalName }),
+          image: Catalog.imageFor(p, sel.type, sel.color),
+          variantType: sel.type, typeLabel: t ? t.label : '',
+          color: sel.color, colorLabel: p.colors && p.colors.length > 1 ? (c?.label || '') : '',
+          size: sel.size, personalName,
+        });
+        closeModal();
+        setTimeout(() => Cart.open(), 250);
       };
 
-      document.getElementById('pdetailOverlay').classList.add('open');
+      overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
-    };
-  </script>
-  <script>
-    document.getElementById('pdetailClose').addEventListener('click', () => {
-      document.getElementById('pdetailOverlay').classList.remove('open');
-      document.body.style.overflow = '';
-    });
-    document.getElementById('pdetailOverlay').addEventListener('click', e => {
-      if (e.target === e.currentTarget) {
-        e.currentTarget.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
+      const u = new URL(location.href); u.searchParams.set('p', p.id); history.replaceState(null, '', u);
+    }
+
+    renderFilters(); setHeader(); renderGrid();
+    if (params.get('p')) openProduct(all.find(x => x.id === params.get('p')));
+  })();
   </script>
 </body>
 </html>

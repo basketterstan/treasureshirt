@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mijn Account — Treasureshirt</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .account-wrap {
@@ -14,12 +14,12 @@
       align-items: center;
       justify-content: center;
       padding: 6rem 1.5rem 3rem;
-      background: radial-gradient(ellipse at center, rgba(201,168,76,.05) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(255,200,61,.05) 0%, transparent 70%);
     }
     .account-box {
       width: 100%;
       max-width: 420px;
-      border: 1px solid rgba(201,168,76,.2);
+      border: 1px solid rgba(255,200,61,.2);
       background: #111;
       padding: 2.5rem;
     }
@@ -41,7 +41,7 @@
     }
     .tab-row {
       display: flex;
-      border-bottom: 1px solid rgba(201,168,76,.15);
+      border-bottom: 1px solid rgba(255,200,61,.15);
       margin-bottom: 2rem;
     }
     .tab-btn {
@@ -67,7 +67,7 @@
     .form-group input {
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(201,168,76,.3);
+      border-bottom: 1px solid rgba(255,200,61,.3);
       padding: .6rem 0;
       color: var(--white);
       font-family: inherit;
@@ -92,8 +92,8 @@
       margin-top: .5rem;
     }
     .btn-submit:hover { background: var(--gold-light); }
-    .form-error { color: #e74c3c; font-size: .78rem; text-align: center; margin-top: .75rem; font-style: italic; display: none; }
-    .form-success { color: #27ae60; font-size: .78rem; text-align: center; margin-top: .75rem; font-style: italic; display: none; }
+    .form-error { color: #e74c3c; font-size: .78rem; text-align: center; margin-top: .75rem; display: none; }
+    .form-success { color: #27ae60; font-size: .78rem; text-align: center; margin-top: .75rem; display: none; }
 
     /* Dashboard (ingelogd) */
     .account-dashboard { display: none; }
@@ -105,7 +105,6 @@
     .acc-email {
       font-size: .78rem;
       color: var(--gray);
-      font-style: italic;
       margin-bottom: 2rem;
     }
     .acc-links { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 2rem; }
@@ -114,14 +113,14 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 1.25rem;
-      border: 1px solid rgba(201,168,76,.15);
+      border: 1px solid rgba(255,200,61,.15);
       color: var(--white);
       text-decoration: none;
       font-size: .82rem;
       letter-spacing: .08em;
       transition: border-color .2s, background .2s;
     }
-    .acc-link:hover { border-color: var(--gold); background: rgba(201,168,76,.05); }
+    .acc-link:hover { border-color: var(--gold); background: rgba(255,200,61,.05); }
     .acc-link span { color: var(--gold); }
     .btn-logout-acc {
       width: 100%;
@@ -143,15 +142,16 @@
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      
+      <li><a href="shop.html?c=kerst" class="nav-kerst">🎄 Kerst</a></li>
       <li><a href="shop.html">Collectie</a></li>
-      <li><a href="op-maat.html">Op Maat</a></li>
-      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="op-maat.html">Op maat</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
-      <button class="nav-cart" id="cartBtn">Winkelwagen <span class="cart-badge" id="cartCount">0</span></button>
+      <button class="nav-cart" id="cartBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span></button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -160,7 +160,7 @@
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
         <h3>Winkelwagen</h3>
-        <button class="cart-close" id="cartClose">✕</button>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
@@ -168,6 +168,7 @@
           <span class="cart-total-label">Subtotaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7) — je kiest bij het afrekenen.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
@@ -198,7 +199,7 @@
           <button class="btn-submit" id="loginBtn">Inloggen</button>
           <p class="form-error" id="loginError"></p>
           <p style="text-align:center;margin-top:1rem">
-            <a href="#" id="forgotLink" style="color:var(--gray);font-size:.72rem;font-style:italic">Wachtwoord vergeten?</a>
+            <a href="#" id="forgotLink" style="color:var(--gray);font-size:.72rem;">Wachtwoord vergeten?</a>
           </p>
         </div>
 
