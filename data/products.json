@@ -184,7 +184,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/foutetrui-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/foutetrui-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/foutetrui-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/foutetrui-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/foutetrui-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/foutetrui-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/foutetrui-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/foutetrui-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-gluhwein",
@@ -257,7 +267,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/gluhwein-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/gluhwein-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/gluhwein-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/gluhwein-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/gluhwein-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/gluhwein-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/gluhwein-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/gluhwein-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-goede-smaak",
@@ -476,7 +496,17 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20
+  "price": 20,
+  "models": {
+   "tee|zwart": "images/kerst/kerstclub-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/kerstclub-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/kerstclub-tee-groen-model.jpg",
+   "tee|rood": "images/kerst/kerstclub-tee-rood-model.jpg",
+   "hoodie|zwart": "images/kerst/kerstclub-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/kerstclub-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/kerstclub-hoodie-groen-model.jpg",
+   "hoodie|rood": "images/kerst/kerstclub-hoodie-rood-model.jpg"
+  }
  },
  {
   "id": "kerst-kerstmodus",
