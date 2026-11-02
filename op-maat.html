@@ -460,6 +460,31 @@
       .card-choice-grid { grid-template-columns: 1fr; }
       .style-grid { grid-template-columns: repeat(3, 1fr); }
     }
+      /* ── 2026 restyle overrides ── */
+    .opmaat-hero { padding: 8.5rem 5% 2.5rem; text-align: left; max-width: 760px; margin: 0 auto; background: none; }
+    .opmaat-section { padding-top: 1rem; }
+    .form-step { background: var(--dark-gray); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.25rem; }
+    .form-step-label { font-size: .78rem; letter-spacing: .06em; font-weight: 700; }
+    .form-step h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em; text-transform: none; margin-bottom: 1rem; }
+    .form-step h3 em { font-style: normal; }
+    .form-input { background: var(--surface-2); border: 1.5px solid var(--line); border-radius: 10px; padding: .8rem .95rem; font-size: 1rem; }
+    .form-input:focus, textarea.form-input:focus { border-color: var(--gold); }
+    textarea.form-input { border: 1.5px solid var(--line); }
+    .card-choice { border: 1.5px solid var(--line); border-radius: 14px; background: var(--surface-2); padding: 1.5rem 1rem; }
+    .card-choice.selected { border-color: var(--gold); background: rgba(255,200,61,.08); }
+    .card-choice-name { font-size: .95rem; letter-spacing: 0; text-transform: none; font-weight: 700; }
+    .card-choice-price { font-weight: 800; font-family: var(--font-display); }
+    .size-btn, .placement-btn, .kkleur-btn { border-radius: 10px; letter-spacing: 0; text-transform: none; font-weight: 600; font-size: .92rem; background: var(--surface-2); border: 1.5px solid var(--line); }
+    .size-btn.active, .placement-btn.active, .kkleur-btn.active { border-color: var(--gold); background: rgba(255,200,61,.12); color: var(--gold); }
+    .style-option { border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface-2); }
+    .style-option.selected { border-color: var(--gold); background: rgba(255,200,61,.08); }
+    .style-option-name { letter-spacing: 0; text-transform: none; font-size: .85rem; font-weight: 600; }
+    .summary-box { border-radius: var(--radius); background: var(--dark-gray); border: 1px solid var(--line); }
+    .summary-box h3 { letter-spacing: .06em; font-weight: 700; color: var(--gold); }
+    .summary-total-label { letter-spacing: .04em; }
+    .summary-total-price { font-weight: 800; font-family: var(--font-display); }
+    .btn-opmaat { border-radius: 999px; letter-spacing: 0; text-transform: none; font-size: 1.05rem; font-weight: 700; }
+    .opmaat-divider { display: none; }
   </style>
 </head>
 <body>
@@ -467,8 +492,7 @@
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="shop.html?c=kerst" class="nav-kerst">🎄 Kerst</a></li>
-      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
       <li><a href="op-maat.html">Op maat</a></li>
       <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
       <li><a href="about.html">Over ons</a></li>
@@ -506,13 +530,9 @@
 
   <!-- HERO -->
   <div class="opmaat-hero">
-    <p class="section-label">Treasureshirt — Exclusief</p>
-    <h1 class="section-title">Jouw Design,<br /><em>Op Maat</em></h1>
-    <div class="divider" style="margin:2rem auto"></div>
-    <p style="color:var(--gray);max-width:520px;margin:0 auto;line-height:1.8">
-      Jij beschrijft. Wij maken. Jij ziet het pas als het klaar is.<br />
-      <em style="font-size:.9rem">Dat is het concept van Treasureshirt.</em>
-    </p>
+    <p class="section-label">Op maat</p>
+    <h1 class="section-title">Jouw design, <em>op maat</em></h1>
+    <p class="section-sub">Jij beschrijft, wij ontwerpen en drukken. Je ziet het resultaat pas als het klaar is — dat is de verrassing. Vul de stappen hieronder in.</p>
   </div>
 
   <!-- FORM -->

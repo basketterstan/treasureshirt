@@ -122,14 +122,19 @@
       letter-spacing: .15em;
       text-transform: uppercase;
     }
+      /* 2026 restyle */
+    .orders-title { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; text-transform: none; }
+    .order-card { border-radius: var(--radius); border: 1px solid var(--line); background: var(--dark-gray); }
+    .order-number, .order-status { letter-spacing: .04em; }
+    .order-status { border-radius: 999px; }
+    .orders-back { letter-spacing: 0; text-transform: none; }
   </style>
 </head>
 <body>
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="shop.html?c=kerst" class="nav-kerst">🎄 Kerst</a></li>
-      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
       <li><a href="op-maat.html">Op maat</a></li>
       <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
       <li><a href="about.html">Over ons</a></li>

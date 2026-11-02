@@ -4,24 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Treasureshirt</title>
+  <meta name="description" content="Neem contact op met Treasureshirt: vragen over je bestelling, ontwerpen op maat of grotere bestellingen." />
+  <meta property="og:title" content="Contact — Treasureshirt" />
+  <meta property="og:description" content="Neem contact op met Treasureshirt: vragen over je bestelling, ontwerpen op maat of grotere bestellingen." />
+  <meta property="og:image" content="https://treasureshirt.com/images/kerst/kerstzin-tee-rood.jpg" />
+  <meta name="theme-color" content="#0d0d0f" />
+  <link rel="icon" href="images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .contact-hero {
-      padding: 12rem 5% 5rem;
-      text-align: center;
-      background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
-    }
-  </style>
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="shop.html?c=kerst" class="nav-kerst">🎄 Kerst</a></li>
-      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
       <li><a href="op-maat.html">Op maat</a></li>
       <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
       <li><a href="about.html">Over ons</a></li>
@@ -30,13 +29,15 @@
     <div style="display:flex;gap:1rem;align-items:center">
       <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
       <button class="nav-cart" id="cartBtn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span></button>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span>
+      </button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
+  <!-- CART -->
   <div class="cart-overlay" id="cartOverlay">
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
@@ -46,7 +47,7 @@
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
         <div class="cart-total-row">
-          <span class="cart-total-label">Subtotaal</span>
+          <span class="cart-total-label">Totaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
         <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7) — je kiest bij het afrekenen.</p>
@@ -55,53 +56,39 @@
     </div>
   </div>
 
-  <div class="contact-hero">
-    <p class="section-label">Neem Contact Op</p>
-    <h1 class="section-title">Spreek met <em>Ons</em></h1>
-    <div class="divider" style="margin: 2rem auto;"></div>
-  </div>
 
-  <section>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p class="section-label">Contact</p>
-        <h2 class="section-title">Wij zijn er <em>voor jou</em></h2>
-        <div class="divider"></div>
-        <p>Heb je een vraag over een product, je bestelling, of wil je gewoon meer weten over Treasureshirt? Stuur ons een bericht — we reageren zo snel mogelijk.</p>
-        <div class="contact-detail">
-          <div class="contact-detail-item">
-            <span>✉</span>
-            <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a>
-          </div>
-          <div class="contact-detail-item">
-            <span>◈</span>
-            <p>Instagram: @treasureshirt</p>
-          </div>
-          <div class="contact-detail-item">
-            <span>◇</span>
-            <p>Reactietijd: binnen 24 uur</p>
-          </div>
+  <header class="page-hero">
+    <p class="section-label">Contact</p>
+    <h1 class="section-title">Vragen? <em>Laat het weten</em></h1>
+    <p class="section-sub">Over een bestelling, een idee voor een ontwerp op maat of een grotere bestelling voor je club of bedrijf: we helpen je graag.</p>
+  </header>
+
+  <section style="padding-top:2rem">
+    <div class="contact-grid" style="max-width:1150px;margin:0 auto">
+      <div>
+        <div class="feature-item" style="margin-bottom:1rem">
+          <div class="feature-icon">✉️</div>
+          <h3>E-mail</h3>
+          <p><a href="mailto:contact@treasureshirt.com" style="color:var(--gold)">contact@treasureshirt.com</a><br>We antwoorden meestal binnen een dag.</p>
+        </div>
+        <div class="feature-item" style="margin-bottom:1rem">
+          <div class="feature-icon">📱</div>
+          <h3>Socials</h3>
+          <p><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener" style="color:var(--gold)">Instagram @treasure.shirt</a><br><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener" style="color:var(--gold)">TikTok @treasureshirt</a></p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎄</div>
+          <h3>Kerstmarkt Landen</h3>
+          <p>11, 12 en 13 december in onze chalet. <a href="kerstmarkt.html" style="color:var(--gold)">Meer info →</a></p>
         </div>
       </div>
-
       <form class="contact-form" id="contactForm">
-        <div class="form-group">
-          <label for="name">Naam</label>
-          <input type="text" id="name" placeholder="Jouw naam" required />
-        </div>
-        <div class="form-group">
-          <label for="email">E-mailadres</label>
-          <input type="email" id="email" placeholder="jouw@email.com" required />
-        </div>
-        <div class="form-group">
-          <label for="subject">Onderwerp</label>
-          <input type="text" id="subject" placeholder="Waar gaat je bericht over?" />
-        </div>
-        <div class="form-group">
-          <label for="message">Bericht</label>
-          <textarea id="message" placeholder="Schrijf hier je bericht..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-filled">Verstuur bericht</button>
+        <div class="form-group"><label for="name">Naam</label><input type="text" id="name" required autocomplete="name" /></div>
+        <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" required autocomplete="email" /></div>
+        <div class="form-group"><label for="subject">Onderwerp</label><input type="text" id="subject" placeholder="Bv. vraag over mijn bestelling" /></div>
+        <div class="form-group"><label for="message">Bericht</label><textarea id="message" required></textarea></div>
+        <button type="submit" class="btn btn-filled" style="align-self:flex-start">Verstuur bericht</button>
+        <p style="color:var(--gray);font-size:.85rem">Je mailprogramma opent met je bericht. Lukt dat niet? Mail ons rechtstreeks op contact@treasureshirt.com.</p>
       </form>
     </div>
   </section>
@@ -109,10 +96,7 @@
   <footer>
     <span class="footer-logo">Treasureshirt</span>
     <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
-    <div class="footer-socials">
-      <a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a>
-    </div>
+    <div class="footer-socials"><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a></div>
     <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
       <a href="privacy.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Privacybeleid</a>
       <a href="voorwaarden.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
@@ -120,9 +104,9 @@
     </div>
   </footer>
 
+  <div class="cart-toast" id="cartToast"></div>
   <div class="toast" id="toast"></div>
   <script src="js/main.js"></script>
-  <div class="cart-toast" id="cartToast"></div>
   <script src="js/cart.js"></script>
 </body>
 </html>

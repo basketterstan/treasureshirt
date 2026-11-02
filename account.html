@@ -136,14 +136,24 @@
       transition: all .2s;
     }
     .btn-logout-acc:hover { border-color: var(--gold); color: var(--gold); }
+      /* 2026 restyle */
+    .account-box { border-radius: 20px; border: 1px solid var(--line); background: var(--dark-gray); }
+    .account-logo { font-family: var(--font-display); letter-spacing: -0.02em; text-transform: none; color: var(--white); font-weight: 800; font-size: 1.6rem; }
+    .account-sub { letter-spacing: .04em; text-transform: none; }
+    .tab-btn { letter-spacing: 0; text-transform: none; font-weight: 600; font-size: .95rem; }
+    .form-group label { letter-spacing: 0; text-transform: none; font-size: .85rem; font-weight: 600; color: var(--white); }
+    .form-group input { background: var(--surface-2); border: 1.5px solid var(--line); border-radius: 10px; padding: .8rem .95rem; }
+    .form-group input:focus { border-color: var(--gold); }
+    .btn-submit, .btn-logout-acc { border-radius: 999px; letter-spacing: 0; text-transform: none; font-weight: 700; font-size: 1rem; }
+    .acc-greeting { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; text-transform: none; }
+    .acc-link { border-radius: 12px; letter-spacing: 0; text-transform: none; }
   </style>
 </head>
 <body>
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="shop.html?c=kerst" class="nav-kerst">🎄 Kerst</a></li>
-      <li><a href="shop.html">Collectie</a></li>
+      <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
       <li><a href="op-maat.html">Op maat</a></li>
       <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
       <li><a href="about.html">Over ons</a></li>
