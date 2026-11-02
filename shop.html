@@ -136,12 +136,14 @@
     })];
     const wanted = (params.get('c') || '').toLowerCase();
     let active = cats.find(c => c.toLowerCase() === wanted) || 'Alles';
+    const onlyOne = cats.length <= 2; // just "Alles" + one category: no filter needed
+    if (onlyOne) active = 'Alles';
 
     const grid = document.getElementById('productsGrid');
     const filterBar = document.getElementById('filterBar');
 
     function setHeader() {
-      const kerst = active === 'Kerst';
+      const kerst = active === 'Kerst' || (onlyOne && cats[1] === 'Kerst');
       document.getElementById('marketBanner').hidden = !(kerst || active === 'Alles');
       document.getElementById('shopLabel').textContent = kerst ? 'Kerstcollectie 2026' : 'De collectie';
       document.getElementById('shopTitle').innerHTML = kerst ? 'Kerst, maar dan <em>grappig</em>' : 'Shirts met <em>een verhaal</em>';
@@ -151,6 +153,7 @@
     }
 
     function renderFilters() {
+      if (onlyOne) { filterBar.hidden = true; return; }
       filterBar.innerHTML = cats.map(c =>
         `<button class="filter-btn ${c === active ? 'active' : ''}" data-cat="${esc(c)}">${c === 'Kerst' ? '🎄 ' : ''}${esc(c)}</button>`).join('');
       filterBar.querySelectorAll('.filter-btn').forEach(b => b.addEventListener('click', () => {
