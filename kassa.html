@@ -344,9 +344,19 @@ details summary{cursor:pointer;font-weight:700}
     try {
       const ref = db.doc('shop/catalog');
       const snap = await ref.get();
+      const cat = await (await fetch('data/kassa-catalog.json', { cache: 'no-cache' })).json();
       if (!snap.exists) {
-        const cat = await (await fetch('data/kassa-catalog.json', { cache: 'no-cache' })).json();
         await ref.set(cat);
+      } else if ((snap.data().version || 1) < (cat.version || 1)) {
+        // Update an existing catalog without touching stock or own edits: new products
+        // are added, and only the prices listed in priceUpdates are changed.
+        const cur = snap.data(), list = cur.products || [];
+        cat.products.forEach((np, i) => {
+          const old = list.find(p => p.id === np.id);
+          if (old) { if (cat.priceUpdates && np.id in cat.priceUpdates) old.price = cat.priceUpdates[np.id]; }
+          else list.splice(Math.min(i, list.length), 0, np);
+        });
+        await ref.set({ ...cur, products: list, version: cat.version });
       }
     } catch (e) { console.error(e); }
     const out = document.createElement('button');

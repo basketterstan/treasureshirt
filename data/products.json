@@ -9,12 +9,38 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -47,14 +73,23 @@
    "hoodie|zwart": "images/kerst/hohoho-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/hohoho-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/hohoho-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/hohoho-hoodie-rood.jpg"
+   "hoodie|rood": "images/kerst/hohoho-hoodie-rood.jpg",
+   "kids|zwart": "images/kerst/hohoho-tee-zwart.jpg",
+   "kids|navy": "images/kerst/hohoho-tee-navy.jpg",
+   "kids|groen": "images/kerst/hohoho-tee-groen.jpg",
+   "kids|rood": "images/kerst/hohoho-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -198,17 +233,50 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 34.99
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -245,14 +313,23 @@
    "trui|zwart": "images/kerst/foutetrui-trui-zwart.jpg",
    "trui|navy": "images/kerst/foutetrui-trui-navy.jpg",
    "trui|groen": "images/kerst/foutetrui-trui-groen.jpg",
-   "trui|rood": "images/kerst/foutetrui-trui-rood.jpg"
+   "trui|rood": "images/kerst/foutetrui-trui-rood.jpg",
+   "kids|zwart": "images/kerst/foutetrui-tee-zwart.jpg",
+   "kids|navy": "images/kerst/foutetrui-tee-navy.jpg",
+   "kids|groen": "images/kerst/foutetrui-tee-groen.jpg",
+   "kids|rood": "images/kerst/foutetrui-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -285,17 +362,50 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 34.99
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -332,14 +442,23 @@
    "trui|zwart": "images/kerst/gluhwein-trui-zwart.jpg",
    "trui|navy": "images/kerst/gluhwein-trui-navy.jpg",
    "trui|groen": "images/kerst/gluhwein-trui-groen.jpg",
-   "trui|rood": "images/kerst/gluhwein-trui-rood.jpg"
+   "trui|rood": "images/kerst/gluhwein-trui-rood.jpg",
+   "kids|zwart": "images/kerst/gluhwein-tee-zwart.jpg",
+   "kids|navy": "images/kerst/gluhwein-tee-navy.jpg",
+   "kids|groen": "images/kerst/gluhwein-tee-groen.jpg",
+   "kids|rood": "images/kerst/gluhwein-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -372,17 +491,50 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 34.99
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -419,14 +571,23 @@
    "trui|zwart": "images/kerst/goede-smaak-trui-zwart.jpg",
    "trui|navy": "images/kerst/goede-smaak-trui-navy.jpg",
    "trui|groen": "images/kerst/goede-smaak-trui-groen.jpg",
-   "trui|rood": "images/kerst/goede-smaak-trui-rood.jpg"
+   "trui|rood": "images/kerst/goede-smaak-trui-rood.jpg",
+   "kids|zwart": "images/kerst/goede-smaak-tee-zwart.jpg",
+   "kids|navy": "images/kerst/goede-smaak-tee-navy.jpg",
+   "kids|groen": "images/kerst/goede-smaak-tee-groen.jpg",
+   "kids|rood": "images/kerst/goede-smaak-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -459,17 +620,50 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 34.99
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -506,14 +700,23 @@
    "trui|zwart": "images/kerst/ikpiek-trui-zwart.jpg",
    "trui|navy": "images/kerst/ikpiek-trui-navy.jpg",
    "trui|groen": "images/kerst/ikpiek-trui-groen.jpg",
-   "trui|rood": "images/kerst/ikpiek-trui-rood.jpg"
+   "trui|rood": "images/kerst/ikpiek-trui-rood.jpg",
+   "kids|zwart": "images/kerst/ikpiek-tee-zwart.jpg",
+   "kids|navy": "images/kerst/ikpiek-tee-navy.jpg",
+   "kids|groen": "images/kerst/ikpiek-tee-groen.jpg",
+   "kids|rood": "images/kerst/ikpiek-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -546,17 +749,50 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 34.99
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -593,14 +829,23 @@
    "trui|zwart": "images/kerst/kerstclub-trui-zwart.jpg",
    "trui|navy": "images/kerst/kerstclub-trui-navy.jpg",
    "trui|groen": "images/kerst/kerstclub-trui-groen.jpg",
-   "trui|rood": "images/kerst/kerstclub-trui-rood.jpg"
+   "trui|rood": "images/kerst/kerstclub-trui-rood.jpg",
+   "kids|zwart": "images/kerst/kerstclub-tee-zwart.jpg",
+   "kids|navy": "images/kerst/kerstclub-tee-navy.jpg",
+   "kids|groen": "images/kerst/kerstclub-tee-groen.jpg",
+   "kids|rood": "images/kerst/kerstclub-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -633,17 +878,50 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 34.99
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -680,14 +958,23 @@
    "trui|zwart": "images/kerst/kerstmodus-trui-zwart.jpg",
    "trui|navy": "images/kerst/kerstmodus-trui-navy.jpg",
    "trui|groen": "images/kerst/kerstmodus-trui-groen.jpg",
-   "trui|rood": "images/kerst/kerstmodus-trui-rood.jpg"
+   "trui|rood": "images/kerst/kerstmodus-trui-rood.jpg",
+   "kids|zwart": "images/kerst/kerstmodus-tee-zwart.jpg",
+   "kids|navy": "images/kerst/kerstmodus-tee-navy.jpg",
+   "kids|groen": "images/kerst/kerstmodus-tee-groen.jpg",
+   "kids|rood": "images/kerst/kerstmodus-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -720,12 +1007,38 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -758,14 +1071,23 @@
    "hoodie|zwart": "images/kerst/kerstwarmer-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/kerstwarmer-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/kerstwarmer-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/kerstwarmer-hoodie-rood.jpg"
+   "hoodie|rood": "images/kerst/kerstwarmer-hoodie-rood.jpg",
+   "kids|zwart": "images/kerst/kerstwarmer-tee-zwart.jpg",
+   "kids|navy": "images/kerst/kerstwarmer-tee-navy.jpg",
+   "kids|groen": "images/kerst/kerstwarmer-tee-groen.jpg",
+   "kids|rood": "images/kerst/kerstwarmer-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -794,17 +1116,50 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 34.99
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -841,14 +1196,23 @@
    "trui|zwart": "images/kerst/kerstzin-trui-zwart.jpg",
    "trui|navy": "images/kerst/kerstzin-trui-navy.jpg",
    "trui|groen": "images/kerst/kerstzin-trui-groen.jpg",
-   "trui|rood": "images/kerst/kerstzin-trui-rood.jpg"
+   "trui|rood": "images/kerst/kerstzin-trui-rood.jpg",
+   "kids|zwart": "images/kerst/kerstzin-tee-zwart.jpg",
+   "kids|navy": "images/kerst/kerstzin-tee-navy.jpg",
+   "kids|groen": "images/kerst/kerstzin-tee-groen.jpg",
+   "kids|rood": "images/kerst/kerstzin-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -881,12 +1245,38 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -919,14 +1309,23 @@
    "hoodie|zwart": "images/kerst/koekje-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/koekje-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/koekje-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/koekje-hoodie-rood.jpg"
+   "hoodie|rood": "images/kerst/koekje-hoodie-rood.jpg",
+   "kids|zwart": "images/kerst/koekje-tee-zwart.jpg",
+   "kids|navy": "images/kerst/koekje-tee-navy.jpg",
+   "kids|groen": "images/kerst/koekje-tee-groen.jpg",
+   "kids|rood": "images/kerst/koekje-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -955,17 +1354,50 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 34.99
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -1002,14 +1434,23 @@
    "trui|zwart": "images/kerst/lieve-trui-zwart.jpg",
    "trui|navy": "images/kerst/lieve-trui-navy.jpg",
    "trui|groen": "images/kerst/lieve-trui-groen.jpg",
-   "trui|rood": "images/kerst/lieve-trui-rood.jpg"
+   "trui|rood": "images/kerst/lieve-trui-rood.jpg",
+   "kids|zwart": "images/kerst/lieve-tee-zwart.jpg",
+   "kids|navy": "images/kerst/lieve-tee-navy.jpg",
+   "kids|groen": "images/kerst/lieve-tee-groen.jpg",
+   "kids|rood": "images/kerst/lieve-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -1042,17 +1483,50 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 34.99
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -1089,14 +1563,23 @@
    "trui|zwart": "images/kerst/stillenacht-trui-zwart.jpg",
    "trui|navy": "images/kerst/stillenacht-trui-navy.jpg",
    "trui|groen": "images/kerst/stillenacht-trui-groen.jpg",
-   "trui|rood": "images/kerst/stillenacht-trui-rood.jpg"
+   "trui|rood": "images/kerst/stillenacht-trui-rood.jpg",
+   "kids|zwart": "images/kerst/stillenacht-tee-zwart.jpg",
+   "kids|navy": "images/kerst/stillenacht-tee-navy.jpg",
+   "kids|groen": "images/kerst/stillenacht-tee-groen.jpg",
+   "kids|rood": "images/kerst/stillenacht-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -1129,17 +1612,50 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 19.99
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "3-4 jaar",
+     "5-6 jaar",
+     "7-8 jaar",
+     "9-11 jaar",
+     "12-14 jaar"
+    ]
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 38.99
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 34.99
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ]
    }
   ],
   "colors": [
@@ -1176,14 +1692,23 @@
    "trui|zwart": "images/kerst/warm-trui-zwart.jpg",
    "trui|navy": "images/kerst/warm-trui-navy.jpg",
    "trui|groen": "images/kerst/warm-trui-groen.jpg",
-   "trui|rood": "images/kerst/warm-trui-rood.jpg"
+   "trui|rood": "images/kerst/warm-trui-rood.jpg",
+   "kids|zwart": "images/kerst/warm-tee-zwart.jpg",
+   "kids|navy": "images/kerst/warm-tee-navy.jpg",
+   "kids|groen": "images/kerst/warm-tee-groen.jpg",
+   "kids|rood": "images/kerst/warm-tee-rood.jpg"
   },
   "sizes": [
    "S",
    "M",
    "L",
    "XL",
-   "XXL"
+   "XXL",
+   "3-4 jaar",
+   "5-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
   ],
   "personalize": {
    "price": 5,

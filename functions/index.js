@@ -42,13 +42,14 @@ function priceLine(p, item) {
   if (p.types && p.types.length && !type) throw new Error(`Kies een geldige soort voor ${p.name}`);
   const color = p.colors && p.colors.length ? p.colors.find(c => c.id === item.color) : null;
   if (p.colors && p.colors.length && !color) throw new Error(`Kies een geldige kleur voor ${p.name}`);
-  if (p.sizes && p.sizes.length && !p.sizes.includes(item.size)) throw new Error(`Kies een geldige maat voor ${p.name}`);
+  const sizes = (type && type.sizes) || p.sizes || [];
+  if (sizes.length && !sizes.includes(item.size)) throw new Error(`Kies een geldige maat voor ${p.name}`);
 
   const personalName = p.personalize ? clean(item.personalName, p.personalize.maxLength || 14) : '';
   let price = Number(type ? type.price : p.price);
   if (personalName) price += Number(p.personalize.price || 0);
 
-  const meta = [type?.label, p.colors && p.colors.length > 1 ? color?.label : '', p.sizes && p.sizes.length ? item.size : '',
+  const meta = [type?.label, p.colors && p.colors.length > 1 ? color?.label : '', sizes.length ? item.size : '',
     personalName ? `Naam: “${personalName}”` : ''].filter(Boolean).join(' · ');
   return {
     name: meta ? `${p.name} — ${meta}` : p.name,

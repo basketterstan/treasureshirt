@@ -4,7 +4,7 @@
    "id": "tee",
    "name": "T-shirt",
    "kind": "tee",
-   "price": 19.99,
+   "price": 24.99,
    "cost": 0,
    "sizes": [
     "S",
@@ -41,6 +41,171 @@
     "XXL|groen": 1,
     "XXL|rood": 1
    },
+   "designs": [
+    {
+     "id": "foutetrui",
+     "name": "Foute trui?",
+     "img": "images/kerst/foutetrui-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/foutetrui-tee-groen.jpg",
+      "navy": "images/kerst/foutetrui-tee-navy.jpg",
+      "rood": "images/kerst/foutetrui-tee-rood.jpg",
+      "zwart": "images/kerst/foutetrui-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "gluhwein",
+     "name": "Team Glühwein",
+     "img": "images/kerst/gluhwein-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/gluhwein-tee-groen.jpg",
+      "navy": "images/kerst/gluhwein-tee-navy.jpg",
+      "rood": "images/kerst/gluhwein-tee-rood.jpg",
+      "zwart": "images/kerst/gluhwein-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "goede-smaak",
+     "name": "Goede smaak",
+     "img": "images/kerst/goede-smaak-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/goede-smaak-tee-groen.jpg",
+      "navy": "images/kerst/goede-smaak-tee-navy.jpg",
+      "rood": "images/kerst/goede-smaak-tee-rood.jpg",
+      "zwart": "images/kerst/goede-smaak-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "ikpiek",
+     "name": "Ik piek met kerst",
+     "img": "images/kerst/ikpiek-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/ikpiek-tee-groen.jpg",
+      "navy": "images/kerst/ikpiek-tee-navy.jpg",
+      "rood": "images/kerst/ikpiek-tee-rood.jpg",
+      "zwart": "images/kerst/ikpiek-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstclub",
+     "name": "Kerstclub",
+     "img": "images/kerst/kerstclub-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstclub-tee-groen.jpg",
+      "navy": "images/kerst/kerstclub-tee-navy.jpg",
+      "rood": "images/kerst/kerstclub-tee-rood.jpg",
+      "zwart": "images/kerst/kerstclub-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstmodus",
+     "name": "Kerstmodus aan",
+     "img": "images/kerst/kerstmodus-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstmodus-tee-groen.jpg",
+      "navy": "images/kerst/kerstmodus-tee-navy.jpg",
+      "rood": "images/kerst/kerstmodus-tee-rood.jpg",
+      "zwart": "images/kerst/kerstmodus-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstwarmer",
+     "name": "Jij maakt kerst warmer",
+     "img": "images/kerst/kerstwarmer-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstwarmer-tee-groen.jpg",
+      "navy": "images/kerst/kerstwarmer-tee-navy.jpg",
+      "rood": "images/kerst/kerstwarmer-tee-rood.jpg",
+      "zwart": "images/kerst/kerstwarmer-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstzin",
+     "name": "Kerstzin",
+     "img": "images/kerst/kerstzin-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstzin-tee-groen.jpg",
+      "navy": "images/kerst/kerstzin-tee-navy.jpg",
+      "rood": "images/kerst/kerstzin-tee-rood.jpg",
+      "zwart": "images/kerst/kerstzin-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "koekje",
+     "name": "Koekje erbij?",
+     "img": "images/kerst/koekje-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/koekje-tee-groen.jpg",
+      "navy": "images/kerst/koekje-tee-navy.jpg",
+      "rood": "images/kerst/koekje-tee-rood.jpg",
+      "zwart": "images/kerst/koekje-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "lieve",
+     "name": "Lieve kerstman",
+     "img": "images/kerst/lieve-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/lieve-tee-groen.jpg",
+      "navy": "images/kerst/lieve-tee-navy.jpg",
+      "rood": "images/kerst/lieve-tee-rood.jpg",
+      "zwart": "images/kerst/lieve-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "stillenacht",
+     "name": "Stille nacht?",
+     "img": "images/kerst/stillenacht-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/stillenacht-tee-groen.jpg",
+      "navy": "images/kerst/stillenacht-tee-navy.jpg",
+      "rood": "images/kerst/stillenacht-tee-rood.jpg",
+      "zwart": "images/kerst/stillenacht-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "warm",
+     "name": "Koud weer",
+     "img": "images/kerst/warm-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/warm-tee-groen.jpg",
+      "navy": "images/kerst/warm-tee-navy.jpg",
+      "rood": "images/kerst/warm-tee-rood.jpg",
+      "zwart": "images/kerst/warm-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "hohoho",
+     "name": "Ho ho ho maar",
+     "img": "images/kerst/hohoho-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/hohoho-tee-groen.jpg",
+      "navy": "images/kerst/hohoho-tee-navy.jpg",
+      "rood": "images/kerst/hohoho-tee-rood.jpg",
+      "zwart": "images/kerst/hohoho-tee-zwart.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kidtee",
+   "name": "Kinder-T-shirt",
+   "kind": "kidtee",
+   "price": 19.99,
+   "cost": 0,
+   "sizes": [
+    "3-4 jaar",
+    "5-6 jaar",
+    "7-8 jaar",
+    "9-11 jaar",
+    "12-14 jaar"
+   ],
+   "colors": [
+    "zwart",
+    "navy",
+    "groen",
+    "rood"
+   ],
    "designs": [
     {
      "id": "foutetrui",
@@ -661,5 +826,9 @@
  ],
  "mailFrom": "Treasureshirt <bestelling@treasureshirt.com>",
  "namePrice": 5,
- "nameCost": 1
+ "nameCost": 1,
+ "version": 2,
+ "priceUpdates": {
+  "tee": 24.99
+ }
 }
