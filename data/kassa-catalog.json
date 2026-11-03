@@ -189,131 +189,431 @@
     {
      "id": "foutetrui",
      "name": "Foute trui?",
-     "img": "images/kerst/foutetrui-tee-zwart.jpg",
+     "img": "images/kerst/foutetrui-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/foutetrui-tee-groen.jpg",
-      "navy": "images/kerst/foutetrui-tee-navy.jpg",
-      "zwart": "images/kerst/foutetrui-tee-zwart.jpg"
+      "zwart": "images/kerst/foutetrui-kids-zwart-model.jpg",
+      "navy": "images/kerst/foutetrui-kids-navy-model.jpg",
+      "groen": "images/kerst/foutetrui-kids-groen-model.jpg"
      }
     },
     {
      "id": "gluhwein",
      "name": "Team Glühwein",
-     "img": "images/kerst/gluhwein-tee-zwart.jpg",
+     "img": "images/kerst/gluhwein-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/gluhwein-tee-groen.jpg",
-      "navy": "images/kerst/gluhwein-tee-navy.jpg",
-      "zwart": "images/kerst/gluhwein-tee-zwart.jpg"
+      "zwart": "images/kerst/gluhwein-kids-zwart-model.jpg",
+      "navy": "images/kerst/gluhwein-kids-navy-model.jpg",
+      "groen": "images/kerst/gluhwein-kids-groen-model.jpg"
      }
     },
     {
      "id": "goede-smaak",
      "name": "Goede smaak",
-     "img": "images/kerst/goede-smaak-tee-zwart.jpg",
+     "img": "images/kerst/goede-smaak-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/goede-smaak-tee-groen.jpg",
-      "navy": "images/kerst/goede-smaak-tee-navy.jpg",
-      "zwart": "images/kerst/goede-smaak-tee-zwart.jpg"
+      "zwart": "images/kerst/goede-smaak-kids-zwart-model.jpg",
+      "navy": "images/kerst/goede-smaak-kids-navy-model.jpg",
+      "groen": "images/kerst/goede-smaak-kids-groen-model.jpg"
      }
     },
     {
      "id": "ikpiek",
      "name": "Ik piek met kerst",
-     "img": "images/kerst/ikpiek-tee-zwart.jpg",
+     "img": "images/kerst/ikpiek-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/ikpiek-tee-groen.jpg",
-      "navy": "images/kerst/ikpiek-tee-navy.jpg",
-      "zwart": "images/kerst/ikpiek-tee-zwart.jpg"
+      "zwart": "images/kerst/ikpiek-kids-zwart-model.jpg",
+      "navy": "images/kerst/ikpiek-kids-navy-model.jpg",
+      "groen": "images/kerst/ikpiek-kids-groen-model.jpg"
      }
     },
     {
      "id": "kerstclub",
      "name": "Kerstclub",
-     "img": "images/kerst/kerstclub-tee-zwart.jpg",
+     "img": "images/kerst/kerstclub-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/kerstclub-tee-groen.jpg",
-      "navy": "images/kerst/kerstclub-tee-navy.jpg",
-      "zwart": "images/kerst/kerstclub-tee-zwart.jpg"
+      "zwart": "images/kerst/kerstclub-kids-zwart-model.jpg",
+      "navy": "images/kerst/kerstclub-kids-navy-model.jpg",
+      "groen": "images/kerst/kerstclub-kids-groen-model.jpg"
      }
     },
     {
      "id": "kerstmodus",
      "name": "Kerstmodus aan",
-     "img": "images/kerst/kerstmodus-tee-zwart.jpg",
+     "img": "images/kerst/kerstmodus-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/kerstmodus-tee-groen.jpg",
-      "navy": "images/kerst/kerstmodus-tee-navy.jpg",
-      "zwart": "images/kerst/kerstmodus-tee-zwart.jpg"
+      "zwart": "images/kerst/kerstmodus-kids-zwart-model.jpg",
+      "navy": "images/kerst/kerstmodus-kids-navy-model.jpg",
+      "groen": "images/kerst/kerstmodus-kids-groen-model.jpg"
      }
     },
     {
      "id": "kerstwarmer",
      "name": "Jij maakt kerst warmer",
-     "img": "images/kerst/kerstwarmer-tee-zwart.jpg",
+     "img": "images/kerst/kerstwarmer-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/kerstwarmer-tee-groen.jpg",
-      "navy": "images/kerst/kerstwarmer-tee-navy.jpg",
-      "zwart": "images/kerst/kerstwarmer-tee-zwart.jpg"
+      "zwart": "images/kerst/kerstwarmer-kids-zwart-model.jpg",
+      "navy": "images/kerst/kerstwarmer-kids-navy-model.jpg",
+      "groen": "images/kerst/kerstwarmer-kids-groen-model.jpg"
      }
     },
     {
      "id": "kerstzin",
      "name": "Kerstzin",
-     "img": "images/kerst/kerstzin-tee-zwart.jpg",
+     "img": "images/kerst/kerstzin-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/kerstzin-tee-groen.jpg",
-      "navy": "images/kerst/kerstzin-tee-navy.jpg",
-      "zwart": "images/kerst/kerstzin-tee-zwart.jpg"
+      "zwart": "images/kerst/kerstzin-kids-zwart-model.jpg",
+      "navy": "images/kerst/kerstzin-kids-navy-model.jpg",
+      "groen": "images/kerst/kerstzin-kids-groen-model.jpg"
      }
     },
     {
      "id": "koekje",
      "name": "Koekje erbij?",
-     "img": "images/kerst/koekje-tee-zwart.jpg",
+     "img": "images/kerst/koekje-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/koekje-tee-groen.jpg",
-      "navy": "images/kerst/koekje-tee-navy.jpg",
-      "zwart": "images/kerst/koekje-tee-zwart.jpg"
+      "zwart": "images/kerst/koekje-kids-zwart-model.jpg",
+      "navy": "images/kerst/koekje-kids-navy-model.jpg",
+      "groen": "images/kerst/koekje-kids-groen-model.jpg"
      }
     },
     {
      "id": "lieve",
      "name": "Lieve kerstman",
-     "img": "images/kerst/lieve-tee-zwart.jpg",
+     "img": "images/kerst/lieve-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/lieve-tee-groen.jpg",
-      "navy": "images/kerst/lieve-tee-navy.jpg",
-      "zwart": "images/kerst/lieve-tee-zwart.jpg"
+      "zwart": "images/kerst/lieve-kids-zwart-model.jpg",
+      "navy": "images/kerst/lieve-kids-navy-model.jpg",
+      "groen": "images/kerst/lieve-kids-groen-model.jpg"
      }
     },
     {
      "id": "stillenacht",
      "name": "Stille nacht?",
-     "img": "images/kerst/stillenacht-tee-zwart.jpg",
+     "img": "images/kerst/stillenacht-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/stillenacht-tee-groen.jpg",
-      "navy": "images/kerst/stillenacht-tee-navy.jpg",
-      "zwart": "images/kerst/stillenacht-tee-zwart.jpg"
+      "zwart": "images/kerst/stillenacht-kids-zwart-model.jpg",
+      "navy": "images/kerst/stillenacht-kids-navy-model.jpg",
+      "groen": "images/kerst/stillenacht-kids-groen-model.jpg"
      }
     },
     {
      "id": "warm",
      "name": "Koud weer",
-     "img": "images/kerst/warm-tee-zwart.jpg",
+     "img": "images/kerst/warm-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/warm-tee-groen.jpg",
-      "navy": "images/kerst/warm-tee-navy.jpg",
-      "zwart": "images/kerst/warm-tee-zwart.jpg"
+      "zwart": "images/kerst/warm-kids-zwart-model.jpg",
+      "navy": "images/kerst/warm-kids-navy-model.jpg",
+      "groen": "images/kerst/warm-kids-groen-model.jpg"
      }
     },
     {
      "id": "hohoho",
      "name": "Ho ho ho maar",
-     "img": "images/kerst/hohoho-tee-zwart.jpg",
+     "img": "images/kerst/hohoho-kids-zwart-model.jpg",
      "imgs": {
-      "groen": "images/kerst/hohoho-tee-groen.jpg",
-      "navy": "images/kerst/hohoho-tee-navy.jpg",
-      "zwart": "images/kerst/hohoho-tee-zwart.jpg"
+      "zwart": "images/kerst/hohoho-kids-zwart-model.jpg",
+      "navy": "images/kerst/hohoho-kids-navy-model.jpg",
+      "groen": "images/kerst/hohoho-kids-groen-model.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kidshoodie",
+   "name": "Kinderhoodie",
+   "kind": "hoodie",
+   "price": 29.99,
+   "cost": 0,
+   "sizes": [
+    "4-6 jaar",
+    "7-8 jaar",
+    "9-11 jaar",
+    "12-14 jaar"
+   ],
+   "colors": [
+    "zwart",
+    "navy",
+    "groen"
+   ],
+   "designs": [
+    {
+     "id": "foutetrui",
+     "name": "Foute trui?",
+     "img": "images/kerst/foutetrui-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/foutetrui-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/foutetrui-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/foutetrui-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "gluhwein",
+     "name": "Team Glühwein",
+     "img": "images/kerst/gluhwein-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/gluhwein-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/gluhwein-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/gluhwein-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "goede-smaak",
+     "name": "Goede smaak",
+     "img": "images/kerst/goede-smaak-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/goede-smaak-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/goede-smaak-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/goede-smaak-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "ikpiek",
+     "name": "Ik piek met kerst",
+     "img": "images/kerst/ikpiek-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/ikpiek-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/ikpiek-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/ikpiek-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "kerstclub",
+     "name": "Kerstclub",
+     "img": "images/kerst/kerstclub-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/kerstclub-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/kerstclub-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/kerstclub-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "kerstmodus",
+     "name": "Kerstmodus aan",
+     "img": "images/kerst/kerstmodus-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/kerstmodus-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/kerstmodus-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/kerstmodus-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "kerstwarmer",
+     "name": "Jij maakt kerst warmer",
+     "img": "images/kerst/kerstwarmer-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/kerstwarmer-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/kerstwarmer-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/kerstwarmer-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "kerstzin",
+     "name": "Kerstzin",
+     "img": "images/kerst/kerstzin-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/kerstzin-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/kerstzin-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/kerstzin-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "koekje",
+     "name": "Koekje erbij?",
+     "img": "images/kerst/koekje-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/koekje-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/koekje-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/koekje-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "lieve",
+     "name": "Lieve kerstman",
+     "img": "images/kerst/lieve-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/lieve-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/lieve-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/lieve-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "stillenacht",
+     "name": "Stille nacht?",
+     "img": "images/kerst/stillenacht-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/stillenacht-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/stillenacht-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/stillenacht-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "warm",
+     "name": "Koud weer",
+     "img": "images/kerst/warm-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/warm-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/warm-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/warm-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "hohoho",
+     "name": "Ho ho ho maar",
+     "img": "images/kerst/hohoho-kidshoodie-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/hohoho-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/hohoho-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/hohoho-kidshoodie-groen-model.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kidstrui",
+   "name": "Kindertrui",
+   "kind": "sweater",
+   "price": 27.99,
+   "cost": 0,
+   "sizes": [
+    "4-6 jaar",
+    "7-8 jaar",
+    "9-11 jaar",
+    "12-14 jaar"
+   ],
+   "colors": [
+    "zwart",
+    "navy",
+    "groen"
+   ],
+   "designs": [
+    {
+     "id": "foutetrui",
+     "name": "Foute trui?",
+     "img": "images/kerst/foutetrui-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/foutetrui-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/foutetrui-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/foutetrui-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "gluhwein",
+     "name": "Team Glühwein",
+     "img": "images/kerst/gluhwein-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/gluhwein-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/gluhwein-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/gluhwein-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "goede-smaak",
+     "name": "Goede smaak",
+     "img": "images/kerst/goede-smaak-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/goede-smaak-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/goede-smaak-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/goede-smaak-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "ikpiek",
+     "name": "Ik piek met kerst",
+     "img": "images/kerst/ikpiek-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/ikpiek-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/ikpiek-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/ikpiek-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "kerstclub",
+     "name": "Kerstclub",
+     "img": "images/kerst/kerstclub-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/kerstclub-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/kerstclub-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/kerstclub-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "kerstmodus",
+     "name": "Kerstmodus aan",
+     "img": "images/kerst/kerstmodus-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/kerstmodus-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/kerstmodus-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/kerstmodus-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "kerstwarmer",
+     "name": "Jij maakt kerst warmer",
+     "img": "images/kerst/kerstwarmer-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/kerstwarmer-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/kerstwarmer-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/kerstwarmer-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "kerstzin",
+     "name": "Kerstzin",
+     "img": "images/kerst/kerstzin-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/kerstzin-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/kerstzin-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/kerstzin-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "koekje",
+     "name": "Koekje erbij?",
+     "img": "images/kerst/koekje-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/koekje-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/koekje-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/koekje-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "lieve",
+     "name": "Lieve kerstman",
+     "img": "images/kerst/lieve-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/lieve-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/lieve-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/lieve-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "stillenacht",
+     "name": "Stille nacht?",
+     "img": "images/kerst/stillenacht-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/stillenacht-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/stillenacht-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/stillenacht-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "warm",
+     "name": "Koud weer",
+     "img": "images/kerst/warm-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/warm-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/warm-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/warm-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "hohoho",
+     "name": "Ho ho ho maar",
+     "img": "images/kerst/hohoho-kidstrui-zwart-model.jpg",
+     "imgs": {
+      "zwart": "images/kerst/hohoho-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/hohoho-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/hohoho-kidstrui-groen-model.jpg"
      }
     }
    ]
@@ -660,6 +960,35 @@
    ]
   },
   {
+   "id": "kinderschort",
+   "name": "Kinderschort",
+   "kind": "apron",
+   "price": 14.99,
+   "cost": 8.1,
+   "sizes": [
+    "One size"
+   ],
+   "colors": [
+    "bordeaux",
+    "navy",
+    "taupe",
+    "zwart"
+   ],
+   "designs": [
+    {
+     "id": "koekje",
+     "name": "Koekje erbij?",
+     "img": "images/kerst/koekje-kinderschort-bordeaux-model.jpg",
+     "imgs": {
+      "bordeaux": "images/kerst/koekje-kinderschort-bordeaux-model.jpg",
+      "navy": "images/kerst/koekje-kinderschort-navy-model.jpg",
+      "taupe": "images/kerst/koekje-kinderschort-taupe-model.jpg",
+      "zwart": "images/kerst/koekje-kinderschort-zwart-model.jpg"
+     }
+    }
+   ]
+  },
+  {
    "id": "shopper",
    "name": "Shopper (tasje)",
    "kind": "tote",
@@ -754,7 +1083,7 @@
  "mailFrom": "Treasureshirt <bestelling@treasureshirt.com>",
  "namePrice": 5,
  "nameCost": 1,
- "version": 4,
+ "version": 5,
  "priceUpdates": {
   "tee": 24.99
  },
@@ -768,5 +1097,8 @@
  },
  "removeColors": [
   "rood"
+ ],
+ "designUpdates": [
+  "kidtee"
  ]
 }

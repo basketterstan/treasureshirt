@@ -15,12 +15,14 @@ const ADMIN_EMAIL2 = 'daenen.stan@gmail.com';
 const SITE_URL     = 'https://treasureshirt.com';
 const FROM         = 'Treasureshirt <noreply@treasureshirt.com>';
 
-const SHIPPING_BE  = 7;
+const SHIPPING = { 'verzending': 7, 'verzending-nl': 14.99 };
+const SHIP_NAME = { 'verzending': 'Verzending België', 'verzending-nl': 'Verzending Nederland' };
 // Last moment customers can choose pickup at the Landen Christmas market.
 const PICKUP_UNTIL = new Date('2026-12-13T18:00:00+01:00');
 const LEVERING = {
   'afhalen-kerstmarkt': 'Afhalen op de kerstmarkt van Landen (11–13 december)',
   'verzending':         'Verzending in België',
+  'verzending-nl':      'Verzending naar Nederland',
 };
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -83,7 +85,7 @@ exports.createCheckout = onRequest(
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
     try {
       const body  = req.body || {};
-      const items = Array.isArray(body.items) ? body.items.filter(i => i.id !== 'shipping-be' && i.name !== 'Verzending België') : [];
+      const items = Array.isArray(body.items) ? body.items.filter(i => i.id !== 'shipping-be' && !/^Verzending /.test(String(i.name || ''))) : [];
       if (!items.length || items.length > 50) return res.status(400).json({ error: 'Geen producten' });
 
       let levering = body.levering in LEVERING ? body.levering : 'verzending';
@@ -114,8 +116,8 @@ exports.createCheckout = onRequest(
         line = priceLine(p, item);
         line_items.push({ price_data: { currency: 'eur', product_data: { name: line.name }, unit_amount: line.unit_amount }, quantity });
       }
-      if (levering === 'verzending') {
-        line_items.push({ price_data: { currency: 'eur', product_data: { name: 'Verzending België' }, unit_amount: SHIPPING_BE * 100 }, quantity: 1 });
+      if (SHIPPING[levering]) {
+        line_items.push({ price_data: { currency: 'eur', product_data: { name: SHIP_NAME[levering] }, unit_amount: Math.round(SHIPPING[levering] * 100) }, quantity: 1 });
       }
 
       const contact = body.contact || {};
@@ -126,10 +128,10 @@ exports.createCheckout = onRequest(
         levering,
         naam:           clean(contact.naam, 80),
         telefoon:       clean(contact.telefoon, 30),
-        adres:          levering === 'verzending' ? clean(body.adres, 300) : '',
+        adres:          SHIPPING[levering] ? clean(body.adres, 300) : '',
         opmerking:      clean(body.opmerking, 300),
       };
-      if (levering === 'verzending' && !metadata.adres) throw new Error('Vul je adres in voor verzending.');
+      if (SHIPPING[levering] && !metadata.adres) throw new Error('Vul je adres in voor verzending.');
       if (!metadata.naam || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || metadata.telefoon.replace(/[^0-9]/g, '').length < 8) {
         throw new Error('Vul je naam, e-mailadres en telefoonnummer in.');
       }

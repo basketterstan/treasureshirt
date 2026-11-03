@@ -49,7 +49,7 @@
           <span class="cart-total-label">Totaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
-        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7). Verzenden: bestel vóór 8 december.</p>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (België € 7, Nederland € 14,99). Verzenden: bestel vóór 8 december.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
@@ -135,6 +135,13 @@
             <div class="co-option-sub">We maken je bestelling en sturen ze op met de post. <strong style="color:var(--white)">Bestel vóór 8 december, dan verzenden we je bestelling ten laatste op 10 december.</strong></div>
           </div>
         </label>
+        <label class="co-option" id="optShipNL">
+          <input type="radio" name="levering" value="verzending-nl" />
+          <div class="co-option-body">
+            <div class="co-option-title">Verzending naar Nederland <b>€ 14,99</b></div>
+            <div class="co-option-sub">We sturen je bestelling op met de post naar je adres in Nederland. <strong style="color:var(--white)">Bestel vóór 8 december, dan verzenden we je bestelling ten laatste op 10 december.</strong></div>
+          </div>
+        </label>
       </div>
 
       <div class="co-card">
@@ -146,8 +153,8 @@
         <div id="addressBlock" hidden>
           <div class="co-field"><label for="chkStraat">Straat en huisnummer <b class="req">*</b></label><input id="chkStraat" class="co-input" autocomplete="street-address" maxlength="100" /></div>
           <div class="co-row">
-            <div class="co-field"><label for="chkPostcode">Postcode <b class="req">*</b></label><input id="chkPostcode" class="co-input" autocomplete="postal-code" inputmode="numeric" maxlength="10" /></div>
-            <div class="co-field"><label for="chkGemeente">Gemeente <b class="req">*</b></label><input id="chkGemeente" class="co-input" autocomplete="address-level2" maxlength="60" /></div>
+            <div class="co-field"><label for="chkPostcode">Postcode <b class="req">*</b></label><input id="chkPostcode" class="co-input" autocomplete="postal-code" maxlength="10" /></div>
+            <div class="co-field"><label for="chkGemeente"><span id="lblGemeente">Gemeente</span> <b class="req">*</b></label><input id="chkGemeente" class="co-input" autocomplete="address-level2" maxlength="60" /></div>
           </div>
           <div class="co-field"><label for="chkLand">Land</label><input id="chkLand" class="co-input" value="België" readonly /></div>
         </div>
@@ -193,7 +200,10 @@
     import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
     const CHECKOUT_URL = 'https://createcheckout-kelvdlqp7a-uc.a.run.app';
-    const VERZENDKOST = 7;
+    const VERZENDKOST = { 'verzending': 7, 'verzending-nl': 14.99 };
+    const LAND = { 'verzending': 'België', 'verzending-nl': 'Nederland' };
+    const isShip = () => levering in VERZENDKOST;
+    const pcOk = v => levering === 'verzending-nl' ? /^\d{4}\s?[A-Za-z]{2}$/.test(v) : /^\d{4}$/.test(v);
     // Pickup at the Landen Christmas market is offered until the last market day.
     const PICKUP_UNTIL = new Date('2026-12-13T18:00:00+01:00');
     const $ = id => document.getElementById(id);
@@ -225,15 +235,17 @@
     function setLevering(v) {
       levering = v;
       document.querySelectorAll('input[name="levering"]').forEach(r => { r.checked = r.value === v; r.closest('.co-option').classList.toggle('active', r.checked); });
-      $('addressBlock').hidden = v !== 'verzending';
+      $('addressBlock').hidden = !(v in VERZENDKOST);
+      $('lblGemeente').textContent = v === 'verzending-nl' ? 'Plaats' : 'Gemeente';
+      $('chkPostcode').placeholder = v === 'verzending-nl' ? '1234 AB' : '3400';
       updateTotals(); updatePayBtn();
     }
     document.querySelectorAll('input[name="levering"]').forEach(r => r.addEventListener('change', () => setLevering(r.value)));
 
-    function shipping() { return levering === 'verzending' ? VERZENDKOST : 0; }
+    function shipping() { return VERZENDKOST[levering] || 0; }
     function updateTotals() {
       $('totSubtotaal').textContent = euro(subtotaal);
-      $('totLevLabel').textContent = levering === 'afhalen-kerstmarkt' ? 'Afhalen kerstmarkt' : levering === 'verzending' ? 'Verzending België' : 'Levering';
+      $('totLevLabel').textContent = levering === 'afhalen-kerstmarkt' ? 'Afhalen kerstmarkt' : isShip() ? 'Verzending ' + LAND[levering] : 'Levering';
       $('totLev').textContent = levering ? (shipping() ? euro(shipping()) : 'Gratis') : '—';
       $('totGrand').textContent = euro(subtotaal + shipping());
     }
@@ -241,7 +253,7 @@
 
     function required() {
       const f = ['chkNaam', 'chkEmail', 'chkTel'];
-      if (levering === 'verzending') f.push('chkStraat', 'chkPostcode', 'chkGemeente');
+      if (isShip()) f.push('chkStraat', 'chkPostcode', 'chkGemeente');
       return f;
     }
     const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
@@ -250,7 +262,7 @@
       let ok = !!levering;
       required().forEach(id => {
         const el = $(id); const v = el.value.trim();
-        const bad = !v || (id === 'chkEmail' && !emailOk(v)) || (id === 'chkTel' && !telOk(v)) || (id === 'chkPostcode' && !/^\d{4}$/.test(v));
+        const bad = !v || (id === 'chkEmail' && !emailOk(v)) || (id === 'chkTel' && !telOk(v)) || (id === 'chkPostcode' && !pcOk(v));
         if (mark) el.classList.toggle('err', bad);
         if (bad) ok = false;
       });
@@ -265,7 +277,7 @@
     }
     ['chkNaam', 'chkEmail', 'chkTel', 'chkStraat', 'chkPostcode', 'chkGemeente'].forEach(id => {
       ['input', 'change'].forEach(ev => $(id).addEventListener(ev, () => { $(id).classList.remove('err'); updatePayBtn(); }));
-      $(id).addEventListener('blur', () => { const v = $(id).value.trim(); if (v && required().includes(id)) valid(false) || $(id).classList.toggle('err', (id === 'chkEmail' && !emailOk(v)) || (id === 'chkTel' && !telOk(v)) || (id === 'chkPostcode' && !/^\d{4}$/.test(v))); });
+      $(id).addEventListener('blur', () => { const v = $(id).value.trim(); if (v && required().includes(id)) valid(false) || $(id).classList.toggle('err', (id === 'chkEmail' && !emailOk(v)) || (id === 'chkTel' && !telOk(v)) || (id === 'chkPostcode' && !pcOk(v))); });
     });
 
     let uid = null;
@@ -291,7 +303,7 @@
     $('payBtn').addEventListener('click', async () => {
       const err = $('checkoutErr');
       if (!valid(true)) {
-        err.textContent = levering ? 'Vul alle verplichte velden in: naam, een geldig e-mailadres en telefoonnummer' + (levering === 'verzending' ? ', en je volledige adres (postcode met 4 cijfers).' : '.') : 'Kies eerst afhalen of verzenden.';
+        err.textContent = levering ? 'Vul alle verplichte velden in: naam, een geldig e-mailadres en telefoonnummer' + (isShip() ? ', en je volledige adres (' + (levering === 'verzending-nl' ? 'postcode zoals 1234 AB' : 'postcode met 4 cijfers') + ').' : '.') : 'Kies eerst afhalen of verzenden.';
         err.classList.add('show');
         document.querySelector('.co-input.err')?.focus();
         return;
@@ -307,12 +319,12 @@
       const postcode = $('chkPostcode').value.trim();
       const gemeente = $('chkGemeente').value.trim();
       const opmerking = $('chkNote').value.trim();
-      const adres = levering === 'verzending' ? `${straat}, ${postcode} ${gemeente}, België` : '';
+      const adres = isShip() ? `${straat}, ${postcode.toUpperCase()} ${gemeente}, ${LAND[levering]}` : '';
 
       try {
         if (uid) {
           const profile = { telefoon };
-          if (levering === 'verzending') Object.assign(profile, { straat, postcode, gemeente, land: 'België' });
+          if (isShip()) Object.assign(profile, { straat, postcode, gemeente, land: LAND[levering] });
           await setDoc(doc(db, 'users', uid), profile, { merge: true }).catch(() => {});
         }
 

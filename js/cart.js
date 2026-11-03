@@ -23,7 +23,7 @@ const Cart = (() => {
   function save(items) { localStorage.setItem(KEY, JSON.stringify(items)); updateBadge(); render(); }
 
   function keyFor(p) {
-    return [p.id, p.type || '', p.color || '', p.size || '', (p.personalName || '').trim().toLowerCase()].join('__');
+    return [p.id, p.variantType || p.type || '', p.color || '', p.size || '', (p.personalName || '').trim().toLowerCase()].join('__');
   }
 
   function metaLine(i) {

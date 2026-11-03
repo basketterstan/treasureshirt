@@ -49,7 +49,7 @@
           <span class="cart-total-label">Totaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
-        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7). Verzenden: bestel vóór 8 december.</p>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (België € 7, Nederland € 14,99). Verzenden: bestel vóór 8 december.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
@@ -71,7 +71,7 @@
         <div class="pill-row">
           <span class="pill">🎁 Gratis afhalen</span>
           <span class="pill">✏️ Naam erop mogelijk</span>
-          <span class="pill">🚚 Verzending € 7</span>
+          <span class="pill">🚚 Verzending BE € 7 · NL € 14,99</span>
         </div>
       </div>
       <a class="market-date" href="kerstmarkt.html">
@@ -101,7 +101,7 @@
         <div id="pdetailOptions"></div>
         <p class="pdetail-hint" id="pdetailHint"></p>
         <button class="pdetail-btn" id="pdetailAddBtn">In winkelwagen</button>
-        <p class="pdetail-pickup" id="pdetailPickup" hidden>🎄 <strong>Gratis afhalen</strong> op de kerstmarkt van Landen (11–13 december) of verzending in België voor € 7. Bestel vóór 8 december, dan verzenden we je bestelling ten laatste op 10 december.</p>
+        <p class="pdetail-pickup" id="pdetailPickup" hidden>🎄 <strong>Gratis afhalen</strong> op de kerstmarkt van Landen (11–13 december) of verzending in België voor € 7 (Nederland € 14,99). Bestel vóór 8 december, dan verzenden we je bestelling ten laatste op 10 december.</p>
       </div>
     </div>
   </div>
@@ -130,12 +130,12 @@
 
     // One card per product *and* per soort (T-shirt, Hoodie, Trui), so hoodies and
     // truien are visible in the grid. Gifts (beer, schort, tas) stay one card each.
-    const GARMENT = { tee: 'T-shirts', kids: 'Kinderen', hoodie: 'Hoodies', trui: 'Truien' };
+    const GARMENT = { tee: 'T-shirts', hoodie: 'Hoodies', trui: 'Truien', kids: 'Kinderen', kidshoodie: 'Kinderen', kidstrui: 'Kinderen' };
     const cards = [];
     all.forEach(p => {
       const garments = (p.types || []).filter(t => GARMENT[t.id]);
       if (garments.length) garments.forEach(t => cards.push({ p, type: t, group: GARMENT[t.id] }));
-      else cards.push({ p, type: null, group: 'Cadeaus' });
+      else cards.push({ p, type: null, group: p.group || 'Cadeaus' });
     });
     const groups = ['Alles', ...['T-shirts', 'Hoodies', 'Truien', 'Kinderen', 'Cadeaus'].filter(g => cards.some(c => c.group === g))];
     const wanted = (params.get('c') || '').toLowerCase();
@@ -178,7 +178,7 @@
           <div class="product-image">
             ${p.badge ? `<span class="product-badge kerst">${esc(p.badge)}</span>` : ''}
             ${model ? `<img src="${esc(model)}" alt="${esc(title)}" loading="lazy">` : (img ? `<img src="${esc(img)}" alt="${esc(title)}" loading="lazy">` : '👕')}
-            ${model && img ? `<img class="model-img" src="${esc(img)}" alt="" loading="lazy">` : ''}
+            ${model && img && img !== model ? `<img class="model-img" src="${esc(img)}" alt="" loading="lazy">` : ''}
           </div>
           <div class="product-info">
             ${type ? `<p class="product-kind">${esc(type.label)}</p>` : ''}

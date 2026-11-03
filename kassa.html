@@ -356,6 +356,7 @@ details summary{cursor:pointer;font-weight:700}
           if (old) {
             if (cat.priceUpdates && np.id in cat.priceUpdates) old.price = cat.priceUpdates[np.id];
             if (cat.sizeUpdates && np.id in cat.sizeUpdates) old.sizes = cat.sizeUpdates[np.id];
+            if ((cat.designUpdates || []).includes(np.id)) old.designs = np.designs;
           }
           else list.splice(Math.min(i, list.length), 0, np);
         });
