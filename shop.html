@@ -49,7 +49,7 @@
           <span class="cart-total-label">Totaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
-        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7) — je kiest bij het afrekenen.</p>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7). Verzenden: bestel vóór 8 december.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
@@ -67,7 +67,7 @@
       <div>
         <p class="section-label" style="color:#ffd970">Kerstmarkt Landen</p>
         <h2>Bestel nu, haal af in onze chalet</h2>
-        <p>Bestel je kerstshirt of cadeau online en haal het gratis af op de kerstmarkt van Landen. Of laat het verzenden in heel België.</p>
+        <p>Bestel je kerstshirt of cadeau online en haal het gratis af op de kerstmarkt van Landen. Of laat het verzenden in heel België: bestel vóór 8 december, dan verzenden we ten laatste op 10 december.</p>
         <div class="pill-row">
           <span class="pill">🎁 Gratis afhalen</span>
           <span class="pill">✏️ Naam erop mogelijk</span>
@@ -101,7 +101,7 @@
         <div id="pdetailOptions"></div>
         <p class="pdetail-hint" id="pdetailHint"></p>
         <button class="pdetail-btn" id="pdetailAddBtn">In winkelwagen</button>
-        <p class="pdetail-pickup" id="pdetailPickup" hidden>🎄 <strong>Gratis afhalen</strong> op de kerstmarkt van Landen (11–13 december) of verzending in België voor € 7.</p>
+        <p class="pdetail-pickup" id="pdetailPickup" hidden>🎄 <strong>Gratis afhalen</strong> op de kerstmarkt van Landen (11–13 december) of verzending in België voor € 7. Bestel vóór 8 december, dan verzenden we je bestelling ten laatste op 10 december.</p>
       </div>
     </div>
   </div>
@@ -267,7 +267,7 @@
         if (p.personalize) {
           const extra = Number(p.personalize.price) ? ` (+ ${euro(p.personalize.price)})` : '';
           opts.push(`<div><p class="opt-label">${esc(p.personalize.label)}${extra} <span>— optioneel</span></p>
-            <input class="pdetail-input" id="pdName" maxlength="${p.personalize.maxLength || 14}" placeholder="Bv. Lotte" value="${esc(sel.personalName)}"></div>`);
+            <input class="pdetail-input" id="pdName" maxlength="${p.personalize.maxLength || 14}" placeholder="Bv. Lisa" value="${esc(sel.personalName)}"></div>`);
         }
         const box = document.getElementById('pdetailOptions');
         box.style.cssText = 'display:flex;flex-direction:column;gap:1rem';
