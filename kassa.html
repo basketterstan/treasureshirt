@@ -776,7 +776,7 @@ function klantHTML(){
   const prodBtns = `<div class="kprods">${prods().map(p=>`<button class="prod" data-act="pick" data-id="${esc(p.id)}" aria-pressed="${S.cfg&&S.cfg.pid===p.id}"><b>${esc(p.name)}</b><span class="num">${priceLabel(p)}</span></button>`).join("")}</div>`;
   const d = c.by==="kassa" ? c.draft : null;
   if(!items.length && !S.cfg && !d){
-    const seen = {}, all = []; prods().forEach(p=>(p.designs||[]).forEach(x=>{ if(!seen[x.img]){ seen[x.img]=1; all.push(Object.assign({pid:p.id}, x)); } }));
+    const seen = {}, all = []; prods().forEach(p=>(p.designs||[]).forEach(x=>{ const im=(x.imgs&&x.imgs.groen)||x.img; if(!seen[im]){ seen[im]=1; all.push(Object.assign({pid:p.id}, x, {img:im})); } }));
     const gal = all.length ? `<div class="kgal">${all.map(x=>`<button class="kfig" data-act="pickd" data-id="${esc(x.pid)}" data-d="${esc(x.id)}"><img src="${esc(x.img)}" alt=""><span>${esc(x.name)}</span><small>${esc((prodById(x.pid)||{}).name||"")}</small></button>`).join("")}</div>` : `<div class="preview">${garmentSVG("hoodie","groen",{text:"JOUW NAAM",vinyl:"wit",font:"college"})}</div>`;
     return `<div class="klantv">${gal}
       <div class="k-hello"><div class="eyebrow">Treasureshirt · Kerstmarkt Landen</div><h1>Jouw naam erop, terwijl je wacht.</h1>
