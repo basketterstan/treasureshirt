@@ -282,8 +282,9 @@ exports.kassaPayment = onRequest(
       const cents = Math.round(Number(b.amount) * 100);
       if (!Number.isFinite(cents) || cents < 50 || cents > 200000) return res.status(400).json({ error: 'Ongeldig bedrag' });
       const desc = clean(Array.isArray(b.items) ? b.items.join(', ') : 'Aankoop kerstmarkt', 300) || 'Aankoop kerstmarkt';
-      // Eerst: rechtstreeks Bancontact. Stripe geeft de Bancontact-pagina met QR terug.
-      try {
+      // mode 'bancontact': rechtstreeks Bancontact; Stripe geeft de Bancontact-pagina met QR terug.
+      // mode 'checkout': Stripe Checkout, de klant scant onze QR met de camera.
+      if (b.mode !== 'checkout') try {
         const pi = await stripe.paymentIntents.create({
           amount: cents, currency: 'eur',
           payment_method_types: ['bancontact'],
