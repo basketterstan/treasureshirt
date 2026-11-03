@@ -37,10 +37,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -49,10 +50,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -61,10 +63,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -109,10 +112,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -161,6 +165,11 @@
     "id": "creme",
     "label": "Crème",
     "hex": "#efe3c8"
+   },
+   {
+    "id": "bruin",
+    "label": "Bruin",
+    "hex": "#8a5a3b"
    }
   ],
   "images": {
@@ -233,24 +242,24 @@
   "group": "Kids",
   "colors": [
    {
-    "id": "bordeaux",
-    "label": "Bordeaux",
-    "hex": "#6b1f2a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "taupe",
-    "label": "Taupe",
-    "hex": "#a39684"
-   },
-   {
     "id": "zwart",
     "label": "Zwart",
     "hex": "#151515"
+   },
+   {
+    "id": "wit",
+    "label": "Wit",
+    "hex": "#f3f3ef"
+   },
+   {
+    "id": "lime",
+    "label": "Lime",
+    "hex": "#a9c66b"
+   },
+   {
+    "id": "rood",
+    "label": "Rood",
+    "hex": "#b3242c"
    }
   ],
   "sizes": [],
@@ -261,15 +270,9 @@
   },
   "price": 14.99,
   "images": {
-   "|bordeaux": "images/kerst/koekje-kinderschort-bordeaux-model.jpg",
-   "|navy": "images/kerst/koekje-kinderschort-navy-model.jpg",
-   "|taupe": "images/kerst/koekje-kinderschort-taupe-model.jpg",
    "|zwart": "images/kerst/koekje-kinderschort-zwart-model.jpg"
   },
   "models": {
-   "|bordeaux": "images/kerst/koekje-kinderschort-bordeaux-model.jpg",
-   "|navy": "images/kerst/koekje-kinderschort-navy-model.jpg",
-   "|taupe": "images/kerst/koekje-kinderschort-taupe-model.jpg",
    "|zwart": "images/kerst/koekje-kinderschort-zwart-model.jpg"
   },
   "stockId": "kinderschort"
@@ -287,6 +290,11 @@
     "hex": "#e8dcc4"
    },
    {
+    "id": "rood",
+    "label": "Rood",
+    "hex": "#b3242c"
+   },
+   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -294,7 +302,8 @@
   ],
   "images": {
    "|naturel": "images/kerst/kersttas-naturel.jpg",
-   "|navy": "images/kerst/kersttas-navy.jpg"
+   "|navy": "images/kerst/kersttas-navy.jpg",
+   "|rood": "images/kerst/kersttas-rood.jpg"
   },
   "sizes": [],
   "price": 6.99,
@@ -351,10 +360,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -363,10 +373,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -375,10 +386,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -426,10 +438,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -509,10 +522,11 @@
     "label": "Kinder-T-shirt · Warme Choco",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -521,10 +535,11 @@
     "label": "Kinderhoodie · Warme Choco",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -533,10 +548,11 @@
     "label": "Kindertrui · Warme Choco",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -584,10 +600,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -667,10 +684,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -679,10 +697,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -691,10 +710,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -742,10 +762,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -825,10 +846,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -837,10 +859,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -849,10 +872,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -900,10 +924,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -983,10 +1008,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -995,10 +1021,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -1007,10 +1034,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -1058,10 +1086,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -1141,10 +1170,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -1153,10 +1183,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -1165,10 +1196,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -1216,10 +1248,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -1286,10 +1319,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -1298,10 +1332,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -1310,10 +1345,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -1358,10 +1394,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -1438,10 +1475,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -1450,10 +1488,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -1462,10 +1501,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -1513,10 +1553,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -1583,10 +1624,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -1595,10 +1637,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -1607,10 +1650,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -1655,10 +1699,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -1735,10 +1780,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -1747,10 +1793,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -1759,10 +1806,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -1810,10 +1858,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -1893,10 +1942,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -1905,10 +1955,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -1917,10 +1968,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -1968,10 +2020,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,
@@ -2051,10 +2104,11 @@
     "label": "Kinder-T-shirt",
     "price": 19.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidtee"
    },
@@ -2063,10 +2117,11 @@
     "label": "Kinderhoodie",
     "price": 29.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidshoodie"
    },
@@ -2075,10 +2130,11 @@
     "label": "Kindertrui",
     "price": 27.99,
     "sizes": [
-     "4-6 jaar",
-     "7-8 jaar",
-     "9-11 jaar",
-     "12-14 jaar"
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
     ],
     "stockId": "kidstrui"
    }
@@ -2126,10 +2182,11 @@
    "L",
    "XL",
    "XXL",
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ],
   "personalize": {
    "price": 5,

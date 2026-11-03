@@ -5,7 +5,7 @@
    "name": "T-shirt",
    "kind": "tee",
    "price": 24.99,
-   "cost": 0,
+   "cost": 6.85,
    "sizes": [
     "S",
     "M",
@@ -21,19 +21,19 @@
    "stock": {
     "S|zwart": 1,
     "S|navy": 2,
-    "S|groen": 1,
-    "M|zwart": 1,
-    "M|navy": 1,
-    "M|groen": 1,
-    "L|zwart": 1,
-    "L|navy": 1,
-    "L|groen": 1,
-    "XL|zwart": 1,
-    "XL|navy": 1,
-    "XL|groen": 1,
+    "S|groen": 2,
+    "M|zwart": 3,
+    "M|navy": 9,
+    "M|groen": 0,
+    "L|zwart": 4,
+    "L|navy": 8,
+    "L|groen": 6,
+    "XL|zwart": 3,
+    "XL|navy": 9,
+    "XL|groen": 4,
     "XXL|zwart": 1,
-    "XXL|navy": 1,
-    "XXL|groen": 1
+    "XXL|navy": 8,
+    "XXL|groen": 3
    },
    "designs": [
     {
@@ -173,12 +173,13 @@
    "name": "Kinder-T-shirt",
    "kind": "kidtee",
    "price": 19.99,
-   "cost": 0,
+   "cost": 2.58,
    "sizes": [
-    "4-6 jaar",
-    "7-8 jaar",
-    "9-11 jaar",
-    "12-14 jaar"
+    "4/6 jaar",
+    "6/8 jaar",
+    "8/10 jaar",
+    "10/12 jaar",
+    "12/14 jaar"
    ],
    "colors": [
     "zwart",
@@ -316,19 +317,37 @@
       "groen": "images/kerst/hohoho-kids-groen-model.jpg"
      }
     }
-   ]
+   ],
+   "stock": {
+    "4/6 jaar|zwart": 2,
+    "4/6 jaar|navy": 2,
+    "4/6 jaar|groen": 2,
+    "6/8 jaar|zwart": 2,
+    "6/8 jaar|navy": 2,
+    "6/8 jaar|groen": 2,
+    "8/10 jaar|zwart": 2,
+    "8/10 jaar|navy": 2,
+    "8/10 jaar|groen": 2,
+    "10/12 jaar|zwart": 2,
+    "10/12 jaar|navy": 2,
+    "10/12 jaar|groen": 2,
+    "12/14 jaar|zwart": 2,
+    "12/14 jaar|navy": 2,
+    "12/14 jaar|groen": 2
+   }
   },
   {
    "id": "kidshoodie",
    "name": "Kinderhoodie",
    "kind": "hoodie",
    "price": 29.99,
-   "cost": 0,
+   "cost": 12.31,
    "sizes": [
-    "4-6 jaar",
-    "7-8 jaar",
-    "9-11 jaar",
-    "12-14 jaar"
+    "4/6 jaar",
+    "6/8 jaar",
+    "8/10 jaar",
+    "10/12 jaar",
+    "12/14 jaar"
    ],
    "colors": [
     "zwart",
@@ -466,19 +485,37 @@
       "groen": "images/kerst/hohoho-kidshoodie-groen-model.jpg"
      }
     }
-   ]
+   ],
+   "stock": {
+    "4/6 jaar|zwart": 0,
+    "4/6 jaar|navy": 0,
+    "4/6 jaar|groen": 0,
+    "6/8 jaar|zwart": 2,
+    "6/8 jaar|navy": 2,
+    "6/8 jaar|groen": 2,
+    "8/10 jaar|zwart": 3,
+    "8/10 jaar|navy": 2,
+    "8/10 jaar|groen": 2,
+    "10/12 jaar|zwart": 2,
+    "10/12 jaar|navy": 2,
+    "10/12 jaar|groen": 3,
+    "12/14 jaar|zwart": 1,
+    "12/14 jaar|navy": 2,
+    "12/14 jaar|groen": 1
+   }
   },
   {
    "id": "kidstrui",
    "name": "Kindertrui",
    "kind": "sweater",
    "price": 27.99,
-   "cost": 0,
+   "cost": 7.76,
    "sizes": [
-    "4-6 jaar",
-    "7-8 jaar",
-    "9-11 jaar",
-    "12-14 jaar"
+    "4/6 jaar",
+    "6/8 jaar",
+    "8/10 jaar",
+    "10/12 jaar",
+    "12/14 jaar"
    ],
    "colors": [
     "zwart",
@@ -616,14 +653,31 @@
       "groen": "images/kerst/hohoho-kidstrui-groen-model.jpg"
      }
     }
-   ]
+   ],
+   "stock": {
+    "4/6 jaar|zwart": 0,
+    "4/6 jaar|navy": 0,
+    "4/6 jaar|groen": 0,
+    "6/8 jaar|zwart": 2,
+    "6/8 jaar|navy": 2,
+    "6/8 jaar|groen": 2,
+    "8/10 jaar|zwart": 2,
+    "8/10 jaar|navy": 2,
+    "8/10 jaar|groen": 2,
+    "10/12 jaar|zwart": 2,
+    "10/12 jaar|navy": 2,
+    "10/12 jaar|groen": 2,
+    "12/14 jaar|zwart": 1,
+    "12/14 jaar|navy": 1,
+    "12/14 jaar|groen": 1
+   }
   },
   {
    "id": "hoodie",
    "name": "Hoodie",
    "kind": "hoodie",
    "price": 38.99,
-   "cost": 0,
+   "cost": 13.35,
    "sizes": [
     "S",
     "M",
@@ -637,20 +691,20 @@
     "groen"
    ],
    "stock": {
-    "S|zwart": 1,
-    "S|navy": 1,
+    "S|zwart": 2,
+    "S|navy": 2,
     "S|groen": 1,
-    "M|zwart": 1,
-    "M|navy": 1,
-    "M|groen": 1,
-    "L|zwart": 1,
-    "L|navy": 1,
-    "L|groen": 1,
-    "XL|zwart": 1,
-    "XL|navy": 1,
-    "XL|groen": 1,
-    "XXL|zwart": 1,
-    "XXL|navy": 1,
+    "M|zwart": 2,
+    "M|navy": 2,
+    "M|groen": 2,
+    "L|zwart": 3,
+    "L|navy": 2,
+    "L|groen": 3,
+    "XL|zwart": 2,
+    "XL|navy": 2,
+    "XL|groen": 2,
+    "XXL|zwart": 2,
+    "XXL|navy": 2,
     "XXL|groen": 1
    },
    "designs": [
@@ -791,7 +845,7 @@
    "name": "Trui",
    "kind": "sweater",
    "price": 34.99,
-   "cost": 0,
+   "cost": 17.51,
    "sizes": [
     "S",
     "M",
@@ -805,21 +859,21 @@
     "groen"
    ],
    "stock": {
-    "S|zwart": 1,
-    "S|navy": 1,
-    "S|groen": 1,
-    "M|zwart": 1,
-    "M|navy": 1,
-    "M|groen": 1,
-    "L|zwart": 1,
-    "L|navy": 1,
-    "L|groen": 1,
-    "XL|zwart": 1,
-    "XL|navy": 1,
-    "XL|groen": 1,
-    "XXL|zwart": 1,
-    "XXL|navy": 1,
-    "XXL|groen": 1
+    "S|zwart": 2,
+    "S|navy": 2,
+    "S|groen": 2,
+    "M|zwart": 2,
+    "M|navy": 2,
+    "M|groen": 2,
+    "L|zwart": 2,
+    "L|navy": 3,
+    "L|groen": 3,
+    "XL|zwart": 3,
+    "XL|navy": 2,
+    "XL|groen": 2,
+    "XXL|zwart": 0,
+    "XXL|navy": 0,
+    "XXL|groen": 0
    },
    "designs": [
     {
@@ -929,7 +983,7 @@
    "name": "Keukenschort",
    "kind": "apron",
    "price": 17.99,
-   "cost": 8.1,
+   "cost": 6.1,
    "sizes": [
     "One size"
    ],
@@ -940,10 +994,10 @@
     "zwart"
    ],
    "stock": {
-    "One size|bordeaux": 1,
-    "One size|navy": 1,
-    "One size|taupe": 1,
-    "One size|zwart": 1
+    "One size|bordeaux": 2,
+    "One size|navy": 2,
+    "One size|taupe": 2,
+    "One size|zwart": 2
    },
    "designs": [
     {
@@ -964,15 +1018,15 @@
    "name": "Kinderschort",
    "kind": "apron",
    "price": 14.99,
-   "cost": 8.1,
+   "cost": 5.89,
    "sizes": [
     "One size"
    ],
    "colors": [
-    "bordeaux",
-    "navy",
-    "taupe",
-    "zwart"
+    "zwart",
+    "wit",
+    "lime",
+    "rood"
    ],
    "designs": [
     {
@@ -986,7 +1040,13 @@
       "zwart": "images/kerst/koekje-kinderschort-zwart-model.jpg"
      }
     }
-   ]
+   ],
+   "stock": {
+    "One size|zwart": 4,
+    "One size|wit": 4,
+    "One size|lime": 4,
+    "One size|rood": 4
+   }
   },
   {
    "id": "shopper",
@@ -1015,17 +1075,19 @@
    "name": "Kersttas met koord",
    "kind": "tote",
    "price": 6.99,
-   "cost": 0,
+   "cost": 3.96,
    "sizes": [
     "One size"
    ],
    "colors": [
     "naturel",
+    "rood",
     "navy"
    ],
    "stock": {
-    "One size|naturel": 1,
-    "One size|navy": 1
+    "One size|naturel": 9,
+    "One size|rood": 9,
+    "One size|navy": 9
    },
    "designs": [
     {
@@ -1048,17 +1110,20 @@
    "name": "Beer met bedrukt shirtje",
    "kind": "bear",
    "price": 0,
-   "cost": 8.4,
+   "cost": 8.12,
    "sizes": [
     "M",
     "L"
    ],
    "colors": [
-    "creme"
+    "creme",
+    "bruin"
    ],
    "stock": {
-    "M|creme": 1,
-    "L|creme": 1
+    "M|creme": 4,
+    "M|bruin": 4,
+    "L|creme": 4,
+    "L|bruin": 4
    },
    "designs": [
     {
@@ -1083,22 +1148,187 @@
  "mailFrom": "Treasureshirt <bestelling@treasureshirt.com>",
  "namePrice": 5,
  "nameCost": 1,
- "version": 5,
- "priceUpdates": {
-  "tee": 24.99
- },
+ "version": 6,
+ "priceUpdates": {},
  "sizeUpdates": {
   "kidtee": [
-   "4-6 jaar",
-   "7-8 jaar",
-   "9-11 jaar",
-   "12-14 jaar"
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "kidshoodie": [
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "kidstrui": [
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
   ]
  },
- "removeColors": [
-  "rood"
- ],
- "designUpdates": [
-  "kidtee"
- ]
+ "removeColors": [],
+ "designUpdates": [],
+ "colorUpdates": {
+  "kinderschort": [
+   "zwart",
+   "wit",
+   "lime",
+   "rood"
+  ],
+  "kersttas": [
+   "naturel",
+   "rood",
+   "navy"
+  ],
+  "beer": [
+   "creme",
+   "bruin"
+  ]
+ },
+ "costUpdates": {
+  "tee": 6.85,
+  "hoodie": 13.35,
+  "trui": 17.51,
+  "kidshoodie": 12.31,
+  "kidstrui": 7.76,
+  "kidtee": 2.58,
+  "schort": 6.1,
+  "kinderschort": 5.89,
+  "kersttas": 3.96,
+  "beer": 8.12
+ },
+ "stockSet": {
+  "tee": {
+   "S|zwart": 1,
+   "S|navy": 2,
+   "S|groen": 2,
+   "M|zwart": 3,
+   "M|navy": 9,
+   "M|groen": 0,
+   "L|zwart": 4,
+   "L|navy": 8,
+   "L|groen": 6,
+   "XL|zwart": 3,
+   "XL|navy": 9,
+   "XL|groen": 4,
+   "XXL|zwart": 1,
+   "XXL|navy": 8,
+   "XXL|groen": 3
+  },
+  "kidtee": {
+   "4/6 jaar|zwart": 2,
+   "4/6 jaar|navy": 2,
+   "4/6 jaar|groen": 2,
+   "6/8 jaar|zwart": 2,
+   "6/8 jaar|navy": 2,
+   "6/8 jaar|groen": 2,
+   "8/10 jaar|zwart": 2,
+   "8/10 jaar|navy": 2,
+   "8/10 jaar|groen": 2,
+   "10/12 jaar|zwart": 2,
+   "10/12 jaar|navy": 2,
+   "10/12 jaar|groen": 2,
+   "12/14 jaar|zwart": 2,
+   "12/14 jaar|navy": 2,
+   "12/14 jaar|groen": 2
+  },
+  "kidshoodie": {
+   "4/6 jaar|zwart": 0,
+   "4/6 jaar|navy": 0,
+   "4/6 jaar|groen": 0,
+   "6/8 jaar|zwart": 2,
+   "6/8 jaar|navy": 2,
+   "6/8 jaar|groen": 2,
+   "8/10 jaar|zwart": 3,
+   "8/10 jaar|navy": 2,
+   "8/10 jaar|groen": 2,
+   "10/12 jaar|zwart": 2,
+   "10/12 jaar|navy": 2,
+   "10/12 jaar|groen": 3,
+   "12/14 jaar|zwart": 1,
+   "12/14 jaar|navy": 2,
+   "12/14 jaar|groen": 1
+  },
+  "kidstrui": {
+   "4/6 jaar|zwart": 0,
+   "4/6 jaar|navy": 0,
+   "4/6 jaar|groen": 0,
+   "6/8 jaar|zwart": 2,
+   "6/8 jaar|navy": 2,
+   "6/8 jaar|groen": 2,
+   "8/10 jaar|zwart": 2,
+   "8/10 jaar|navy": 2,
+   "8/10 jaar|groen": 2,
+   "10/12 jaar|zwart": 2,
+   "10/12 jaar|navy": 2,
+   "10/12 jaar|groen": 2,
+   "12/14 jaar|zwart": 1,
+   "12/14 jaar|navy": 1,
+   "12/14 jaar|groen": 1
+  },
+  "hoodie": {
+   "S|zwart": 2,
+   "S|navy": 2,
+   "S|groen": 1,
+   "M|zwart": 2,
+   "M|navy": 2,
+   "M|groen": 2,
+   "L|zwart": 3,
+   "L|navy": 2,
+   "L|groen": 3,
+   "XL|zwart": 2,
+   "XL|navy": 2,
+   "XL|groen": 2,
+   "XXL|zwart": 2,
+   "XXL|navy": 2,
+   "XXL|groen": 1
+  },
+  "trui": {
+   "S|zwart": 2,
+   "S|navy": 2,
+   "S|groen": 2,
+   "M|zwart": 2,
+   "M|navy": 2,
+   "M|groen": 2,
+   "L|zwart": 2,
+   "L|navy": 3,
+   "L|groen": 3,
+   "XL|zwart": 3,
+   "XL|navy": 2,
+   "XL|groen": 2,
+   "XXL|zwart": 0,
+   "XXL|navy": 0,
+   "XXL|groen": 0
+  },
+  "schort": {
+   "One size|bordeaux": 2,
+   "One size|navy": 2,
+   "One size|taupe": 2,
+   "One size|zwart": 2
+  },
+  "kinderschort": {
+   "One size|zwart": 4,
+   "One size|wit": 4,
+   "One size|lime": 4,
+   "One size|rood": 4
+  },
+  "kersttas": {
+   "One size|naturel": 9,
+   "One size|rood": 9,
+   "One size|navy": 9
+  },
+  "beer": {
+   "M|creme": 4,
+   "M|bruin": 4,
+   "L|creme": 4,
+   "L|bruin": 4
+  }
+ }
 }

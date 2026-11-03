@@ -1664,6 +1664,10 @@ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+s+' '+s+'" shape-
             if (cat.priceUpdates && np.id in cat.priceUpdates) old.price = cat.priceUpdates[np.id];
             if (cat.sizeUpdates && np.id in cat.sizeUpdates) old.sizes = cat.sizeUpdates[np.id];
             if ((cat.designUpdates || []).includes(np.id)) old.designs = np.designs;
+            if (cat.colorUpdates && np.id in cat.colorUpdates) old.colors = cat.colorUpdates[np.id];
+            if (cat.costUpdates && np.id in cat.costUpdates) old.cost = cat.costUpdates[np.id];
+            // stockSet: telling van wat er in huis is + besteld (vervangt de voorraad van dat product)
+            if (cat.stockSet && np.id in cat.stockSet) old.stock = { ...cat.stockSet[np.id] };
           }
           else list.splice(Math.min(i, list.length), 0, np);
         });
@@ -1849,7 +1853,7 @@ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+s+' '+s+'" shape-
 
 <script>
 (function(){
-const GARMENT = {taupe:"#B8AE9F", bordeaux:"#6B1B26", antraciet:"#3A3B3E", creme:"#ECE6D6", zwart:"#1B1C1E", navy:"#1F2A44", groen:"#1F5134", wit:"#F3F3EF", naturel:"#E7DCC4", grijs:"#8A8F93", rood:"#9E1B2E"};
+const GARMENT = {taupe:"#B8AE9F", bordeaux:"#6B1B26", antraciet:"#3A3B3E", creme:"#ECE6D6", zwart:"#1B1C1E", navy:"#1F2A44", groen:"#1F5134", wit:"#F3F3EF", naturel:"#E7DCC4", grijs:"#8A8F93", rood:"#9E1B2E", lime:"#A9C66B", bruin:"#8A5A3B"};
 const VINYL = {wit:"#FFFFFF", zwart:"#111111", rood:"#C8102E"};
 const FONTS = {block:{label:"Blok", css:"'Bebas Neue', Impact, sans-serif", k:.5}, college:{label:"College", css:"'Graduate', Georgia, serif", k:.68}, script:{label:"Script", css:"'Pacifico', cursive", k:.62}};
 const KINDS = {bear:"Knuffelbeer", tee:"T-shirt", kidtee:"Kinder-t-shirt", hoodie:"Hoodie", sweater:"Trui", apron:"Keukenschort", tote:"Tasje"};
@@ -1877,7 +1881,7 @@ const qCur = serial(), qCat = serial();
 /* ---------- garment preview ---------- */
 function garmentSVG(kind, color, p){
   const fill = GARMENT[color] || "#999";
-  const lightG = ["wit","naturel","creme"].includes(color);
+  const lightG = ["wit","naturel","creme","lime"].includes(color);
   const edge = lightG ? "rgba(0,0,0,.18)" : "rgba(255,255,255,.12)";
   let body = "", ty = 150, maxW = 118;
   if(kind==="bear"){
@@ -2010,7 +2014,7 @@ function cfgHTML(){
   const okSizes = (p.sizes||[]).filter(s => (p.colors||[]).some(col => leftOf(s,col) > 0));
   if(okSizes.length && !okSizes.includes(c.size)) c.size = okSizes[0];
   const okCols = (p.colors||[]).filter(col => leftOf(c.size,col) > 0);
-  if(okCols.length && !okCols.includes(c.color)){ c.color = okCols[0]; const light=["wit","naturel","creme"].includes(c.color); if(light&&c.vinyl==="wit") c.vinyl="zwart"; if(!light&&c.vinyl==="zwart") c.vinyl="wit"; }
+  if(okCols.length && !okCols.includes(c.color)){ c.color = okCols[0]; const light=["wit","naturel","creme","lime"].includes(c.color); if(light&&c.vinyl==="wit") c.vinyl="zwart"; if(!light&&c.vinyl==="zwart") c.vinyl="wit"; }
   if(!okSizes.length) return `<div class="panel" style="margin-top:14px"><h2>${esc(p.name)}</h2><p class="empty">Dit product is uitverkocht.</p><button class="btn ghost" data-act="cancelcfg">Terug</button></div>`;
   const sizes = okSizes.map(s => { const st = (p.colors||[]).reduce((a,col)=>a+Math.max(0, Math.min(999, leftOf(s,col))),0);
     return `<button class="chip" data-act="size" data-v="${esc(s)}" aria-pressed="${c.size===s}">${esc(s)}<small>${st}</small></button>`; }).join("");
@@ -2269,7 +2273,7 @@ async function sendReadyMail(o){
 /* ---------- actions ---------- */
 function newCfg(p){ const size = (p.sizes||[]).find(s=>(p.colors||[]).some(c=>(stockOf(p,s,c)??1)>0)) || (p.sizes||[])[0];
   const color = (p.colors||[]).find(c=>(stockOf(p,size,c)??1)>0) || (p.colors||[])[0];
-  return {pid:p.id, design:((p.designs||[])[0]||{}).id||"", size, color, text:"", vinyl:["wit","naturel","creme","taupe"].includes(color)?"zwart":"wit", font:"block"}; }
+  return {pid:p.id, design:((p.designs||[])[0]||{}).id||"", size, color, text:"", vinyl:["wit","naturel","creme","taupe","lime"].includes(color)?"zwart":"wit", font:"block"}; }
 async function saveCatalog(cat){ S.catalog = cat; render(); await qCat(()=>S.db.doc("shop/catalog").set(cat)); }
 
 document.addEventListener("click", async ev => {
@@ -2279,7 +2283,7 @@ document.addEventListener("click", async ev => {
   if(a==="exittap"){ const now=Date.now(); S.taps=(S.taps||[]).filter(t=>now-t<1500); S.taps.push(now); if(S.taps.length>=3){ S.taps=[]; location.hash="kassa"; } return; }
   if(a==="pickd"){ const p=prodById(b.dataset.id); if(!p) return; S.cfg=newCfg(p); S.cfg.design=b.dataset.d; render(); pushCurrent(); window.scrollTo({top:0}); return; }
   if(a==="cancelcfg"){ S.cfg=null; render(); pushCurrent(); return; }
-  if(["size","color","vinyl","font","design"].includes(a)){ S.cfg[a]=b.dataset.v; if(a==="color"){ const light=["wit","naturel","creme","taupe"].includes(b.dataset.v); if(light&&S.cfg.vinyl==="wit") S.cfg.vinyl="zwart"; if(!light&&S.cfg.vinyl==="zwart") S.cfg.vinyl="wit"; } render(); pushCurrent(); return; }
+  if(["size","color","vinyl","font","design"].includes(a)){ S.cfg[a]=b.dataset.v; if(a==="color"){ const light=["wit","naturel","creme","taupe","lime"].includes(b.dataset.v); if(light&&S.cfg.vinyl==="wit") S.cfg.vinyl="zwart"; if(!light&&S.cfg.vinyl==="zwart") S.cfg.vinyl="wit"; } render(); pushCurrent(); return; }
   if(a==="add"){ const p=prodById(S.cfg.pid), t=S.cfg.text.trim();
     S.cart.push({pid:p.id, name:p.name, kind:p.kind, design:designOf(p,S.cfg.design), size:S.cfg.size, color:S.cfg.color, price:priceOf(p,S.cfg.size), cost:costOf(p,S.cfg.color,S.cfg.size),
       personal: t?{text:t, vinyl:S.cfg.vinyl, font:S.cfg.font}:null, namePrice:namePrice(), nameCost:nameCost()});
