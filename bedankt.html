@@ -65,8 +65,38 @@
       <a class="btn btn-primary" href="shop.html" style="margin-top:1.5rem">Bekijk de webshop</a>
     </div>
   </main>
+  <div class="container" id="bdMail" hidden style="max-width:460px;margin:-2rem auto 4rem;padding:0 1.25rem;text-align:center">
+    <p style="color:var(--gray)">Wil je een betaalbewijs per mail? Vul dan je e-mailadres in (niet verplicht).</p>
+    <form id="bdForm" style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-top:.75rem">
+      <input id="bdEmail" type="email" required placeholder="jouw@email.be" autocomplete="email" style="flex:1;min-width:220px;background:#212127;border:1.5px solid rgba(255,255,255,.12);border-radius:999px;color:#fff;font:inherit;padding:.8rem 1.1rem">
+      <button class="btn btn-primary" type="submit">Stuur bewijs</button>
+    </form>
+    <p id="bdMsg" style="margin-top:.75rem;min-height:1.2em"></p>
+  </div>
   <script>
-    if (new URLSearchParams(location.search).has('geannuleerd')) {
+    const q = new URLSearchParams(location.search);
+    // Teruggekomen van een Bancontact-betaling aan de kerstmarktkassa (via de QR-code).
+    if (q.has('payment_intent')) {
+      if (q.get('redirect_status') === 'succeeded') {
+        document.getElementById('bdMail').hidden = false;
+        document.getElementById('bdForm').addEventListener('submit', async e => {
+          e.preventDefault();
+          const msg = document.getElementById('bdMsg'); msg.textContent = 'Even geduld…';
+          try {
+            const r = await fetch('https://kassapayment-kelvdlqp7a-uc.a.run.app/?bewijs=1', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ pi: q.get('payment_intent'), secret: q.get('payment_intent_client_secret'), email: document.getElementById('bdEmail').value.trim() }) });
+            const j = await r.json();
+            if (!r.ok) throw new Error(j.error || 'Mislukt');
+            msg.textContent = '✅ Top! Je krijgt je betaalbewijs per mail.'; document.getElementById('bdForm').hidden = true;
+          } catch (err) { msg.textContent = err.message; }
+        });
+      } else {
+        document.getElementById('bdIcon').textContent = '⚠️';
+        document.getElementById('bdTitle').textContent = 'Betaling niet gelukt';
+        document.getElementById('bdText').textContent = 'Er is niets betaald. Vraag aan de kassa een nieuwe QR-code, of betaal met je kaart of cash.';
+      }
+    }
+    if (q.has('geannuleerd')) {
       document.getElementById('bdIcon').textContent = '↩️';
       document.getElementById('bdTitle').textContent = 'Betaling geannuleerd';
       document.getElementById('bdText').textContent = 'Er is niets betaald. Scan de QR-code opnieuw of reken af aan de kassa.';

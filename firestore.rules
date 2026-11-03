@@ -54,6 +54,7 @@ service cloud.firestore {
     match /public/{id} { allow read: if true; allow write: if isAdmin(); }
     match /kassa_sales/{id} { allow read, write: if isAdmin(); }
     match /kassa_orders/{id} { allow read, write: if isAdmin(); }
+    match /kassa_contacts/{id} { allow read, delete: if isAdmin(); }
 
     match /users/{uid} {
       allow read, write: if isOwner(uid) || isAdmin();

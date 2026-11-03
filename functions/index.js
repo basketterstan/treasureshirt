@@ -247,14 +247,35 @@ exports.kassaPayment = onRequest(
   async (req, res) => {
     const stripe = Stripe(stripeSecret.value());
     try {
+      const page = (title, text) => { res.set('Content-Type', 'text/html; charset=utf-8'); return res.send(`<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="font-family:system-ui;text-align:center;padding:3rem 1rem"><h1>${title}</h1><p>${text || 'Treasureshirt'}</p></body>`); };
       const go = String(req.query.go || '');
       if (req.method === 'GET' && go) {
+        if (/^pi_[A-Za-z0-9_]+$/.test(go)) {
+          const pi = await stripe.paymentIntents.retrieve(go);
+          if (!pi.metadata || pi.metadata.bron !== 'kassa') return res.status(404).send('Onbekende betaling');
+          const url = pi.next_action && pi.next_action.redirect_to_url && pi.next_action.redirect_to_url.url;
+          if (pi.status === 'requires_action' && url) return res.redirect(302, url);
+          return page(pi.status === 'succeeded' ? '✅ Al betaald — dank je!' : 'Deze betaling is niet meer geldig', 'Vraag aan de kassa een nieuwe QR-code.');
+        }
         if (!/^cs_[A-Za-z0-9_]+$/.test(go)) return res.status(400).send('Ongeldige betaling');
         const s = await stripe.checkout.sessions.retrieve(go);
         if (!s.metadata || s.metadata.bron !== 'kassa') return res.status(404).send('Onbekende betaling');
         if (s.status === 'open' && s.url) return res.redirect(302, s.url);
-        res.set('Content-Type', 'text/html; charset=utf-8');
-        return res.send(`<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="font-family:system-ui;text-align:center;padding:3rem 1rem"><h1>${s.payment_status === 'paid' ? '✅ Al betaald — dank je!' : 'Deze betaling is verlopen'}</h1><p>Treasureshirt</p></body>`);
+        return page(s.payment_status === 'paid' ? '✅ Al betaald — dank je!' : 'Deze betaling is verlopen');
+      }
+
+      // Na het betalen (bedankt.html): de klant mag vrijwillig een e-mailadres geven voor het betaalbewijs.
+      // Beveiligd met de client_secret die Stripe enkel aan de betaler meegeeft.
+      if (req.method === 'POST' && req.query.bewijs !== undefined) {
+        const b = req.body || {};
+        const id = String(b.pi || ''), email = clean(b.email, 120);
+        if (!/^pi_[A-Za-z0-9_]+$/.test(id) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Vul een geldig e-mailadres in.' });
+        const pi = await stripe.paymentIntents.retrieve(id);
+        if (!pi.metadata || pi.metadata.bron !== 'kassa' || pi.client_secret !== String(b.secret || '')) return res.status(403).json({ error: 'Onbekende betaling' });
+        if (pi.status !== 'succeeded') return res.status(400).json({ error: 'Deze betaling is (nog) niet gelukt.' });
+        await stripe.paymentIntents.update(id, { receipt_email: email });
+        await db.collection('kassa_contacts').add({ email, pi: id, amount: pi.amount / 100, createdAt: Date.now() });
+        return res.json({ ok: true });
       }
 
       const token = (req.headers.authorization || '').replace(/^Bearer\s+/i, '');
@@ -284,18 +305,22 @@ exports.kassaPayment = onRequest(
       const desc = clean(Array.isArray(b.items) ? b.items.join(', ') : 'Aankoop kerstmarkt', 300) || 'Aankoop kerstmarkt';
       // mode 'bancontact': rechtstreeks Bancontact; Stripe geeft de Bancontact-pagina met QR terug.
       // mode 'checkout': Stripe Checkout, de klant scant onze QR met de camera.
-      if (b.mode !== 'checkout') try {
+      // Zonder verplicht e-mailadres: rechtstreeks Bancontact. 'bancontact' = de iPad opent de Stripe/Bancontact-pagina
+      // (QR voor de app) en keert terug naar het klantscherm; 'checkout' = de klant scant onze QR met de gsm-camera,
+      // betaalt in de Bancontact-app en komt op bedankt.html (daar kan hij vrijwillig zijn e-mail geven).
+      try {
+        const onPhone = b.mode === 'checkout';
         const pi = await stripe.paymentIntents.create({
           amount: cents, currency: 'eur',
           payment_method_types: ['bancontact'],
           payment_method_data: { type: 'bancontact', billing_details: { name: 'Klant kerstmarkt Landen' } },
           confirm: true,
-          return_url: `${SITE_URL}/kassa.html#klant`,
+          return_url: onPhone ? `${SITE_URL}/bedankt.html?kassa=1` : `${SITE_URL}/kassa.html#klant`,
           description: `Treasureshirt kerstmarkt — ${desc}`.slice(0, 1000),
           metadata: { bron: 'kassa' },
         });
         const bcUrl = pi.next_action && pi.next_action.redirect_to_url && pi.next_action.redirect_to_url.url;
-        if (bcUrl) return res.json({ id: pi.id, bcUrl });
+        if (bcUrl) return res.json(onPhone ? { id: pi.id, qr: `${KASSA_URL}/?go=${pi.id}` } : { id: pi.id, bcUrl });
       } catch (e) { console.error('Bancontact rechtstreeks mislukt, val terug op Checkout:', e.message); }
       const session = await stripe.checkout.sessions.create({
         mode: 'payment',

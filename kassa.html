@@ -348,7 +348,7 @@ details summary{cursor:pointer;font-weight:700}
     if (sp.status === 'failed' || sp.status === 'expired' || sp.status === 'error') return `<div class="k-pay"><div><div class="amt">Betaling niet gelukt</div><p style="font-size:18px;margin-top:16px">Probeer opnieuw aan de kassa, met je kaart of cash.</p>${back}</div></div>`;
     if (mode === 'app' && sp.bcUrl) return `<div class="k-pay"><div>${amt}<p style="font-size:18px;margin-top:16px">Scan de Bancontact-QR met je Bancontact- of Payconiq-app.</p>${back}</div></div>`;
     if (sp.qr && window.tsQR) return `<div class="k-pay"><div><div class="paygrid">
-        <div class="qrcard"><div style="width:min(42vw,300px)">${window.tsQR(sp.qr)}</div><b>Scan met de camera van je gsm</b><span style="font-size:15px">Betaal met Bancontact of je kaart</span></div>
+        <div class="qrcard"><div style="width:min(42vw,300px)">${window.tsQR(sp.qr)}</div><b>Scan met de camera van je gsm</b><span style="font-size:15px">en betaal met Bancontact</span></div>
         <div>${amt}<p style="font-size:18px;margin-top:16px">Of houd je kaart of gsm tegen de iPhone.<br>Cash kan ook.</p></div></div>${back}</div></div>`;
     return '';
   };
@@ -364,7 +364,7 @@ details summary{cursor:pointer;font-weight:700}
       if (!sp || sp.mode !== mode || sp.status === 'creating') txt = 'QR-code wordt gemaakt…';
       else if (sp.status === 'open') txt = mode === 'app'
         ? 'De iPad toont de Bancontact-QR van Stripe (scannen met de Bancontact- of Payconiq-app). Na betaling wordt de verkoop vanzelf opgeslagen als Bancontact.'
-        : 'De klant ziet een QR om met de camera te scannen (Bancontact of kaart). Na betaling wordt de verkoop vanzelf opgeslagen als Bancontact.';
+        : 'De klant ziet een QR om met de camera te scannen en betaalt met Bancontact (geen e-mail nodig). Na betaling wordt de verkoop vanzelf opgeslagen als Bancontact.';
       else if (sp.status === 'paid' || sp.status === 'done') txt = '✅ Betaald met Bancontact via de QR-code.';
       else if (sp.status === 'failed' || sp.status === 'expired') txt = 'De betaling is niet gelukt of verlopen. Tik op Wijzigen en daarna opnieuw op betalen, of kies een andere betaalwijze.';
       else if (sp.status === 'error') txt = 'De QR-code lukte niet (' + sp.error + '). Kies een andere betaalwijze.';
