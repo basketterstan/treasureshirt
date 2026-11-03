@@ -6,7 +6,20 @@ const Cart = (() => {
   }
   function euro(n) { return '€ ' + Number(n).toFixed(2).replace('.', ',').replace(',00', ''); }
 
-  function get() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; } }
+  function get() {
+    let items;
+    try { items = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { items = []; }
+    if (!Array.isArray(items)) items = [];
+    // Older versions of the site stored items without a key (e.g. old "Op maat"
+    // items), which made them impossible to remove. Give every item a key.
+    let changed = false;
+    items.forEach((i, n) => {
+      if (!i.cartKey && !i.id) { i.cartKey = 'oud-' + n + '-' + Date.now(); changed = true; }
+      if (!i.quantity || i.quantity < 1) { i.quantity = 1; changed = true; }
+    });
+    if (changed) localStorage.setItem(KEY, JSON.stringify(items));
+    return items;
+  }
   function save(items) { localStorage.setItem(KEY, JSON.stringify(items)); updateBadge(); render(); }
 
   function keyFor(p) {
