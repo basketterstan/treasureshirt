@@ -353,7 +353,10 @@ details summary{cursor:pointer;font-weight:700}
         const cur = snap.data(), list = cur.products || [];
         cat.products.forEach((np, i) => {
           const old = list.find(p => p.id === np.id);
-          if (old) { if (cat.priceUpdates && np.id in cat.priceUpdates) old.price = cat.priceUpdates[np.id]; }
+          if (old) {
+            if (cat.priceUpdates && np.id in cat.priceUpdates) old.price = cat.priceUpdates[np.id];
+            if (cat.sizeUpdates && np.id in cat.sizeUpdates) old.sizes = cat.sizeUpdates[np.id];
+          }
           else list.splice(Math.min(i, list.length), 0, np);
         });
         await ref.set({ ...cur, products: list, version: cat.version });

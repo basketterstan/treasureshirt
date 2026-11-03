@@ -194,8 +194,7 @@
    "price": 19.99,
    "cost": 0,
    "sizes": [
-    "3-4 jaar",
-    "5-6 jaar",
+    "4-6 jaar",
     "7-8 jaar",
     "9-11 jaar",
     "12-14 jaar"
@@ -827,8 +826,16 @@
  "mailFrom": "Treasureshirt <bestelling@treasureshirt.com>",
  "namePrice": 5,
  "nameCost": 1,
- "version": 2,
+ "version": 3,
  "priceUpdates": {
   "tee": 24.99
+ },
+ "sizeUpdates": {
+  "kidtee": [
+   "4-6 jaar",
+   "7-8 jaar",
+   "9-11 jaar",
+   "12-14 jaar"
+  ]
  }
 }
