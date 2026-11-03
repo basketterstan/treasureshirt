@@ -359,6 +359,10 @@ details summary{cursor:pointer;font-weight:700}
           }
           else list.splice(Math.min(i, list.length), 0, np);
         });
+        (cat.removeColors || []).forEach(col => list.forEach(p => {
+          if (p.colors) p.colors = p.colors.filter(c => c !== col);
+          if (p.stock) Object.keys(p.stock).forEach(k => { if (k.endsWith('|' + col)) delete p.stock[k]; });
+        }));
         await ref.set({ ...cur, products: list, version: cat.version });
       }
     } catch (e) { console.error(e); }

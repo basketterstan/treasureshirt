@@ -49,11 +49,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -68,15 +63,12 @@
    "tee|zwart": "images/kerst/hohoho-tee-zwart.jpg",
    "tee|navy": "images/kerst/hohoho-tee-navy.jpg",
    "tee|groen": "images/kerst/hohoho-tee-groen.jpg",
-   "tee|rood": "images/kerst/hohoho-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/hohoho-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/hohoho-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/hohoho-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/hohoho-hoodie-rood.jpg",
    "kids|zwart": "images/kerst/hohoho-tee-zwart.jpg",
    "kids|navy": "images/kerst/hohoho-tee-navy.jpg",
-   "kids|groen": "images/kerst/hohoho-tee-groen.jpg",
-   "kids|rood": "images/kerst/hohoho-tee-rood.jpg"
+   "kids|groen": "images/kerst/hohoho-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -99,11 +91,9 @@
    "tee|zwart": "images/kerst/hohoho-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/hohoho-tee-navy-model.jpg",
    "tee|groen": "images/kerst/hohoho-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/hohoho-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/hohoho-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/hohoho-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/hohoho-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/hohoho-hoodie-rood-model.jpg"
+   "hoodie|groen": "images/kerst/hohoho-hoodie-groen-model.jpg"
   }
  },
  {
@@ -198,11 +188,6 @@
   "badge": "Cadeau",
   "colors": [
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "naturel",
     "label": "Naturel",
     "hex": "#e8dcc4"
@@ -214,7 +199,6 @@
    }
   ],
   "images": {
-   "|rood": "images/kerst/kersttas-rood.jpg",
    "|naturel": "images/kerst/kersttas-naturel.jpg",
    "|navy": "images/kerst/kersttas-navy.jpg"
   },
@@ -283,11 +267,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -302,19 +281,15 @@
    "tee|zwart": "images/kerst/foutetrui-tee-zwart.jpg",
    "tee|navy": "images/kerst/foutetrui-tee-navy.jpg",
    "tee|groen": "images/kerst/foutetrui-tee-groen.jpg",
-   "tee|rood": "images/kerst/foutetrui-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/foutetrui-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/foutetrui-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/foutetrui-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/foutetrui-hoodie-rood.jpg",
    "trui|zwart": "images/kerst/foutetrui-trui-zwart.jpg",
    "trui|navy": "images/kerst/foutetrui-trui-navy.jpg",
    "trui|groen": "images/kerst/foutetrui-trui-groen.jpg",
-   "trui|rood": "images/kerst/foutetrui-trui-rood.jpg",
    "kids|zwart": "images/kerst/foutetrui-tee-zwart.jpg",
    "kids|navy": "images/kerst/foutetrui-tee-navy.jpg",
-   "kids|groen": "images/kerst/foutetrui-tee-groen.jpg",
-   "kids|rood": "images/kerst/foutetrui-tee-rood.jpg"
+   "kids|groen": "images/kerst/foutetrui-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -337,15 +312,12 @@
    "tee|zwart": "images/kerst/foutetrui-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/foutetrui-tee-navy-model.jpg",
    "tee|groen": "images/kerst/foutetrui-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/foutetrui-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/foutetrui-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/foutetrui-hoodie-navy-model.jpg",
    "hoodie|groen": "images/kerst/foutetrui-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/foutetrui-hoodie-rood-model.jpg",
    "trui|zwart": "images/kerst/foutetrui-trui-zwart-model.jpg",
    "trui|navy": "images/kerst/foutetrui-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/foutetrui-trui-groen-model.jpg",
-   "trui|rood": "images/kerst/foutetrui-trui-rood-model.jpg"
+   "trui|groen": "images/kerst/foutetrui-trui-groen-model.jpg"
   }
  },
  {
@@ -410,11 +382,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -429,19 +396,15 @@
    "tee|zwart": "images/kerst/gluhwein-tee-zwart.jpg",
    "tee|navy": "images/kerst/gluhwein-tee-navy.jpg",
    "tee|groen": "images/kerst/gluhwein-tee-groen.jpg",
-   "tee|rood": "images/kerst/gluhwein-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/gluhwein-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/gluhwein-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/gluhwein-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/gluhwein-hoodie-rood.jpg",
    "trui|zwart": "images/kerst/gluhwein-trui-zwart.jpg",
    "trui|navy": "images/kerst/gluhwein-trui-navy.jpg",
    "trui|groen": "images/kerst/gluhwein-trui-groen.jpg",
-   "trui|rood": "images/kerst/gluhwein-trui-rood.jpg",
    "kids|zwart": "images/kerst/gluhwein-tee-zwart.jpg",
    "kids|navy": "images/kerst/gluhwein-tee-navy.jpg",
-   "kids|groen": "images/kerst/gluhwein-tee-groen.jpg",
-   "kids|rood": "images/kerst/gluhwein-tee-rood.jpg"
+   "kids|groen": "images/kerst/gluhwein-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -464,15 +427,12 @@
    "tee|zwart": "images/kerst/gluhwein-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/gluhwein-tee-navy-model.jpg",
    "tee|groen": "images/kerst/gluhwein-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/gluhwein-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/gluhwein-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/gluhwein-hoodie-navy-model.jpg",
    "hoodie|groen": "images/kerst/gluhwein-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/gluhwein-hoodie-rood-model.jpg",
    "trui|zwart": "images/kerst/gluhwein-trui-zwart-model.jpg",
    "trui|navy": "images/kerst/gluhwein-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/gluhwein-trui-groen-model.jpg",
-   "trui|rood": "images/kerst/gluhwein-trui-rood-model.jpg"
+   "trui|groen": "images/kerst/gluhwein-trui-groen-model.jpg"
   }
  },
  {
@@ -537,11 +497,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -556,19 +511,15 @@
    "tee|zwart": "images/kerst/goede-smaak-tee-zwart.jpg",
    "tee|navy": "images/kerst/goede-smaak-tee-navy.jpg",
    "tee|groen": "images/kerst/goede-smaak-tee-groen.jpg",
-   "tee|rood": "images/kerst/goede-smaak-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/goede-smaak-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/goede-smaak-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/goede-smaak-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/goede-smaak-hoodie-rood.jpg",
    "trui|zwart": "images/kerst/goede-smaak-trui-zwart.jpg",
    "trui|navy": "images/kerst/goede-smaak-trui-navy.jpg",
    "trui|groen": "images/kerst/goede-smaak-trui-groen.jpg",
-   "trui|rood": "images/kerst/goede-smaak-trui-rood.jpg",
    "kids|zwart": "images/kerst/goede-smaak-tee-zwart.jpg",
    "kids|navy": "images/kerst/goede-smaak-tee-navy.jpg",
-   "kids|groen": "images/kerst/goede-smaak-tee-groen.jpg",
-   "kids|rood": "images/kerst/goede-smaak-tee-rood.jpg"
+   "kids|groen": "images/kerst/goede-smaak-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -591,15 +542,12 @@
    "tee|zwart": "images/kerst/goede-smaak-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/goede-smaak-tee-navy-model.jpg",
    "tee|groen": "images/kerst/goede-smaak-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/goede-smaak-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/goede-smaak-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/goede-smaak-hoodie-navy-model.jpg",
    "hoodie|groen": "images/kerst/goede-smaak-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/goede-smaak-hoodie-rood-model.jpg",
    "trui|zwart": "images/kerst/goede-smaak-trui-zwart-model.jpg",
    "trui|navy": "images/kerst/goede-smaak-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/goede-smaak-trui-groen-model.jpg",
-   "trui|rood": "images/kerst/goede-smaak-trui-rood-model.jpg"
+   "trui|groen": "images/kerst/goede-smaak-trui-groen-model.jpg"
   }
  },
  {
@@ -664,11 +612,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -683,19 +626,15 @@
    "tee|zwart": "images/kerst/ikpiek-tee-zwart.jpg",
    "tee|navy": "images/kerst/ikpiek-tee-navy.jpg",
    "tee|groen": "images/kerst/ikpiek-tee-groen.jpg",
-   "tee|rood": "images/kerst/ikpiek-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/ikpiek-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/ikpiek-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/ikpiek-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/ikpiek-hoodie-rood.jpg",
    "trui|zwart": "images/kerst/ikpiek-trui-zwart.jpg",
    "trui|navy": "images/kerst/ikpiek-trui-navy.jpg",
    "trui|groen": "images/kerst/ikpiek-trui-groen.jpg",
-   "trui|rood": "images/kerst/ikpiek-trui-rood.jpg",
    "kids|zwart": "images/kerst/ikpiek-tee-zwart.jpg",
    "kids|navy": "images/kerst/ikpiek-tee-navy.jpg",
-   "kids|groen": "images/kerst/ikpiek-tee-groen.jpg",
-   "kids|rood": "images/kerst/ikpiek-tee-rood.jpg"
+   "kids|groen": "images/kerst/ikpiek-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -718,15 +657,12 @@
    "tee|zwart": "images/kerst/ikpiek-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/ikpiek-tee-navy-model.jpg",
    "tee|groen": "images/kerst/ikpiek-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/ikpiek-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/ikpiek-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/ikpiek-hoodie-navy-model.jpg",
    "hoodie|groen": "images/kerst/ikpiek-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/ikpiek-hoodie-rood-model.jpg",
    "trui|zwart": "images/kerst/ikpiek-trui-zwart-model.jpg",
    "trui|navy": "images/kerst/ikpiek-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/ikpiek-trui-groen-model.jpg",
-   "trui|rood": "images/kerst/ikpiek-trui-rood-model.jpg"
+   "trui|groen": "images/kerst/ikpiek-trui-groen-model.jpg"
   }
  },
  {
@@ -791,11 +727,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -810,19 +741,15 @@
    "tee|zwart": "images/kerst/kerstclub-tee-zwart.jpg",
    "tee|navy": "images/kerst/kerstclub-tee-navy.jpg",
    "tee|groen": "images/kerst/kerstclub-tee-groen.jpg",
-   "tee|rood": "images/kerst/kerstclub-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/kerstclub-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/kerstclub-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/kerstclub-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/kerstclub-hoodie-rood.jpg",
    "trui|zwart": "images/kerst/kerstclub-trui-zwart.jpg",
    "trui|navy": "images/kerst/kerstclub-trui-navy.jpg",
    "trui|groen": "images/kerst/kerstclub-trui-groen.jpg",
-   "trui|rood": "images/kerst/kerstclub-trui-rood.jpg",
    "kids|zwart": "images/kerst/kerstclub-tee-zwart.jpg",
    "kids|navy": "images/kerst/kerstclub-tee-navy.jpg",
-   "kids|groen": "images/kerst/kerstclub-tee-groen.jpg",
-   "kids|rood": "images/kerst/kerstclub-tee-rood.jpg"
+   "kids|groen": "images/kerst/kerstclub-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -845,15 +772,12 @@
    "tee|zwart": "images/kerst/kerstclub-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/kerstclub-tee-navy-model.jpg",
    "tee|groen": "images/kerst/kerstclub-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/kerstclub-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/kerstclub-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/kerstclub-hoodie-navy-model.jpg",
    "hoodie|groen": "images/kerst/kerstclub-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/kerstclub-hoodie-rood-model.jpg",
    "trui|zwart": "images/kerst/kerstclub-trui-zwart-model.jpg",
    "trui|navy": "images/kerst/kerstclub-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/kerstclub-trui-groen-model.jpg",
-   "trui|rood": "images/kerst/kerstclub-trui-rood-model.jpg"
+   "trui|groen": "images/kerst/kerstclub-trui-groen-model.jpg"
   }
  },
  {
@@ -918,11 +842,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -937,19 +856,15 @@
    "tee|zwart": "images/kerst/kerstmodus-tee-zwart.jpg",
    "tee|navy": "images/kerst/kerstmodus-tee-navy.jpg",
    "tee|groen": "images/kerst/kerstmodus-tee-groen.jpg",
-   "tee|rood": "images/kerst/kerstmodus-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/kerstmodus-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/kerstmodus-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/kerstmodus-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/kerstmodus-hoodie-rood.jpg",
    "trui|zwart": "images/kerst/kerstmodus-trui-zwart.jpg",
    "trui|navy": "images/kerst/kerstmodus-trui-navy.jpg",
    "trui|groen": "images/kerst/kerstmodus-trui-groen.jpg",
-   "trui|rood": "images/kerst/kerstmodus-trui-rood.jpg",
    "kids|zwart": "images/kerst/kerstmodus-tee-zwart.jpg",
    "kids|navy": "images/kerst/kerstmodus-tee-navy.jpg",
-   "kids|groen": "images/kerst/kerstmodus-tee-groen.jpg",
-   "kids|rood": "images/kerst/kerstmodus-tee-rood.jpg"
+   "kids|groen": "images/kerst/kerstmodus-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -972,15 +887,12 @@
    "tee|zwart": "images/kerst/kerstmodus-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/kerstmodus-tee-navy-model.jpg",
    "tee|groen": "images/kerst/kerstmodus-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/kerstmodus-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/kerstmodus-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/kerstmodus-hoodie-navy-model.jpg",
    "hoodie|groen": "images/kerst/kerstmodus-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/kerstmodus-hoodie-rood-model.jpg",
    "trui|zwart": "images/kerst/kerstmodus-trui-zwart-model.jpg",
    "trui|navy": "images/kerst/kerstmodus-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/kerstmodus-trui-groen-model.jpg",
-   "trui|rood": "images/kerst/kerstmodus-trui-rood-model.jpg"
+   "trui|groen": "images/kerst/kerstmodus-trui-groen-model.jpg"
   }
  },
  {
@@ -1033,11 +945,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -1052,15 +959,12 @@
    "tee|zwart": "images/kerst/kerstwarmer-tee-zwart.jpg",
    "tee|navy": "images/kerst/kerstwarmer-tee-navy.jpg",
    "tee|groen": "images/kerst/kerstwarmer-tee-groen.jpg",
-   "tee|rood": "images/kerst/kerstwarmer-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/kerstwarmer-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/kerstwarmer-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/kerstwarmer-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/kerstwarmer-hoodie-rood.jpg",
    "kids|zwart": "images/kerst/kerstwarmer-tee-zwart.jpg",
    "kids|navy": "images/kerst/kerstwarmer-tee-navy.jpg",
-   "kids|groen": "images/kerst/kerstwarmer-tee-groen.jpg",
-   "kids|rood": "images/kerst/kerstwarmer-tee-rood.jpg"
+   "kids|groen": "images/kerst/kerstwarmer-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -1083,11 +987,9 @@
    "tee|zwart": "images/kerst/kerstwarmer-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/kerstwarmer-tee-navy-model.jpg",
    "tee|groen": "images/kerst/kerstwarmer-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/kerstwarmer-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/kerstwarmer-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/kerstwarmer-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/kerstwarmer-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/kerstwarmer-hoodie-rood-model.jpg"
+   "hoodie|groen": "images/kerst/kerstwarmer-hoodie-groen-model.jpg"
   }
  },
  {
@@ -1152,11 +1054,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -1171,19 +1068,15 @@
    "tee|zwart": "images/kerst/kerstzin-tee-zwart.jpg",
    "tee|navy": "images/kerst/kerstzin-tee-navy.jpg",
    "tee|groen": "images/kerst/kerstzin-tee-groen.jpg",
-   "tee|rood": "images/kerst/kerstzin-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/kerstzin-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/kerstzin-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/kerstzin-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/kerstzin-hoodie-rood.jpg",
    "trui|zwart": "images/kerst/kerstzin-trui-zwart.jpg",
    "trui|navy": "images/kerst/kerstzin-trui-navy.jpg",
    "trui|groen": "images/kerst/kerstzin-trui-groen.jpg",
-   "trui|rood": "images/kerst/kerstzin-trui-rood.jpg",
    "kids|zwart": "images/kerst/kerstzin-tee-zwart.jpg",
    "kids|navy": "images/kerst/kerstzin-tee-navy.jpg",
-   "kids|groen": "images/kerst/kerstzin-tee-groen.jpg",
-   "kids|rood": "images/kerst/kerstzin-tee-rood.jpg"
+   "kids|groen": "images/kerst/kerstzin-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -1206,15 +1099,12 @@
    "tee|zwart": "images/kerst/kerstzin-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/kerstzin-tee-navy-model.jpg",
    "tee|groen": "images/kerst/kerstzin-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/kerstzin-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/kerstzin-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/kerstzin-hoodie-navy-model.jpg",
    "hoodie|groen": "images/kerst/kerstzin-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/kerstzin-hoodie-rood-model.jpg",
    "trui|zwart": "images/kerst/kerstzin-trui-zwart-model.jpg",
    "trui|navy": "images/kerst/kerstzin-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/kerstzin-trui-groen-model.jpg",
-   "trui|rood": "images/kerst/kerstzin-trui-rood-model.jpg"
+   "trui|groen": "images/kerst/kerstzin-trui-groen-model.jpg"
   }
  },
  {
@@ -1267,11 +1157,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -1286,15 +1171,12 @@
    "tee|zwart": "images/kerst/koekje-tee-zwart.jpg",
    "tee|navy": "images/kerst/koekje-tee-navy.jpg",
    "tee|groen": "images/kerst/koekje-tee-groen.jpg",
-   "tee|rood": "images/kerst/koekje-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/koekje-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/koekje-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/koekje-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/koekje-hoodie-rood.jpg",
    "kids|zwart": "images/kerst/koekje-tee-zwart.jpg",
    "kids|navy": "images/kerst/koekje-tee-navy.jpg",
-   "kids|groen": "images/kerst/koekje-tee-groen.jpg",
-   "kids|rood": "images/kerst/koekje-tee-rood.jpg"
+   "kids|groen": "images/kerst/koekje-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -1317,11 +1199,9 @@
    "tee|zwart": "images/kerst/koekje-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/koekje-tee-navy-model.jpg",
    "tee|groen": "images/kerst/koekje-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/koekje-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/koekje-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/koekje-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/koekje-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/koekje-hoodie-rood-model.jpg"
+   "hoodie|groen": "images/kerst/koekje-hoodie-groen-model.jpg"
   }
  },
  {
@@ -1386,11 +1266,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -1405,19 +1280,15 @@
    "tee|zwart": "images/kerst/lieve-tee-zwart.jpg",
    "tee|navy": "images/kerst/lieve-tee-navy.jpg",
    "tee|groen": "images/kerst/lieve-tee-groen.jpg",
-   "tee|rood": "images/kerst/lieve-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/lieve-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/lieve-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/lieve-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/lieve-hoodie-rood.jpg",
    "trui|zwart": "images/kerst/lieve-trui-zwart.jpg",
    "trui|navy": "images/kerst/lieve-trui-navy.jpg",
    "trui|groen": "images/kerst/lieve-trui-groen.jpg",
-   "trui|rood": "images/kerst/lieve-trui-rood.jpg",
    "kids|zwart": "images/kerst/lieve-tee-zwart.jpg",
    "kids|navy": "images/kerst/lieve-tee-navy.jpg",
-   "kids|groen": "images/kerst/lieve-tee-groen.jpg",
-   "kids|rood": "images/kerst/lieve-tee-rood.jpg"
+   "kids|groen": "images/kerst/lieve-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -1440,15 +1311,12 @@
    "tee|zwart": "images/kerst/lieve-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/lieve-tee-navy-model.jpg",
    "tee|groen": "images/kerst/lieve-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/lieve-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/lieve-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/lieve-hoodie-navy-model.jpg",
    "hoodie|groen": "images/kerst/lieve-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/lieve-hoodie-rood-model.jpg",
    "trui|zwart": "images/kerst/lieve-trui-zwart-model.jpg",
    "trui|navy": "images/kerst/lieve-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/lieve-trui-groen-model.jpg",
-   "trui|rood": "images/kerst/lieve-trui-rood-model.jpg"
+   "trui|groen": "images/kerst/lieve-trui-groen-model.jpg"
   }
  },
  {
@@ -1513,11 +1381,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -1532,19 +1395,15 @@
    "tee|zwart": "images/kerst/stillenacht-tee-zwart.jpg",
    "tee|navy": "images/kerst/stillenacht-tee-navy.jpg",
    "tee|groen": "images/kerst/stillenacht-tee-groen.jpg",
-   "tee|rood": "images/kerst/stillenacht-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/stillenacht-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/stillenacht-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/stillenacht-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/stillenacht-hoodie-rood.jpg",
    "trui|zwart": "images/kerst/stillenacht-trui-zwart.jpg",
    "trui|navy": "images/kerst/stillenacht-trui-navy.jpg",
    "trui|groen": "images/kerst/stillenacht-trui-groen.jpg",
-   "trui|rood": "images/kerst/stillenacht-trui-rood.jpg",
    "kids|zwart": "images/kerst/stillenacht-tee-zwart.jpg",
    "kids|navy": "images/kerst/stillenacht-tee-navy.jpg",
-   "kids|groen": "images/kerst/stillenacht-tee-groen.jpg",
-   "kids|rood": "images/kerst/stillenacht-tee-rood.jpg"
+   "kids|groen": "images/kerst/stillenacht-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -1567,15 +1426,12 @@
    "tee|zwart": "images/kerst/stillenacht-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/stillenacht-tee-navy-model.jpg",
    "tee|groen": "images/kerst/stillenacht-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/stillenacht-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/stillenacht-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/stillenacht-hoodie-navy-model.jpg",
    "hoodie|groen": "images/kerst/stillenacht-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/stillenacht-hoodie-rood-model.jpg",
    "trui|zwart": "images/kerst/stillenacht-trui-zwart-model.jpg",
    "trui|navy": "images/kerst/stillenacht-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/stillenacht-trui-groen-model.jpg",
-   "trui|rood": "images/kerst/stillenacht-trui-rood-model.jpg"
+   "trui|groen": "images/kerst/stillenacht-trui-groen-model.jpg"
   }
  },
  {
@@ -1640,11 +1496,6 @@
     "hex": "#1e5b3a"
    },
    {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
     "id": "navy",
     "label": "Navy",
     "hex": "#1f2a44"
@@ -1659,19 +1510,15 @@
    "tee|zwart": "images/kerst/warm-tee-zwart.jpg",
    "tee|navy": "images/kerst/warm-tee-navy.jpg",
    "tee|groen": "images/kerst/warm-tee-groen.jpg",
-   "tee|rood": "images/kerst/warm-tee-rood.jpg",
    "hoodie|zwart": "images/kerst/warm-hoodie-zwart.jpg",
    "hoodie|navy": "images/kerst/warm-hoodie-navy.jpg",
    "hoodie|groen": "images/kerst/warm-hoodie-groen.jpg",
-   "hoodie|rood": "images/kerst/warm-hoodie-rood.jpg",
    "trui|zwart": "images/kerst/warm-trui-zwart.jpg",
    "trui|navy": "images/kerst/warm-trui-navy.jpg",
    "trui|groen": "images/kerst/warm-trui-groen.jpg",
-   "trui|rood": "images/kerst/warm-trui-rood.jpg",
    "kids|zwart": "images/kerst/warm-tee-zwart.jpg",
    "kids|navy": "images/kerst/warm-tee-navy.jpg",
-   "kids|groen": "images/kerst/warm-tee-groen.jpg",
-   "kids|rood": "images/kerst/warm-tee-rood.jpg"
+   "kids|groen": "images/kerst/warm-tee-groen.jpg"
   },
   "sizes": [
    "S",
@@ -1694,15 +1541,12 @@
    "tee|zwart": "images/kerst/warm-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/warm-tee-navy-model.jpg",
    "tee|groen": "images/kerst/warm-tee-groen-model.jpg",
-   "tee|rood": "images/kerst/warm-tee-rood-model.jpg",
    "hoodie|zwart": "images/kerst/warm-hoodie-zwart-model.jpg",
    "hoodie|navy": "images/kerst/warm-hoodie-navy-model.jpg",
    "hoodie|groen": "images/kerst/warm-hoodie-groen-model.jpg",
-   "hoodie|rood": "images/kerst/warm-hoodie-rood-model.jpg",
    "trui|zwart": "images/kerst/warm-trui-zwart-model.jpg",
    "trui|navy": "images/kerst/warm-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/warm-trui-groen-model.jpg",
-   "trui|rood": "images/kerst/warm-trui-rood-model.jpg"
+   "trui|groen": "images/kerst/warm-trui-groen-model.jpg"
   }
  }
 ]
