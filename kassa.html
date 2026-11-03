@@ -1502,7 +1502,8 @@ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+s+' '+s+'" shape-
   });
   const auth = firebase.auth();
   const fs = firebase.firestore();
-  fs.settings({ ignoreUndefinedProperties: true, merge: true });
+  // Long polling als de gewone verbinding (vaak op iPad/Safari of via sommige wifi-netten) geen live updates doorlaat.
+  fs.settings({ ignoreUndefinedProperties: true, merge: true, experimentalAutoDetectLongPolling: true });
 
   // The kassa code talks to "shop/…", "sales" and "orders"; store them in
   // separate kassa_* collections so they never mix with the webshop orders.
@@ -1703,7 +1704,7 @@ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+s+' '+s+'" shape-
         if (!force && !isKlant()) return;
         try { ae.blur(); } catch {}
       }
-      try { render(); } catch {}
+      try { (window.__tsRender || render)(); } catch (e) { console.warn('[ts] render', e.message); }
     };
     window.__stripePay = null;
     const closeBc = () => { try { if (window.__bcWin && !window.__bcWin.closed) window.__bcWin.close(); } catch {} window.__bcWin = null; };
@@ -1768,6 +1769,26 @@ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+s+' '+s+'" shape-
       window.__payMode = b.dataset.tsmode; rerender(true);
       fs.doc('kassa_shop/paymode').set({ mode: b.dataset.tsmode, at: Date.now() }).catch(err => { try { toast('Betaalwijze kon niet opgeslagen worden: ' + (err.message || err)); } catch {} });
     }, true);
+    // Vangnet: elke 2 s de betaalwijze en QR-status ophalen en hertekenen als er iets veranderd is,
+    // voor het geval live updates even niet doorkomen.
+    let lastSig = '';
+    setInterval(async () => {
+      if (!lastCur || lastCur.status !== 'pay') return;
+      try {
+        const [pm, sp] = await Promise.all([fs.doc('kassa_shop/paymode').get(), spRef.get()]);
+        const m = (pm.exists && pm.data().mode) || '';
+        const d = sp.exists ? sp.data() : null;
+        const sig = m + '|' + (d ? d.status + d.id : '');
+        if (sig !== lastSig) {
+          lastSig = sig;
+          if (!isKlant() || m) window.__payMode = m;
+          window.__stripePay = d;
+          console.log('[ts] betaalwijze', m, d && d.status);
+          rerender(true);
+          ensurePay(lastCur);
+        }
+      } catch (e) { console.warn('[ts] vangnet', e.message); }
+    }, 2000);
     fs.doc('kassa_shop/current').onSnapshot(s => {
       lastCur = s.exists ? s.data() : null;
       if (lastCur && lastCur.status === 'pay') ensurePay(lastCur);
@@ -1954,6 +1975,7 @@ function setView(){
   render();
 }
 
+window.__tsRender = () => render(); // voor de Treasureshirt-koppeling (QR/betaalwijze)
 function render(){
   const app = $("#app");
   if(!S.db){ return; }
