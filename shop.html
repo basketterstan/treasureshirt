@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=20261103c" />
 </head>
 <body>
 
@@ -119,18 +119,20 @@
   </footer>
 
   <div class="cart-toast" id="cartToast"></div>
-  <script src="js/main.js"></script>
-  <script src="js/catalog.js"></script>
-  <script src="js/cart.js"></script>
+  <script src="js/main.js?v=20261103c"></script>
+  <script src="js/catalog.js?v=20261103c"></script>
+  <script src="js/cart.js?v=20261103c"></script>
   <script>
   (async () => {
     const { esc, euro } = Catalog;
     const params = new URLSearchParams(location.search);
     let all = [];
     try { all = await Catalog.load(); } catch { all = []; }
+    // Voorraad (js/catalog.js). Werkt de webshop ook als die (nog) niet beschikbaar is.
+    const St = typeof Stock !== 'undefined' ? Stock : { load: async () => ({}), left: () => null };
     let stock = {};
-    try { stock = (await Promise.race([Stock.load(), new Promise(r => setTimeout(() => r({}), 1500))])) || {}; } catch {}
-    Stock.load().then(x => { stock = x || {}; });
+    try { stock = (await Promise.race([St.load(), new Promise(r => setTimeout(() => r({}), 1500))])) || {}; } catch {}
+    St.load().then(x => { stock = x || {}; }).catch(() => {});
 
     // One card per product *and* per soort (T-shirt, Hoodie, Trui), so hoodies and
     // truien are visible in the grid. Gifts (beer, schort, tas) stay one card each.
@@ -266,7 +268,7 @@
         const sizes = sizesFor();
         if (sizes.length) {
           opts.push(`<div><p class="opt-label">Maat</p><div class="opt-grid">${sizes.map(s => {
-            const l = Stock.left(stock, p, { ...sel, size: s }); const out = l !== null && l <= 0;
+            const l = St.left(stock, p, { ...sel, size: s }); const out = l !== null && l <= 0;
             return `<button class="opt-btn ${s === sel.size ? 'active' : ''}" data-size="${esc(s)}" ${out ? 'disabled' : ''}>${esc(s)}${out ? '<small>op</small>' : ''}</button>`;
           }).join('')}</div></div>`);
         }
@@ -296,7 +298,7 @@
         if (sizesFor().length && !sel.size) {
           hint.textContent = 'Kies eerst je maat.'; hint.classList.add('show'); return;
         }
-        const l = Stock.left(stock, p, sel);
+        const l = St.left(stock, p, sel);
         if (l !== null && l <= 0) { hint.textContent = 'Deze keuze is uitverkocht. Kies een andere maat of kleur.'; hint.classList.add('show'); return; }
         const t = p.types?.find(t => t.id === sel.type);
         const c = p.colors?.find(c => c.id === sel.color);

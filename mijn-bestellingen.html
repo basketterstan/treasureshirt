@@ -7,7 +7,7 @@
   <link rel="icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=20261103c" />
   <style>
     .orders-wrap {
       min-height: 100vh;
@@ -177,11 +177,11 @@
   </div>
 
   <div class="cart-toast" id="cartToast"></div>
-  <script src="js/main.js"></script>
-  <script src="js/cart.js"></script>
+  <script src="js/main.js?v=20261103c"></script>
+  <script src="js/cart.js?v=20261103c"></script>
   <script type="module">
-    import { auth } from './js/firebase-config.js';
-    import { db }   from './js/firebase-config.js';
+    import { auth } from './js/firebase-config.js?v=20261103c';
+    import { db }   from './js/firebase-config.js?v=20261103c';
     import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
     import {
       collection, query, where, getDocs,

@@ -1695,7 +1695,16 @@ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+s+' '+s+'" shape-
     const spRef = fs.doc('kassa_shop/stripepay');
     const same = (a, b) => Math.abs(Number(a) - Number(b)) < 0.005;
     const isKlant = () => location.hash === '#klant';
-    const rerender = () => { const ae = document.activeElement; if (ae && ae.tagName === 'INPUT') return; try { render(); } catch {} };
+    // Opnieuw tekenen na een wijziging van betaalwijze/QR. Op het klantscherm altijd (anders blijft de QR weg
+    // als de klant nog in het naamveld stond); aan de kassa niet terwijl je aan het typen bent.
+    const rerender = (force) => {
+      const ae = document.activeElement;
+      if (ae && ae.tagName === 'INPUT' && ae.type !== 'checkbox') {
+        if (!force && !isKlant()) return;
+        try { ae.blur(); } catch {}
+      }
+      try { render(); } catch {}
+    };
     window.__stripePay = null;
     const closeBc = () => { try { if (window.__bcWin && !window.__bcWin.closed) window.__bcWin.close(); } catch {} window.__bcWin = null; };
     // Klantscherm: tik op de knop opent de Bancontact-pagina van Stripe in een nieuw tabblad (de kassa blijft open).
@@ -1751,7 +1760,7 @@ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+s+' '+s+'" shape-
     document.addEventListener('click', e => {
       const b = e.target.closest && e.target.closest('[data-tsmode]'); if (!b) return;
       e.preventDefault(); e.stopPropagation();
-      window.__payMode = b.dataset.tsmode; rerender();
+      window.__payMode = b.dataset.tsmode; rerender(true);
       fs.doc('kassa_shop/paymode').set({ mode: b.dataset.tsmode, at: Date.now() }).catch(() => {});
     }, true);
     fs.doc('kassa_shop/current').onSnapshot(s => {
