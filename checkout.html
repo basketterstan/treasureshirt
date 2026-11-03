@@ -92,6 +92,8 @@
     .co-pay:hover:not(:disabled) { background: var(--gold-light); }
     .co-pay:disabled { opacity: .5; cursor: not-allowed; }
     .co-secure { text-align: center; font-size: .8rem; color: var(--gray); margin-top: .6rem; }
+    .req { color: var(--red); font-weight: 700; }
+    .co-hint { font-size: .8rem; color: var(--gray); margin-top: -.25rem; }
     .co-err { color: var(--red); font-size: .9rem; margin-top: .75rem; display: none; }
     .co-err.show { display: block; }
     .co-account { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: .9rem; color: var(--gray); }
@@ -137,20 +139,21 @@
 
       <div class="co-card">
         <h2><span class="co-step">2</span> Jouw gegevens</h2>
-        <div class="co-field"><label for="chkNaam">Naam</label><input id="chkNaam" class="co-input" autocomplete="name" maxlength="80" /></div>
-        <div class="co-field"><label for="chkEmail">E-mail <span>— voor je bevestiging</span></label><input id="chkEmail" type="email" class="co-input" autocomplete="email" maxlength="120" /></div>
-        <div class="co-field"><label for="chkTel">Telefoon <span>— optioneel</span></label><input id="chkTel" type="tel" class="co-input" autocomplete="tel" maxlength="30" /></div>
+        <div class="co-field"><label for="chkNaam">Naam <b class="req">*</b></label><input id="chkNaam" class="co-input" autocomplete="name" maxlength="80" required /></div>
+        <div class="co-field"><label for="chkEmail">E-mail <b class="req">*</b> <span>— voor je bevestiging</span></label><input id="chkEmail" type="email" class="co-input" autocomplete="email" maxlength="120" required /></div>
+        <div class="co-field"><label for="chkTel">Telefoon <b class="req">*</b> <span>— als we je moeten bereiken</span></label><input id="chkTel" type="tel" class="co-input" autocomplete="tel" maxlength="30" required /></div>
 
         <div id="addressBlock" hidden>
-          <div class="co-field"><label for="chkStraat">Straat en huisnummer</label><input id="chkStraat" class="co-input" autocomplete="street-address" maxlength="100" /></div>
+          <div class="co-field"><label for="chkStraat">Straat en huisnummer <b class="req">*</b></label><input id="chkStraat" class="co-input" autocomplete="street-address" maxlength="100" /></div>
           <div class="co-row">
-            <div class="co-field"><label for="chkPostcode">Postcode</label><input id="chkPostcode" class="co-input" autocomplete="postal-code" inputmode="numeric" maxlength="10" /></div>
-            <div class="co-field"><label for="chkGemeente">Gemeente</label><input id="chkGemeente" class="co-input" autocomplete="address-level2" maxlength="60" /></div>
+            <div class="co-field"><label for="chkPostcode">Postcode <b class="req">*</b></label><input id="chkPostcode" class="co-input" autocomplete="postal-code" inputmode="numeric" maxlength="10" /></div>
+            <div class="co-field"><label for="chkGemeente">Gemeente <b class="req">*</b></label><input id="chkGemeente" class="co-input" autocomplete="address-level2" maxlength="60" /></div>
           </div>
           <div class="co-field"><label for="chkLand">Land</label><input id="chkLand" class="co-input" value="België" readonly /></div>
         </div>
 
-        <div class="co-field" style="margin-bottom:0"><label for="chkNote">Opmerking <span>— optioneel</span></label><input id="chkNote" class="co-input" maxlength="300" placeholder="Bv. wanneer je komt afhalen" /></div>
+        <p class="co-hint"><b class="req">*</b> verplicht in te vullen</p>
+        <div class="co-field" style="margin-bottom:0;margin-top:.9rem"><label for="chkNote">Opmerking <span>— optioneel</span></label><input id="chkNote" class="co-input" maxlength="300" placeholder="Bv. wanneer je komt afhalen" /></div>
       </div>
     </div>
 
@@ -237,16 +240,17 @@
     updateTotals();
 
     function required() {
-      const f = ['chkNaam', 'chkEmail'];
+      const f = ['chkNaam', 'chkEmail', 'chkTel'];
       if (levering === 'verzending') f.push('chkStraat', 'chkPostcode', 'chkGemeente');
       return f;
     }
     const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    const telOk = v => v.replace(/[^0-9]/g, '').length >= 8;
     function valid(mark) {
       let ok = !!levering;
       required().forEach(id => {
         const el = $(id); const v = el.value.trim();
-        const bad = !v || (id === 'chkEmail' && !emailOk(v));
+        const bad = !v || (id === 'chkEmail' && !emailOk(v)) || (id === 'chkTel' && !telOk(v)) || (id === 'chkPostcode' && !/^\d{4}$/.test(v));
         if (mark) el.classList.toggle('err', bad);
         if (bad) ok = false;
       });
@@ -255,11 +259,14 @@
     function updatePayBtn() {
       const btn = $('payBtn');
       if (!levering) { btn.disabled = true; btn.textContent = 'Kies afhalen of verzenden'; return; }
+      if (!valid(false)) { btn.disabled = true; btn.textContent = 'Vul je gegevens in'; return; }
       btn.disabled = false;
       btn.textContent = `Betalen — ${euro(subtotaal + shipping())}`;
     }
-    ['chkNaam', 'chkEmail', 'chkStraat', 'chkPostcode', 'chkGemeente'].forEach(id =>
-      $(id).addEventListener('input', () => $(id).classList.remove('err')));
+    ['chkNaam', 'chkEmail', 'chkTel', 'chkStraat', 'chkPostcode', 'chkGemeente'].forEach(id => {
+      ['input', 'change'].forEach(ev => $(id).addEventListener(ev, () => { $(id).classList.remove('err'); updatePayBtn(); }));
+      $(id).addEventListener('blur', () => { const v = $(id).value.trim(); if (v && required().includes(id)) valid(false) || $(id).classList.toggle('err', (id === 'chkEmail' && !emailOk(v)) || (id === 'chkTel' && !telOk(v)) || (id === 'chkPostcode' && !/^\d{4}$/.test(v))); });
+    });
 
     let uid = null;
     onAuthStateChanged(auth, async user => {
@@ -278,12 +285,13 @@
           if (d.telefoon) $('chkTel').value = d.telefoon;
         }
       } catch {}
+      updatePayBtn();
     });
 
     $('payBtn').addEventListener('click', async () => {
       const err = $('checkoutErr');
       if (!valid(true)) {
-        err.textContent = levering ? 'Vul de gemarkeerde velden in (met een geldig e-mailadres).' : 'Kies eerst afhalen of verzenden.';
+        err.textContent = levering ? 'Vul alle verplichte velden in: naam, een geldig e-mailadres en telefoonnummer' + (levering === 'verzending' ? ', en je volledige adres (postcode met 4 cijfers).' : '.') : 'Kies eerst afhalen of verzenden.';
         err.classList.add('show');
         document.querySelector('.co-input.err')?.focus();
         return;

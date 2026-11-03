@@ -129,6 +129,9 @@ exports.createCheckout = onRequest(
         opmerking:      clean(body.opmerking, 300),
       };
       if (levering === 'verzending' && !metadata.adres) throw new Error('Vul je adres in voor verzending.');
+      if (!metadata.naam || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || metadata.telefoon.replace(/[^0-9]/g, '').length < 8) {
+        throw new Error('Vul je naam, e-mailadres en telefoonnummer in.');
+      }
 
       const stripe = Stripe(stripeSecret.value());
       const session = await stripe.checkout.sessions.create({
