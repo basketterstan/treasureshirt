@@ -513,3 +513,7 @@ footer {
   border-radius: 0; transform: none;
 }
 .footer-logo { display: inline-flex; align-items: center; gap: .55rem; }
+.product-kind { font-size: .72rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .15rem; }
+.filter-bar { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
+.filter-btn { flex-shrink: 0; }
+[hidden] { display: none !important; }

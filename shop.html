@@ -125,35 +125,36 @@
   (async () => {
     const { esc, euro } = Catalog;
     const params = new URLSearchParams(location.search);
-    const CAT_ORDER = ['Kerst', 'Lifestyle', 'Afstuderen', 'Gaming'];
     let all = [];
     try { all = await Catalog.load(); } catch { all = []; }
-    const cats = ['Alles', ...[...new Set(all.map(p => p.category))].sort((a, b) => {
-      const ia = CAT_ORDER.indexOf(a), ib = CAT_ORDER.indexOf(b);
-      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
-    })];
+
+    // One card per product *and* per soort (T-shirt, Hoodie, Trui), so hoodies and
+    // truien are visible in the grid. Gifts (beer, schort, tas) stay one card each.
+    const GARMENT = { tee: 'T-shirts', hoodie: 'Hoodies', trui: 'Truien' };
+    const cards = [];
+    all.forEach(p => {
+      const garments = (p.types || []).filter(t => GARMENT[t.id]);
+      if (garments.length) garments.forEach(t => cards.push({ p, type: t, group: GARMENT[t.id] }));
+      else cards.push({ p, type: null, group: 'Cadeaus' });
+    });
+    const groups = ['Alles', ...['T-shirts', 'Hoodies', 'Truien', 'Cadeaus'].filter(g => cards.some(c => c.group === g))];
     const wanted = (params.get('c') || '').toLowerCase();
-    let active = cats.find(c => c.toLowerCase() === wanted) || 'Alles';
-    const onlyOne = cats.length <= 2; // just "Alles" + one category: no filter needed
-    if (onlyOne) active = 'Alles';
+    let active = groups.find(g => g.toLowerCase() === wanted) || 'Alles';
 
     const grid = document.getElementById('productsGrid');
     const filterBar = document.getElementById('filterBar');
 
     function setHeader() {
-      const kerst = active === 'Kerst' || (onlyOne && cats[1] === 'Kerst');
-      document.getElementById('marketBanner').hidden = !(kerst || active === 'Alles');
-      document.getElementById('shopLabel').textContent = kerst ? 'Kerstcollectie 2026' : 'De collectie';
-      document.getElementById('shopTitle').innerHTML = kerst ? 'Kerst, maar dan <em>grappig</em>' : 'Shirts met <em>een verhaal</em>';
-      document.getElementById('shopSub').textContent = kerst
-        ? 'T-shirts, hoodies en truien voor de feestdagen — met je naam erop als je wil. Plus cadeaus: schorten, tassen en knuffelberen.'
-        : 'Grappige, originele designs — zelf ontworpen en gedrukt in Landen.';
+      document.getElementById('marketBanner').hidden = active !== 'Alles';
+      document.getElementById('shopLabel').textContent = 'Kerstcollectie 2026';
+      document.getElementById('shopTitle').innerHTML = active === 'Alles' ? 'Kerst, maar dan <em>grappig</em>' : `Onze <em>${esc(active.toLowerCase())}</em>`;
+      document.getElementById('shopSub').textContent =
+        'T-shirts, hoodies en truien voor de feestdagen — met je naam erop als je wil. Plus cadeaus: schorten, tassen en knuffelberen.';
     }
 
     function renderFilters() {
-      if (onlyOne) { filterBar.hidden = true; return; }
-      filterBar.innerHTML = cats.map(c =>
-        `<button class="filter-btn ${c === active ? 'active' : ''}" data-cat="${esc(c)}">${c === 'Kerst' ? '🎄 ' : ''}${esc(c)}</button>`).join('');
+      filterBar.innerHTML = groups.map(g =>
+        `<button class="filter-btn ${g === active ? 'active' : ''}" data-cat="${esc(g)}">${esc(g)} <small style="opacity:.6">${g === 'Alles' ? cards.length : cards.filter(c => c.group === g).length}</small></button>`).join('');
       filterBar.querySelectorAll('.filter-btn').forEach(b => b.addEventListener('click', () => {
         active = b.dataset.cat;
         const u = new URL(location.href);
@@ -164,36 +165,42 @@
       }));
     }
 
-    function card(p) {
-      const img = Catalog.imageFor(p, null, p.colors?.[0]?.id);
-      const model = Catalog.modelFor(p, null, p.colors?.[0]?.id);
-      const multi = p.types && p.types.length > 1;
+    function card(c, i) {
+      const { p, type } = c;
+      const color = p.colors?.[0]?.id;
+      const img = Catalog.imageFor(p, type?.id, color);
+      const model = Catalog.modelFor(p, type?.id, color);
+      const title = type ? `${p.name}` : p.name;
+      const price = type ? Number(type.price) : Catalog.fromPrice(p);
+      const multi = !type && p.types && p.types.length > 1;
       return `
-        <article class="product-card" data-id="${esc(p.id)}" tabindex="0">
+        <article class="product-card" data-i="${i}" tabindex="0">
           <div class="product-image">
-            ${p.badge ? `<span class="product-badge ${p.category === 'Kerst' ? 'kerst' : ''}">${esc(p.badge)}</span>` : ''}
-            ${model ? `<img src="${esc(model)}" alt="${esc(p.name)}" loading="lazy">` : (img ? `<img src="${esc(img)}" alt="${esc(p.name)}" loading="lazy">` : '👕')}
+            ${p.badge ? `<span class="product-badge kerst">${esc(p.badge)}</span>` : ''}
+            ${model ? `<img src="${esc(model)}" alt="${esc(title)}" loading="lazy">` : (img ? `<img src="${esc(img)}" alt="${esc(title)}" loading="lazy">` : '👕')}
             ${model && img ? `<img class="model-img" src="${esc(img)}" alt="" loading="lazy">` : ''}
           </div>
           <div class="product-info">
-            <h3 class="product-name">${esc(p.name)}</h3>
-            <p class="product-desc">${esc(p.types ? p.types.map(t => t.label).join(' · ') : p.description)}</p>
-            ${p.colors && p.colors.length > 1 ? `<div class="product-swatches">${p.colors.map(c => `<span class="swatch-dot" style="background:${c.hex}" title="${esc(c.label)}"></span>`).join('')}</div>` : ''}
+            ${type ? `<p class="product-kind">${esc(type.label)}</p>` : ''}
+            <h3 class="product-name">${esc(title)}</h3>
+            <p class="product-desc">${esc(type ? p.description : (p.types ? p.types.map(t => t.label).join(' · ') : p.description))}</p>
+            ${p.colors && p.colors.length > 1 ? `<div class="product-swatches">${p.colors.map(k => `<span class="swatch-dot" style="background:${k.hex}" title="${esc(k.label)}"></span>`).join('')}</div>` : ''}
             <div class="product-footer">
-              <p class="product-price">${multi ? '<small>vanaf</small>' : ''}${euro(Catalog.fromPrice(p))}</p>
+              <p class="product-price">${multi ? '<small>vanaf</small>' : ''}${euro(price)}</p>
               <button class="btn-add-cart" tabindex="-1">Bekijk</button>
             </div>
           </div>
         </article>`;
     }
 
+    let shown = [];
     function renderGrid() {
-      const list = active === 'Alles' ? all : all.filter(p => p.category === active);
-      grid.innerHTML = list.map(card).join('') || '<p style="color:var(--gray)">Geen producten gevonden.</p>';
+      shown = active === 'Alles' ? cards : cards.filter(c => c.group === active);
+      grid.innerHTML = shown.map(card).join('') || '<p style="color:var(--gray)">Geen producten gevonden.</p>';
       grid.querySelectorAll('.product-card').forEach(el => {
-        const p = all.find(x => x.id === el.dataset.id);
-        el.addEventListener('click', () => openProduct(p));
-        el.addEventListener('keydown', e => { if (e.key === 'Enter') openProduct(p); });
+        const c = shown[+el.dataset.i];
+        el.addEventListener('click', () => openProduct(c.p, c.type?.id));
+        el.addEventListener('keydown', e => { if (e.key === 'Enter') openProduct(c.p, c.type?.id); });
       });
     }
 
@@ -207,9 +214,9 @@
     overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
 
-    function openProduct(p) {
+    function openProduct(p, startType) {
       if (!p) return;
-      const sel = { type: p.types?.[0]?.id || '', color: p.colors?.[0]?.id || '', size: '', personalName: '' };
+      const sel = { type: startType || p.types?.[0]?.id || '', color: p.colors?.[0]?.id || '', size: '', personalName: '' };
       const hint = document.getElementById('pdetailHint');
       document.getElementById('pdetailCat').textContent = p.category === 'Kerst' ? '🎄 Kerstcollectie' : p.category;
       document.getElementById('pdetailName').textContent = p.name;

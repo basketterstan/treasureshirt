@@ -9,12 +9,12 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    }
   ],
   "colors": [
@@ -61,7 +61,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/hohoho-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/hohoho-tee-navy-model.jpg",
@@ -198,17 +198,17 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 35
+    "price": 34.99
    }
   ],
   "colors": [
@@ -259,7 +259,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/foutetrui-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/foutetrui-tee-navy-model.jpg",
@@ -281,17 +281,17 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 35
+    "price": 34.99
    }
   ],
   "colors": [
@@ -342,7 +342,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/gluhwein-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/gluhwein-tee-navy-model.jpg",
@@ -364,17 +364,17 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 35
+    "price": 34.99
    }
   ],
   "colors": [
@@ -425,7 +425,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/goede-smaak-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/goede-smaak-tee-navy-model.jpg",
@@ -447,17 +447,17 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 35
+    "price": 34.99
    }
   ],
   "colors": [
@@ -508,7 +508,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/ikpiek-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/ikpiek-tee-navy-model.jpg",
@@ -530,17 +530,17 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 35
+    "price": 34.99
    }
   ],
   "colors": [
@@ -591,7 +591,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/kerstclub-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/kerstclub-tee-navy-model.jpg",
@@ -613,17 +613,17 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 35
+    "price": 34.99
    }
   ],
   "colors": [
@@ -674,7 +674,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/kerstmodus-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/kerstmodus-tee-navy-model.jpg",
@@ -696,12 +696,12 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    }
   ],
   "colors": [
@@ -748,7 +748,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/kerstwarmer-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/kerstwarmer-tee-navy-model.jpg",
@@ -770,17 +770,17 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 35
+    "price": 34.99
    }
   ],
   "colors": [
@@ -831,7 +831,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/kerstzin-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/kerstzin-tee-navy-model.jpg",
@@ -853,12 +853,12 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    }
   ],
   "colors": [
@@ -905,7 +905,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/koekje-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/koekje-tee-navy-model.jpg",
@@ -927,17 +927,17 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 35
+    "price": 34.99
    }
   ],
   "colors": [
@@ -988,7 +988,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/lieve-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/lieve-tee-navy-model.jpg",
@@ -1010,17 +1010,17 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 35
+    "price": 34.99
    }
   ],
   "colors": [
@@ -1071,7 +1071,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/stillenacht-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/stillenacht-tee-navy-model.jpg",
@@ -1093,17 +1093,17 @@
    {
     "id": "tee",
     "label": "T-shirt",
-    "price": 20
+    "price": 19.99
    },
    {
     "id": "hoodie",
     "label": "Hoodie",
-    "price": 39
+    "price": 38.99
    },
    {
     "id": "trui",
     "label": "Trui",
-    "price": 35
+    "price": 34.99
    }
   ],
   "colors": [
@@ -1154,7 +1154,7 @@
    "label": "Naam erop (bv. op de mouw of achterkant)",
    "maxLength": 14
   },
-  "price": 20,
+  "price": 19.99,
   "models": {
    "tee|zwart": "images/kerst/warm-tee-zwart-model.jpg",
    "tee|navy": "images/kerst/warm-tee-navy-model.jpg",
