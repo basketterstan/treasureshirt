@@ -136,7 +136,6 @@
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
-      <li><a href="op-maat.html">Op maat</a></li>
       <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
       <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -205,7 +204,7 @@
         const snap = await getDocs(q);
 
         if (snap.empty) {
-          list.innerHTML = `<p class="orders-empty">Je hebt nog geen bestellingen geplaatst.<br><br><a href="op-maat.html">Maak een design →</a></p>`;
+          list.innerHTML = `<p class="orders-empty">Je hebt nog geen bestellingen geplaatst.<br><br><a href="shop.html">Bekijk de kerstcollectie →</a></p>`;
           return;
         }
 
