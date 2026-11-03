@@ -1757,11 +1757,16 @@ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+s+' '+s+'" shape-
       rerender();
       if (lastCur && lastCur.status === 'pay') ensurePay(lastCur);
     }, () => {});
-    document.addEventListener('click', e => {
+    // pointerdown i.p.v. click: de kassa tekent soms opnieuw tussen indrukken en loslaten (bv. als het naamveld
+    // zijn focus verliest), waardoor een gewone klik verloren gaat.
+    const swallow = e => { if (e.target.closest && e.target.closest('[data-tsmode]')) { e.preventDefault(); e.stopPropagation(); } };
+    document.addEventListener('click', swallow, true);
+    document.addEventListener('mousedown', swallow, true);
+    document.addEventListener('pointerdown', e => {
       const b = e.target.closest && e.target.closest('[data-tsmode]'); if (!b) return;
       e.preventDefault(); e.stopPropagation();
       window.__payMode = b.dataset.tsmode; rerender(true);
-      fs.doc('kassa_shop/paymode').set({ mode: b.dataset.tsmode, at: Date.now() }).catch(() => {});
+      fs.doc('kassa_shop/paymode').set({ mode: b.dataset.tsmode, at: Date.now() }).catch(err => { try { toast('Betaalwijze kon niet opgeslagen worden: ' + (err.message || err)); } catch {} });
     }, true);
     fs.doc('kassa_shop/current').onSnapshot(s => {
       lastCur = s.exists ? s.data() : null;
