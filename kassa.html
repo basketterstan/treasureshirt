@@ -245,7 +245,58 @@ details summary{cursor:pointer;font-weight:700}
   // separate kassa_* collections so they never mix with the webshop orders.
   const MAP = { shop: 'kassa_shop', sales: 'kassa_sales', orders: 'kassa_orders' };
   const mapPath = p => { const s = p.split('/'); s[0] = MAP[s[0]] || ('kassa_' + s[0]); return s.join('/'); };
-  const db = { doc: p => fs.doc(mapPath(p)), collection: p => fs.collection(mapPath(p)) };
+  // Webshop orders (collection "orders", written by the Stripe webhook) are shown
+  // in the kassa's "Bestellingen" too. They get ids starting with "web_".
+  const WEB_SINCE = firebase.firestore.Timestamp.fromDate(new Date('2026-11-03T00:00:00+01:00'));
+  const WEB_TO_KASSA = { nieuw: 'todo', in_productie: 'todo', klaar: 'ready', afgehaald: 'done', verzonden: 'done' };
+  const KASSA_TO_WEB = { todo: 'nieuw', ready: 'klaar', done: 'afgehaald' };
+  function webToKassa(d) {
+    const o = d.data(); const pickup = o.levering === 'afhalen-kerstmarkt';
+    return {
+      id: 'web_' + d.id,
+      data: () => ({
+        nr: o.orderNumber, ts: o.createdAt && o.createdAt.toMillis ? o.createdAt.toMillis() : Date.now(),
+        name: (pickup ? '🌐 Online — ' : '📦 Verzenden — ') + (o.customerName || ''),
+        // No "klaar om af te halen"-mail for orders that must be shipped.
+        email: pickup ? (o.customerEmail || '') : '',
+        status: WEB_TO_KASSA[o.status] || 'todo', mailStatus: o.mailStatus || null,
+        items: (o.items || []).filter(i => i.name !== 'Verzending België').map(i => ({ name: i.name, size: i.quantity + '×', color: 'online' })),
+        web: true,
+      }),
+    };
+  }
+  function webDoc(id) {
+    const ref = fs.collection('orders').doc(id);
+    return {
+      update: patch => {
+        const p = {};
+        if (patch.status) p.status = (KASSA_TO_WEB[patch.status] || 'nieuw');
+        if (patch.status === 'done') p.status = 'afgehaald';
+        if (patch.mailStatus) p.mailStatus = patch.mailStatus;
+        if (patch.readyAt) p.readyAt = patch.readyAt;
+        return ref.update(p);
+      },
+      set: () => Promise.resolve(), delete: () => Promise.resolve(), // never delete webshop orders from the kassa
+      get: () => ref.get(), onSnapshot: (a, b) => ref.onSnapshot(a, b),
+    };
+  }
+  function ordersCollection() {
+    const kassa = fs.collection('kassa_orders');
+    return {
+      add: v => kassa.add(v),
+      onSnapshot: (cb, err) => {
+        let k = [], w = [];
+        const emit = () => cb({ docs: k.concat(w) });
+        const u1 = kassa.onSnapshot(s => { k = s.docs; emit(); }, err);
+        const u2 = fs.collection('orders').where('createdAt', '>=', WEB_SINCE).onSnapshot(s => { w = s.docs.map(webToKassa); emit(); }, e => console.warn('webshop orders', e));
+        return () => { u1(); u2(); };
+      },
+    };
+  }
+  const db = {
+    doc: p => p.startsWith('orders/web_') ? webDoc(p.slice('orders/web_'.length)) : fs.doc(mapPath(p)),
+    collection: p => p === 'orders' ? ordersCollection() : fs.collection(mapPath(p)),
+  };
 
   let resolveReady; const ready = new Promise(r => (resolveReady = r));
   const impl = {
