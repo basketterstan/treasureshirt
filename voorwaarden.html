@@ -3,25 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Algemene Voorwaarden — Treasureshirt</title>
+  <title>Algemene voorwaarden — Treasureshirt</title>
+  <meta name="description" content="Algemene verkoopsvoorwaarden van Treasureshirt: bestellen, betalen, levering, afhalen op de kerstmarkt, herroepingsrecht en garantie." />
+  <meta property="og:title" content="Algemene voorwaarden — Treasureshirt" />
+  <meta property="og:description" content="Algemene verkoopsvoorwaarden van Treasureshirt: bestellen, betalen, levering, afhalen op de kerstmarkt, herroepingsrecht en garantie." />
+  <meta property="og:image" content="https://treasureshirt.com/images/kerst/kerstzin-tee-rood.jpg" />
+  <meta name="theme-color" content="#0d0d0f" />
+  <link rel="icon" href="images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .legal-hero { padding: 10rem 5% 3rem; text-align: center; background: linear-gradient(to bottom, #1a1a1a, #0a0a0a); }
-    .legal-body { max-width: 780px; margin: 0 auto; padding: 4rem 5% 6rem; }
-    .legal-body h2 { font-size: 1.1rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin: 2.5rem 0 .75rem; font-weight: 400; }
-    .legal-body p, .legal-body li { color: #aaa; font-size: .95rem; line-height: 1.85; margin-bottom: .75rem; }
-    .legal-body ul { padding-left: 1.4rem; margin-bottom: .75rem; }
-    .legal-body a { color: var(--gold); }
-    .legal-date { font-size: .8rem; color:#8f8b83; margin-bottom: 2rem; }
-      /* 2026 restyle */
-    .legal-hero { padding: 8.5rem 5% 1rem; text-align: left; max-width: 780px; margin: 0 auto; background: none; }
-    .legal-hero .divider { display: none; }
-    .legal-body { padding-top: 1.5rem; }
-    .legal-body h2 { font-family: var(--font-display); font-size: 1.25rem; letter-spacing: -0.01em; text-transform: none; color: var(--white); font-weight: 800; }
-    .legal-body p, .legal-body li { color: #c9c4ba; }
-  </style>
 </head>
 <body>
 
@@ -35,12 +27,17 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
+      <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
       <button class="nav-cart" id="cartBtn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span></button>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu openen"><span></span><span></span><span></span></button>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
+  <!-- CART -->
   <div class="cart-overlay" id="cartOverlay">
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
@@ -50,7 +47,7 @@
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
         <div class="cart-total-row">
-          <span class="cart-total-label">Subtotaal</span>
+          <span class="cart-total-label">Totaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
         <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (€ 7) — je kiest bij het afrekenen.</p>
@@ -59,65 +56,206 @@
     </div>
   </div>
 
-  <div class="legal-hero">
-    <p class="section-label">Treasureshirt</p>
-    <h1 class="section-title">Algemene <em>Voorwaarden</em></h1>
-  </div>
 
-  <div class="legal-body">
-    <p class="legal-date">Laatste update: november 2026</p>
+  <style>
+    .legal-wrap { max-width: 820px; margin: 0 auto; padding: 8.5rem 5% 5rem; }
+    .legal-wrap h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+    .legal-meta { color: var(--gray); font-size: .9rem; margin-bottom: 2rem; }
+    .legal-toc { background: var(--dark-gray); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; }
+    .legal-toc p { font-weight: 700; margin-bottom: .5rem; }
+    .legal-toc ol { padding-left: 1.2rem; columns: 2; column-gap: 2rem; }
+    .legal-toc li { margin-bottom: .3rem; break-inside: avoid; }
+    .legal-toc a { color: var(--gray); text-decoration: none; font-size: .92rem; }
+    .legal-toc a:hover { color: var(--gold); }
+    .legal h2 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em; margin: 2.75rem 0 .9rem; scroll-margin-top: 90px; }
+    .legal h3 { font-size: 1.02rem; font-weight: 700; margin: 1.5rem 0 .5rem; }
+    .legal p, .legal li { color: #cfcac0; line-height: 1.8; margin-bottom: .7rem; }
+    .legal ul, .legal ol { padding-left: 1.35rem; margin-bottom: .9rem; }
+    .legal a { color: var(--gold); }
+    .legal strong { color: var(--white); }
+    .legal table { width: 100%; border-collapse: collapse; margin: .5rem 0 1.25rem; font-size: .9rem; }
+    .legal th, .legal td { text-align: left; padding: .65rem .75rem; border-bottom: 1px solid var(--line); vertical-align: top; color: #cfcac0; }
+    .legal th { color: var(--white); font-weight: 700; background: var(--dark-gray); }
+    .legal .box { background: var(--dark-gray); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 12px; padding: 1rem 1.25rem; margin: 1.25rem 0; }
+    .legal .box p:last-child { margin-bottom: 0; }
+    .legal .form-model { background: #f6f3ec; color: #222; border-radius: 12px; padding: 1.25rem 1.5rem; font-size: .92rem; }
+    .legal .form-model p { color: #222; }
+    mark.todo { background: #ffe066; color: #000; padding: 0 .3rem; border-radius: 4px; font-weight: 700; }
+    @media (max-width: 640px) { .legal-toc ol { columns: 1; } .legal table { font-size: .82rem; } }
+  </style>
+  <main class="legal-wrap legal">
+    <p class="section-label">Juridisch</p>
+    <h1 class="section-title">Algemene <em>voorwaarden</em></h1>
+    <p class="legal-meta">Laatste update: 3 november 2026 · Van toepassing op alle aankopen via treasureshirt.com en in onze chalet op de kerstmarkt.</p>
 
-    <h2>1. Identiteit</h2>
-    <p>Treasureshirt<br />
-    Website: treasureshirt.com<br />
-    E-mail: <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a></p>
+    <div class="legal-toc" role="navigation" aria-label="Inhoud">
+      <p>Inhoud</p>
+      <ol>
+        <li><a href="#identiteit">Wie zijn we?</a></li>
+        <li><a href="#toepassing">Toepassing</a></li>
+        <li><a href="#aanbod">Aanbod en prijzen</a></li>
+        <li><a href="#bestellen">Bestellen</a></li>
+        <li><a href="#betalen">Betalen</a></li>
+        <li><a href="#personalisatie">Personalisatie en op maat</a></li>
+        <li><a href="#levering">Levering en verzending</a></li>
+        <li><a href="#afhalen">Afhalen op de kerstmarkt</a></li>
+        <li><a href="#herroeping">Herroepingsrecht</a></li>
+        <li><a href="#garantie">Wettelijke garantie</a></li>
+        <li><a href="#verzorging">Verzorging van je kleding</a></li>
+        <li><a href="#ie">Intellectuele eigendom</a></li>
+        <li><a href="#aansprakelijkheid">Aansprakelijkheid</a></li>
+        <li><a href="#overmacht">Overmacht</a></li>
+        <li><a href="#account">Je account</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#klachten">Klachten en geschillen</a></li>
+        <li><a href="#slot">Slotbepalingen</a></li>
+      </ol>
+    </div>
 
-    <h2>2. Toepasselijkheid</h2>
-    <p>Deze algemene voorwaarden zijn van toepassing op alle bestellingen die via treasureshirt.com worden geplaatst. Door een bestelling te plaatsen, aanvaardt u deze voorwaarden.</p>
+    <h2 id="identiteit">1. Wie zijn we?</h2>
+    <p>Treasureshirt is een handelsnaam van:</p>
+    <table>
+      <tr><th>Naam</th><td><mark class="todo">[jouw volledige naam]</mark>, handelend onder de naam Treasureshirt</td></tr>
+      <tr><th>Adres</th><td><mark class="todo">[straat en nummer, postcode] Landen</mark>, België</td></tr>
+      <tr><th>Ondernemingsnummer</th><td><mark class="todo">[BE 0xxx.xxx.xxx]</mark></td></tr>
+      <tr><th>Btw</th><td><mark class="todo">[kies: "Btw-nummer: BE 0xxx.xxx.xxx" of "Kleine onderneming onderworpen aan de vrijstellingsregeling — btw niet van toepassing"]</mark></td></tr>
+      <tr><th>E-mail</th><td><a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a></td></tr>
+      <tr><th>Website</th><td>treasureshirt.com</td></tr>
+    </table>
+    <p>In deze voorwaarden noemen we onszelf "Treasureshirt", "wij" of "ons". "Jij" of "de klant" is de persoon die bij ons koopt.</p>
 
-    <h2>3. Aanbod en prijzen</h2>
-    <p>Alle prijzen op de website zijn in euro (€) en inclusief BTW. Verzendkosten worden apart vermeld tijdens het afrekenproces. Treasureshirt behoudt zich het recht voor om prijzen te wijzigen. De prijs die geldt, is de prijs die op het moment van bestelling wordt getoond.</p>
+    <h2 id="toepassing">2. Toepassing</h2>
+    <p>Deze voorwaarden gelden voor elke bestelling via treasureshirt.com, voor elke aankoop in onze chalet op de kerstmarkt van Landen en voor elke bestelling op maat. Door een bestelling te plaatsen, bevestig je dat je deze voorwaarden hebt gelezen en aanvaardt.</p>
+    <p>Onze webshop richt zich in de eerste plaats tot consumenten in België. Koop je als onderneming (bijvoorbeeld voor een club of bedrijf), dan gelden deze voorwaarden ook, met uitzondering van de bepalingen die alleen voor consumenten gelden, zoals het herroepingsrecht.</p>
+    <p>Afwijkingen gelden alleen als we ze schriftelijk (ook per e-mail) met je hebben afgesproken.</p>
 
-    <h2>4. Bestelling en betaling</h2>
-    <p>Een bestelling is definitief na volledige betaling via Stripe. U ontvangt een bevestigingsmail na succesvolle betaling. Betaling is mogelijk met alle gangbare creditcards en debetkaarten.</p>
-
-    <h2>5. Levering</h2>
+    <h2 id="aanbod">3. Aanbod en prijzen</h2>
     <ul>
-      <li>Wij leveren in België, Nederland, Duitsland, Frankrijk en het Verenigd Koninkrijk.</li>
-      <li>Levertijd: 3–7 werkdagen na bevestiging.</li>
-      <li>Treasureshirt is niet verantwoordelijk voor vertragingen door de transporteur.</li>
+      <li>We beschrijven en tonen onze producten zo nauwkeurig mogelijk. Foto's zijn soms digitale voorbeelden (mockups). Kleuren kunnen door je scherm en het drukproces licht afwijken; kleine verschillen in kleur, plaatsing of grootte van de print zijn geen gebrek.</li>
+      <li>Alle prijzen zijn in euro en zijn eindprijzen voor de consument, inclusief alle verplichte heffingen. <mark class="todo">[Vrijgesteld van btw? Laat dan staan: "Als kleine onderneming rekenen wij geen btw aan."]</mark></li>
+      <li>Verzendkosten staan duidelijk vermeld vóór je betaalt: verzending in België kost € 7. Afhalen op de kerstmarkt van Landen is gratis.</li>
+      <li>Het aanbod geldt zolang de voorraad strekt. Kennelijke vergissingen in prijs of omschrijving (bijvoorbeeld een prijs van € 0 of een duidelijke tikfout) binden ons niet. In dat geval nemen we contact met je op en mag je de bestelling kosteloos annuleren.</li>
+      <li>Kortingscodes zijn niet cumuleerbaar, niet inwisselbaar voor geld en alleen geldig binnen de vermelde periode.</li>
     </ul>
 
-    <h2>6. Herroepingsrecht</h2>
-    <p>In beginsel heeft u als consument het recht om een overeenkomst op afstand te herroepen binnen <strong>14 kalenderdagen</strong> na ontvangst van het product, zonder opgave van reden.</p>
-    <p><strong>Uitzondering — gepersonaliseerde producten:</strong> Producten op maat (eigen thema, stijl, kleur en plaatsing via "Op maat") en producten waarop wij op uw vraag een naam of tekst drukken, worden volgens uw specificaties vervaardigd. Deze producten zijn uitgesloten van het herroepingsrecht conform <strong>artikel VI.53, 3° van het Wetboek Economisch Recht (WER)</strong>.</p>
-    <p>Door zo'n gepersonaliseerd product te bestellen en te betalen, erkent u dat u afstand doet van uw herroepingsrecht zodra de productie is gestart. Voor producten uit de collectie zonder personalisatie (bv. een kersttrui zonder naam) geldt het gewone herroepingsrecht van 14 dagen — zie ons <a href="retour.html">retourbeleid</a>.</p>
-    <p><strong>Uitzondering op de uitzondering:</strong> Bij een aantoonbaar productiedefect (verkeerde maat geleverd, drukfout door ons, beschadigd product) voorzien wij in vervanging of terugbetaling. Neem hiervoor binnen 48 uur na ontvangst contact op via <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a> met foto's als bewijs.</p>
+    <h2 id="bestellen">4. Bestellen</h2>
+    <ol>
+      <li>Je kiest een product, soort, kleur, maat en eventueel een naam, en legt het in je winkelwagen.</li>
+      <li>Bij het afrekenen kies je afhalen of verzenden, vul je je gegevens in en controleer je het overzicht.</li>
+      <li>Je betaalt via onze betaalpartner Stripe. De overeenkomst komt tot stand op het moment dat je betaling geslaagd is.</li>
+      <li>Je krijgt daarna een bevestigingsmail met je bestelnummer. Ontvang je die niet binnen een uur, kijk dan in je spam of mail ons.</li>
+    </ol>
+    <p>Controleer vóór het betalen goed je maat, kleur, adres en vooral de spelling van een naam. Wat je ingeeft, drukken we zo af.</p>
+    <p>We kunnen een bestelling weigeren of annuleren bij een gegronde reden, zoals vermoeden van fraude, een inbreukmakende of beledigende tekst (zie artikel 6) of als een product onverwacht niet meer leverbaar is. Je krijgt dan het volledige bedrag terug.</p>
 
-    <h2>7. Garantie</h2>
-    <p>Wij garanderen dat onze producten voldoen aan de beschrijving op de website. Bij een defect product neemt u contact op via <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a>. Wij lossen dit op via vervanging of terugbetaling.</p>
+    <h2 id="betalen">5. Betalen</h2>
+    <ul>
+      <li><strong>Online</strong> betaal je vooraf via Stripe met Bancontact of een betaalkaart. Wij krijgen je volledige kaartgegevens nooit te zien.</li>
+      <li><strong>In onze chalet</strong> kan je betalen met Bancontact (QR-code), betaalkaart of cash.</li>
+      <li>Bestellingen op maat worden volledig vooraf betaald; pas daarna starten we met ontwerpen.</li>
+      <li>Je ontvangt een bevestiging per mail die geldt als aankoopbewijs. Wil je een factuur (bijvoorbeeld voor je club of bedrijf)? Vraag ze aan via <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a>.</li>
+    </ul>
 
-    <h2>8. Aansprakelijkheid</h2>
-    <p>Treasureshirt is niet aansprakelijk voor indirecte schade of gevolgschade die voortvloeit uit het gebruik van onze producten of website. Onze aansprakelijkheid is in elk geval beperkt tot het bedrag van uw bestelling.</p>
+    <h2 id="personalisatie">6. Personalisatie en op maat</h2>
+    <h3>Naam of tekst op je product</h3>
+    <ul>
+      <li>Je bent zelf verantwoordelijk voor de juistheid van de naam of tekst die je opgeeft (spelling, hoofdletters, tekens). We drukken exact wat je invult.</li>
+      <li>De plaats en grootte van de naam bepalen wij zo, dat het mooi past bij het design, tenzij anders afgesproken.</li>
+      <li>We drukken geen teksten die beledigend, discriminerend, haatdragend of onwettig zijn, of die inbreuk maken op rechten van anderen (zoals merknamen of beschermde personages). In dat geval annuleren we die bestelling en betalen we je terug.</li>
+    </ul>
+    <h3>Ontwerpen op maat</h3>
+    <ul>
+      <li>Bij een bestelling "op maat" maken wij een uniek ontwerp op basis van de wensen die jij opgeeft. Het concept is dat je het ontwerp pas ziet als het klaar is: je krijgt vooraf geen voorbeeld.</li>
+      <li>Het ontwerp is een creatieve interpretatie van jouw wensen. Smaak alleen is geen reden voor terugname; een fout van onze kant (verkeerde naam, kleur, maat of plaatsing dan gevraagd) wel. Zie artikel 10 en ons <a href="retour.html">retourbeleid</a>.</li>
+      <li>We maken geen kopieën van bestaande logo's, merken, kunstwerken of personages.</li>
+    </ul>
+    <div class="box"><p><strong>Let op:</strong> producten met een naam of tekst op jouw vraag en ontwerpen op maat worden volgens jouw specificaties gemaakt. Voor die producten geldt <strong>geen herroepingsrecht</strong> (artikel VI.53, 3° van het Wetboek van economisch recht). Je wettelijke garantie blijft wel volledig gelden.</p></div>
 
-    <h2>9. Toepasselijk recht</h2>
-    <p>Op alle overeenkomsten is het Belgisch recht van toepassing. Geschillen worden voorgelegd aan de bevoegde rechtbank van het arrondissement van de maatschappelijke zetel van Treasureshirt.</p>
+    <h2 id="levering">7. Levering en verzending</h2>
+    <ul>
+      <li>We verzenden alleen naar adressen in België.</li>
+      <li>We drukken je bestelling na ontvangst van de betaling. Gewoonlijk vertrekt je pakje binnen 3 tot 5 werkdagen; bij drukte (zoals in december) kan dat langer duren. We laten je weten als het langer duurt dan verwacht. De uiterste leveringstermijn is 30 dagen na je bestelling.</li>
+      <li>Wil je je bestelling vóór Kerstmis? Bestel dan best vóór 17 december. We doen ons best, maar kunnen een levering vóór een bepaalde datum alleen garanderen als we dat uitdrukkelijk bevestigd hebben.</li>
+      <li>Het risico op verlies of beschadiging gaat op jou over op het moment dat jij (of iemand die jij aanwijst) het pakje ontvangt.</li>
+      <li>Controleer je pakje bij ontvangst. Is het beschadigd of klopt de inhoud niet? Meld het ons zo snel mogelijk, liefst binnen 7 dagen, met foto's. Zo kunnen we het snel oplossen.</li>
+      <li>Komt een pakje bij ons terug omdat het adres fout was of het niet werd afgehaald, dan nemen we contact op. Een nieuwe verzending kan dan opnieuw verzendkosten kosten.</li>
+    </ul>
 
-    <h2>10. Contact</h2>
-    <p>Voor vragen over deze voorwaarden: <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a></p>
-  </div>
+    <h2 id="afhalen">8. Afhalen op de kerstmarkt van Landen</h2>
+    <ul>
+      <li>Kies je bij het afrekenen "Afhalen op de kerstmarkt", dan haal je je bestelling gratis af in onze chalet op de kerstmarkt van Landen, op 11, 12 of 13 december 2026, tijdens de openingsuren van de kerstmarkt.</li>
+      <li>We sturen je een mail zodra je bestelling klaarligt. Kom pas na die mail; bestellingen die laat geplaatst worden, kunnen op een latere marktdag klaar zijn.</li>
+      <li>Vermeld bij het afhalen je bestelnummer en naam. Iemand anders mag je bestelling afhalen als hij of zij je bestelnummer kent.</li>
+      <li>Kon je niet komen? Laat het ons weten. We zoeken samen een oplossing: later afhalen in Landen of verzenden (tegen € 7 verzendkosten).</li>
+      <li>Wordt een betaalde bestelling niet afgehaald en horen we binnen 30 dagen na de markt niets van je, ondanks onze herinneringen, dan mogen we ze tegen betaling van de verzendkosten naar je opsturen of, als we je niet bereiken, de bestelling als geannuleerd beschouwen. Voor gepersonaliseerde producten betalen we in dat laatste geval niet terug.</li>
+    </ul>
+
+    <h2 id="herroeping">9. Herroepingsrecht (online aankopen)</h2>
+    <p>Koop je als consument online een product <strong>zonder</strong> personalisatie (bijvoorbeeld een kersttrui zonder naam), dan mag je de aankoop binnen <strong>14 kalenderdagen</strong> na ontvangst (of afhaling) zonder opgave van reden herroepen.</p>
+    <ul>
+      <li>Meld je herroeping binnen die termijn per mail aan <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a>. Je mag het modelformulier in ons <a href="retour.html#formulier">retourbeleid</a> gebruiken, maar dat hoeft niet.</li>
+      <li>Stuur het product daarna binnen 14 dagen terug. De kosten van het terugsturen zijn voor jou. In Landen kan je het ook na afspraak bij ons afgeven.</li>
+      <li>Je mag het product passen zoals in een winkel, maar niet dragen, wassen of beschadigen. Als het product in waarde verminderd is door meer gebruik dan nodig om het te passen, mogen we dat in mindering brengen.</li>
+      <li>We betalen het aankoopbedrag en de oorspronkelijke standaard verzendkosten terug binnen 14 dagen nadat we je herroeping kregen, met hetzelfde betaalmiddel. We mogen wachten tot we het product terug hebben (of je bewijs van verzending).</li>
+    </ul>
+    <p><strong>Geen herroepingsrecht</strong> geldt voor producten met een naam of tekst op jouw vraag en voor ontwerpen op maat (zie artikel 6), en voor aankopen die je ter plaatse in onze chalet doet (dat is geen aankoop op afstand). Alles over retours lees je in ons <a href="retour.html">retourbeleid</a>.</p>
+
+    <h2 id="garantie">10. Wettelijke garantie</h2>
+    <p>Je hebt als consument recht op de <strong>wettelijke garantie van 2 jaar</strong> vanaf de levering voor elk gebrek dat al aanwezig was bij levering. Dit geldt voor alle producten, ook gepersonaliseerde en ook aankopen op de kerstmarkt.</p>
+    <ul>
+      <li>Voorbeelden van een gebrek: een scheur of naad die loskomt bij normaal gebruik, een print die na een correcte wasbeurt loslaat of barst, een verkeerde maat of kleur, of een naam die anders gespeld is dan jij hebt opgegeven.</li>
+      <li>Meld een gebrek binnen 2 maanden nadat je het ontdekt hebt, met je bestelnummer en foto's.</li>
+      <li>We bieden dan gratis herstel of vervanging. Is dat niet mogelijk of niet redelijk, dan krijg je een prijsvermindering of je geld terug.</li>
+      <li>Geen gebrek is: normale slijtage, schade door een verkeerde wasbeurt (zie artikel 11), schade door een ongeval of verkeerd gebruik, of een fout in de tekst die je zelf hebt ingegeven.</li>
+    </ul>
+
+    <h2 id="verzorging">11. Verzorging van je kleding</h2>
+    <p>Zo blijft je print het mooist: was binnenstebuiten op maximaal 30 °C, gebruik geen bleekmiddel, niet in de droogkast, en strijk niet rechtstreeks op de print. Volg ook het wasetiket van het kledingstuk.</p>
+
+    <h2 id="ie">12. Intellectuele eigendom</h2>
+    <p>Alle designs, teksten, foto's, logo's en de website zelf zijn eigendom van Treasureshirt of worden met toestemming gebruikt. Je mag ze niet kopiëren, verkopen of commercieel gebruiken zonder onze schriftelijke toestemming. Koop je een product, dan mag je het uiteraard dragen, weggeven en tonen, ook op sociale media.</p>
+    <p>Geef je ons voor een ontwerp op maat zelf beelden of teksten, dan verklaar je dat je die mag gebruiken en vrijwaar je ons tegen aanspraken van derden daarover.</p>
+
+    <h2 id="aansprakelijkheid">13. Aansprakelijkheid</h2>
+    <p>We zijn aansprakelijk voor schade die het rechtstreekse gevolg is van een fout van onze kant, met een maximum van het bedrag van de betrokken bestelling. Dit beperkt nooit je wettelijke rechten als consument, en geldt niet bij opzet of grove fout, of bij schade aan leven of gezondheid. We zijn niet aansprakelijk voor indirecte schade, zoals gederfde winst of een gemiste gelegenheid.</p>
+
+    <h2 id="overmacht">14. Overmacht</h2>
+    <p>Bij overmacht (bijvoorbeeld ziekte, defecte machines, staking bij de post of leveranciers, extreme weersomstandigheden of het niet doorgaan van de kerstmarkt) kunnen we onze verplichtingen opschorten. Duurt de overmacht langer dan 30 dagen, dan mag jij of mogen wij de bestelling kosteloos annuleren; je krijgt dan je geld terug voor wat nog niet geleverd is.</p>
+
+    <h2 id="account">15. Je account</h2>
+    <p>Maak je een account aan, dan ben je zelf verantwoordelijk voor het geheimhouden van je wachtwoord. Vermoed je misbruik, verander dan meteen je wachtwoord en laat het ons weten. We mogen een account afsluiten bij misbruik. Je kan je account altijd laten verwijderen via <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a>.</p>
+
+    <h2 id="privacy">16. Privacy</h2>
+    <p>We gebruiken je gegevens alleen om je bestelling af te handelen en je te informeren. Lees alles in ons <a href="privacy.html">privacybeleid</a>.</p>
+
+    <h2 id="klachten">17. Klachten en geschillen</h2>
+    <ul>
+      <li>Heb je een klacht? Mail ons op <a href="mailto:contact@treasureshirt.com">contact@treasureshirt.com</a>. We antwoorden binnen 7 dagen en zoeken altijd eerst samen een oplossing.</li>
+      <li>Komen we er samen niet uit, dan kan je als consument gratis terecht bij de <strong>Consumentenombudsdienst</strong> (<a href="https://consumentenombudsdienst.be" target="_blank" rel="noopener">consumentenombudsdienst.be</a>), North Gate II, Koning Albert II-laan 8 bus 1, 1000 Brussel.</li>
+      <li>Op deze voorwaarden is het Belgisch recht van toepassing. Bij een geschil zijn de rechtbanken bevoegd die de wet aanwijst; als consument mag je altijd naar de rechter van je eigen woonplaats.</li>
+    </ul>
+
+    <h2 id="slot">18. Slotbepalingen</h2>
+    <ul>
+      <li>Is een bepaling van deze voorwaarden ongeldig, dan blijven de andere bepalingen gewoon gelden. We vervangen de ongeldige bepaling door een geldige die er zo dicht mogelijk bij aansluit.</li>
+      <li>We mogen deze voorwaarden aanpassen. Voor jouw bestelling gelden altijd de voorwaarden die op de website stonden op het moment dat je bestelde.</li>
+      <li>Deze voorwaarden bestaan alleen in het Nederlands.</li>
+    </ul>
+  </main>
 
   <footer>
     <span class="footer-logo">Treasureshirt</span>
     <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
-    <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.5rem">
-      <a href="privacy.html" style="color:#8f8b83;font-size:.75rem;text-decoration:none">Privacybeleid</a>
-      <a href="voorwaarden.html" style="color:#8f8b83;font-size:.75rem;text-decoration:none">Algemene Voorwaarden</a>
-      <a href="retour.html" style="color:#8f8b83;font-size:.75rem;text-decoration:none">Retourbeleid</a>
+    <div class="footer-socials"><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a></div>
+    <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
+      <a href="privacy.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Retourbeleid</a>
     </div>
   </footer>
 
   <div class="cart-toast" id="cartToast"></div>
+  <div class="toast" id="toast"></div>
   <script src="js/main.js"></script>
   <script src="js/cart.js"></script>
 </body>
