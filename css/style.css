@@ -506,3 +506,10 @@ footer {
 .product-card:hover .product-image .model-img { opacity: 1; }
 @media (hover: none) { .product-image .model-img { display: none; } }
 .pdetail-thumb-model { border-color: rgba(0,0,0,.15); }
+/* brand shield (logo) */
+.nav-logo::before, .footer-logo::before {
+  content: ''; width: 26px; height: 28px; flex-shrink: 0;
+  background: url(../images/logo-shield.png) center / contain no-repeat;
+  border-radius: 0; transform: none;
+}
+.footer-logo { display: inline-flex; align-items: center; gap: .55rem; }
