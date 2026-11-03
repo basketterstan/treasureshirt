@@ -238,6 +238,12 @@
         <p class="acc-greeting" id="accGreeting">Welkom</p>
         <p class="acc-email" id="accEmail"></p>
         <div class="acc-links">
+          <div id="accAdminLinks" hidden style="display:flex;flex-direction:column;gap:.75rem">
+            <a href="kassa.html" class="acc-link">🧾 Kassa <span>→</span></a>
+            <a href="kassa.html#klant" class="acc-link">📱 Klantscherm (iPad) <span>→</span></a>
+            <a href="kassa.html#bestellingen" class="acc-link">✂️ Te maken bestellingen <span>→</span></a>
+            <a href="admin.html" class="acc-link">🛒 Webshopbestellingen (admin) <span>→</span></a>
+          </div>
           <a href="mijn-bestellingen.html" class="acc-link">
             Mijn bestellingen <span>→</span>
           </a>
@@ -273,6 +279,7 @@
         document.getElementById('accountDashboard').style.display = 'block';
         document.getElementById('accGreeting').textContent = `Welkom, ${user.displayName || user.email.split('@')[0]}`;
         document.getElementById('accEmail').textContent = user.email;
+        document.getElementById('accAdminLinks').hidden = !['daenen.stan@gmail.com', 'contact@treasureshirt.com'].includes((user.email || '').toLowerCase());
       } else {
         sessionStorage.removeItem('ts_uid');
         sessionStorage.removeItem('ts_uname');

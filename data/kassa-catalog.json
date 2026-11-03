@@ -1,0 +1,665 @@
+{
+ "products": [
+  {
+   "id": "tee",
+   "name": "T-shirt",
+   "kind": "tee",
+   "price": 19.99,
+   "cost": 0,
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+   ],
+   "colors": [
+    "zwart",
+    "navy",
+    "groen",
+    "rood"
+   ],
+   "stock": {
+    "S|zwart": 1,
+    "S|navy": 2,
+    "S|groen": 1,
+    "S|rood": 1,
+    "M|zwart": 1,
+    "M|navy": 1,
+    "M|groen": 1,
+    "M|rood": 1,
+    "L|zwart": 1,
+    "L|navy": 1,
+    "L|groen": 1,
+    "L|rood": 1,
+    "XL|zwart": 1,
+    "XL|navy": 1,
+    "XL|groen": 1,
+    "XL|rood": 1,
+    "XXL|zwart": 1,
+    "XXL|navy": 1,
+    "XXL|groen": 1,
+    "XXL|rood": 1
+   },
+   "designs": [
+    {
+     "id": "foutetrui",
+     "name": "Foute trui?",
+     "img": "images/kerst/foutetrui-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/foutetrui-tee-groen.jpg",
+      "navy": "images/kerst/foutetrui-tee-navy.jpg",
+      "rood": "images/kerst/foutetrui-tee-rood.jpg",
+      "zwart": "images/kerst/foutetrui-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "gluhwein",
+     "name": "Team Glühwein",
+     "img": "images/kerst/gluhwein-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/gluhwein-tee-groen.jpg",
+      "navy": "images/kerst/gluhwein-tee-navy.jpg",
+      "rood": "images/kerst/gluhwein-tee-rood.jpg",
+      "zwart": "images/kerst/gluhwein-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "goede-smaak",
+     "name": "Goede smaak",
+     "img": "images/kerst/goede-smaak-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/goede-smaak-tee-groen.jpg",
+      "navy": "images/kerst/goede-smaak-tee-navy.jpg",
+      "rood": "images/kerst/goede-smaak-tee-rood.jpg",
+      "zwart": "images/kerst/goede-smaak-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "ikpiek",
+     "name": "Ik piek met kerst",
+     "img": "images/kerst/ikpiek-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/ikpiek-tee-groen.jpg",
+      "navy": "images/kerst/ikpiek-tee-navy.jpg",
+      "rood": "images/kerst/ikpiek-tee-rood.jpg",
+      "zwart": "images/kerst/ikpiek-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstclub",
+     "name": "Kerstclub",
+     "img": "images/kerst/kerstclub-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstclub-tee-groen.jpg",
+      "navy": "images/kerst/kerstclub-tee-navy.jpg",
+      "rood": "images/kerst/kerstclub-tee-rood.jpg",
+      "zwart": "images/kerst/kerstclub-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstmodus",
+     "name": "Kerstmodus aan",
+     "img": "images/kerst/kerstmodus-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstmodus-tee-groen.jpg",
+      "navy": "images/kerst/kerstmodus-tee-navy.jpg",
+      "rood": "images/kerst/kerstmodus-tee-rood.jpg",
+      "zwart": "images/kerst/kerstmodus-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstwarmer",
+     "name": "Jij maakt kerst warmer",
+     "img": "images/kerst/kerstwarmer-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstwarmer-tee-groen.jpg",
+      "navy": "images/kerst/kerstwarmer-tee-navy.jpg",
+      "rood": "images/kerst/kerstwarmer-tee-rood.jpg",
+      "zwart": "images/kerst/kerstwarmer-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstzin",
+     "name": "Kerstzin",
+     "img": "images/kerst/kerstzin-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstzin-tee-groen.jpg",
+      "navy": "images/kerst/kerstzin-tee-navy.jpg",
+      "rood": "images/kerst/kerstzin-tee-rood.jpg",
+      "zwart": "images/kerst/kerstzin-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "koekje",
+     "name": "Koekje erbij?",
+     "img": "images/kerst/koekje-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/koekje-tee-groen.jpg",
+      "navy": "images/kerst/koekje-tee-navy.jpg",
+      "rood": "images/kerst/koekje-tee-rood.jpg",
+      "zwart": "images/kerst/koekje-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "lieve",
+     "name": "Lieve kerstman",
+     "img": "images/kerst/lieve-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/lieve-tee-groen.jpg",
+      "navy": "images/kerst/lieve-tee-navy.jpg",
+      "rood": "images/kerst/lieve-tee-rood.jpg",
+      "zwart": "images/kerst/lieve-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "stillenacht",
+     "name": "Stille nacht?",
+     "img": "images/kerst/stillenacht-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/stillenacht-tee-groen.jpg",
+      "navy": "images/kerst/stillenacht-tee-navy.jpg",
+      "rood": "images/kerst/stillenacht-tee-rood.jpg",
+      "zwart": "images/kerst/stillenacht-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "warm",
+     "name": "Koud weer",
+     "img": "images/kerst/warm-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/warm-tee-groen.jpg",
+      "navy": "images/kerst/warm-tee-navy.jpg",
+      "rood": "images/kerst/warm-tee-rood.jpg",
+      "zwart": "images/kerst/warm-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "hohoho",
+     "name": "Ho ho ho maar",
+     "img": "images/kerst/hohoho-tee-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/hohoho-tee-groen.jpg",
+      "navy": "images/kerst/hohoho-tee-navy.jpg",
+      "rood": "images/kerst/hohoho-tee-rood.jpg",
+      "zwart": "images/kerst/hohoho-tee-zwart.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "hoodie",
+   "name": "Hoodie",
+   "kind": "hoodie",
+   "price": 38.99,
+   "cost": 0,
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+   ],
+   "colors": [
+    "zwart",
+    "navy",
+    "groen",
+    "rood"
+   ],
+   "stock": {
+    "S|zwart": 1,
+    "S|navy": 1,
+    "S|groen": 1,
+    "S|rood": 1,
+    "M|zwart": 1,
+    "M|navy": 1,
+    "M|groen": 1,
+    "M|rood": 1,
+    "L|zwart": 1,
+    "L|navy": 1,
+    "L|groen": 1,
+    "L|rood": 1,
+    "XL|zwart": 1,
+    "XL|navy": 1,
+    "XL|groen": 1,
+    "XL|rood": 1,
+    "XXL|zwart": 1,
+    "XXL|navy": 1,
+    "XXL|groen": 1,
+    "XXL|rood": 1
+   },
+   "designs": [
+    {
+     "id": "foutetrui",
+     "name": "Foute trui?",
+     "img": "images/kerst/foutetrui-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/foutetrui-hoodie-groen.jpg",
+      "navy": "images/kerst/foutetrui-hoodie-navy.jpg",
+      "rood": "images/kerst/foutetrui-hoodie-rood.jpg",
+      "zwart": "images/kerst/foutetrui-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "gluhwein",
+     "name": "Team Glühwein",
+     "img": "images/kerst/gluhwein-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/gluhwein-hoodie-groen.jpg",
+      "navy": "images/kerst/gluhwein-hoodie-navy.jpg",
+      "rood": "images/kerst/gluhwein-hoodie-rood.jpg",
+      "zwart": "images/kerst/gluhwein-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "goede-smaak",
+     "name": "Goede smaak",
+     "img": "images/kerst/goede-smaak-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/goede-smaak-hoodie-groen.jpg",
+      "navy": "images/kerst/goede-smaak-hoodie-navy.jpg",
+      "rood": "images/kerst/goede-smaak-hoodie-rood.jpg",
+      "zwart": "images/kerst/goede-smaak-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "ikpiek",
+     "name": "Ik piek met kerst",
+     "img": "images/kerst/ikpiek-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/ikpiek-hoodie-groen.jpg",
+      "navy": "images/kerst/ikpiek-hoodie-navy.jpg",
+      "rood": "images/kerst/ikpiek-hoodie-rood.jpg",
+      "zwart": "images/kerst/ikpiek-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstclub",
+     "name": "Kerstclub",
+     "img": "images/kerst/kerstclub-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstclub-hoodie-groen.jpg",
+      "navy": "images/kerst/kerstclub-hoodie-navy.jpg",
+      "rood": "images/kerst/kerstclub-hoodie-rood.jpg",
+      "zwart": "images/kerst/kerstclub-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstmodus",
+     "name": "Kerstmodus aan",
+     "img": "images/kerst/kerstmodus-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstmodus-hoodie-groen.jpg",
+      "navy": "images/kerst/kerstmodus-hoodie-navy.jpg",
+      "rood": "images/kerst/kerstmodus-hoodie-rood.jpg",
+      "zwart": "images/kerst/kerstmodus-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstwarmer",
+     "name": "Jij maakt kerst warmer",
+     "img": "images/kerst/kerstwarmer-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstwarmer-hoodie-groen.jpg",
+      "navy": "images/kerst/kerstwarmer-hoodie-navy.jpg",
+      "rood": "images/kerst/kerstwarmer-hoodie-rood.jpg",
+      "zwart": "images/kerst/kerstwarmer-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstzin",
+     "name": "Kerstzin",
+     "img": "images/kerst/kerstzin-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstzin-hoodie-groen.jpg",
+      "navy": "images/kerst/kerstzin-hoodie-navy.jpg",
+      "rood": "images/kerst/kerstzin-hoodie-rood.jpg",
+      "zwart": "images/kerst/kerstzin-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "koekje",
+     "name": "Koekje erbij?",
+     "img": "images/kerst/koekje-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/koekje-hoodie-groen.jpg",
+      "navy": "images/kerst/koekje-hoodie-navy.jpg",
+      "rood": "images/kerst/koekje-hoodie-rood.jpg",
+      "zwart": "images/kerst/koekje-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "lieve",
+     "name": "Lieve kerstman",
+     "img": "images/kerst/lieve-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/lieve-hoodie-groen.jpg",
+      "navy": "images/kerst/lieve-hoodie-navy.jpg",
+      "rood": "images/kerst/lieve-hoodie-rood.jpg",
+      "zwart": "images/kerst/lieve-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "stillenacht",
+     "name": "Stille nacht?",
+     "img": "images/kerst/stillenacht-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/stillenacht-hoodie-groen.jpg",
+      "navy": "images/kerst/stillenacht-hoodie-navy.jpg",
+      "rood": "images/kerst/stillenacht-hoodie-rood.jpg",
+      "zwart": "images/kerst/stillenacht-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "warm",
+     "name": "Koud weer",
+     "img": "images/kerst/warm-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/warm-hoodie-groen.jpg",
+      "navy": "images/kerst/warm-hoodie-navy.jpg",
+      "rood": "images/kerst/warm-hoodie-rood.jpg",
+      "zwart": "images/kerst/warm-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "hohoho",
+     "name": "Ho ho ho maar",
+     "img": "images/kerst/hohoho-hoodie-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/hohoho-hoodie-groen.jpg",
+      "navy": "images/kerst/hohoho-hoodie-navy.jpg",
+      "rood": "images/kerst/hohoho-hoodie-rood.jpg",
+      "zwart": "images/kerst/hohoho-hoodie-zwart.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "trui",
+   "name": "Trui",
+   "kind": "sweater",
+   "price": 34.99,
+   "cost": 0,
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+   ],
+   "colors": [
+    "zwart",
+    "navy",
+    "groen",
+    "rood"
+   ],
+   "stock": {
+    "S|zwart": 1,
+    "S|navy": 1,
+    "S|groen": 1,
+    "S|rood": 1,
+    "M|zwart": 1,
+    "M|navy": 1,
+    "M|groen": 1,
+    "M|rood": 1,
+    "L|zwart": 1,
+    "L|navy": 1,
+    "L|groen": 1,
+    "L|rood": 1,
+    "XL|zwart": 1,
+    "XL|navy": 1,
+    "XL|groen": 1,
+    "XL|rood": 1,
+    "XXL|zwart": 1,
+    "XXL|navy": 1,
+    "XXL|groen": 1,
+    "XXL|rood": 1
+   },
+   "designs": [
+    {
+     "id": "foutetrui",
+     "name": "Foute trui?",
+     "img": "images/kerst/foutetrui-trui-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/foutetrui-trui-groen.jpg",
+      "navy": "images/kerst/foutetrui-trui-navy.jpg",
+      "rood": "images/kerst/foutetrui-trui-rood.jpg",
+      "zwart": "images/kerst/foutetrui-trui-zwart.jpg"
+     }
+    },
+    {
+     "id": "gluhwein",
+     "name": "Team Glühwein",
+     "img": "images/kerst/gluhwein-trui-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/gluhwein-trui-groen.jpg",
+      "navy": "images/kerst/gluhwein-trui-navy.jpg",
+      "rood": "images/kerst/gluhwein-trui-rood.jpg",
+      "zwart": "images/kerst/gluhwein-trui-zwart.jpg"
+     }
+    },
+    {
+     "id": "goede-smaak",
+     "name": "Goede smaak",
+     "img": "images/kerst/goede-smaak-trui-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/goede-smaak-trui-groen.jpg",
+      "navy": "images/kerst/goede-smaak-trui-navy.jpg",
+      "rood": "images/kerst/goede-smaak-trui-rood.jpg",
+      "zwart": "images/kerst/goede-smaak-trui-zwart.jpg"
+     }
+    },
+    {
+     "id": "ikpiek",
+     "name": "Ik piek met kerst",
+     "img": "images/kerst/ikpiek-trui-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/ikpiek-trui-groen.jpg",
+      "navy": "images/kerst/ikpiek-trui-navy.jpg",
+      "rood": "images/kerst/ikpiek-trui-rood.jpg",
+      "zwart": "images/kerst/ikpiek-trui-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstclub",
+     "name": "Kerstclub",
+     "img": "images/kerst/kerstclub-trui-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstclub-trui-groen.jpg",
+      "navy": "images/kerst/kerstclub-trui-navy.jpg",
+      "rood": "images/kerst/kerstclub-trui-rood.jpg",
+      "zwart": "images/kerst/kerstclub-trui-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstmodus",
+     "name": "Kerstmodus aan",
+     "img": "images/kerst/kerstmodus-trui-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstmodus-trui-groen.jpg",
+      "navy": "images/kerst/kerstmodus-trui-navy.jpg",
+      "rood": "images/kerst/kerstmodus-trui-rood.jpg",
+      "zwart": "images/kerst/kerstmodus-trui-zwart.jpg"
+     }
+    },
+    {
+     "id": "kerstzin",
+     "name": "Kerstzin",
+     "img": "images/kerst/kerstzin-trui-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/kerstzin-trui-groen.jpg",
+      "navy": "images/kerst/kerstzin-trui-navy.jpg",
+      "rood": "images/kerst/kerstzin-trui-rood.jpg",
+      "zwart": "images/kerst/kerstzin-trui-zwart.jpg"
+     }
+    },
+    {
+     "id": "lieve",
+     "name": "Lieve kerstman",
+     "img": "images/kerst/lieve-trui-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/lieve-trui-groen.jpg",
+      "navy": "images/kerst/lieve-trui-navy.jpg",
+      "rood": "images/kerst/lieve-trui-rood.jpg",
+      "zwart": "images/kerst/lieve-trui-zwart.jpg"
+     }
+    },
+    {
+     "id": "stillenacht",
+     "name": "Stille nacht?",
+     "img": "images/kerst/stillenacht-trui-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/stillenacht-trui-groen.jpg",
+      "navy": "images/kerst/stillenacht-trui-navy.jpg",
+      "rood": "images/kerst/stillenacht-trui-rood.jpg",
+      "zwart": "images/kerst/stillenacht-trui-zwart.jpg"
+     }
+    },
+    {
+     "id": "warm",
+     "name": "Koud weer",
+     "img": "images/kerst/warm-trui-zwart.jpg",
+     "imgs": {
+      "groen": "images/kerst/warm-trui-groen.jpg",
+      "navy": "images/kerst/warm-trui-navy.jpg",
+      "rood": "images/kerst/warm-trui-rood.jpg",
+      "zwart": "images/kerst/warm-trui-zwart.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "schort",
+   "name": "Keukenschort",
+   "kind": "apron",
+   "price": 17.99,
+   "cost": 8.1,
+   "sizes": [
+    "One size"
+   ],
+   "colors": [
+    "bordeaux",
+    "navy",
+    "taupe",
+    "zwart"
+   ],
+   "stock": {
+    "One size|bordeaux": 1,
+    "One size|navy": 1,
+    "One size|taupe": 1,
+    "One size|zwart": 1
+   },
+   "designs": [
+    {
+     "id": "koekje",
+     "name": "Koekje erbij?",
+     "img": "images/kerst/koekje-schort-zwart.jpg",
+     "imgs": {
+      "bordeaux": "images/kerst/koekje-schort-bordeaux.jpg",
+      "navy": "images/kerst/koekje-schort-navy.jpg",
+      "taupe": "images/kerst/koekje-schort-taupe.jpg",
+      "zwart": "images/kerst/koekje-schort-zwart.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "shopper",
+   "name": "Shopper (tasje)",
+   "kind": "tote",
+   "price": 4.99,
+   "cost": 3.2,
+   "sizes": [
+    "One size"
+   ],
+   "colors": [
+    "naturel",
+    "zwart",
+    "navy",
+    "wit"
+   ],
+   "stock": {
+    "One size|naturel": 1,
+    "One size|zwart": 1,
+    "One size|navy": 1,
+    "One size|wit": 1
+   }
+  },
+  {
+   "id": "kersttas",
+   "name": "Kersttas met koord",
+   "kind": "tote",
+   "price": 6.99,
+   "cost": 0,
+   "sizes": [
+    "One size"
+   ],
+   "colors": [
+    "rood",
+    "naturel",
+    "navy"
+   ],
+   "stock": {
+    "One size|rood": 1,
+    "One size|naturel": 1,
+    "One size|navy": 1
+   },
+   "designs": [
+    {
+     "id": "rendier",
+     "name": "Kerstrendier",
+     "img": "images/kerst/kersttas-rood.jpg",
+     "imgs": {
+      "rood": "images/kerst/kersttas-rood.jpg",
+      "naturel": "images/kerst/kersttas-naturel.jpg",
+      "navy": "images/kerst/kersttas-navy.jpg"
+     }
+    }
+   ],
+   "costs": {
+    "naturel": 4.91,
+    "navy": 5.88,
+    "rood": 5.88
+   }
+  },
+  {
+   "id": "beer",
+   "name": "Beer met bedrukt shirtje",
+   "kind": "bear",
+   "price": 0,
+   "cost": 8.4,
+   "sizes": [
+    "M",
+    "L"
+   ],
+   "colors": [
+    "creme"
+   ],
+   "stock": {
+    "M|creme": 1,
+    "L|creme": 1
+   },
+   "designs": [
+    {
+     "id": "beer",
+     "img": "images/kerst/beer.jpg",
+     "imgs": {
+      "creme": "images/kerst/beer.jpg"
+     },
+     "name": "Beer met bedrukt shirtje"
+    }
+   ],
+   "sizePrices": {
+    "M": 19.99,
+    "L": 24.99
+   },
+   "sizeCosts": {
+    "M": 11.16,
+    "L": 16.8
+   }
+  }
+ ],
+ "mailFrom": "Treasureshirt <bestelling@treasureshirt.com>",
+ "namePrice": 5,
+ "nameCost": 1
+}

@@ -150,6 +150,35 @@ exports.createCheckout = onRequest(
   }
 );
 
+// ── KASSA: "bestelling klaar"-mail vanuit kassa.html ─────
+// Only the admin (verified Firebase ID token) may send, and only from our domain.
+const ADMIN_EMAILS = ['daenen.stan@gmail.com', 'contact@treasureshirt.com'];
+exports.sendKassaMail = onRequest(
+  { secrets: [resendKey], cors: true, invoker: 'public' },
+  async (req, res) => {
+    if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+    try {
+      const token = (req.headers.authorization || '').replace(/^Bearer\s+/i, '');
+      const user = await admin.auth().verifyIdToken(token);
+      if (!ADMIN_EMAILS.includes(String(user.email || '').toLowerCase())) return res.status(403).json({ error: 'Geen toegang' });
+      const b = req.body || {};
+      const to = Array.isArray(b.to) ? b.to[0] : b.to;
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(to || ''))) return res.status(400).json({ error: 'Ongeldig e-mailadres' });
+      const from = /@treasureshirt\.com>?\s*$/i.test(String(b.from || '')) ? String(b.from) : 'Treasureshirt <bestelling@treasureshirt.com>';
+      const r = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${resendKey.value()}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ from, to: [to], subject: clean(b.subject, 200), text: String(b.text || '').slice(0, 5000), html: String(b.html || '').slice(0, 20000), reply_to: ADMIN_EMAIL }),
+      });
+      const out = await r.json().catch(() => ({}));
+      if (!r.ok) return res.status(502).json({ error: out.message || 'Resend fout' });
+      res.json({ ok: true, id: out.id });
+    } catch (e) {
+      res.status(401).json({ error: 'Niet ingelogd' });
+    }
+  }
+);
+
 // ── STRIPE WEBHOOK ───────────────────────────────────
 exports.stripeWebhook = onRequest(
   { secrets: [stripeSecret, webhookSecret, resendKey], cors: false, invoker: 'public' },

@@ -48,6 +48,11 @@ service cloud.firestore {
       allow delete: if isAdmin();
     }
 
+    // Kassa (kassa.html): only the admin.
+    match /kassa_shop/{id} { allow read, write: if isAdmin(); }
+    match /kassa_sales/{id} { allow read, write: if isAdmin(); }
+    match /kassa_orders/{id} { allow read, write: if isAdmin(); }
+
     match /users/{uid} {
       allow read, write: if isOwner(uid) || isAdmin();
     }

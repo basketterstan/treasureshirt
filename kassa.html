@@ -1,0 +1,908 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Treasureshirt Kassa</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="images/favicon.png">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Graduate&family=Pacifico&family=Bebas+Neue&display=swap">
+<style>
+/* Layout: werkbank — links producten en configurator, rechts de bon; klantscherm is één groot vlak met kledingstuk + totaal */
+:root{
+  --bg:#F2F4F1; --surface:#FFFFFF; --sunk:#E6EAE5; --line:#D3D9D2;
+  --ink:#16211C; --muted:#5B6862; --pine:#1E5A44; --pine-ink:#FFFFFF;
+  --berry:#B4233C; --berry-soft:#F6DCE1; --gold:#B7862B;
+  --ok:#2E7D4F; --warn:#B06A00; --bad:#B4233C;
+  --display:"Bricolage Grotesque", "Figtree", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --r:12px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1613; --surface:#17211C; --sunk:#1F2B25; --line:#2C3A33;
+  --ink:#E8EEEA; --muted:#97A59E; --pine:#3E9A75; --pine-ink:#08130E;
+  --berry:#E35670; --berry-soft:#3A1A22; --gold:#D9AA4C;
+  --ok:#5BC08A; --warn:#E0A24A; --bad:#E35670; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1613; --surface:#17211C; --sunk:#1F2B25; --line:#2C3A33;
+  --ink:#E8EEEA; --muted:#97A59E; --pine:#3E9A75; --pine-ink:#08130E;
+  --berry:#E35670; --berry-soft:#3A1A22; --gold:#D9AA4C;
+  --ok:#5BC08A; --warn:#E0A24A; --bad:#E35670; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font:15px/1.45 var(--body);margin:0}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.wrap{padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+
+/* top bar */
+.top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-block:12px;border-bottom:1px solid var(--line);background:var(--surface)}
+.brand{font-family:var(--display);font-weight:800;font-size:20px;display:flex;align-items:center;gap:8px}
+.brand i{width:10px;height:10px;border-radius:50%;background:var(--berry);display:inline-block}
+.tabs{display:flex;gap:4px;background:var(--sunk);padding:4px;border-radius:999px}
+.tabs a{padding:6px 14px;border-radius:999px;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px}
+.tabs a[aria-current="page"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.sync{margin-left:auto;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--warn)}
+.dot.on{background:var(--ok)}
+
+main{padding-block:20px}
+.note{background:var(--berry-soft);color:var(--ink);border-radius:var(--r);padding:10px 14px;margin-bottom:16px}
+
+/* kassa */
+.kassa{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.kassa{grid-template-columns:1fr}}
+.prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.prod{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:12px;text-align:left;display:flex;flex-direction:column;gap:4px;min-height:84px}
+.prod:hover{border-color:var(--pine)}
+.prod[aria-pressed="true"]{border-color:var(--pine);background:var(--sunk)}
+.prod b{font-weight:700}
+.prod .num{color:var(--muted);font-size:13px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:14px}
+.cfg{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:16px;margin-top:14px}
+@media (max-width:640px){.cfg{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-weight:600;font-size:14px;display:inline-flex;gap:6px;align-items:center}
+.chip small{font-family:var(--mono);color:var(--muted);font-weight:500}
+.chip[aria-pressed="true"]{border-color:var(--pine);background:var(--pine);color:var(--pine-ink)}
+.chip[aria-pressed="true"] small{color:inherit;opacity:.8}
+.chip.out{opacity:.45}
+.step{display:flex;flex-direction:column;gap:10px;padding:12px;border:1.5px solid var(--line);border-radius:var(--r);background:var(--bg)}
+.stephead{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:17px}
+.stephead b{margin-left:auto;font-family:var(--body);font-size:14px;color:var(--pine)}
+.stepnr{width:26px;height:26px;border-radius:50%;background:var(--pine);color:var(--pine-ink);display:grid;place-items:center;font-size:14px;flex:none}
+.chips.big .chip{padding:10px 16px;font-size:16px}
+.chips.big .sw{width:22px;height:22px}
+.pick-sum{font-family:var(--display);font-weight:700;font-size:18px;text-align:center}
+.cfg > .field:last-child{position:sticky;top:12px;align-self:start}
+.sw{width:14px;height:14px;border-radius:50%;border:1px solid rgba(127,127,127,.5)}
+input[type=text],input[type=number],select{background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:9px 11px;width:100%}
+input:focus{border-color:var(--pine);outline:none}
+.preview{background:var(--sunk);border-radius:var(--r);aspect-ratio:300/320;max-width:100%;display:grid;place-items:center}
+.preview svg{width:100%;height:100%}
+.preview{overflow:hidden}
+.mock{position:relative;width:100%;height:100%}
+.mock{background:#ECECEA}
+.mock img{width:100%;height:100%;object-fit:contain;display:block}
+.mockname{position:absolute;left:0;right:0;bottom:16%;text-align:center;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.mocklabel{position:absolute;left:8px;top:8px;background:var(--surface);color:var(--ink);font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;opacity:.9}
+.dchips{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.dchip{border:2px solid var(--line);background:var(--surface);border-radius:10px;padding:4px;display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;text-align:center}
+.dchip img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px}
+.dchip[aria-pressed="true"]{border-color:var(--pine);box-shadow:0 0 0 2px var(--pine)}
+.dchip .none{aspect-ratio:1;display:grid;place-items:center;background:var(--sunk);border-radius:6px;color:var(--muted)}
+.btn{border:0;border-radius:10px;padding:11px 16px;font-weight:700;background:var(--sunk)}
+.btn.pri{background:var(--pine);color:var(--pine-ink)}
+.btn.berry{background:var(--berry);color:#fff}
+.btn.ghost{background:transparent;border:1.5px solid var(--line)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.grow{flex:1}
+
+.bon h2{font-size:20px}
+.lines{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.lines li{display:flex;gap:10px;align-items:flex-start;padding-block:10px;border-bottom:1px dashed var(--line)}
+.lines li > div{flex:1;min-width:0}
+.lines .sub{color:var(--muted);font-size:13px}
+.x{border:0;background:transparent;color:var(--muted);font-size:18px;line-height:1;padding:2px 6px;border-radius:6px}
+.x:hover{background:var(--sunk);color:var(--bad)}
+.total{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--display);font-weight:800;font-size:28px}
+.paybanner{background:var(--gold);color:#1a1405;border-radius:var(--r);padding:12px 14px;font-weight:700}
+.empty{color:var(--muted);text-align:center;padding:24px 8px}
+
+/* klant */
+body.klant .top{display:none}
+.klantv{height:100%;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;padding-block:24px;align-items:center}
+@media (max-width:760px){.klantv{grid-template-columns:1fr;height:auto}}
+.klantv .preview{background:var(--surface);border:1px solid var(--line)}
+.klantv.shop{align-items:start;height:auto}
+.kprods{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:16px}
+body.klant .prod{min-height:72px;font-size:17px}
+body.klant .chip{padding:10px 16px;font-size:16px}
+body.klant .dchips{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
+.kgal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:1000px){.kgal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kgal figure,.kfig{margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-align:left;display:flex;flex-direction:column}
+.kgal{max-height:calc(100vh - 80px);overflow-y:auto}
+.kfig:hover,.kfig:focus-visible{border-color:var(--pine);box-shadow:0 0 0 2px var(--pine)}
+.kfig span{font-size:13px;font-weight:700;padding:6px 8px 0}
+.kfig small{font-size:11px;color:var(--muted);padding:0 8px 6px}
+.kgal img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.kgal figcaption{font-size:13px;font-weight:600;padding:6px 8px}
+.k-hello h1{font-size:clamp(32px,5vw,56px);font-weight:800;line-height:1.02}
+.k-hello p{color:var(--muted);font-size:18px;max-width:34ch}
+.pricelist{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column}
+.pricelist li{display:flex;justify-content:space-between;padding-block:10px;border-bottom:1px solid var(--line);font-size:18px}
+.k-order .lines li{font-size:18px}
+.k-order .total{font-size:44px;margin-top:12px}
+.k-pay{position:fixed;inset:0;background:var(--pine);color:var(--pine-ink);display:grid;place-items:center;text-align:center;padding:24px max(16px, env(safe-area-inset-right, 0px)) 24px max(16px, env(safe-area-inset-left, 0px));z-index:20}
+.k-pay .amt{font-family:var(--display);font-weight:800;font-size:clamp(64px,12vw,140px);line-height:1}
+.k-pay .arrow{font-size:20px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:28px}
+.k-pay .arrow span{font-size:44px;line-height:1;animation:nudge 1.4s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.k-pay .arrow span{animation:none}}
+.k-pay.paid{background:var(--ok)}
+.paygrid{display:flex;gap:48px;align-items:center;justify-content:center;flex-wrap:wrap}
+.qrcard{background:#fff;border-radius:20px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:10px;color:#16211C}
+.qrcard img{width:min(42vw,300px);height:auto;display:block;image-rendering:pixelated}
+.qrcard b{font-size:18px}
+.qrprev{width:160px;border-radius:10px;border:1px solid var(--line);background:#fff;padding:8px}
+.tag.bc{background:color-mix(in srgb, #2B6CB0 22%, var(--surface));color:var(--ink)}
+.klantbtn{font-size:20px;padding:16px 28px;margin-top:16px}
+.k-exit{position:fixed;z-index:25;right:env(safe-area-inset-right, 0px);bottom:env(safe-area-inset-bottom, 0px);width:64px;height:64px;background:transparent;border:0;padding:0;opacity:0}
+
+/* voorraad */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:20px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.stat .v{font-family:var(--display);font-weight:800;font-size:26px}
+.cols{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left}
+th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+td input[type=number]{width:64px;padding:5px 6px;text-align:right;font-family:var(--mono)}
+td input.low{border-color:var(--warn);background:color-mix(in srgb, var(--warn) 14%, var(--bg))}
+td input.zero{border-color:var(--bad);background:color-mix(in srgb, var(--bad) 14%, var(--bg))}
+.pcard{display:flex;flex-direction:column;gap:10px;padding-block:14px;border-bottom:1px solid var(--line)}
+.pcard:last-child{border-bottom:0}
+.minirow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.bar{height:8px;background:var(--sunk);border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--pine)}
+.salelist{list-style:none;margin:0;padding:0}
+.salelist li{display:flex;gap:10px;padding-block:8px;border-bottom:1px solid var(--line);align-items:center}
+.salelist li > div{flex:1;min-width:0}
+.tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--sunk);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.tag.cash{background:color-mix(in srgb, var(--gold) 22%, var(--surface));color:var(--ink)}
+details summary{cursor:pointer;font-weight:700}
+.ordcols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+@media (max-width:860px){.ordcols{grid-template-columns:1fr}}
+.ord{border:1.5px solid var(--line);border-radius:var(--r);padding:12px;background:var(--bg);display:flex;flex-direction:column;gap:8px}
+.ord.ready{border-color:var(--ok)}
+.ordnr{font-family:var(--display);font-weight:800;font-size:28px;line-height:1}
+.ordnr small{font-family:var(--body);font-size:13px;font-weight:600;color:var(--muted);margin-left:6px}
+.ord ul{margin:0;padding-left:18px}
+#ordCount:not(:empty){background:var(--berry);color:#fff;border-radius:999px;padding:1px 7px;font-size:12px;margin-left:4px}
+.readyband{margin-top:18px;background:var(--ok);color:#fff;border-radius:var(--r);padding:12px 16px;font-weight:700;font-size:18px}
+.readyband .num{font-size:24px;margin-right:12px}
+.cust{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.chk{display:flex;gap:8px;align-items:center;font-size:14px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom, 0px));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-weight:600;z-index:30;max-width:calc(100% - 32px)}
+</style>
+
+<header class="top wrap" id="top">
+  <div class="brand"><i></i>Treasureshirt</div>
+  <nav class="tabs" aria-label="Weergave">
+    <a href="#kassa" data-tab="kassa">Kassa</a>
+    <a href="#klant" data-tab="klant">Klantscherm</a>
+    <a href="#bestellingen" data-tab="bestellingen">Bestellingen <span id="ordCount"></span></a>
+    <a href="#voorraad" data-tab="voorraad">Voorraad &amp; verkoop</a>
+  </nav>
+  <div class="sync"><span class="dot" id="dot"></span><span id="synctxt">Verbinden…</span></div>
+</header>
+<main class="wrap" id="app">
+  <div class="empty">Kassa wordt geladen…</div>
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<!-- ── Treasureshirt: kassa op de eigen website (Firebase) ── -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<style>
+  #tsLogin { position: fixed; inset: 0; z-index: 9999; background: #0d0d0f; color: #f6f3ec; display: flex; align-items: center; justify-content: center; padding: 1.5rem; font-family: "Figtree", system-ui, sans-serif; }
+  #tsLogin form { width: 100%; max-width: 360px; background: #17171b; border: 1px solid rgba(255,255,255,.09); border-radius: 18px; padding: 2rem; display: flex; flex-direction: column; gap: .8rem; }
+  #tsLogin h1 { font-family: "Bricolage Grotesque", system-ui, sans-serif; font-size: 1.6rem; margin: 0 0 .25rem; }
+  #tsLogin p { color: #a19d94; font-size: .9rem; margin: 0 0 .5rem; }
+  #tsLogin input { background: #212127; border: 1.5px solid rgba(255,255,255,.09); border-radius: 10px; color: #f6f3ec; font: inherit; padding: .8rem .9rem; }
+  #tsLogin button { background: #ffc83d; color: #000; border: 0; border-radius: 999px; font: inherit; font-weight: 700; padding: .9rem; cursor: pointer; }
+  #tsLogin .err { color: #e5484d; font-size: .85rem; min-height: 1.1em; }
+  #tsLogout { position: fixed; right: 10px; bottom: 10px; z-index: 50; font: 600 12px system-ui; background: rgba(0,0,0,.55); color: #fff; border: 0; border-radius: 999px; padding: 6px 10px; cursor: pointer; opacity: .6; }
+  #tsLogout:hover { opacity: 1; }
+</style>
+<script>
+(function () {
+  // Keep in sync with firestore.rules (isAdmin) and admin.html.
+  const ADMIN_EMAILS = ['daenen.stan@gmail.com', 'contact@treasureshirt.com'];
+  const MAIL_URL = 'https://sendkassamail-kelvdlqp7a-uc.a.run.app';
+  firebase.initializeApp({
+    apiKey: "AIzaSyDSa4HDuZn5K21Ty1E-uFBF9IXA_Pg8Sus",
+    authDomain: "treasureshirt-68b83.firebaseapp.com",
+    projectId: "treasureshirt-68b83",
+    storageBucket: "treasureshirt-68b83.firebasestorage.app",
+    messagingSenderId: "730624863800",
+    appId: "1:730624863800:web:3c4f5c7ae3e8b62b4f7c9d"
+  });
+  const auth = firebase.auth();
+  const fs = firebase.firestore();
+  fs.settings({ ignoreUndefinedProperties: true, merge: true });
+
+  // The kassa code talks to "shop/…", "sales" and "orders"; store them in
+  // separate kassa_* collections so they never mix with the webshop orders.
+  const MAP = { shop: 'kassa_shop', sales: 'kassa_sales', orders: 'kassa_orders' };
+  const mapPath = p => { const s = p.split('/'); s[0] = MAP[s[0]] || ('kassa_' + s[0]); return s.join('/'); };
+  const db = { doc: p => fs.doc(mapPath(p)), collection: p => fs.collection(mapPath(p)) };
+
+  let resolveReady; const ready = new Promise(r => (resolveReady = r));
+  const impl = {
+    db,
+    user: { can: async () => true },
+    downloads: { save: async ({ filename, data }) => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob(['﻿' + data], { type: 'text/csv;charset=utf-8' }));
+      a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+    } },
+    mcp: { callTool: async (server, tool, args) => {
+      const token = await auth.currentUser.getIdToken();
+      const r = await fetch(MAIL_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify(args) });
+      const out = await r.json().catch(() => ({}));
+      if (!r.ok || out.error) throw new Error(out.error || 'Mail versturen mislukt');
+      return out;
+    } },
+  };
+  window.claude = { use: async k => { await ready; return impl[k] || null; } };
+
+  const box = document.createElement('div');
+  box.id = 'tsLogin';
+  box.innerHTML = `<form><h1>Kassa</h1><p>Log in met je Treasureshirt-account.</p>
+    <input type="email" id="tsEmail" placeholder="E-mailadres" autocomplete="username" required>
+    <input type="password" id="tsPass" placeholder="Wachtwoord" autocomplete="current-password" required>
+    <button type="submit">Inloggen</button><div class="err" id="tsErr"></div></form>`;
+  document.addEventListener('DOMContentLoaded', () => document.body.appendChild(box));
+  box.addEventListener('submit', async e => {
+    e.preventDefault();
+    const err = box.querySelector('#tsErr'); err.textContent = '';
+    try { await auth.signInWithEmailAndPassword(box.querySelector('#tsEmail').value.trim(), box.querySelector('#tsPass').value); }
+    catch { err.textContent = 'Verkeerd e-mailadres of wachtwoord.'; }
+  });
+
+  let started = false;
+  auth.onAuthStateChanged(async user => {
+    if (!user) { box.style.display = 'flex'; return; }
+    if (!ADMIN_EMAILS.includes((user.email || '').toLowerCase())) {
+      box.style.display = 'flex'; box.querySelector('#tsErr').textContent = 'Dit account heeft geen toegang tot de kassa.';
+      auth.signOut(); return;
+    }
+    box.style.display = 'none';
+    if (started) return; started = true;
+    // First time: copy the product list into the database.
+    try {
+      const ref = db.doc('shop/catalog');
+      const snap = await ref.get();
+      if (!snap.exists) {
+        const cat = await (await fetch('data/kassa-catalog.json', { cache: 'no-cache' })).json();
+        await ref.set(cat);
+      }
+    } catch (e) { console.error(e); }
+    const out = document.createElement('button');
+    out.id = 'tsLogout'; out.textContent = 'Uitloggen';
+    out.onclick = () => auth.signOut().then(() => location.reload());
+    document.body.appendChild(out);
+    resolveReady();
+  });
+})();
+</script>
+
+<script>
+(function(){
+const GARMENT = {taupe:"#B8AE9F", bordeaux:"#6B1B26", antraciet:"#3A3B3E", creme:"#ECE6D6", zwart:"#1B1C1E", navy:"#1F2A44", groen:"#1F5134", wit:"#F3F3EF", naturel:"#E7DCC4", grijs:"#8A8F93", rood:"#9E1B2E"};
+const VINYL = {wit:"#FFFFFF", zwart:"#111111", rood:"#C8102E"};
+const FONTS = {block:{label:"Blok", css:"'Bebas Neue', Impact, sans-serif", k:.5}, college:{label:"College", css:"'Graduate', Georgia, serif", k:.68}, script:{label:"Script", css:"'Pacifico', cursive", k:.62}};
+const KINDS = {bear:"Knuffelbeer", tee:"T-shirt", kidtee:"Kinder-t-shirt", hoodie:"Hoodie", sweater:"Trui", apron:"Keukenschort", tote:"Tasje"};
+
+const S = {db:null, dl:null, canWrite:true, catalog:null, catLoaded:false, current:null, sales:[], salesLoaded:false, orders:[], cust:{name:"",email:"",make:null},
+  view:"kassa", cart:[], status:"idle", cfg:null, live:false, restored:false, confirmUndo:null, rev:0, wid:Math.random().toString(36).slice(2)};
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const eur = n => "€ " + (Math.round((n||0)*100)/100).toFixed(2).replace(".", ",");
+const clone = o => JSON.parse(JSON.stringify(o));
+const today = (t=Date.now()) => { const d=new Date(t); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); };
+const cap = s => s ? s[0].toUpperCase()+s.slice(1) : s;
+
+let toastT;
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true, 3200); }
+function errMsg(e){
+  if(e && e.code==="quota_exceeded") return "De opslag zit vol. Verwijder oude verkopen om verder te gaan.";
+  if(e && e.code==="invalid_argument") return "Opslaan lukt niet: je hebt geen schrijfrechten op deze kassa.";
+  return "Opslaan lukte niet. Check je internetverbinding en probeer opnieuw.";
+}
+function serial(){ let p=Promise.resolve(); return fn => (p = p.then(fn).catch(e => { toast(errMsg(e)); throw e; }).catch(()=>{})); }
+const qCur = serial(), qCat = serial();
+
+/* ---------- garment preview ---------- */
+function garmentSVG(kind, color, p){
+  const fill = GARMENT[color] || "#999";
+  const lightG = ["wit","naturel","creme"].includes(color);
+  const edge = lightG ? "rgba(0,0,0,.18)" : "rgba(255,255,255,.12)";
+  let body = "", ty = 150, maxW = 118;
+  if(kind==="bear"){
+    const fur="#D9A55B", dark="#A8743A";
+    body = `<circle cx="102" cy="58" r="24" fill="${fur}"/><circle cx="198" cy="58" r="24" fill="${fur}"/><circle cx="102" cy="58" r="12" fill="${dark}"/><circle cx="198" cy="58" r="12" fill="${dark}"/>
+      <circle cx="150" cy="100" r="62" fill="${fur}"/><ellipse cx="150" cy="122" rx="26" ry="20" fill="#EBC58C"/><ellipse cx="150" cy="114" rx="9" ry="7" fill="#4A2E1A"/>
+      <circle cx="128" cy="92" r="6" fill="#2A1A10"/><circle cx="172" cy="92" r="6" fill="#2A1A10"/>
+      <ellipse cx="80" cy="220" rx="22" ry="40" fill="${fur}" transform="rotate(20 80 220)"/><ellipse cx="220" cy="220" rx="22" ry="40" fill="${fur}" transform="rotate(-20 220 220)"/>
+      <ellipse cx="110" cy="292" rx="34" ry="24" fill="${fur}"/><ellipse cx="190" cy="292" rx="34" ry="24" fill="${fur}"/>
+      <path d="M92 170 Q150 150 208 170 L214 270 L86 270 Z" fill="${fill}" stroke="${edge}" stroke-width="2"/>`;
+    ty = 215; maxW = 100;
+  } else if(kind==="apron"){
+    body = `<path d="M118 20 Q150 6 182 20" fill="none" stroke="${fill}" stroke-width="8"/><path d="M112 24 L188 24 L192 120 L232 132 L226 300 L74 300 L68 132 L108 120 Z" fill="${fill}" stroke="${edge}" stroke-width="2"/><path d="M40 140 L260 140" stroke="${fill}" stroke-width="8" stroke-linecap="round"/><rect x="100" y="180" width="100" height="56" fill="none" stroke="${edge}" stroke-width="2"/>`;
+    ty = 80; maxW = 70;
+  } else if(kind==="sweater"){
+    body = `<path d="M95 40 L125 30 Q150 46 175 30 L205 40 L266 200 L240 212 L215 132 L215 302 L85 302 L85 132 L60 212 L34 200 Z" fill="${fill}" stroke="${edge}" stroke-width="2"/>
+      <path d="M125 30 Q150 54 175 30" fill="none" stroke="${edge}" stroke-width="4"/><path d="M85 290 L215 290" stroke="${edge}" stroke-width="3"/>`;
+    ty = 150;
+  } else if(kind==="hoodie"){
+    body = `<path d="M95 52 L125 36 Q150 56 175 36 L205 52 L266 200 L240 212 L215 132 L215 302 L85 302 L85 132 L60 212 L34 200 Z" fill="${fill}" stroke="${edge}" stroke-width="2"/>
+      <path d="M116 40 Q150 -6 184 40 Q150 64 116 40 Z" fill="${fill}" stroke="${edge}" stroke-width="2"/>
+      <path d="M108 236 L192 236 L200 290 L100 290 Z" fill="none" stroke="${edge}" stroke-width="2"/>
+      <path d="M142 58 L140 96 M158 58 L160 96" stroke="${edge}" stroke-width="3" stroke-linecap="round"/>`;
+    ty = 168;
+  } else if(kind==="tote"){
+    body = `<path d="M115 96 Q115 30 150 30 Q185 30 185 96" fill="none" stroke="${fill}" stroke-width="12" stroke-linecap="round"/>
+      <rect x="66" y="92" width="168" height="210" rx="6" fill="${fill}" stroke="${edge}" stroke-width="2"/>`;
+    ty = 205; maxW = 140;
+  } else {
+    const s = kind==="kidtee" ? .86 : 1;
+    body = `<g transform="translate(150 166) scale(${s}) translate(-150 -166)"><path d="M92 32 L122 22 Q150 44 178 22 L208 32 L270 78 L244 118 L214 102 L214 302 L86 302 L86 102 L56 118 L30 78 Z" fill="${fill}" stroke="${edge}" stroke-width="2"/>
+      <path d="M122 22 Q150 52 178 22" fill="none" stroke="${edge}" stroke-width="3"/></g>`;
+    ty = 148; maxW = kind==="kidtee" ? 100 : 118;
+  }
+  let txt = "";
+  if(p && p.text){
+    const f = FONTS[p.font] || FONTS.block;
+    const len = Math.max(1, p.text.length);
+    const size = Math.max(14, Math.min(44, maxW/(len*f.k)));
+    const vc = VINYL[p.vinyl] || "#fff";
+    txt = `<text x="150" y="${ty}" text-anchor="middle" dominant-baseline="middle" font-family="${esc(f.css)}" font-size="${size.toFixed(1)}" fill="${vc}">${esc(p.text)}</text>`;
+  } else if(p && p.design){
+    txt = `<text x="150" y="${ty}" text-anchor="middle" dominant-baseline="middle" font-family="Bricolage Grotesque, sans-serif" font-size="13" fill="${lightG?"#555":"#ddd"}" opacity=".8">${esc(p.design)}</text>`;
+  }
+  return `<svg viewBox="0 0 300 320" role="img" aria-label="Voorbeeld ${esc(KINDS[kind]||"")} ${esc(color||"")}">${body}${txt}</svg>`;
+}
+function designOf(p, id){ return (p && p.designs || []).find(d=>d.id===id) || null; }
+function previewHTML(kind, color, pers, design){
+  if(design && design.imgs && !design.imgs[color]) return garmentSVG(kind, color, (pers && pers.text) ? pers : {design: design.name});
+  if(design && design.img){
+    let nm = "";
+    if(pers && pers.text){ const f = FONTS[pers.font]||FONTS.block; const size = Math.max(16, Math.min(40, 260/(pers.text.length*f.k)));
+      nm = `<span class="mockname" style="font-family:${esc(f.css)};font-size:${(kind==="bear"?Math.min(size,26):size).toFixed(0)}px;color:${VINYL[pers.vinyl]||"#fff"}${kind==="bear"?";bottom:42%":""}">${esc(pers.text)}</span>`; }
+    const src = (design.imgs && design.imgs[color]) || design.img;
+    return `<div class="mock"><img src="${esc(src)}" alt="Ontwerp ${esc(design.name)}">${nm}<span class="mocklabel">${esc(design.name)}</span></div>`;
+  }
+  return garmentSVG(kind, color, pers);
+}
+
+/* ---------- helpers on catalog ---------- */
+const prods = () => (S.catalog && S.catalog.products) || [];
+const prodById = id => prods().find(p => p.id===id);
+const namePrice = () => S.catalog ? Number(S.catalog.namePrice ?? 5) : 5;
+const nameCost = () => S.catalog ? Number(S.catalog.nameCost ?? 1) : 1;
+function stockOf(p, size, color){ const v = p.stock ? p.stock[size+"|"+color] : undefined; return v===undefined ? null : Number(v); }
+function reservedInCart(pid,size,color){ return S.cart.filter(i=>i.pid===pid&&i.size===size&&i.color===color).length; }
+const has = (o,k) => o && o[k]!==undefined && o[k]!==null && o[k]!=="";
+function priceOf(p,size){ return has(p.sizePrices,size) ? Number(p.sizePrices[size]) : Number(p.price||0); }
+function costOf(p,color,size){ if(has(p.costs,color)) return Number(p.costs[color]); if(has(p.sizeCosts,size)) return Number(p.sizeCosts[size]); return Number(p.cost||0); }
+function priceLabel(p){ const ps=(p.sizes||[]).map(z=>priceOf(p,z)); const lo=Math.min(...ps), hi=Math.max(...ps); return lo===hi?eur(lo):"vanaf "+eur(lo); }
+function itemPrice(i){ return Number(i.price) + (i.personal ? Number(i.namePrice) : 0); }
+function itemCost(i){ return Number(i.cost) + (i.personal ? Number(i.nameCost) : 0); }
+const cartTotal = () => S.cart.reduce((a,i)=>a+itemPrice(i),0);
+
+/* ---------- current order sync ---------- */
+let curTimer;
+function buildCurrent(extra){
+  let draft = null;
+  if(S.cfg){ const p = prodById(S.cfg.pid); if(p) draft = {kind:p.kind, name:p.name, color:S.cfg.color, size:S.cfg.size, text:S.cfg.text||"", vinyl:S.cfg.vinyl, font:S.cfg.font, design:designOf(p,S.cfg.design)}; }
+  return Object.assign({status:S.status, items:S.cart, total:cartTotal(), draft, cust:S.cust, updatedAt:Date.now()}, extra||{});
+}
+function pushCurrent(extra, now){
+  if(!S.db || !S.canWrite) return;
+  clearTimeout(curTimer);
+  const run = () => { S.rev = (S.rev||0)+1; const body = buildCurrent(Object.assign({rev:S.rev, wid:S.wid, by:S.view==="klant"?"klant":"kassa"}, extra||{})); qCur(()=>S.db.doc("shop/current").set(body)); };
+  if(now) run(); else curTimer = setTimeout(run, 300);
+}
+
+/* ---------- views ---------- */
+function setView(){
+  const h = (location.hash||"").replace("#","");
+  S.view = ["kassa","klant","voorraad","bestellingen"].includes(h) ? h : "kassa";
+  document.body.classList.toggle("klant", S.view==="klant");
+  document.querySelectorAll(".tabs a").forEach(a => a.toggleAttribute("aria-current", false) || (a.dataset.tab===S.view && a.setAttribute("aria-current","page")));
+  render();
+}
+
+function render(){
+  const app = $("#app");
+  if(!S.db){ return; }
+  if(!S.catLoaded){ app.innerHTML = `<div class="empty">Producten worden geladen…</div>`; return; }
+  const ro = S.canWrite ? "" : `<div class="note">Je bekijkt deze kassa zonder schrijfrechten. Verkopen en voorraad kan je hier niet aanpassen.</div>`;
+  if(S.view==="klant"){
+    app.innerHTML = klantHTML();
+    if(S.status==="paid" && !S.paidTimer) S.paidTimer = setTimeout(()=>{ S.paidTimer=null; if(S.status==="paid"){ S.status="idle"; render(); pushCurrent(null,true); } }, 7000);
+    if(S.status!=="paid" && S.paidTimer){ clearTimeout(S.paidTimer); S.paidTimer=null; }
+  }
+  else if(S.view==="voorraad") app.innerHTML = ro + voorraadHTML();
+  else if(S.view==="bestellingen") app.innerHTML = ro + bestellingenHTML();
+  else app.innerHTML = ro + kassaHTML();
+}
+
+/* ---- kassa ---- */
+function kassaHTML(){
+  if(!prods().length) return `<div class="panel empty"><h2>Nog geen producten</h2><p>Voeg je eerste product toe bij <a href="#voorraad">Voorraad &amp; verkoop</a>. Daarna verschijnt het hier als knop.</p></div>`;
+  const pb = prods().map(p => `<button class="prod" data-act="pick" data-id="${esc(p.id)}" aria-pressed="${S.cfg&&S.cfg.pid===p.id}"><b>${esc(p.name)}</b><span class="num">${priceLabel(p)}</span><span class="num">${totalStock(p)} op voorraad</span></button>`).join("");
+  return `<div class="kassa">
+    <section>
+      <div class="prods">${pb}</div>
+      ${S.cfg ? cfgHTML() : `<p class="empty">Kies een product om maat, kleur en naam in te stellen.</p>`}
+    </section>
+    <aside class="panel bon">${bonHTML()}</aside>
+  </div>${kassaOrdersHTML()}`;
+}
+function totalStock(p){ return Object.values(p.stock||{}).reduce((a,b)=>a+Number(b||0),0); }
+function cfgHTML(){
+  const c = S.cfg, p = prodById(c.pid); if(!p) return "";
+  const leftOf = (s,col) => { const st = stockOf(p,s,col); return st===null ? Infinity : st - reservedInCart(p.id,s,col); };
+  const okSizes = (p.sizes||[]).filter(s => (p.colors||[]).some(col => leftOf(s,col) > 0));
+  if(okSizes.length && !okSizes.includes(c.size)) c.size = okSizes[0];
+  const okCols = (p.colors||[]).filter(col => leftOf(c.size,col) > 0);
+  if(okCols.length && !okCols.includes(c.color)){ c.color = okCols[0]; const light=["wit","naturel","creme"].includes(c.color); if(light&&c.vinyl==="wit") c.vinyl="zwart"; if(!light&&c.vinyl==="zwart") c.vinyl="wit"; }
+  if(!okSizes.length) return `<div class="panel" style="margin-top:14px"><h2>${esc(p.name)}</h2><p class="empty">Dit product is uitverkocht.</p><button class="btn ghost" data-act="cancelcfg">Terug</button></div>`;
+  const sizes = okSizes.map(s => { const st = (p.colors||[]).reduce((a,col)=>a+Math.max(0, Math.min(999, leftOf(s,col))),0);
+    return `<button class="chip" data-act="size" data-v="${esc(s)}" aria-pressed="${c.size===s}">${esc(s)}<small>${st}</small></button>`; }).join("");
+  const colors = okCols.map(col => { const st = stockOf(p,c.size,col); const left = st===null?null:st-reservedInCart(p.id,c.size,col);
+    return `<button class="chip" data-act="color" data-v="${esc(col)}" aria-pressed="${c.color===col}"><span class="sw" style="background:${GARMENT[col]||"#999"}"></span>${esc(cap(col))}${left===null?"":`<small>${left}</small>`}</button>`; }).join("");
+  const vinyl = Object.keys(VINYL).map(v => `<button class="chip" data-act="vinyl" data-v="${v}" aria-pressed="${c.vinyl===v}"><span class="sw" style="background:${VINYL[v]}"></span>${cap(v)}</button>`).join("");
+  const fonts = Object.entries(FONTS).map(([k,f]) => `<button class="chip" data-act="font" data-v="${k}" aria-pressed="${c.font===k}" style="font-family:${f.css}">${f.label}</button>`).join("");
+  const st = stockOf(p,c.size,c.color), left = st===null?null:st-reservedInCart(p.id,c.size,c.color);
+  const ds = (p.designs||[]);
+  const dchips = ds.length ? `<div class="field"><span class="eyebrow">Ontwerp</span><div class="dchips">${ds.map(d=>`<button class="dchip" data-act="design" data-v="${esc(d.id)}" aria-pressed="${c.design===d.id}"><img src="${esc((d.imgs&&d.imgs[c.color])||d.img)}" alt="">${esc(d.name)}</button>`).join("")}<button class="dchip" data-act="design" data-v="" aria-pressed="${!c.design}"><span class="none">—</span>Zonder</button></div></div>` : "";
+  const price = priceOf(p,c.size) + (c.text.trim()?namePrice():0);
+  return `<div class="panel" style="margin-top:14px">
+    <div class="row"><h2 class="grow">${esc(p.name)}</h2><span class="num">${eur(price)}</span></div>
+    <div class="cfg">
+      <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+        <div class="step"><div class="stephead"><span class="stepnr">1</span>Kies je kleur <b>${esc(cap(c.color))}</b></div><div class="chips big">${colors}</div></div>
+        <div class="step"><div class="stephead"><span class="stepnr">2</span>Kies je maat <b>${esc(c.size)}</b></div><div class="chips big">${sizes}</div></div>
+        ${dchips?`<div class="step"><div class="stephead"><span class="stepnr">3</span>Kies je ontwerp <b>${esc((designOf(p,c.design)||{name:"Zonder"}).name)}</b></div>${dchips.replace('<span class="eyebrow">Ontwerp</span>','')}</div>`:""}
+        <div class="step"><div class="stephead"><span class="stepnr">${dchips?4:3}</span>Naam erop? <b>+${eur(namePrice())}</b></div>
+        <div class="field"><label class="eyebrow" for="nameIn">Naam (laat leeg voor zonder)</label>
+          <input type="text" id="nameIn" maxlength="14" placeholder="Laat leeg voor zonder naam" value="${esc(c.text)}" autocomplete="off"></div>
+        <div class="field"><span class="eyebrow">Vinylkleur</span><div class="chips">${vinyl}</div></div>
+        <div class="field"><span class="eyebrow">Lettertype</span><div class="chips">${fonts}</div></div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="pick-sum">${esc(cap(c.color))} · Maat ${esc(c.size)}</div>
+        <div class="preview" id="cfgPrev">${previewHTML(p.kind,c.color,{text:c.text.trim(),vinyl:c.vinyl,font:c.font,design:c.design?"":p.design},designOf(p,c.design))}</div>
+        ${left!==null&&left<=0?`<span class="note" style="margin:0">Niet meer op voorraad in deze maat en kleur.</span>`:""}
+        <button class="btn pri" data-act="add" ${!S.canWrite?"disabled":""}>${S.view==="klant"?"In mijn mandje":"Toevoegen aan bon"}</button>
+        <button class="btn ghost" data-act="cancelcfg">Annuleren</button>
+      </div>
+    </div>
+  </div>`;
+}
+function linesHTML(items, removable){
+  if(!items.length) return "";
+  return `<ul class="lines">${items.map((i,ix)=>`<li><div><b>${esc(i.name)}</b> · ${esc(i.size)} · ${esc(cap(i.color))}${i.design?`<div class="sub">Ontwerp: ${esc(i.design.name)}</div>`:""}${i.design&&i.design.imgs&&!i.design.imgs[i.color]?`<div class="sub" style="color:var(--warn)">Geen voorbeeldfoto in deze kleur</div>`:""}
+     ${i.personal?`<div class="sub">Naam: “${esc(i.personal.text)}” in ${esc(i.personal.vinyl)} vinyl, ${esc((FONTS[i.personal.font]||FONTS.block).label.toLowerCase())}</div>`:""}</div>
+     <span class="num">${eur(itemPrice(i))}</span>${removable?`<button class="x" data-act="rm" data-ix="${ix}" aria-label="Verwijder">×</button>`:""}</li>`).join("")}</ul>`;
+}
+function bonHTML(){
+  const pay = S.status==="pay";
+  return `<div class="row"><h2 class="grow">Bon</h2><span class="eyebrow">${S.cart.length} stuk${S.cart.length===1?"":"s"}</span></div>
+    ${S.cart.length?linesHTML(S.cart,!pay):`<div class="empty">Nog niets op de bon.</div>`}
+    <div class="total"><span>Totaal</span><span class="num">${eur(cartTotal())}</span></div>
+    ${S.cart.length?custHTML():""}
+    ${S.current&&S.current.by==="klant"&&S.current.draft&&!pay?`<div class="note" style="margin:0">De klant kiest nu op de iPad: <b>${esc(S.current.draft.name)}</b> · ${esc(S.current.draft.size)} · ${esc(cap(S.current.draft.color))}${S.current.draft.design?" · "+esc(S.current.draft.design.name):""}${S.current.draft.text?" · “"+esc(S.current.draft.text)+"”":""}</div>`:""}
+    ${pay?`<div class="paybanner">Klant betaalt nu ${eur(cartTotal())}. ${S.qr?"De klant ziet je Bancontact-QR op de iPad. Kijk in het Bancontact Pro-portaal of de betaling binnen is, of tik het bedrag in Revolut voor een kaart.":"Tik dit bedrag in Revolut op je iPhone."}</div>`:""}
+    ${S.status==="paid"?`<div class="paybanner" style="background:var(--ok);color:#fff">Verkoop opgeslagen.</div>`:""}
+    <div class="row">
+      ${pay
+        ? `<button class="btn grow" style="background:#2B6CB0;color:#fff" data-act="paid" data-m="bancontact">Betaald met Bancontact</button><button class="btn pri grow" data-act="paid" data-m="kaart">Betaald met kaart</button><button class="btn grow" style="background:var(--gold);color:#1a1405" data-act="paid" data-m="cash">Betaald cash</button><button class="btn ghost" data-act="unpay">Terug</button>`
+        : `<button class="btn berry grow" data-act="pay" ${!S.cart.length||!S.canWrite?"disabled":""}>Toon bedrag op iPad</button><button class="btn ghost" data-act="clear" ${!S.cart.length?"disabled":""}>Leegmaken</button>`}
+    </div>
+    ${!pay?`<div class="row"><button class="btn grow" style="background:#2B6CB0;color:#fff" data-act="paid" data-m="bancontact" ${!S.cart.length||!S.canWrite?"disabled":""}>Betaald met Bancontact</button><button class="btn pri grow" data-act="paid" data-m="kaart" ${!S.cart.length||!S.canWrite?"disabled":""}>Betaald met kaart</button><button class="btn grow" style="background:var(--gold);color:#1a1405" data-act="paid" data-m="cash" ${!S.cart.length||!S.canWrite?"disabled":""}>Betaald cash</button></div>`:""}`;
+}
+
+/* ---- klant ---- */
+function klantHTML(){
+  const c = S.current || {};
+  const items = S.cart;
+  let overlay = "";
+  if(S.status==="pay") overlay = S.qr
+    ? `<div class="k-pay"><div><div class="paygrid">
+        <div class="qrcard"><img src="${esc(S.qr)}" alt="Bancontact QR-code"><b>Scan met je bank-app of Bancontact Pay</b><span style="font-size:15px">Typ het bedrag: <b class="num">${eur(cartTotal())}</b></span></div>
+        <div><div class="eyebrow" style="color:inherit;opacity:.8">Te betalen</div><div class="amt num">${eur(cartTotal())}</div>
+          <p style="font-size:18px;margin-top:16px">Of houd je kaart of gsm tegen de iPhone.<br>Cash kan ook.</p></div></div>
+        <button class="btn ghost" data-act="unpay" style="margin-top:24px;color:inherit;border-color:currentColor">Toch nog iets wijzigen</button></div></div>`
+    : `<div class="k-pay"><div><div class="arrow"><span>↑</span>Houd je kaart of gsm tegen de iPhone</div><div class="eyebrow" style="color:inherit;opacity:.8">Te betalen</div><div class="amt num">${eur(cartTotal())}</div><button class="btn ghost" data-act="unpay" style="margin-top:24px;color:inherit;border-color:currentColor">Toch nog iets wijzigen</button></div></div>`;
+  if(S.status==="paid") overlay = `<div class="k-pay paid" data-act="dismisspaid" style="cursor:pointer"><div><div class="amt">Bedankt!</div>${c.lastNr?`<p style="font-size:22px;margin-bottom:4px">Je bestelnummer</p><div class="amt num">#${esc(c.lastNr)}</div><p style="font-size:20px">${!c.lastMake?"Bedankt voor je aankoop, fijne feestdagen!":c.lastMail?"Je krijgt een mail zodra het klaar is.":"Kom over 10 minuutjes terug, of kijk op dit scherm."}</p>`:`<p style="font-size:22px">Bedankt voor je aankoop!</p>`}<p style="opacity:.75;font-size:15px;margin-top:18px">Tik om te sluiten</p></div></div>`;
+  const exit = `<button class="k-exit" data-act="exittap" aria-label="Terug naar kassa (3 keer tikken)"></button>`;
+  const prodBtns = `<div class="kprods">${prods().map(p=>`<button class="prod" data-act="pick" data-id="${esc(p.id)}" aria-pressed="${S.cfg&&S.cfg.pid===p.id}"><b>${esc(p.name)}</b><span class="num">${priceLabel(p)}</span></button>`).join("")}</div>`;
+  const d = c.by==="kassa" ? c.draft : null;
+  if(!items.length && !S.cfg && !d){
+    const seen = {}, all = []; prods().forEach(p=>(p.designs||[]).forEach(x=>{ if(!seen[x.img]){ seen[x.img]=1; all.push(Object.assign({pid:p.id}, x)); } }));
+    const gal = all.length ? `<div class="kgal">${all.map(x=>`<button class="kfig" data-act="pickd" data-id="${esc(x.pid)}" data-d="${esc(x.id)}"><img src="${esc(x.img)}" alt=""><span>${esc(x.name)}</span><small>${esc((prodById(x.pid)||{}).name||"")}</small></button>`).join("")}</div>` : `<div class="preview">${garmentSVG("hoodie","groen",{text:"JOUW NAAM",vinyl:"wit",font:"college"})}</div>`;
+    return `<div class="klantv">${gal}
+      <div class="k-hello"><div class="eyebrow">Treasureshirt · Kerstmarkt Landen</div><h1>Jouw naam erop, terwijl je wacht.</h1>
+      <p>Tik hieronder op een product, kies je ontwerp, maat en kleur, en zet er je naam op (+ ${eur(namePrice())}).</p>
+      ${prodBtns}${readyBand()}</div></div>${overlay}${exit}`;
+  }
+  let left;
+  if(S.cfg) left = cfgHTML();
+  else if(d){ const prev = previewHTML(d.kind, d.color, {text:d.text||"",vinyl:d.vinyl,font:d.font}, d.design||null);
+    left = `<div class="preview">${prev}</div><div class="eyebrow" style="margin-top:10px">Nu aan het samenstellen</div><h2>${esc(d.name)} · ${esc(d.size)} · ${esc(cap(d.color))}</h2>`; }
+  else left = `<div class="panel"><h2>Nog iets kiezen?</h2>${prodBtns}</div>`;
+  const right = `<aside class="panel k-order"><div class="row"><h2 class="grow">Je mandje</h2><span class="eyebrow">${items.length} stuk${items.length===1?"":"s"}</span></div>
+      ${items.length?linesHTML(items,S.status!=="pay"):`<div class="empty">Nog leeg. Kies links je product.</div>`}
+      <div class="total"><span>Totaal</span><span class="num">${eur(cartTotal())}</span></div>
+      ${items.length && S.status!=="pay" ? `<div class="field" style="gap:8px;margin-top:6px"><span class="eyebrow">Laat je gegevens achter</span>
+        <input type="text" id="kName" placeholder="Je voornaam" value="${esc(S.cust.name)}" autocomplete="off" style="font-size:17px;padding:12px">
+        <input type="email" id="kMail" inputmode="email" placeholder="Je e-mail: we laten weten als het klaar is" value="${esc(S.cust.email)}" autocomplete="off" style="font-size:17px;padding:12px">
+        <span style="color:var(--muted);font-size:13px">Optioneel. We gebruiken je e-mail alleen om te laten weten dat je bestelling klaar is.</span></div>`:""}
+      ${items.length && S.status!=="pay" && S.canWrite ? `<button class="btn berry klantbtn" data-act="klantpay">Betalen</button>`:""}
+    </aside>`;
+  return `<div class="klantv shop"><section style="min-width:0">${left}</section>${right}</div>${overlay}${exit}`;
+}
+
+/* ---- voorraad ---- */
+function voorraadHTML(){
+  const sales = S.sales;
+  const omzet = sales.reduce((a,s)=>a+Number(s.total||0),0);
+  const kost = sales.reduce((a,s)=>a+Number(s.cost||0),0);
+  const stuks = sales.reduce((a,s)=>a+(s.items||[]).length,0);
+  const kaart = sales.filter(s=>s.method==="kaart").reduce((a,s)=>a+Number(s.total||0),0);
+  const bcSales = sales.filter(s=>s.method==="bancontact"); const bc = bcSales.reduce((a,s)=>a+Number(s.total||0),0);
+  const fee = kaart*0.017 + bcSales.length*0.06;
+  const days = {}; sales.forEach(s=>{ days[s.day]=(days[s.day]||0)+Number(s.total||0); });
+  const dayRows = Object.entries(days).sort().map(([d,v])=>`<tr><td>${new Date(d+"T12:00").toLocaleDateString("nl-BE",{weekday:"short",day:"numeric",month:"short"})}</td><td class="num" style="text-align:right">${eur(v)}</td></tr>`).join("");
+  const per = {}; sales.forEach(s=>(s.items||[]).forEach(i=>{ const k=i.name+(i.design?" · "+i.design.name:""); per[k]=(per[k]||0)+1; }));
+  const maxPer = Math.max(1,...Object.values(per));
+  const perRows = Object.entries(per).sort((a,b)=>b[1]-a[1]).map(([n,v])=>`<div><div class="row" style="justify-content:space-between"><span>${esc(n)}</span><span class="num">${v}</span></div><div class="bar"><i style="width:${(v/maxPer*100).toFixed(0)}%"></i></div></div>`).join("");
+  const names = sales.reduce((a,s)=>a+(s.items||[]).filter(i=>i.personal).length,0);
+
+  const stockCards = prods().map(p => {
+    const head = (p.colors||[]).map(c=>`<th style="text-align:right"><span class="sw" style="display:inline-block;vertical-align:-2px;background:${GARMENT[c]||"#999"}"></span> ${esc(cap(c))}</th>`).join("");
+    const rows = (p.sizes||[]).map(s=>`<tr><th scope="row">${esc(s)}</th>${(p.colors||[]).map(c=>{ const v = stockOf(p,s,c)??0; return `<td style="text-align:right"><input type="number" min="0" id="st-${esc(p.id)}-${esc(s)}-${esc(c)}" class="${v<=0?"zero":v<=2?"low":""}" data-act="stock" data-id="${esc(p.id)}" data-k="${esc(s+"|"+c)}" value="${v}" aria-label="${esc(p.name+" "+s+" "+c)}" ${!S.canWrite?"disabled":""}></td>`; }).join("")}</tr>`).join("");
+    return `<div class="pcard"><div class="row"><h3 class="grow">${esc(p.name)}</h3><span class="eyebrow">${totalStock(p)} stuks</span></div>
+      <div class="tbl"><table><thead><tr><th>Maat</th>${head}</tr></thead><tbody>${rows}</tbody></table></div>
+      <div class="minirow">
+        <label class="field"><span class="eyebrow">Verkoopprijs</span><input type="number" step="0.01" id="pr-${esc(p.id)}" data-act="pfield" data-f="price" data-id="${esc(p.id)}" value="${Number(p.price)}" ${!S.canWrite?"disabled":""}></label>
+        <label class="field"><span class="eyebrow">Kostprijs</span><input type="number" step="0.01" id="co-${esc(p.id)}" data-act="pfield" data-f="cost" data-id="${esc(p.id)}" value="${Number(p.cost)}" ${!S.canWrite?"disabled":""}></label>
+      </div>
+      ${(p.sizes||[]).length>1?`<details ${(p.sizePrices&&Object.keys(p.sizePrices).length)||(p.sizeCosts&&Object.keys(p.sizeCosts).length)?"open":""}><summary style="font-size:14px">Prijs en kostprijs per maat (als die verschilt)</summary>
+        <table style="margin-top:8px"><thead><tr><th>Maat</th><th style="text-align:right">Verkoopprijs</th><th style="text-align:right">Kostprijs</th></tr></thead><tbody>${(p.sizes||[]).map(z=>`<tr><th scope="row">${esc(z)}</th>
+          <td style="text-align:right"><input type="number" step="0.01" style="width:90px" id="sp-${esc(p.id)}-${esc(z)}" data-act="szfield" data-f="sizePrices" data-id="${esc(p.id)}" data-z="${esc(z)}" placeholder="${Number(p.price)}" value="${has(p.sizePrices,z)?Number(p.sizePrices[z]):""}" ${!S.canWrite?"disabled":""}></td>
+          <td style="text-align:right"><input type="number" step="0.01" style="width:90px" id="sc-${esc(p.id)}-${esc(z)}" data-act="szfield" data-f="sizeCosts" data-id="${esc(p.id)}" data-z="${esc(z)}" placeholder="${Number(p.cost)}" value="${has(p.sizeCosts,z)?Number(p.sizeCosts[z]):""}" ${!S.canWrite?"disabled":""}></td></tr>`).join("")}</tbody></table>
+        <span style="color:var(--muted);font-size:12px">Leeg laten = de gewone prijs of kostprijs hierboven.</span></details>`:""}
+      <details ${p.costs&&Object.keys(p.costs).length?"open":""}><summary style="font-size:14px">Kostprijs per kleur (als die verschilt)</summary>
+        <div class="minirow" style="margin-top:8px">${(p.colors||[]).map(c=>`<label class="field"><span class="eyebrow"><span class="sw" style="display:inline-block;vertical-align:-2px;background:${GARMENT[c]||"#999"}"></span> ${esc(cap(c))}</span><input type="number" step="0.01" id="cc-${esc(p.id)}-${esc(c)}" data-act="ccost" data-id="${esc(p.id)}" data-c="${esc(c)}" placeholder="${Number(p.cost)}" value="${p.costs&&p.costs[c]!=null?Number(p.costs[c]):""}" ${!S.canWrite?"disabled":""}></label>`).join("")}</div>
+        <span style="color:var(--muted);font-size:12px">Leeg laten = de gewone kostprijs hierboven.</span></details>
+      <div class="row"><span class="sub" style="color:var(--muted);font-size:13px">Marge per stuk: <span class="num">${(()=>{ const cs=[]; (p.colors||[]).forEach(c=>(p.sizes||[]).forEach(z=>cs.push(priceOf(p,z)-costOf(p,c,z)))); const lo=Math.min(...cs), hi=Math.max(...cs); return lo===hi?eur(lo):eur(lo)+" – "+eur(hi); })()}</span></span><span class="grow"></span><button class="btn ghost" data-act="delprod" data-id="${esc(p.id)}" ${!S.canWrite?"disabled":""}>${S.confirmDel===p.id?"Zeker? Klik nog eens":"Product verwijderen"}</button></div>
+    </div>`;
+  }).join("");
+
+  const recent = sales.slice().sort((a,b)=>b.ts-a.ts).slice(0,40).map(s=>`<li><div>${s.nr?`<b>#${esc(s.nr)}</b> · `:""}<b class="num">${eur(s.total)}</b> <span class="tag ${s.method==="cash"?"cash":s.method==="bancontact"?"bc":""}">${esc(s.method)}</span>
+      <div class="sub" style="color:var(--muted);font-size:13px">${new Date(s.ts).toLocaleString("nl-BE",{weekday:"short",hour:"2-digit",minute:"2-digit"})} · ${(s.items||[]).map(i=>esc(i.name+" "+i.size)+(i.personal?" “"+esc(i.personal.text)+"”":"")).join(", ")}</div></div>
+      <button class="btn ghost" data-act="undo" data-id="${esc(s._id)}" ${!S.canWrite?"disabled":""}>${S.confirmUndo===s._id?"Zeker?":"Ongedaan maken"}</button></li>`).join("");
+
+  return `<div class="stats">
+      <div class="stat"><div class="eyebrow">Omzet</div><div class="v num">${eur(omzet)}</div></div>
+      <div class="stat"><div class="eyebrow">Winst (na kaartkosten)</div><div class="v num">${eur(omzet-kost-fee)}</div></div>
+      <div class="stat"><div class="eyebrow">Stuks verkocht</div><div class="v num">${stuks}</div></div>
+      <div class="stat"><div class="eyebrow">Bancontact / kaart / cash</div><div class="v num" style="font-size:16px">${eur(bc)} / ${eur(kaart)} / ${eur(omzet-kaart-bc)}</div></div>
+      <div class="stat"><div class="eyebrow">Met naam</div><div class="v num">${names}</div></div>
+    </div>
+    <div class="cols">
+      <section class="panel"><div class="row"><h2 class="grow">Voorraad</h2><span class="eyebrow">Oranje = 2 of minder · rood = op</span></div>
+        ${stockCards || `<div class="empty">Nog geen producten.</div>`}
+        <details><summary>Product toevoegen</summary>
+          <form id="addProd" style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+            <label class="field"><span class="eyebrow">Naam</span><input type="text" id="np-name" required placeholder="bv. Hoodie Kerstboom"></label>
+            <label class="field"><span class="eyebrow">Soort</span><select id="np-kind">${Object.entries(KINDS).map(([k,v])=>`<option value="${k}">${v}</option>`).join("")}</select></label>
+            <div class="minirow"><label class="field"><span class="eyebrow">Verkoopprijs</span><input type="number" step="0.5" id="np-price" required></label>
+            <label class="field"><span class="eyebrow">Kostprijs</span><input type="number" step="0.01" id="np-cost" required></label></div>
+            <label class="field"><span class="eyebrow">Maten (komma's)</span><input type="text" id="np-sizes" value="S, M, L, XL, XXL"></label>
+            <label class="field"><span class="eyebrow">Kleuren (komma's)</span><input type="text" id="np-colors" value="zwart, navy, groen, wit"></label>
+            <button class="btn pri" type="submit" ${!S.canWrite?"disabled":""}>Toevoegen</button>
+          </form>
+        </details>
+        <div class="minirow"><label class="field"><span class="eyebrow">Prijs naam erbij</span><input type="number" step="0.5" id="cat-np" data-act="catfield" data-f="namePrice" value="${namePrice()}" ${!S.canWrite?"disabled":""}></label>
+        <label class="field"><span class="eyebrow">Kost naam (vinyl)</span><input type="number" step="0.1" id="cat-nc" data-act="catfield" data-f="nameCost" value="${nameCost()}" ${!S.canWrite?"disabled":""}></label></div>
+        <div class="minirow"><label class="field"><span class="eyebrow">Afzender klaar-mail (Resend)</span><input type="text" id="cat-mf" data-act="cattext" data-f="mailFrom" placeholder="Treasureshirt &lt;info@treasureshirt.com&gt;" value="${esc(mailFrom())}" ${!S.canWrite?"disabled":""}></label>
+        <label class="field"><span class="eyebrow">Ophaalplaats in de mail</span><input type="text" id="cat-mp" data-act="cattext" data-f="mailPlace" value="${esc(mailPlace())}" ${!S.canWrite?"disabled":""}></label></div>
+        <div class="field" style="margin-top:6px"><span class="eyebrow">Bancontact QR-code (PNG of JPG)</span>
+          <div class="row">${S.qr?`<img class="qrprev" src="${esc(S.qr)}" alt="Je QR-code">`:`<span style="color:var(--muted);font-size:14px">Nog geen QR-code. Download hem in het Bancontact Pro-portaal (QR codes) en upload hem hier.</span>`}</div>
+          <div class="row"><input type="file" id="qrUpload" accept="image/png,image/jpeg" ${!S.canWrite?"disabled":""}>${S.qr?`<button class="btn ghost" data-act="qrdel" ${!S.canWrite?"disabled":""}>Verwijderen</button>`:""}</div></div>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:20px;min-width:0">
+        <div class="panel"><h2>Per dag</h2>${dayRows?`<table><tbody>${dayRows}</tbody></table>`:`<div class="empty">Nog geen verkopen.</div>`}</div>
+        <div class="panel"><h2>Best verkocht</h2>${perRows||`<div class="empty">Nog geen verkopen.</div>`}</div>
+        <div class="panel"><div class="row"><h2 class="grow">Laatste verkopen</h2>${S.dl&&sales.length?`<button class="btn ghost" data-act="csv">Exporteer CSV</button>`:""}${sales.length?`<button class="btn ${S.confirmReset?"berry":"ghost"}" data-act="reset" ${!S.canWrite?"disabled":""}>${S.confirmReset?`Zeker? Wis ${sales.length} verkopen`:"Reset testverkopen"}</button>`:""}</div>
+          ${S.confirmReset?`<p style="margin:0;color:var(--muted);font-size:13px">Alle verkopen en bestellingen worden gewist en de verkochte stuks gaan terug in de voorraad. Klik nog eens om te bevestigen.</p>`:""}
+          ${recent?`<ul class="salelist">${recent}</ul>`:`<div class="empty">Elke afgerekende bon verschijnt hier.</div>`}</div>
+      </section>
+    </div>`;
+}
+
+/* ---- bestellingen ---- */
+const needsMakeAuto = () => S.cart.some(i=>i.personal);
+const wantsMake = () => S.cust.make===null ? needsMakeAuto() : S.cust.make;
+function custHTML(){
+  return `<div class="field" style="gap:8px"><span class="eyebrow">Klant (optioneel)</span>
+    <div class="cust"><input type="text" id="custName" placeholder="Naam" value="${esc(S.cust.name)}" autocomplete="off">
+    <input type="email" id="custMail" placeholder="E-mail voor 'klaar'-bericht" value="${esc(S.cust.email)}" autocomplete="off"></div>
+    <label class="chk"><input type="checkbox" id="needMake" ${wantsMake()?"checked":""}> Moet nog gemaakt worden (komt in Bestellingen)</label></div>`;
+}
+function readyBand(){
+  const r = S.orders.filter(o=>o.status==="ready").sort((a,b)=>a.nr-b.nr);
+  return r.length ? `<div class="readyband">Klaar om op te halen: ${r.map(o=>`<span class="num">#${esc(o.nr)}</span>`).join("")}</div>` : "";
+}
+function ago(t){ const m=Math.round((Date.now()-t)/60000); return m<1?"net nu":m<60?m+" min geleden":Math.floor(m/60)+" u "+(m%60)+" min geleden"; }
+function ordCard(o){
+  const items = (o.items||[]).map(i=>`<li><b>${esc(i.name)}</b> · ${esc(i.size)} · ${esc(cap(i.color))}${i.design?" · "+esc(i.design.name):""}${i.personal?` · naam: “<b>${esc(i.personal.text)}</b>” (${esc(i.personal.vinyl)}, ${esc((FONTS[i.personal.font]||FONTS.block).label.toLowerCase())})`:""}</li>`).join("");
+  const who = [o.name?esc(o.name):"", o.email?`✉︎ ${esc(o.email)}`:""].filter(Boolean).join(" · ");
+  const mail = o.email ? (o.mailStatus==="sent"?`<span class="tag" style="background:var(--ok);color:#fff">mail verstuurd</span>`:o.mailStatus==="failed"?`<span class="tag" style="background:var(--bad);color:#fff">mail mislukt</span>`:`<span class="tag">mail nog niet verstuurd</span>`) : "";
+  const btns = o.status==="todo"
+    ? `<button class="btn pri" data-act="ordready" data-id="${esc(o._id)}" ${!S.canWrite?"disabled":""}>Klaar</button>`
+    : `<button class="btn pri" data-act="orddone" data-id="${esc(o._id)}" ${!S.canWrite?"disabled":""}>Opgehaald</button><button class="btn ghost" data-act="ordback" data-id="${esc(o._id)}" ${!S.canWrite?"disabled":""}>Terug naar te maken</button>${canMail()&&o.email&&o.mailStatus!=="sent"?`<button class="btn ghost" data-act="ordmail" data-id="${esc(o._id)}">Mail opnieuw</button>`:""}`;
+  return `<div class="ord ${o.status==="ready"?"ready":""}"><div class="row"><span class="ordnr">#${esc(o.nr)}<small>${ago(o.ts)}</small></span><span class="grow"></span>${mail}</div>
+    ${who?`<div class="sub" style="color:var(--muted);font-size:14px">${who}</div>`:""}${o.mailStatus==="failed"&&o.mailError?`<div class="sub" style="color:var(--bad);font-size:13px">${esc(o.mailError)}</div>`:""}<ul>${items}</ul><div class="row">${btns}</div></div>`;
+}
+function bestellingenHTML(){
+  const todo = S.orders.filter(o=>o.status==="todo").sort((a,b)=>a.ts-b.ts);
+  const ready = S.orders.filter(o=>o.status==="ready").sort((a,b)=>a.nr-b.nr);
+  const done = S.orders.filter(o=>o.status==="done").sort((a,b)=>b.ts-a.ts).slice(0,20);
+  const mailNote = canMail() ? "" : !S.mcp
+    ? `<div class="note">Automatische mails werken hier niet: de koppeling met Resend is niet beschikbaar in deze weergave. Open de kassa in claude.ai terwijl Resend gekoppeld is. Tot dan kan de klant zijn nummer zien op het klantscherm.</div>`
+    : `<div class="note">Bijna klaar voor automatische mails: vul bij <a href="#voorraad">Voorraad &amp; verkoop</a> het afzenderadres in (een adres op een domein dat in Resend geverifieerd is).</div>`;
+  return `${mailNote}<div class="ordcols">
+    <section class="panel"><div class="row"><h2 class="grow">Te maken</h2><span class="eyebrow">${todo.length}</span></div>${todo.length?todo.map(ordCard).join(""):`<div class="empty">Niets meer te maken.</div>`}</section>
+    <section class="panel"><div class="row"><h2 class="grow">Klaar, wacht op klant</h2><span class="eyebrow">${ready.length}</span></div>${ready.length?ready.map(ordCard).join(""):`<div class="empty">Nog niets klaar.</div>`}
+      ${done.length?`<details><summary>Opgehaald (${done.length})</summary><ul class="salelist">${done.map(o=>`<li><div><b>#${esc(o.nr)}</b> ${esc(o.name||"")} <span class="sub" style="color:var(--muted);font-size:13px">· ${(o.items||[]).map(i=>esc(i.name)+(i.personal?" “"+esc(i.personal.text)+"”":"")).join(", ")}</span></div></li>`).join("")}</ul></details>`:""}</section></div>`;
+}
+function kassaOrdersHTML(){
+  const todo = S.orders.filter(o=>o.status==="todo").sort((a,b)=>a.ts-b.ts);
+  const ready = S.orders.filter(o=>o.status==="ready").length;
+  return `<section class="panel" style="margin-top:20px"><div class="row"><h2 class="grow">Nog te maken</h2><span class="eyebrow">${todo.length} open${ready?` · ${ready} klaar, wacht op klant`:""}</span><a class="btn ghost" href="#bestellingen" style="text-decoration:none">Alle bestellingen</a></div>
+    ${todo.length?`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">${todo.map(ordCard).join("")}</div>`:`<div class="empty">Niets meer te maken. Goed bezig!</div>`}</section>`;
+}
+function updateOrdCount(){ const n=S.orders.filter(o=>o.status==="todo").length; const el=$("#ordCount"); if(el) el.textContent = n?String(n):""; }
+async function setOrder(id, patch){ try{ await S.db.doc("orders/"+id).update(patch); }catch(e){ toast(errMsg(e)); } }
+const mailFrom = () => (S.catalog && S.catalog.mailFrom || "").trim();
+const mailPlace = () => (S.catalog && S.catalog.mailPlace || "onze chalet op de kerstmarkt van Landen").trim();
+const canMail = () => !!(S.mcp && mailFrom());
+function mailBody(o){
+  const hi = o.name ? `Hoi ${o.name},` : "Hoi,";
+  const lines = (o.items||[]).map(i=>`- ${i.name}${i.design?" “"+i.design.name+"”":""} (${i.size}, ${i.color})${i.personal?" met naam “"+i.personal.text+"”":""}`).join("\n");
+  const text = `${hi}\n\nGoed nieuws: je bestelling #${o.nr} is klaar! Je kunt ze ophalen bij ${mailPlace()}.\n\n${lines}\n\nToon dit nummer aan de kraam: #${o.nr}\n\nBedankt en fijne feestdagen!\nTreasureshirt\nwww.treasureshirt.com`;
+  const li = (o.items||[]).map(i=>`<li>${esc(i.name)}${i.design?" “"+esc(i.design.name)+"”":""} (${esc(i.size)}, ${esc(i.color)})${i.personal?" met naam “<b>"+esc(i.personal.text)+"</b>”":""}</li>`).join("");
+  const html = `<div style="font-family:Arial,sans-serif;font-size:16px;color:#16211C;max-width:520px"><p>${esc(hi)}</p><p>Goed nieuws: je bestelling is <b>klaar</b>! Je kunt ze ophalen bij ${esc(mailPlace())}.</p><p style="font-size:40px;font-weight:800;margin:16px 0;color:#1E5A44">#${esc(o.nr)}</p><ul>${li}</ul><p>Toon dit nummer aan de kraam.</p><p>Bedankt en fijne feestdagen!<br><b>Treasureshirt</b><br><a href="https://www.treasureshirt.com">www.treasureshirt.com</a></p></div>`;
+  return {subject:`Je bestelling #${o.nr} bij Treasureshirt is klaar`, text, html};
+}
+function mailErr(e){
+  const c = e && e.code;
+  if(c==="needs_reauth") return "Resend moet opnieuw verbonden worden (claude.ai → Instellingen → Connectors).";
+  if(c==="server_not_connected") return "Resend is niet gekoppeld. Voeg het toe in claude.ai → Instellingen → Connectors.";
+  if(c==="approval_required"||c==="not_in_manifest") return "Je moet de kassa eerst toestemming geven om mails te sturen. Tik opnieuw op 'Mail opnieuw' en kies Toestaan.";
+  if(c==="tool_error") return "Resend weigerde de mail: "+String(e.message||"").slice(0,160);
+  if(c==="server_unavailable"||c==="upstream_error") return "Resend antwoordde niet. De mail is misschien toch vertrokken, kijk in Resend voor je opnieuw stuurt.";
+  return "De mail kon niet verstuurd worden.";
+}
+async function sendReadyMail(o){
+  if(!o.email) return;
+  if(!S.mcp){ toast("Geen mail verstuurd: de Resend-koppeling is niet beschikbaar in deze weergave."); return; }
+  if(!mailFrom()){ toast("Geen mail verstuurd: vul eerst de afzender in bij Voorraad & verkoop."); return; }
+  const m = mailBody(o);
+  try{
+    await S.mcp.callTool("Resend","send-email",{to:[o.email], from:mailFrom(), subject:m.subject, text:m.text, html:m.html,
+      context:"Notifying a market customer that their personalised order is ready for pickup.", llm_model:"unknown"}, {cache:false});
+    await setOrder(o._id,{mailStatus:"sent"}); toast(`Mail verstuurd voor #${o.nr}`);
+  }catch(e){ await setOrder(o._id,{mailStatus:"failed", mailError:mailErr(e)}); toast(mailErr(e)); }
+}
+
+/* ---------- actions ---------- */
+function newCfg(p){ const size = (p.sizes||[]).find(s=>(p.colors||[]).some(c=>(stockOf(p,s,c)??1)>0)) || (p.sizes||[])[0];
+  const color = (p.colors||[]).find(c=>(stockOf(p,size,c)??1)>0) || (p.colors||[])[0];
+  return {pid:p.id, design:((p.designs||[])[0]||{}).id||"", size, color, text:"", vinyl:["wit","naturel","creme","taupe"].includes(color)?"zwart":"wit", font:"block"}; }
+async function saveCatalog(cat){ S.catalog = cat; render(); await qCat(()=>S.db.doc("shop/catalog").set(cat)); }
+
+document.addEventListener("click", async ev => {
+  const b = ev.target.closest("[data-act]"); if(!b || b.tagName==="INPUT") return;
+  const a = b.dataset.act;
+  if(a==="pick"){ const p=prodById(b.dataset.id); S.cfg = (S.cfg&&S.cfg.pid===p.id) ? null : newCfg(p); render(); pushCurrent(); return; }
+  if(a==="exittap"){ const now=Date.now(); S.taps=(S.taps||[]).filter(t=>now-t<1500); S.taps.push(now); if(S.taps.length>=3){ S.taps=[]; location.hash="kassa"; } return; }
+  if(a==="pickd"){ const p=prodById(b.dataset.id); if(!p) return; S.cfg=newCfg(p); S.cfg.design=b.dataset.d; render(); pushCurrent(); window.scrollTo({top:0}); return; }
+  if(a==="cancelcfg"){ S.cfg=null; render(); pushCurrent(); return; }
+  if(["size","color","vinyl","font","design"].includes(a)){ S.cfg[a]=b.dataset.v; if(a==="color"){ const light=["wit","naturel","creme","taupe"].includes(b.dataset.v); if(light&&S.cfg.vinyl==="wit") S.cfg.vinyl="zwart"; if(!light&&S.cfg.vinyl==="zwart") S.cfg.vinyl="wit"; } render(); pushCurrent(); return; }
+  if(a==="add"){ const p=prodById(S.cfg.pid), t=S.cfg.text.trim();
+    S.cart.push({pid:p.id, name:p.name, kind:p.kind, design:designOf(p,S.cfg.design), size:S.cfg.size, color:S.cfg.color, price:priceOf(p,S.cfg.size), cost:costOf(p,S.cfg.color,S.cfg.size),
+      personal: t?{text:t, vinyl:S.cfg.vinyl, font:S.cfg.font}:null, namePrice:namePrice(), nameCost:nameCost()});
+    S.cfg=null; S.status="order"; render(); pushCurrent(null,true); return; }
+  if(a==="rm"){ S.cart.splice(Number(b.dataset.ix),1); if(!S.cart.length) S.status="idle"; render(); pushCurrent(null,true); return; }
+  if(a==="clear"){ S.cart=[]; S.cfg=null; S.status="idle"; render(); pushCurrent(null,true); return; }
+  if(a==="pay"){ S.cfg=null; S.status="pay"; render(); pushCurrent(null,true); return; }
+  if(a==="unpay"){ S.status="order"; render(); pushCurrent(null,true); return; }
+  if(a==="paid"){ await completeSale(b.dataset.m); return; }
+  if(a==="dismisspaid"){ clearTimeout(S.paidTimer); S.paidTimer=null; if(S.status==="paid"){ S.status="idle"; render(); pushCurrent(null,true); } return; }
+  if(a==="klantpay"){ S.cfg=null; S.status="pay"; render(); pushCurrent(null,true); return; }
+  if(a==="undo"){ const id=b.dataset.id; if(S.confirmUndo!==id){ S.confirmUndo=id; render(); return; } S.confirmUndo=null; await undoSale(id); return; }
+  if(a==="delprod"){ const id=b.dataset.id; if(S.confirmDel!==id){ S.confirmDel=id; render(); return; } S.confirmDel=null;
+    const cat=clone(S.catalog); cat.products=cat.products.filter(p=>p.id!==id); await saveCatalog(cat); toast("Product verwijderd"); return; }
+  if(a==="csv"){ exportCSV(); return; }
+  if(a==="qrdel"){ try{ await S.db.doc("shop/qr").delete(); toast("QR-code verwijderd"); }catch(e){ toast(errMsg(e)); } return; }
+  if(a==="ordready"){ const o=S.orders.find(x=>x._id===b.dataset.id); if(!o) return; await setOrder(o._id,{status:"ready",readyAt:Date.now()}); toast(`#${o.nr} staat klaar`); sendReadyMail(o); return; }
+  if(a==="orddone"){ await setOrder(b.dataset.id,{status:"done",doneAt:Date.now()}); return; }
+  if(a==="ordback"){ await setOrder(b.dataset.id,{status:"todo"}); return; }
+  if(a==="ordmail"){ const o=S.orders.find(x=>x._id===b.dataset.id); if(o) sendReadyMail(o); return; }
+  if(a==="reset"){ if(!S.confirmReset){ S.confirmReset=true; render(); setTimeout(()=>{ if(S.confirmReset){ S.confirmReset=false; render(); } }, 8000); return; } S.confirmReset=false; await resetAll(); return; }
+});
+
+let typeT;
+document.addEventListener("input", ev => {
+  if(ev.target.id==="custName"||ev.target.id==="kName"){ S.cust.name=ev.target.value; pushCurrent(); return; }
+  if(ev.target.id==="custMail"||ev.target.id==="kMail"){ S.cust.email=ev.target.value.trim(); pushCurrent(); return; }
+  if(ev.target.id==="nameIn"){ S.cfg.text = ev.target.value;
+    const p=prodById(S.cfg.pid); const pv=$("#cfgPrev"); if(pv) pv.innerHTML=previewHTML(p.kind,S.cfg.color,{text:S.cfg.text.trim(),vinyl:S.cfg.vinyl,font:S.cfg.font,design:S.cfg.design?"":p.design},designOf(p,S.cfg.design));
+    clearTimeout(typeT); typeT=setTimeout(()=>{ const pos=ev.target.selectionStart; render(); const n=$("#nameIn"); if(n){ n.focus(); n.setSelectionRange(pos,pos);} }, 600);
+    pushCurrent(); }
+});
+document.addEventListener("change", async ev => {
+  const t = ev.target;
+  if(t.id==="needMake"){ S.cust.make = t.checked; pushCurrent(); return; }
+  if(t.id==="qrUpload" && t.files && t.files[0]){ await saveQR(t.files[0]); t.value=""; return; }
+  const a = t.dataset.act; if(!a) return;
+  if(a==="stock"){ const cat=clone(S.catalog), p=cat.products.find(x=>x.id===t.dataset.id); p.stock=p.stock||{}; p.stock[t.dataset.k]=Math.max(0,Math.round(Number(t.value)||0)); await saveCatalog(cat); }
+  if(a==="pfield"){ const cat=clone(S.catalog), p=cat.products.find(x=>x.id===t.dataset.id); p[t.dataset.f]=Number(t.value)||0; await saveCatalog(cat); }
+  if(a==="szfield"){ const cat=clone(S.catalog), p=cat.products.find(x=>x.id===t.dataset.id), f=t.dataset.f; p[f]=p[f]||{}; if(t.value==="") delete p[f][t.dataset.z]; else p[f][t.dataset.z]=Number(t.value)||0; await saveCatalog(cat); }
+  if(a==="ccost"){ const cat=clone(S.catalog), p=cat.products.find(x=>x.id===t.dataset.id); p.costs=p.costs||{}; if(t.value==="") delete p.costs[t.dataset.c]; else p.costs[t.dataset.c]=Number(t.value)||0; await saveCatalog(cat); }
+  if(a==="catfield"){ const cat=clone(S.catalog); cat[t.dataset.f]=Number(t.value)||0; await saveCatalog(cat); }
+  if(a==="cattext"){ const cat=clone(S.catalog); cat[t.dataset.f]=t.value.trim(); await saveCatalog(cat); toast("Opgeslagen"); }
+});
+document.addEventListener("submit", async ev => {
+  if(ev.target.id!=="addProd") return; ev.preventDefault();
+  const name=$("#np-name").value.trim(); if(!name) return;
+  const sizes=$("#np-sizes").value.split(",").map(s=>s.trim()).filter(Boolean), colors=$("#np-colors").value.split(",").map(s=>s.trim().toLowerCase()).filter(Boolean);
+  const stock={}; sizes.forEach(s=>colors.forEach(c=>stock[s+"|"+c]=0));
+  const cat = S.catalog ? clone(S.catalog) : {products:[], namePrice:5, nameCost:1};
+  cat.products.push({id:"p"+Date.now().toString(36), name, kind:$("#np-kind").value, price:Number($("#np-price").value)||0, cost:Number($("#np-cost").value)||0, sizes:sizes.length?sizes:["One size"], colors:colors.length?colors:["zwart"], stock});
+  await saveCatalog(cat); toast("Product toegevoegd. Vul nu de voorraad in.");
+});
+
+async function saveQR(file){
+  if(!/^image\/(png|jpeg)$/.test(file.type)){ toast("Kies een PNG- of JPG-afbeelding. Heb je een PDF? Maak er een screenshot van."); return; }
+  try{
+    const url = await new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.onerror=rej; r.readAsDataURL(file); });
+    const img = await new Promise((res,rej)=>{ const i=new Image(); i.onload=()=>res(i); i.onerror=rej; i.src=url; });
+    const max=700, k=Math.min(1, max/Math.max(img.width,img.height));
+    const c=document.createElement("canvas"); c.width=Math.round(img.width*k); c.height=Math.round(img.height*k);
+    const g=c.getContext("2d"); g.fillStyle="#fff"; g.fillRect(0,0,c.width,c.height); g.imageSmoothingEnabled=false; g.drawImage(img,0,0,c.width,c.height);
+    await S.db.doc("shop/qr").set({img:c.toDataURL("image/png"), updatedAt:Date.now()});
+    toast("QR-code opgeslagen. Hij verschijnt nu op het betaalscherm.");
+  }catch(e){ toast("De QR-code kon niet opgeslagen worden: "+errMsg(e)); }
+}
+async function completeSale(method){
+  if(!S.cart.length) return;
+  const items = clone(S.cart), total = cartTotal(), cost = S.cart.reduce((a,i)=>a+itemCost(i),0), ts=Date.now();
+  const cat = clone(S.catalog);
+  items.forEach(i=>{ const p=cat.products.find(x=>x.id===i.pid); const k=i.size+"|"+i.color; if(p&&p.stock&&k in p.stock) p.stock[k]=Math.max(0,Number(p.stock[k])-1); });
+  let saleRef;
+  const nr = [...S.sales, ...S.orders].reduce((m,o)=>Math.max(m,Number(o.nr)||0),0) + 1;
+  const make = wantsMake();
+  try{
+    saleRef = await S.db.collection("sales").add({ts, day:today(ts), items, total, cost, method, nr});
+  }catch(e){ toast(errMsg(e)); return; }
+  await saveCatalog(cat);
+  const email = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(S.cust.email) ? S.cust.email : "";
+  let madeOrder = false;
+  if(make){
+    try{ await S.db.collection("orders").add({nr, ts, items, name:S.cust.name.trim(), email, status:"todo", saleId:(saleRef&&saleRef.id)||null}); madeOrder = true; }
+    catch(e){ toast("Verkoop opgeslagen, maar de bestelling niet: "+errMsg(e)); }
+  }
+  S.cust={name:"",email:"",make:null};
+  S.cart=[]; S.cfg=null; S.status="paid"; render();
+  pushCurrent({lastCount:items.length, lastNr:nr, lastMake:madeOrder, lastMail:!!(madeOrder&&email)}, true);
+  toast(madeOrder?`Verkoop opgeslagen · bestelling #${nr} staat bij Nog te maken`:`Verkoop #${nr} van ${eur(total)} opgeslagen`);
+  setTimeout(()=>{ if(S.status==="paid"){ S.status="idle"; render(); pushCurrent(null,true); } }, 7000);
+}
+async function undoSale(id){
+  const s = S.sales.find(x=>x._id===id); if(!s) return;
+  const cat = clone(S.catalog);
+  (s.items||[]).forEach(i=>{ const p=cat.products.find(x=>x.id===i.pid); const k=i.size+"|"+i.color; if(p&&p.stock&&k in p.stock) p.stock[k]=Number(p.stock[k])+1; });
+  try{ await S.db.doc("sales/"+id).delete(); }catch(e){ toast(errMsg(e)); return; }
+  for(const o of S.orders.filter(o=>o.saleId===id)){ try{ await S.db.doc("orders/"+o._id).delete(); }catch(e){} }
+  await saveCatalog(cat); toast("Verkoop ongedaan gemaakt, voorraad teruggezet");
+}
+async function resetAll(){
+  const cat = clone(S.catalog), list = S.sales.slice();
+  for(const s of list){
+    try{ await S.db.doc("sales/"+s._id).delete(); }catch(e){ toast(errMsg(e)); break; }
+    (s.items||[]).forEach(i=>{ const p=cat.products.find(x=>x.id===i.pid); const k=i.size+"|"+i.color; if(p&&p.stock&&k in p.stock) p.stock[k]=Number(p.stock[k])+1; });
+  }
+  for(const o of S.orders.slice()){ try{ await S.db.doc("orders/"+o._id).delete(); }catch(e){} }
+  await saveCatalog(cat);
+  S.cart=[]; S.cfg=null; S.status="idle"; pushCurrent(null,true);
+  toast("Testverkopen gewist, voorraad teruggezet");
+}
+async function exportCSV(){
+  const rows=[["datum","tijd","betaling","product","maat","kleur","naam","prijs","kost"]];
+  S.sales.slice().sort((a,b)=>a.ts-b.ts).forEach(s=>(s.items||[]).forEach(i=>{ const d=new Date(s.ts);
+    rows.push([s.day, d.toLocaleTimeString("nl-BE",{hour:"2-digit",minute:"2-digit"}), s.method, i.name, i.size, i.color, i.personal?i.personal.text:"", itemPrice(i).toFixed(2).replace(".",","), itemCost(i).toFixed(2).replace(".",",")]); }));
+  const csv = rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(";")).join("\n");
+  try{ await S.dl.save({filename:"treasureshirt-verkopen.csv", data:csv}); }catch(e){ if(e&&e.code!=="declined") toast("Exporteren lukte niet."); }
+}
+
+/* ---------- boot ---------- */
+window.addEventListener("hashchange", setView);
+setView();
+(async () => {
+  const db = await window.claude?.use?.("db");
+  if(!db){ $("#app").innerHTML = `<div class="panel empty"><h2>Kassa niet beschikbaar</h2><p>Log in met je Treasureshirt-account om de kassa te gebruiken.</p></div>`; $("#synctxt").textContent="Niet verbonden"; return; }
+  S.db = db;
+  const user = await window.claude.use("user");
+  if(user){ const w = await user.can("data.write"); S.canWrite = w!==false; }
+  S.dl = await window.claude.use("downloads");
+  window.claude.use("mcp").then(m=>{ S.mcp = m || null; render(); }).catch(()=>{});
+  const loadT = setTimeout(()=>{ $("#synctxt").textContent="Geen verbinding, gegevens mogelijk niet actueel"; }, 10000);
+  const live = (on) => { S.live=on; $("#dot").classList.toggle("on",on); $("#synctxt").textContent = on ? "Live" : "Verbinden…"; };
+  db.doc("shop/catalog").onSnapshot(snap => {
+    if(!snap.metadata.fromCache){ clearTimeout(loadT); live(true); }
+    S.catalog = snap.exists ? clone(snap.data()) : null; S.catLoaded = true;
+    const ae = document.activeElement; if(S.view==="voorraad" && ae && ae.tagName==="INPUT" && !snap.metadata.hasPendingWrites) return;
+    if(!(S.view==="kassa" && ae && ae.id==="nameIn")) render();
+  }, e => { clearTimeout(loadT); live(false); $("#synctxt").textContent="Verbinding verbroken. Herlaad de pagina."; });
+  db.doc("shop/current").onSnapshot(snap => {
+    const d = snap.exists ? snap.data() : null; S.current = d;
+    const rv = d ? Number(d.rev||0) : 0;
+    if(d && d.wid!==S.wid && (rv > S.rev || !S.restored)){
+      S.restored = true; S.rev = Math.max(S.rev, rv);
+      const before = S.cart.length, wasStatus = S.status;
+      S.cart = Array.isArray(d.items) ? clone(d.items) : []; S.status = d.status || "idle";
+      if(d.cust) S.cust = Object.assign({name:"",email:"",make:null}, clone(d.cust));
+      if(S.view!=="klant" && d.by==="klant"){
+        if(S.status==="pay" && wasStatus!=="pay") toast("De klant wil betalen");
+        else if(S.cart.length > before) toast("De klant heeft iets in het mandje gelegd");
+      }
+    }
+    S.restored = true;
+    const ae=document.activeElement; if(!(ae && ae.tagName==="INPUT")) render();
+  }, ()=>{});
+  db.collection("sales").onSnapshot(snap => {
+    S.sales = snap.docs.map(d=>Object.assign({_id:d.id}, d.data())); S.salesLoaded = true;
+    if(S.view==="voorraad" && !(document.activeElement && document.activeElement.tagName==="INPUT")) render();
+  }, ()=>{});
+  db.doc("shop/qr").onSnapshot(snap => { S.qr = snap.exists ? (snap.data().img||null) : null; const ae=document.activeElement; if(!(ae && ae.tagName==="INPUT" && ae.type!=="file")) render(); }, ()=>{});
+  db.collection("orders").onSnapshot(snap => {
+    S.orders = snap.docs.map(d=>Object.assign({_id:d.id}, d.data())); updateOrdCount();
+    const ae=document.activeElement; if(["bestellingen","klant","kassa"].includes(S.view) && !(ae && ae.tagName==="INPUT")) render();
+  }, ()=>{});
+  try{ const wl = await navigator.wakeLock?.request("screen"); }catch(e){}
+})();
+})();
+</script>
+
+</body></html>
