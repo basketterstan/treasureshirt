@@ -216,7 +216,7 @@
 
     <!-- VOORRAAD -->
     <div style="height:2.5rem"></div>
-    <div class="section-header">
+    <div class="section-header" id="voorraad" style="scroll-margin-top:80px">
       <h2>Voorraad <span>webshop + kassa</span></h2>
     </div>
     <p style="color:var(--gray);font-size:.8rem;margin-bottom:1rem">Eén voorraad voor de webshop én de kassa op de kerstmarkt: wat je hier invult, zie je meteen in beide. Elke verkoop (online of aan de kassa) telt automatisch af. Leeg vakje = onbeperkt, 0 = uitverkocht.</p>
@@ -356,6 +356,7 @@ function startStockListener() {
     const box = document.getElementById('stockContainer');
     if (box.contains(document.activeElement) && document.activeElement.tagName === 'INPUT') return;
     renderStock();
+    if (location.hash === '#voorraad' && !window.__stockScrolled) { window.__stockScrolled = true; document.getElementById('voorraad').scrollIntoView(); }
   }, e => { document.getElementById('stockContainer').innerHTML = `<p class="loading">Voorraad kon niet laden: ${esc(e.message)}</p>`; });
 }
 function renderStock() {
