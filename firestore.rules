@@ -50,6 +50,8 @@ service cloud.firestore {
 
     // Kassa (kassa.html): only the admin.
     match /kassa_shop/{id} { allow read, write: if isAdmin(); }
+    // Voorraad voor de webshop: iedereen mag lezen, alleen de admin (en de server) schrijft.
+    match /public/{id} { allow read: if true; allow write: if isAdmin(); }
     match /kassa_sales/{id} { allow read, write: if isAdmin(); }
     match /kassa_orders/{id} { allow read, write: if isAdmin(); }
 

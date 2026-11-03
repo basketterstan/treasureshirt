@@ -96,6 +96,7 @@ exports.createCheckout = onRequest(
       const catalog = await getCatalog();
       const line_items = [];
       const customIds = [];
+      const stockLines = [];
 
       for (const item of items) {
         const quantity = Math.min(Math.max(parseInt(item.quantity, 10) || 1, 1), 20);
@@ -114,6 +115,8 @@ exports.createCheckout = onRequest(
         const p = catalog.find(x => String(x.id) === String(item.id));
         if (!p) throw new Error('Een product in je winkelwagen bestaat niet meer. Verwijder het en probeer opnieuw.');
         line = priceLine(p, item);
+        const sk = stockKey(p, item);
+        if (sk) stockLines.push({ ...sk, qty: quantity, label: line.name });
         line_items.push({ price_data: { currency: 'eur', product_data: { name: line.name }, unit_amount: line.unit_amount }, quantity });
       }
       if (SHIPPING[levering]) {
@@ -136,6 +139,19 @@ exports.createCheckout = onRequest(
         throw new Error('Vul je naam, e-mailadres en telefoonnummer in.');
       }
 
+      // Genoeg voorraad?
+      if (stockLines.length) {
+        const cs = await db.doc('kassa_shop/catalog').get();
+        const prods = cs.exists ? (cs.data().products || []) : [];
+        const need = {};
+        stockLines.forEach(l => { const k = l.id + '§' + l.key; need[k] = (need[k] || 0) + l.qty; });
+        for (const l of stockLines) {
+          const p = prods.find(x => x.id === l.id); const v = p && p.stock ? p.stock[l.key] : undefined;
+          if (v !== undefined && v !== null && Number(v) < need[l.id + '§' + l.key]) {
+            throw new Error(Number(v) <= 0 ? `${l.label} is uitverkocht.` : `Van ${l.label} hebben we er nog maar ${v}.`);
+          }
+        }
+      }
       const stripe = Stripe(stripeSecret.value());
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card', 'bancontact'],
@@ -148,6 +164,7 @@ exports.createCheckout = onRequest(
         metadata,
         ...(email ? { customer_email: email } : {}),
       });
+      if (stockLines.length) await db.doc(`pending_stock/${session.id}`).set({ lines: stockLines.map(({ id, key, qty }) => ({ id, key, qty })), createdAt: Date.now() });
       res.json({ url: session.url });
     } catch (err) {
       console.error(err);
@@ -155,6 +172,38 @@ exports.createCheckout = onRequest(
     }
   }
 );
+
+// ── VOORRAAD ─────────────────────────────────────────
+// Eén voorraadlijst voor webshop en kassa: kassa_shop/catalog (products[].stock, "maat|kleur" → aantal).
+// public/stock is een leesbare kopie voor de webshop. Geen getal = onbeperkt.
+function stockKey(p, item) {
+  const t = (p.types || []).find(t => t.id === item.variantType);
+  const id = (t && t.stockId) || p.stockId;
+  if (!id) return null;
+  const size = item.size || ((p.types || []).length && !(p.sizes || []).length ? item.variantType : 'One size');
+  return { id, key: `${size}|${item.color || ''}` };
+}
+function publicStock(cat) {
+  const out = {};
+  (cat.products || []).forEach(p => { if (p.stock && Object.keys(p.stock).length) out[p.id] = p.stock; });
+  return { json: JSON.stringify(out), updatedAt: Date.now() };
+}
+// Decrease stock for sold items ([{id, key, qty}]). Entries without a number stay unlimited.
+async function takeStock(lines) {
+  if (!lines.length) return;
+  const ref = db.doc('kassa_shop/catalog');
+  await db.runTransaction(async tx => {
+    const snap = await tx.get(ref);
+    if (!snap.exists) return;
+    const cat = snap.data();
+    lines.forEach(l => {
+      const p = (cat.products || []).find(x => x.id === l.id);
+      if (p && p.stock && l.key in p.stock) p.stock[l.key] = Math.max(0, Number(p.stock[l.key]) - l.qty);
+    });
+    tx.set(ref, cat);
+    tx.set(db.doc('public/stock'), publicStock(cat));
+  });
+}
 
 // ── KASSA: "bestelling klaar"-mail vanuit kassa.html ─────
 // Only the admin (verified Firebase ID token) may send, and only from our domain.
@@ -185,6 +234,62 @@ exports.sendKassaMail = onRequest(
   }
 );
 
+// ── KASSA: Bancontact-QR op het klantscherm ──────────
+// POST (admin, Bearer ID token) {amount, items}   → maakt een Stripe-betaling en geeft {id, qr}
+// GET  ?status=<id> (admin, Bearer ID token)      → {status: 'open' | 'paid' | 'expired'}
+// GET  ?go=<id>     (publiek, vanuit de QR-code)  → stuurt de klant door naar de Stripe-betaalpagina
+// De QR-code verwijst naar ?go= zodat ze kort en goed scanbaar blijft.
+const KASSA_URL = 'https://kassapayment-kelvdlqp7a-uc.a.run.app';
+exports.kassaPayment = onRequest(
+  { secrets: [stripeSecret], cors: true, invoker: 'public' },
+  async (req, res) => {
+    const stripe = Stripe(stripeSecret.value());
+    try {
+      const go = String(req.query.go || '');
+      if (req.method === 'GET' && go) {
+        if (!/^cs_[A-Za-z0-9_]+$/.test(go)) return res.status(400).send('Ongeldige betaling');
+        const s = await stripe.checkout.sessions.retrieve(go);
+        if (!s.metadata || s.metadata.bron !== 'kassa') return res.status(404).send('Onbekende betaling');
+        if (s.status === 'open' && s.url) return res.redirect(302, s.url);
+        res.set('Content-Type', 'text/html; charset=utf-8');
+        return res.send(`<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="font-family:system-ui;text-align:center;padding:3rem 1rem"><h1>${s.payment_status === 'paid' ? '✅ Al betaald — dank je!' : 'Deze betaling is verlopen'}</h1><p>Treasureshirt</p></body>`);
+      }
+
+      const token = (req.headers.authorization || '').replace(/^Bearer\s+/i, '');
+      const user = await admin.auth().verifyIdToken(token);
+      if (!ADMIN_EMAILS.includes(String(user.email || '').toLowerCase())) return res.status(403).json({ error: 'Geen toegang' });
+
+      const id = String(req.query.status || '');
+      if (req.method === 'GET' && id) {
+        if (!/^cs_[A-Za-z0-9_]+$/.test(id)) return res.status(400).json({ error: 'Ongeldige betaling' });
+        const s = await stripe.checkout.sessions.retrieve(id);
+        if (!s.metadata || s.metadata.bron !== 'kassa') return res.status(404).json({ error: 'Onbekende betaling' });
+        return res.json({ status: s.payment_status === 'paid' ? 'paid' : (s.status === 'expired' ? 'expired' : 'open') });
+      }
+
+      if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+      const b = req.body || {};
+      const cents = Math.round(Number(b.amount) * 100);
+      if (!Number.isFinite(cents) || cents < 50 || cents > 200000) return res.status(400).json({ error: 'Ongeldig bedrag' });
+      const desc = clean(Array.isArray(b.items) ? b.items.join(', ') : 'Aankoop kerstmarkt', 300) || 'Aankoop kerstmarkt';
+      const session = await stripe.checkout.sessions.create({
+        mode: 'payment',
+        payment_method_types: ['bancontact', 'card'],
+        line_items: [{ price_data: { currency: 'eur', product_data: { name: 'Treasureshirt — kerstmarkt', description: desc }, unit_amount: cents }, quantity: 1 }],
+        locale: 'nl',
+        success_url: `${SITE_URL}/bedankt.html`,
+        cancel_url:  `${SITE_URL}/bedankt.html?geannuleerd=1`,
+        expires_at: Math.floor(Date.now() / 1000) + 31 * 60,
+        metadata: { bron: 'kassa' },
+      });
+      res.json({ id: session.id, qr: `${KASSA_URL}/?go=${session.id}` });
+    } catch (err) {
+      console.error(err);
+      res.status(400).json({ error: err.message });
+    }
+  }
+);
+
 // ── STRIPE WEBHOOK ───────────────────────────────────
 exports.stripeWebhook = onRequest(
   { secrets: [stripeSecret, webhookSecret, resendKey], cors: false, invoker: 'public' },
@@ -198,7 +303,12 @@ exports.stripeWebhook = onRequest(
       console.error('Webhook error:', err.message);
       return res.status(400).send(`Webhook Error: ${err.message}`);
     }
-    if (event.type === 'checkout.session.completed') await handleOrderComplete(event.data.object);
+    if (event.type === 'checkout.session.completed') {
+      const obj = event.data.object;
+      // Kassa payments (QR on the market iPad) are booked in the kassa itself, not as webshop orders.
+      if (obj.metadata && obj.metadata.bron === 'kassa') return res.json({ received: true });
+      await handleOrderComplete(obj);
+    }
     res.json({ received: true });
   }
 );
@@ -216,6 +326,11 @@ async function handleOrderComplete(session) {
   // Stripe can deliver the same event twice; only handle a session once.
   const existing = await db.collection('orders').where('sessionId', '==', session.id).limit(1).get();
   if (!existing.empty) return;
+
+  try {
+    const ps = await db.doc(`pending_stock/${session.id}`).get();
+    if (ps.exists) { await takeStock(ps.data().lines || []); await ps.ref.delete(); }
+  } catch (e) { console.error('Voorraad bijwerken mislukt:', e); }
 
   const stripe = Stripe(stripeSecret.value());
   const lineItemsResp = await stripe.checkout.sessions.listLineItems(session.id, { limit: 100 });

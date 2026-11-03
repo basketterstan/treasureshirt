@@ -9,10 +9,12 @@ toggle?.addEventListener('click', () => {
 // Highlight the current page in the nav
 (() => {
   const here = location.pathname.split('/').pop() || 'index.html';
-  const isKerst = new URLSearchParams(location.search).get('c') === 'kerst';
+  const cur = new URLSearchParams(location.search).get('c');
+  const isKerst = cur === 'kerst';
   document.querySelectorAll('.nav-links a').forEach(a => {
     const [file, q] = a.getAttribute('href').split('?');
-    if (file === here && !a.classList.contains('nav-kerst') && !(isKerst && file === 'shop.html')) a.classList.add('active');
+    const want = new URLSearchParams(q || '').get('c');
+    if (file === here && !a.classList.contains('nav-kerst') && (want ? want === cur : !(isKerst && file === 'shop.html'))) a.classList.add('active');
     if (q && isKerst && a.classList.contains('nav-kerst')) a.setAttribute('aria-current', 'page');
   });
 })();

@@ -21,6 +21,7 @@
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
+      <li><a href="shop.html?c=kids">Kids</a></li>
       <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
       <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -127,17 +128,20 @@
     const params = new URLSearchParams(location.search);
     let all = [];
     try { all = await Catalog.load(); } catch { all = []; }
+    let stock = {};
+    try { stock = (await Promise.race([Stock.load(), new Promise(r => setTimeout(() => r({}), 1500))])) || {}; } catch {}
+    Stock.load().then(x => { stock = x || {}; });
 
     // One card per product *and* per soort (T-shirt, Hoodie, Trui), so hoodies and
     // truien are visible in the grid. Gifts (beer, schort, tas) stay one card each.
-    const GARMENT = { tee: 'T-shirts', hoodie: 'Hoodies', trui: 'Truien', kids: 'Kinderen', kidshoodie: 'Kinderen', kidstrui: 'Kinderen' };
+    const GARMENT = { tee: 'T-shirts', hoodie: 'Hoodies', trui: 'Truien', kids: 'Kids', kidshoodie: 'Kids', kidstrui: 'Kids' };
     const cards = [];
     all.forEach(p => {
       const garments = (p.types || []).filter(t => GARMENT[t.id]);
       if (garments.length) garments.forEach(t => cards.push({ p, type: t, group: GARMENT[t.id] }));
       else cards.push({ p, type: null, group: p.group || 'Cadeaus' });
     });
-    const groups = ['Alles', ...['T-shirts', 'Hoodies', 'Truien', 'Kinderen', 'Cadeaus'].filter(g => cards.some(c => c.group === g))];
+    const groups = ['Alles', ...['T-shirts', 'Hoodies', 'Truien', 'Kids', 'Cadeaus'].filter(g => cards.some(c => c.group === g))];
     const wanted = (params.get('c') || '').toLowerCase();
     let active = groups.find(g => g.toLowerCase() === wanted) || 'Alles';
 
@@ -262,7 +266,7 @@
         const sizes = sizesFor();
         if (sizes.length) {
           opts.push(`<div><p class="opt-label">Maat</p><div class="opt-grid">${sizes.map(s => {
-            const stock = p.stockPerSize?.[s]; const out = stock !== undefined && stock !== null && stock <= 0;
+            const l = Stock.left(stock, p, { ...sel, size: s }); const out = l !== null && l <= 0;
             return `<button class="opt-btn ${s === sel.size ? 'active' : ''}" data-size="${esc(s)}" ${out ? 'disabled' : ''}>${esc(s)}${out ? '<small>op</small>' : ''}</button>`;
           }).join('')}</div></div>`);
         }
@@ -292,6 +296,8 @@
         if (sizesFor().length && !sel.size) {
           hint.textContent = 'Kies eerst je maat.'; hint.classList.add('show'); return;
         }
+        const l = Stock.left(stock, p, sel);
+        if (l !== null && l <= 0) { hint.textContent = 'Deze keuze is uitverkocht. Kies een andere maat of kleur.'; hint.classList.add('show'); return; }
         const t = p.types?.find(t => t.id === sel.type);
         const c = p.colors?.find(c => c.id === sel.color);
         const personalName = sel.personalName.trim();

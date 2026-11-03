@@ -55,3 +55,33 @@ const Catalog = (() => {
 
   return { load, priceFor, fromPrice, imageFor, modelFor, typesFor, euro, esc };
 })();
+
+// Voorraad: één lijst voor webshop én kassa (Firestore public/stock, bijgehouden door admin,
+// kassa en de betaal-webhook). Een maat/kleur zonder getal = onbeperkt.
+const Stock = (() => {
+  let cache = null;
+  async function load() {
+    if (cache) return cache;
+    try {
+      const r = await fetch('https://firestore.googleapis.com/v1/projects/treasureshirt-68b83/databases/(default)/documents/public/stock', { cache: 'no-cache' });
+      const j = await r.json();
+      cache = JSON.parse(j.fields?.json?.stringValue || '{}');
+    } catch { cache = {}; }
+    return cache;
+  }
+  // Which stock entry a webshop choice uses: [kassa product id, "maat|kleur"]
+  function keyFor(p, sel) {
+    const t = (p.types || []).find(t => t.id === sel.type);
+    const id = (t && t.stockId) || p.stockId;
+    if (!id) return null;
+    const size = sel.size || ((p.types || []).length && !(p.sizes || []).length ? sel.type : 'One size');
+    return [id, `${size}|${sel.color || ''}`];
+  }
+  // Number left, or null when unlimited / unknown.
+  function left(stock, p, sel) {
+    const k = keyFor(p, sel); if (!k || !stock) return null;
+    const v = stock[k[0]]?.[k[1]];
+    return v === undefined || v === null ? null : Number(v);
+  }
+  return { load, keyFor, left };
+})();

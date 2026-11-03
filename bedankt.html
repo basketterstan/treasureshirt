@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bedankt — Treasureshirt</title>
+  <meta name="description" content="Bedankt voor je aankoop bij Treasureshirt." />
+  <meta property="og:title" content="Bedankt — Treasureshirt" />
+  <meta property="og:description" content="Bedankt voor je aankoop bij Treasureshirt." />
+  <meta property="og:image" content="https://treasureshirt.com/images/kerst/kerstzin-tee-groen.jpg" />
+  <meta name="theme-color" content="#0d0d0f" />
+  <link rel="icon" href="images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Treasureshirt</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
+      <li><a href="shop.html?c=kids">Kids</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:1rem;align-items:center">
+      <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
+      <button class="nav-cart" id="cartBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Winkelwagen</h3>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Totaal</span>
+          <span class="cart-total-amount" id="cartTotal">€ 0</span>
+        </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (België € 7, Nederland € 14,99). Verzenden: bestel vóór 8 december.</p>
+        <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
+      </div>
+    </div>
+  </div>
+
+
+  <main class="section" style="min-height:60vh;display:flex;align-items:center">
+    <div class="container" style="text-align:center;max-width:560px">
+      <p style="font-size:3rem;margin:0" id="bdIcon">✅</p>
+      <h1 class="section-title" id="bdTitle">Betaald — dank je wel!</h1>
+      <p class="section-sub" id="bdText">Je betaling is gelukt. Je mag je gsm wegsteken; aan de kassa zien we dat het in orde is. Veel plezier ermee en een fijne kerst! 🎄</p>
+      <a class="btn btn-primary" href="shop.html" style="margin-top:1.5rem">Bekijk de webshop</a>
+    </div>
+  </main>
+  <script>
+    if (new URLSearchParams(location.search).has('geannuleerd')) {
+      document.getElementById('bdIcon').textContent = '↩️';
+      document.getElementById('bdTitle').textContent = 'Betaling geannuleerd';
+      document.getElementById('bdText').textContent = 'Er is niets betaald. Scan de QR-code opnieuw of reken af aan de kassa.';
+    }
+  </script>
+
+  <footer>
+    <span class="footer-logo">Treasureshirt</span>
+    <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-socials"><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a></div>
+    <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
+      <a href="privacy.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Retourbeleid</a>
+    </div>
+  </footer>
+
+  <div class="cart-toast" id="cartToast"></div>
+  <div class="toast" id="toast"></div>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
