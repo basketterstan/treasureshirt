@@ -302,6 +302,9 @@ details summary{cursor:pointer;font-weight:700}
     out.id = 'tsLogout'; out.textContent = 'Uitloggen';
     out.onclick = () => auth.signOut().then(() => location.reload());
     document.body.appendChild(out);
+    // Not on the customer screen (iPad): customers shouldn't see or tap it.
+    const toggleOut = () => { out.style.display = location.hash === '#klant' ? 'none' : ''; };
+    toggleOut(); window.addEventListener('hashchange', toggleOut);
     resolveReady();
   });
 })();
