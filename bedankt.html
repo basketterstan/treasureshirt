@@ -75,6 +75,8 @@
   </div>
   <script>
     const q = new URLSearchParams(location.search);
+    // Bancontact-pagina die op de iPad in een apart tabblad stond: na betalen dat tabblad sluiten.
+    if (q.has('sluit')) { try { window.close(); } catch {} document.getElementById('bdText').textContent = 'Je betaling is gelukt. Je mag dit tabblad sluiten; de kassa staat in het andere tabblad.'; }
     // Teruggekomen van een Bancontact-betaling aan de kerstmarktkassa (via de QR-code).
     if (q.has('payment_intent')) {
       if (q.get('redirect_status') === 'succeeded') {

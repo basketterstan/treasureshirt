@@ -303,19 +303,18 @@ exports.kassaPayment = onRequest(
       const cents = Math.round(Number(b.amount) * 100);
       if (!Number.isFinite(cents) || cents < 50 || cents > 200000) return res.status(400).json({ error: 'Ongeldig bedrag' });
       const desc = clean(Array.isArray(b.items) ? b.items.join(', ') : 'Aankoop kerstmarkt', 300) || 'Aankoop kerstmarkt';
-      // mode 'bancontact': rechtstreeks Bancontact; Stripe geeft de Bancontact-pagina met QR terug.
-      // mode 'checkout': Stripe Checkout, de klant scant onze QR met de camera.
-      // Zonder verplicht e-mailadres: rechtstreeks Bancontact. 'bancontact' = de iPad opent de Stripe/Bancontact-pagina
-      // (QR voor de app) en keert terug naar het klantscherm; 'checkout' = de klant scant onze QR met de gsm-camera,
-      // betaalt in de Bancontact-app en komt op bedankt.html (daar kan hij vrijwillig zijn e-mail geven).
-      try {
-        const onPhone = b.mode === 'checkout';
+      // Drie manieren:
+      //  'checkout'   → Stripe-betaalpagina met keuze (Bancontact, kaart, Apple Pay, Google Pay); klant scant onze QR met de camera.
+      //  'phone'      → rechtstreeks naar Bancontact (geen e-mail); klant scant onze QR met de camera, komt daarna op bedankt.html.
+      //  'bancontact' → de iPad opent de Bancontact-pagina van Stripe met QR voor de Bancontact/Payconiq-app.
+      if (b.mode !== 'checkout') try {
+        const onPhone = b.mode === 'phone';
         const pi = await stripe.paymentIntents.create({
           amount: cents, currency: 'eur',
           payment_method_types: ['bancontact'],
           payment_method_data: { type: 'bancontact', billing_details: { name: 'Klant kerstmarkt Landen' } },
           confirm: true,
-          return_url: onPhone ? `${SITE_URL}/bedankt.html?kassa=1` : `${SITE_URL}/kassa.html#klant`,
+          return_url: onPhone ? `${SITE_URL}/bedankt.html?kassa=1` : `${SITE_URL}/bedankt.html?sluit=1`,
           description: `Treasureshirt kerstmarkt — ${desc}`.slice(0, 1000),
           metadata: { bron: 'kassa' },
         });
