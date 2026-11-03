@@ -339,6 +339,8 @@ details summary{cursor:pointer;font-weight:700}
     const sp = matchPay(total); if (!sp) return '';
     const back = `<button class="btn ghost" data-act="unpay" style="margin-top:24px;color:inherit;border-color:currentColor">Toch nog iets wijzigen</button>`;
     if (sp.status === 'creating') return `<div class="k-pay"><div><div class="eyebrow" style="color:inherit;opacity:.8">Te betalen</div><div class="amt num">${euroTxt(total)}</div><p style="font-size:18px;margin-top:16px">Even geduld, de QR-code wordt gemaakt…</p>${back}</div></div>`;
+    if (sp.status === 'open' && sp.bcUrl) return `<div class="k-pay"><div><div class="eyebrow" style="color:inherit;opacity:.8">Te betalen</div><div class="amt num">${euroTxt(total)}</div><p style="font-size:18px;margin-top:16px">Scan de Bancontact-QR met je Bancontact- of Payconiq-app.<br>Of houd je kaart of gsm tegen de iPhone. Cash kan ook.</p>${back}</div></div>`;
+    if (sp.status === 'failed') return `<div class="k-pay"><div><div class="amt">Betaling niet gelukt</div><p style="font-size:18px;margin-top:16px">Probeer opnieuw aan de kassa, met je kaart of cash.</p>${back}</div></div>`;
     if (sp.status === 'open' && sp.qr && window.tsQR) return `<div class="k-pay"><div><div class="paygrid">
         <div class="qrcard"><div style="width:min(42vw,300px)">${window.tsQR(sp.qr)}</div><b>Scan met je gsm</b><span style="font-size:15px">Betaal met Bancontact of je kaart</span></div>
         <div><div class="eyebrow" style="color:inherit;opacity:.8">Te betalen</div><div class="amt num">${euroTxt(total)}</div>
@@ -349,7 +351,9 @@ details summary{cursor:pointer;font-weight:700}
   window.__tsPayBanner = total => {
     const sp = matchPay(total); if (!sp) return '';
     if (sp.status === 'creating') return 'Bancontact-QR wordt gemaakt…';
-    if (sp.status === 'open') return 'De klant ziet een Bancontact-QR met dit bedrag. Zodra er betaald is, wordt de verkoop vanzelf opgeslagen als Bancontact.';
+    if (sp.status === 'open') return 'De klant ziet de Bancontact-QR van Stripe met dit bedrag (scannen met de Bancontact- of Payconiq-app). Zodra er betaald is, wordt de verkoop vanzelf opgeslagen als Bancontact.';
+    if (sp.status === 'failed') return 'De Bancontact-betaling is niet gelukt of geannuleerd. Tik op Wijzigen en daarna opnieuw op betalen voor een nieuwe QR, of reken anders af.';
+    if (sp.status === 'expired') return 'De Bancontact-betaling is verlopen. Tik op Wijzigen en daarna opnieuw op betalen.';
     if (sp.status === 'paid' || sp.status === 'done') return '✅ Betaald met Bancontact via de QR-code.';
     if (sp.status === 'error') return 'De QR-code lukte niet (' + sp.error + '). Tik het bedrag in Revolut of reken cash af.';
     return '';
@@ -420,12 +424,12 @@ details summary{cursor:pointer;font-weight:700}
       const amount = Math.round(Number(c.total) * 100) / 100;
       if (!(amount >= 0.5)) return;
       const sp = window.__stripePay;
-      if (sp && ['creating', 'open', 'paid', 'done'].includes(sp.status) && same(sp.amount, amount) && Date.now() - (sp.createdAt || 0) < 25 * 60e3) return;
+      if (sp && ['creating', 'open', 'paid', 'done', 'failed'].includes(sp.status) && same(sp.amount, amount) && Date.now() - (sp.createdAt || 0) < 25 * 60e3) return;
       let mine = false;
       try {
         await fs.runTransaction(async tx => {
           const s = await tx.get(spRef); const d = s.exists ? s.data() : null;
-          if (d && ['creating', 'open', 'paid', 'done'].includes(d.status) && same(d.amount, amount) && Date.now() - (d.createdAt || 0) < 25 * 60e3) return;
+          if (d && ['creating', 'open', 'paid', 'done', 'failed'].includes(d.status) && same(d.amount, amount) && Date.now() - (d.createdAt || 0) < 25 * 60e3) return;
           tx.set(spRef, { status: 'creating', amount, createdAt: Date.now(), by: me });
           mine = true;
         });
@@ -437,7 +441,7 @@ details summary{cursor:pointer;font-weight:700}
         const r = await fetch(PAY_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify({ amount, items: names }) });
         const j = await r.json();
         if (!r.ok || !j.id) throw new Error(j.error || 'Stripe gaf geen betaling terug');
-        await spRef.set({ status: 'open', amount, createdAt: Date.now(), by: me, id: j.id, qr: j.qr });
+        await spRef.set({ status: 'open', amount, createdAt: Date.now(), by: me, id: j.id, qr: j.qr || '', bcUrl: j.bcUrl || '' });
       } catch (e) {
         await spRef.set({ status: 'error', amount, createdAt: Date.now(), by: me, error: String(e.message || e) }).catch(() => {});
       }
@@ -451,6 +455,12 @@ details summary{cursor:pointer;font-weight:700}
     spRef.onSnapshot(async s => {
       const sp = window.__stripePay = s.exists ? s.data() : null;
       rerender();
+      // Klantscherm: open de Bancontact-pagina van Stripe (met QR voor de Bancontact- of Payconiq-app).
+      // Na de betaling stuurt Stripe de iPad terug naar kassa.html#klant.
+      if (sp && sp.status === 'open' && sp.bcUrl && isKlant()) {
+        let seen = ''; try { seen = sessionStorage.getItem('tsBc') || ''; } catch {}
+        if (seen !== sp.id) { try { sessionStorage.setItem('tsBc', sp.id); } catch {} location.href = sp.bcUrl; return; }
+      }
       // Betaald: de kassa (niet het klantscherm) boekt de verkoop één keer als Bancontact.
       if (sp && sp.status === 'paid' && !isKlant() && lastCur && lastCur.status === 'pay' && same(lastCur.total, sp.amount)) {
         let claim = false;
@@ -474,7 +484,7 @@ details summary{cursor:pointer;font-weight:700}
         const token = await auth.currentUser.getIdToken();
         const r = await fetch(PAY_URL + '/?status=' + encodeURIComponent(sp.id), { headers: { Authorization: 'Bearer ' + token } });
         const j = await r.json();
-        if (j.status === 'paid' || j.status === 'expired') {
+        if (j.status === 'paid' || j.status === 'expired' || j.status === 'failed') {
           await fs.runTransaction(async tx => {
             const d = (await tx.get(spRef)).data();
             if (d && d.id === sp.id && d.status === 'open') tx.update(spRef, { status: j.status });

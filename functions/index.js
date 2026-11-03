@@ -235,8 +235,10 @@ exports.sendKassaMail = onRequest(
 );
 
 // ── KASSA: Bancontact-QR op het klantscherm ──────────
-// POST (admin, Bearer ID token) {amount, items}   → maakt een Stripe-betaling en geeft {id, qr}
-// GET  ?status=<id> (admin, Bearer ID token)      → {status: 'open' | 'paid' | 'expired'}
+// POST (admin, Bearer ID token) {amount, items}   → maakt een Bancontact-betaling via Stripe en geeft
+//      {id, bcUrl}: de Bancontact-betaalpagina met QR (scannen met de Bancontact- of Payconiq-app).
+//      Lukt dat niet, dan een Stripe Checkout met {id, qr} (scannen met de camera).
+// GET  ?status=<id> (admin, Bearer ID token)      → {status: 'open' | 'paid' | 'failed' | 'expired'}
 // GET  ?go=<id>     (publiek, vanuit de QR-code)  → stuurt de klant door naar de Stripe-betaalpagina
 // De QR-code verwijst naar ?go= zodat ze kort en goed scanbaar blijft.
 const KASSA_URL = 'https://kassapayment-kelvdlqp7a-uc.a.run.app';
@@ -261,6 +263,14 @@ exports.kassaPayment = onRequest(
 
       const id = String(req.query.status || '');
       if (req.method === 'GET' && id) {
+        if (/^pi_[A-Za-z0-9_]+$/.test(id)) {
+          const pi = await stripe.paymentIntents.retrieve(id);
+          if (!pi.metadata || pi.metadata.bron !== 'kassa') return res.status(404).json({ error: 'Onbekende betaling' });
+          const st = pi.status === 'succeeded' ? 'paid'
+            : pi.status === 'canceled' ? 'expired'
+            : (pi.status === 'requires_payment_method' && pi.last_payment_error) ? 'failed' : 'open';
+          return res.json({ status: st });
+        }
         if (!/^cs_[A-Za-z0-9_]+$/.test(id)) return res.status(400).json({ error: 'Ongeldige betaling' });
         const s = await stripe.checkout.sessions.retrieve(id);
         if (!s.metadata || s.metadata.bron !== 'kassa') return res.status(404).json({ error: 'Onbekende betaling' });
@@ -272,6 +282,20 @@ exports.kassaPayment = onRequest(
       const cents = Math.round(Number(b.amount) * 100);
       if (!Number.isFinite(cents) || cents < 50 || cents > 200000) return res.status(400).json({ error: 'Ongeldig bedrag' });
       const desc = clean(Array.isArray(b.items) ? b.items.join(', ') : 'Aankoop kerstmarkt', 300) || 'Aankoop kerstmarkt';
+      // Eerst: rechtstreeks Bancontact. Stripe geeft de Bancontact-pagina met QR terug.
+      try {
+        const pi = await stripe.paymentIntents.create({
+          amount: cents, currency: 'eur',
+          payment_method_types: ['bancontact'],
+          payment_method_data: { type: 'bancontact', billing_details: { name: 'Klant kerstmarkt Landen' } },
+          confirm: true,
+          return_url: `${SITE_URL}/kassa.html#klant`,
+          description: `Treasureshirt kerstmarkt — ${desc}`.slice(0, 1000),
+          metadata: { bron: 'kassa' },
+        });
+        const bcUrl = pi.next_action && pi.next_action.redirect_to_url && pi.next_action.redirect_to_url.url;
+        if (bcUrl) return res.json({ id: pi.id, bcUrl });
+      } catch (e) { console.error('Bancontact rechtstreeks mislukt, val terug op Checkout:', e.message); }
       const session = await stripe.checkout.sessions.create({
         mode: 'payment',
         payment_method_types: ['bancontact', 'card'],
