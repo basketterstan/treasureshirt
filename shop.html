@@ -22,6 +22,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
       <li><a href="shop.html?c=kids">Kids</a></li>
+      <li><a href="shop.html?c=dieren">Dieren</a></li>
       <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
       <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -143,12 +144,13 @@
       const g = new Set((p.types || []).map(t => GARMENT[t.id]).filter(Boolean));
       if (!g.size) g.add(p.group || 'Cadeaus');
       if (p.group === 'Kids') g.add('Kids');
+      if (p.category === 'Dieren') g.add('Dieren');
       return g;
     };
     const firstTypeIn = (p, group) => (p.types || []).find(t => GARMENT[t.id] === group) || null;
     const cards = all.map(p => ({ p, groups: groupsOf(p) }));
     const countIn = g => g === 'Alles' ? cards.length : cards.filter(c => c.groups.has(g)).length;
-    const groups = ['Alles', ...['T-shirts', 'Hoodies', 'Truien', 'Kids', 'Cadeaus'].filter(g => countIn(g))];
+    const groups = ['Alles', ...['Dieren', 'T-shirts', 'Hoodies', 'Truien', 'Kids', 'Cadeaus'].filter(g => countIn(g))];
     const wanted = (params.get('c') || '').toLowerCase();
     let active = groups.find(g => g.toLowerCase() === wanted) || 'Alles';
 
@@ -157,8 +159,9 @@
 
     function setHeader() {
       document.getElementById('marketBanner').hidden = active !== 'Alles';
-      document.getElementById('shopLabel').textContent = 'Kerstcollectie 2026';
-      document.getElementById('shopTitle').innerHTML = active === 'Alles' ? 'Kerst, maar dan <em>grappig</em>' : `Onze <em>${esc(active.toLowerCase())}</em>`;
+      document.getElementById('shopLabel').textContent = active === 'Dieren' ? 'Nieuw · rugprints voor elke dag' : 'Kerstcollectie 2026';
+      document.getElementById('shopTitle').innerHTML = active === 'Alles' ? 'Kerst, maar dan <em>grappig</em>'
+        : active === 'Dieren' ? 'Dieren met <em>een mening</em>' : `Onze <em>${esc(active.toLowerCase())}</em>`;
       document.getElementById('shopSub').textContent =
         'T-shirts, hoodies en truien voor de feestdagen — met je naam erop als je wil. Plus cadeaus: schorten, tassen en knuffelberen.';
     }
@@ -181,15 +184,16 @@
       const color = p.colors?.[0]?.id;
       const img = Catalog.imageFor(p, type?.id, color);
       const model = Catalog.modelFor(p, type?.id, color);
+      const OVERVIEW = active === 'Alles' || active === 'Dieren';
       const title = p.name;
       const kids = type && GARMENT[type.id] === 'Kids';
       const kidTypes = kids ? (p.types || []).filter(t => GARMENT[t.id] === 'Kids') : [];
-      const price = kids ? Math.min(...kidTypes.map(t => Number(t.price))) : type && active !== 'Alles' ? Number(type.price) : Catalog.fromPrice(p);
-      const multi = kids ? kidTypes.length > 1 : (active === 'Alles' && p.types && p.types.length > 1);
+      const price = kids ? Math.min(...kidTypes.map(t => Number(t.price))) : type && !OVERVIEW ? Number(type.price) : Catalog.fromPrice(p);
+      const multi = kids ? kidTypes.length > 1 : (OVERVIEW && p.types && p.types.length > 1);
       // Welke soorten zijn er (T-shirt · Hoodie · Trui · Kids)?
       const kinds = [...new Set((p.types || []).map(t => SHORT[t.id] || (GARMENT[t.id] === 'Kids' ? 'Kids' : null)).filter(Boolean))];
       const kindLine = kids ? kidTypes.map(t => t.label.replace('Kinder-', '').replace('Kinder', '')).map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' · ')
-        : active === 'Alles' ? kinds.join(' · ') : '';
+        : OVERVIEW ? kinds.join(' · ') : '';
       return `
         <article class="product-card" data-i="${i}" tabindex="0">
           <div class="product-image">
@@ -198,7 +202,7 @@
             ${model && img && img !== model ? `<img class="model-img" src="${esc(img)}" alt="" loading="lazy">` : ''}
           </div>
           <div class="product-info">
-            ${type && active !== 'Alles' && !kids ? `<p class="product-kind">${esc(type.label)}</p>` : kindLine ? `<p class="product-kind">${esc(kindLine)}</p>` : ''}
+            ${type && !OVERVIEW && !kids ? `<p class="product-kind">${esc(type.label)}</p>` : kindLine ? `<p class="product-kind">${esc(kindLine)}</p>` : ''}
             <h3 class="product-name">${esc(title)}</h3>
             <p class="product-desc">${esc(type ? p.description : (p.types ? p.types.map(t => t.label).join(' · ') : p.description))}</p>
             ${p.colors && p.colors.length > 1 ? `<div class="product-swatches">${p.colors.map(k => `<span class="swatch-dot" style="background:${k.hex}" title="${esc(k.label)}"></span>`).join('')}</div>` : ''}
@@ -217,6 +221,7 @@
         // soort waarmee de kaart (en het venster) opent
         type: active === 'Alles'
           ? ((c.p.types || []).find(t => GARMENT[t.id] && GARMENT[t.id] !== 'Kids') || (c.p.types || []).find(t => GARMENT[t.id]) || null)
+          : active === 'Dieren' ? ((c.p.types || []).find(t => GARMENT[t.id] && GARMENT[t.id] !== 'Kids') || null)
           : firstTypeIn(c.p, active),
       }));
       grid.innerHTML = shown.map(card).join('') || '<p style="color:var(--gray)">Geen producten gevonden.</p>';
@@ -242,7 +247,7 @@
       const sel = { type: startType || p.types?.[0]?.id || '', color: p.colors?.[0]?.id || '', size: '', personalName: '' };
       const sizesFor = () => (p.types?.find(t => t.id === sel.type)?.sizes) || p.sizes || [];
       const hint = document.getElementById('pdetailHint');
-      document.getElementById('pdetailCat').textContent = p.category === 'Kerst' ? '🎄 Kerstcollectie' : p.category;
+      document.getElementById('pdetailCat').textContent = p.category === 'Kerst' ? '🎄 Kerstcollectie' : p.category === 'Dieren' ? '🐾 Dieren · rugprint' : p.category;
       document.getElementById('pdetailName').textContent = p.name;
       document.getElementById('pdetailDesc').textContent = p.description;
       document.getElementById('pdetailPickup').hidden = false;

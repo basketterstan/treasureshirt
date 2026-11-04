@@ -2862,5 +2862,2273 @@
    "kidshoodie|zwart": "images/kerst/warm-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/warm-kidstrui-zwart-model.jpg"
   }
+ },
+ {
+  "id": "dier-luiaard",
+  "name": "Ik ben niet traag. Ik spaar energie.",
+  "description": "Rugprint met een luiaard: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-luiaard-groen.jpg",
+   "tee|navy": "images/dieren/dier-luiaard-navy.jpg",
+   "tee|zwart": "images/dieren/dier-luiaard-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-luiaard-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-luiaard-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-luiaard-zwart.jpg",
+   "trui|groen": "images/dieren/dier-luiaard-groen.jpg",
+   "trui|navy": "images/dieren/dier-luiaard-navy.jpg",
+   "trui|zwart": "images/dieren/dier-luiaard-zwart.jpg",
+   "kids|groen": "images/dieren/dier-luiaard-groen.jpg",
+   "kids|navy": "images/dieren/dier-luiaard-navy.jpg",
+   "kids|zwart": "images/dieren/dier-luiaard-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-luiaard-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-luiaard-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-luiaard-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-luiaard-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-luiaard-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-luiaard-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-luiaard-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-luiaard-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-luiaard-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-luiaard-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-luiaard-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-luiaard-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-luiaard-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-luiaard-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-luiaard-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-luiaard-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-luiaard-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-luiaard-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-luiaard-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-luiaard-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-luiaard-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-luiaard-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-luiaard-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-luiaard-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-egel",
+  "name": "Sociale batterij bijna leeg.",
+  "description": "Rugprint met een egel: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-egel-groen.jpg",
+   "tee|navy": "images/dieren/dier-egel-navy.jpg",
+   "tee|zwart": "images/dieren/dier-egel-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-egel-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-egel-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-egel-zwart.jpg",
+   "trui|groen": "images/dieren/dier-egel-groen.jpg",
+   "trui|navy": "images/dieren/dier-egel-navy.jpg",
+   "trui|zwart": "images/dieren/dier-egel-zwart.jpg",
+   "kids|groen": "images/dieren/dier-egel-groen.jpg",
+   "kids|navy": "images/dieren/dier-egel-navy.jpg",
+   "kids|zwart": "images/dieren/dier-egel-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-egel-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-egel-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-egel-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-egel-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-egel-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-egel-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-egel-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-egel-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-egel-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-egel-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-egel-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-egel-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-egel-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-egel-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-egel-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-egel-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-egel-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-egel-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-egel-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-egel-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-egel-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-egel-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-egel-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-egel-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-hamster",
+  "name": "Hoofd vol plannen. Handen vol snacks.",
+  "description": "Rugprint met een hamster: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-hamster-groen.jpg",
+   "tee|navy": "images/dieren/dier-hamster-navy.jpg",
+   "tee|zwart": "images/dieren/dier-hamster-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-hamster-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-hamster-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-hamster-zwart.jpg",
+   "trui|groen": "images/dieren/dier-hamster-groen.jpg",
+   "trui|navy": "images/dieren/dier-hamster-navy.jpg",
+   "trui|zwart": "images/dieren/dier-hamster-zwart.jpg",
+   "kids|groen": "images/dieren/dier-hamster-groen.jpg",
+   "kids|navy": "images/dieren/dier-hamster-navy.jpg",
+   "kids|zwart": "images/dieren/dier-hamster-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-hamster-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-hamster-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-hamster-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-hamster-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-hamster-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-hamster-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-hamster-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-hamster-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-hamster-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-hamster-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-hamster-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-hamster-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-hamster-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-hamster-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-hamster-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-hamster-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-hamster-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-hamster-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-hamster-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-hamster-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-hamster-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-hamster-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-hamster-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-hamster-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-kat",
+  "name": "Druk bezig met niks.",
+  "description": "Rugprint met een kat: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-kat-groen.jpg",
+   "tee|navy": "images/dieren/dier-kat-navy.jpg",
+   "tee|zwart": "images/dieren/dier-kat-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-kat-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-kat-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-kat-zwart.jpg",
+   "trui|groen": "images/dieren/dier-kat-groen.jpg",
+   "trui|navy": "images/dieren/dier-kat-navy.jpg",
+   "trui|zwart": "images/dieren/dier-kat-zwart.jpg",
+   "kids|groen": "images/dieren/dier-kat-groen.jpg",
+   "kids|navy": "images/dieren/dier-kat-navy.jpg",
+   "kids|zwart": "images/dieren/dier-kat-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-kat-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-kat-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-kat-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-kat-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-kat-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-kat-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-kat-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-kat-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-kat-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-kat-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-kat-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-kat-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-kat-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-kat-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-kat-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-kat-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-kat-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-kat-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-kat-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-kat-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-kat-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-kat-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-kat-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-kat-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-panda",
+  "name": "Vandaag is een morgenprobleem.",
+  "description": "Rugprint met een panda: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-panda-groen.jpg",
+   "tee|navy": "images/dieren/dier-panda-navy.jpg",
+   "tee|zwart": "images/dieren/dier-panda-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-panda-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-panda-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-panda-zwart.jpg",
+   "trui|groen": "images/dieren/dier-panda-groen.jpg",
+   "trui|navy": "images/dieren/dier-panda-navy.jpg",
+   "trui|zwart": "images/dieren/dier-panda-zwart.jpg",
+   "kids|groen": "images/dieren/dier-panda-groen.jpg",
+   "kids|navy": "images/dieren/dier-panda-navy.jpg",
+   "kids|zwart": "images/dieren/dier-panda-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-panda-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-panda-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-panda-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-panda-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-panda-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-panda-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-panda-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-panda-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-panda-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-panda-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-panda-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-panda-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-panda-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-panda-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-panda-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-panda-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-panda-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-panda-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-panda-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-panda-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-panda-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-panda-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-panda-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-panda-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-otter",
+  "name": "Gewoon lekker meedrijven.",
+  "description": "Rugprint met een otter: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-otter-groen.jpg",
+   "tee|navy": "images/dieren/dier-otter-navy.jpg",
+   "tee|zwart": "images/dieren/dier-otter-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-otter-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-otter-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-otter-zwart.jpg",
+   "trui|groen": "images/dieren/dier-otter-groen.jpg",
+   "trui|navy": "images/dieren/dier-otter-navy.jpg",
+   "trui|zwart": "images/dieren/dier-otter-zwart.jpg",
+   "kids|groen": "images/dieren/dier-otter-groen.jpg",
+   "kids|navy": "images/dieren/dier-otter-navy.jpg",
+   "kids|zwart": "images/dieren/dier-otter-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-otter-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-otter-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-otter-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-otter-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-otter-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-otter-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-otter-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-otter-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-otter-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-otter-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-otter-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-otter-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-otter-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-otter-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-otter-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-otter-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-otter-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-otter-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-otter-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-otter-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-otter-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-otter-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-otter-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-otter-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-konijn",
+  "name": "Kleine stapjes. Grootse plannen.",
+  "description": "Rugprint met een konijn: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-konijn-groen.jpg",
+   "tee|navy": "images/dieren/dier-konijn-navy.jpg",
+   "tee|zwart": "images/dieren/dier-konijn-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-konijn-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-konijn-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-konijn-zwart.jpg",
+   "trui|groen": "images/dieren/dier-konijn-groen.jpg",
+   "trui|navy": "images/dieren/dier-konijn-navy.jpg",
+   "trui|zwart": "images/dieren/dier-konijn-zwart.jpg",
+   "kids|groen": "images/dieren/dier-konijn-groen.jpg",
+   "kids|navy": "images/dieren/dier-konijn-navy.jpg",
+   "kids|zwart": "images/dieren/dier-konijn-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-konijn-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-konijn-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-konijn-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-konijn-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-konijn-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-konijn-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-konijn-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-konijn-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-konijn-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-konijn-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-konijn-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-konijn-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-konijn-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-konijn-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-konijn-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-konijn-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-konijn-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-konijn-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-konijn-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-konijn-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-konijn-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-konijn-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-konijn-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-konijn-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-vos",
+  "name": "Beetje eigenwijs. Helemaal mezelf.",
+  "description": "Rugprint met een vos: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-vos-groen.jpg",
+   "tee|navy": "images/dieren/dier-vos-navy.jpg",
+   "tee|zwart": "images/dieren/dier-vos-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-vos-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-vos-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-vos-zwart.jpg",
+   "trui|groen": "images/dieren/dier-vos-groen.jpg",
+   "trui|navy": "images/dieren/dier-vos-navy.jpg",
+   "trui|zwart": "images/dieren/dier-vos-zwart.jpg",
+   "kids|groen": "images/dieren/dier-vos-groen.jpg",
+   "kids|navy": "images/dieren/dier-vos-navy.jpg",
+   "kids|zwart": "images/dieren/dier-vos-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-vos-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-vos-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-vos-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-vos-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-vos-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-vos-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-vos-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-vos-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-vos-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-vos-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-vos-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-vos-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-vos-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-vos-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-vos-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-vos-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-vos-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-vos-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-vos-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-vos-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-vos-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-vos-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-vos-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-vos-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-schildpad",
+  "name": "Rustig aan. Ik kom er wel.",
+  "description": "Rugprint met een schildpad: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-schildpad-groen.jpg",
+   "tee|navy": "images/dieren/dier-schildpad-navy.jpg",
+   "tee|zwart": "images/dieren/dier-schildpad-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-schildpad-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-schildpad-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-schildpad-zwart.jpg",
+   "trui|groen": "images/dieren/dier-schildpad-groen.jpg",
+   "trui|navy": "images/dieren/dier-schildpad-navy.jpg",
+   "trui|zwart": "images/dieren/dier-schildpad-zwart.jpg",
+   "kids|groen": "images/dieren/dier-schildpad-groen.jpg",
+   "kids|navy": "images/dieren/dier-schildpad-navy.jpg",
+   "kids|zwart": "images/dieren/dier-schildpad-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-schildpad-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-schildpad-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-schildpad-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-schildpad-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-schildpad-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-schildpad-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-schildpad-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-schildpad-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-schildpad-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-schildpad-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-schildpad-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-schildpad-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-schildpad-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-schildpad-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-schildpad-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-schildpad-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-schildpad-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-schildpad-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-schildpad-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-schildpad-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-schildpad-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-schildpad-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-schildpad-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-schildpad-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-uil",
+  "name": "Ik ben wakker. Dat is al heel wat.",
+  "description": "Rugprint met een uil: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-uil-groen.jpg",
+   "tee|navy": "images/dieren/dier-uil-navy.jpg",
+   "tee|zwart": "images/dieren/dier-uil-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-uil-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-uil-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-uil-zwart.jpg",
+   "trui|groen": "images/dieren/dier-uil-groen.jpg",
+   "trui|navy": "images/dieren/dier-uil-navy.jpg",
+   "trui|zwart": "images/dieren/dier-uil-zwart.jpg",
+   "kids|groen": "images/dieren/dier-uil-groen.jpg",
+   "kids|navy": "images/dieren/dier-uil-navy.jpg",
+   "kids|zwart": "images/dieren/dier-uil-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-uil-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-uil-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-uil-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-uil-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-uil-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-uil-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-uil-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-uil-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-uil-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-uil-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-uil-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-uil-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-uil-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-uil-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-uil-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-uil-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-uil-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-uil-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-uil-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-uil-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-uil-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-uil-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-uil-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-uil-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-alpaca",
+  "name": "Geen drama. Wel een mening.",
+  "description": "Rugprint met een alpaca: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-alpaca-groen.jpg",
+   "tee|navy": "images/dieren/dier-alpaca-navy.jpg",
+   "tee|zwart": "images/dieren/dier-alpaca-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-alpaca-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-alpaca-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-alpaca-zwart.jpg",
+   "trui|groen": "images/dieren/dier-alpaca-groen.jpg",
+   "trui|navy": "images/dieren/dier-alpaca-navy.jpg",
+   "trui|zwart": "images/dieren/dier-alpaca-zwart.jpg",
+   "kids|groen": "images/dieren/dier-alpaca-groen.jpg",
+   "kids|navy": "images/dieren/dier-alpaca-navy.jpg",
+   "kids|zwart": "images/dieren/dier-alpaca-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-alpaca-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-alpaca-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-alpaca-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-alpaca-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-alpaca-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-alpaca-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-alpaca-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-alpaca-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-alpaca-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-alpaca-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-alpaca-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-alpaca-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-alpaca-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-alpaca-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-alpaca-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-alpaca-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-alpaca-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-alpaca-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-alpaca-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-alpaca-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-alpaca-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-alpaca-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-alpaca-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-alpaca-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-muis",
+  "name": "Grootse dromen. Kleine pootjes.",
+  "description": "Rugprint met een muis: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-muis-groen.jpg",
+   "tee|navy": "images/dieren/dier-muis-navy.jpg",
+   "tee|zwart": "images/dieren/dier-muis-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-muis-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-muis-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-muis-zwart.jpg",
+   "trui|groen": "images/dieren/dier-muis-groen.jpg",
+   "trui|navy": "images/dieren/dier-muis-navy.jpg",
+   "trui|zwart": "images/dieren/dier-muis-zwart.jpg",
+   "kids|groen": "images/dieren/dier-muis-groen.jpg",
+   "kids|navy": "images/dieren/dier-muis-navy.jpg",
+   "kids|zwart": "images/dieren/dier-muis-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-muis-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-muis-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-muis-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-muis-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-muis-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-muis-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-muis-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-muis-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-muis-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-muis-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-muis-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-muis-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-muis-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-muis-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-muis-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-muis-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-muis-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-muis-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-muis-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-muis-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-muis-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-muis-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-muis-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-muis-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-pinguin",
+  "name": "Netjes gekleed. Totaal geen plan.",
+  "description": "Rugprint met een pinguin: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-pinguin-groen.jpg",
+   "tee|navy": "images/dieren/dier-pinguin-navy.jpg",
+   "tee|zwart": "images/dieren/dier-pinguin-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-pinguin-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-pinguin-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-pinguin-zwart.jpg",
+   "trui|groen": "images/dieren/dier-pinguin-groen.jpg",
+   "trui|navy": "images/dieren/dier-pinguin-navy.jpg",
+   "trui|zwart": "images/dieren/dier-pinguin-zwart.jpg",
+   "kids|groen": "images/dieren/dier-pinguin-groen.jpg",
+   "kids|navy": "images/dieren/dier-pinguin-navy.jpg",
+   "kids|zwart": "images/dieren/dier-pinguin-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-pinguin-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-pinguin-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-pinguin-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-pinguin-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-pinguin-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-pinguin-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-pinguin-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-pinguin-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-pinguin-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-pinguin-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-pinguin-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-pinguin-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-pinguin-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-pinguin-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-pinguin-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-pinguin-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-pinguin-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-pinguin-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-pinguin-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-pinguin-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-pinguin-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-pinguin-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-pinguin-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-pinguin-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "dier-krokodil",
+  "name": "Zacht vanbinnen. Grote mond.",
+  "description": "Rugprint met een krokodil: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam vooraan op de borst",
+   "maxLength": 14,
+   "price": 5
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-krokodil-groen.jpg",
+   "tee|navy": "images/dieren/dier-krokodil-navy.jpg",
+   "tee|zwart": "images/dieren/dier-krokodil-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-krokodil-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-krokodil-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-krokodil-zwart.jpg",
+   "trui|groen": "images/dieren/dier-krokodil-groen.jpg",
+   "trui|navy": "images/dieren/dier-krokodil-navy.jpg",
+   "trui|zwart": "images/dieren/dier-krokodil-zwart.jpg",
+   "kids|groen": "images/dieren/dier-krokodil-groen.jpg",
+   "kids|navy": "images/dieren/dier-krokodil-navy.jpg",
+   "kids|zwart": "images/dieren/dier-krokodil-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-krokodil-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-krokodil-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-krokodil-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-krokodil-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-krokodil-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-krokodil-zwart.jpg"
+  },
+  "models": {
+   "tee|groen": "images/dieren/dier-krokodil-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-krokodil-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-krokodil-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-krokodil-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-krokodil-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-krokodil-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-krokodil-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-krokodil-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-krokodil-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-krokodil-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-krokodil-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-krokodil-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-krokodil-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-krokodil-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-krokodil-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-krokodil-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-krokodil-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-krokodil-kidstrui-zwart-model.jpg"
+  }
  }
 ]
