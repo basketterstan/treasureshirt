@@ -50,9 +50,11 @@ function priceLine(p, item) {
   const personalName = p.personalize ? clean(item.personalName, p.personalize.maxLength || 14) : '';
   let price = Number(type ? type.price : p.price);
   if (personalName) price += Number(p.personalize.price || 0);
+  const placement = personalName && Array.isArray(p.personalize.placements)
+    ? (p.personalize.placements.find(x => x.id === item.namePlacement) || p.personalize.placements[0]) : null;
 
   const meta = [type?.label, p.colors && p.colors.length > 1 ? color?.label : '', sizes.length ? item.size : '',
-    personalName ? `Naam: “${personalName}”` : ''].filter(Boolean).join(' · ');
+    personalName ? `Naam: “${personalName}”${placement ? ` (${placement.label})` : ''}` : ''].filter(Boolean).join(' · ');
   return {
     name: meta ? `${p.name} — ${meta}` : p.name,
     unit_amount: Math.round(price * 100),

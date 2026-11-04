@@ -23,11 +23,11 @@ const Cart = (() => {
   function save(items) { localStorage.setItem(KEY, JSON.stringify(items)); updateBadge(); render(); }
 
   function keyFor(p) {
-    return [p.id, p.variantType || p.type || '', p.color || '', p.size || '', (p.personalName || '').trim().toLowerCase()].join('__');
+    return [p.id, p.variantType || p.type || '', p.color || '', p.size || '', (p.personalName || '').trim().toLowerCase(), p.personalName ? (p.namePlacement || '') : ''].join('__');
   }
 
   function metaLine(i) {
-    return [i.typeLabel, i.colorLabel, i.size, i.personalName ? `Naam: “${i.personalName}”` : '']
+    return [i.typeLabel, i.colorLabel, i.size, i.personalName ? `Naam: “${i.personalName}”${i.namePlacement === 'rug' ? ' (groot op de rug)' : i.namePlacement === 'borst' ? ' (op de borst)' : ''}` : '']
       .filter(Boolean).join(' · ');
   }
 
@@ -46,7 +46,7 @@ const Cart = (() => {
       image: product.image || '', emoji: product.emoji || '👕',
       type: product.variantType || '', typeLabel: product.typeLabel || '',
       color: product.color || '', colorLabel: product.colorLabel || '',
-      size: product.size || '', personalName: product.personalName || '',
+      size: product.size || '', personalName: product.personalName || '', namePlacement: product.personalName ? (product.namePlacement || '') : '',
       quantity: 1,
     });
     save(items); flashBadge(); showAddedToast(product.name);

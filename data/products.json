@@ -119,9 +119,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -278,9 +288,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -440,9 +460,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -602,9 +632,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -764,9 +804,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -825,9 +875,19 @@
   },
   "sizes": [],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 0,
-   "label": "Naam of tekst op het shirtje (inbegrepen)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "stockId": "beer"
@@ -868,9 +928,19 @@
   },
   "sizes": [],
   "personalize": {
-   "price": 5,
    "label": "Naam erop",
-   "maxLength": 14
+   "maxLength": 14,
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 17.99,
   "models": {
@@ -912,9 +982,19 @@
   ],
   "sizes": [],
   "personalize": {
-   "price": 5,
    "label": "Naam erop",
-   "maxLength": 14
+   "maxLength": 14,
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 14.99,
   "images": {
@@ -1093,9 +1173,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -1255,9 +1345,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -1417,9 +1517,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -1579,9 +1689,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -1741,9 +1861,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -1903,9 +2033,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -2049,9 +2189,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -2208,9 +2358,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -2354,9 +2514,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -2513,9 +2683,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -2675,9 +2855,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -2837,9 +3027,19 @@
    "12/14 jaar"
   ],
   "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
    "price": 5,
-   "label": "Naam erop (bv. op de mouw of achterkant)",
-   "maxLength": 14
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "price": 19.99,
   "models": {
@@ -2866,7 +3066,7 @@
  {
   "id": "dier-luiaard",
   "name": "Ik ben niet traag. Ik spaar energie.",
-  "description": "Rugprint met een luiaard: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een luiaard: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -2980,9 +3180,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-luiaard-groen.jpg",
@@ -3028,7 +3238,7 @@
  {
   "id": "dier-egel",
   "name": "Sociale batterij bijna leeg.",
-  "description": "Rugprint met een egel: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een egel: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -3142,9 +3352,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-egel-groen.jpg",
@@ -3190,7 +3410,7 @@
  {
   "id": "dier-hamster",
   "name": "Hoofd vol plannen. Handen vol snacks.",
-  "description": "Rugprint met een hamster: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een hamster: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -3304,9 +3524,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-hamster-groen.jpg",
@@ -3352,7 +3582,7 @@
  {
   "id": "dier-kat",
   "name": "Druk bezig met niks.",
-  "description": "Rugprint met een kat: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een kat: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -3466,9 +3696,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-kat-groen.jpg",
@@ -3514,7 +3754,7 @@
  {
   "id": "dier-panda",
   "name": "Vandaag is een morgenprobleem.",
-  "description": "Rugprint met een panda: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een panda: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -3628,9 +3868,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-panda-groen.jpg",
@@ -3676,7 +3926,7 @@
  {
   "id": "dier-otter",
   "name": "Gewoon lekker meedrijven.",
-  "description": "Rugprint met een otter: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een otter: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -3790,9 +4040,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-otter-groen.jpg",
@@ -3838,7 +4098,7 @@
  {
   "id": "dier-konijn",
   "name": "Kleine stapjes. Grootse plannen.",
-  "description": "Rugprint met een konijn: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een konijn: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -3952,9 +4212,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-konijn-groen.jpg",
@@ -4000,7 +4270,7 @@
  {
   "id": "dier-vos",
   "name": "Beetje eigenwijs. Helemaal mezelf.",
-  "description": "Rugprint met een vos: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een vos: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4114,9 +4384,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-vos-groen.jpg",
@@ -4162,7 +4442,7 @@
  {
   "id": "dier-schildpad",
   "name": "Rustig aan. Ik kom er wel.",
-  "description": "Rugprint met een schildpad: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een schildpad: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4276,9 +4556,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-schildpad-groen.jpg",
@@ -4324,7 +4614,7 @@
  {
   "id": "dier-uil",
   "name": "Ik ben wakker. Dat is al heel wat.",
-  "description": "Rugprint met een uil: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een uil: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4438,9 +4728,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-uil-groen.jpg",
@@ -4486,7 +4786,7 @@
  {
   "id": "dier-alpaca",
   "name": "Geen drama. Wel een mening.",
-  "description": "Rugprint met een alpaca: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een alpaca: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4600,9 +4900,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-alpaca-groen.jpg",
@@ -4648,7 +4958,7 @@
  {
   "id": "dier-muis",
   "name": "Grootse dromen. Kleine pootjes.",
-  "description": "Rugprint met een muis: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een muis: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4762,9 +5072,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-muis-groen.jpg",
@@ -4810,7 +5130,7 @@
  {
   "id": "dier-pinguin",
   "name": "Netjes gekleed. Totaal geen plan.",
-  "description": "Rugprint met een pinguin: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een pinguin: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4924,9 +5244,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-pinguin-groen.jpg",
@@ -4972,7 +5302,7 @@
  {
   "id": "dier-krokodil",
   "name": "Zacht vanbinnen. Grote mond.",
-  "description": "Rugprint met een krokodil: grappig voor elke dag, niet alleen met kerst. Zet er vooraan je naam op (+ € 5) of laat de voorkant blanco.",
+  "description": "Rugprint met een krokodil: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -5086,9 +5416,19 @@
   ],
   "price": 19.99,
   "personalize": {
-   "label": "Naam vooraan op de borst",
+   "label": "Naam erop",
    "maxLength": 14,
-   "price": 5
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
   },
   "images": {
    "tee|groen": "images/dieren/dier-krokodil-groen.jpg",
