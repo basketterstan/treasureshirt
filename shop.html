@@ -245,6 +245,9 @@
     function openProduct(p, startType) {
       if (!p) return;
       const sel = { type: startType || p.types?.[0]?.id || '', color: p.colors?.[0]?.id || '', size: '', personalName: '', namePlacement: (p.personalize?.placements?.[0]?.id) || '', printSide: 'voor' };
+      // Ontwerp vooraan → naam op de rug; ontwerp op de rug (dieren, of gekozen) → naam op de borst.
+      const designSide = () => p.category === 'Dieren' ? 'rug' : (p.backModels && sel.printSide === 'rug' ? 'rug' : 'voor');
+      const namePlaceFor = () => designSide() === 'rug' ? 'borst' : 'rug';
       const sizesFor = () => (p.types?.find(t => t.id === sel.type)?.sizes) || p.sizes || [];
       const hint = document.getElementById('pdetailHint');
       document.getElementById('pdetailCat').textContent = p.category === 'Kerst' ? '🎄 Kerstcollectie' : p.category === 'Dieren' ? '🐾 Dieren · rugprint' : p.category;
@@ -310,8 +313,9 @@
           const extra = Number(p.personalize.price) ? ` (+ ${euro(p.personalize.price)})` : '';
           opts.push(`<div><p class="opt-label">${esc(p.personalize.label)}${extra} <span>— optioneel</span></p>
             <input class="pdetail-input" id="pdName" maxlength="${p.personalize.maxLength || 14}" placeholder="Bv. Lisa" value="${esc(sel.personalName)}">
-            ${(p.personalize.placements || []).length > 1 ? `<div class="opt-grid name-place" style="margin-top:.5rem">${p.personalize.placements.map(x =>
-              `<button class="opt-btn ${x.id === sel.namePlacement ? 'active' : ''}" data-place="${esc(x.id)}">${esc(x.label)}</button>`).join('')}</div>` : ''}</div>`);
+            <p class="name-place-hint" style="margin-top:.45rem;font-size:.85rem;color:var(--gray)">${namePlaceFor() === 'rug'
+              ? '✏️ Je naam komt <strong style="color:var(--white)">groot op de rug</strong> (het ontwerp staat vooraan).'
+              : '✏️ Je naam komt <strong style="color:var(--white)">klein op de borst</strong> (het ontwerp staat op de rug).'}</p></div>`);
         }
         const box = document.getElementById('pdetailOptions');
         box.style.cssText = 'display:flex;flex-direction:column;gap:1rem';
@@ -320,10 +324,6 @@
         box.querySelectorAll('[data-color]').forEach(b => b.addEventListener('click', () => { sel.color = b.dataset.color; draw(); }));
         box.querySelectorAll('[data-size]').forEach(b => b.addEventListener('click', () => { sel.size = b.dataset.size; hint.classList.remove('show'); draw(); }));
         box.querySelectorAll('[data-side]').forEach(b => b.addEventListener('click', () => { sel.printSide = b.dataset.side; draw(); }));
-        box.querySelectorAll('[data-place]').forEach(b => b.addEventListener('click', () => {
-          sel.namePlacement = b.dataset.place;
-          box.querySelectorAll('[data-place]').forEach(x => x.classList.toggle('active', x === b));
-        }));
         const nameInput = document.getElementById('pdName');
         nameInput?.addEventListener('input', () => {
           sel.personalName = nameInput.value.replace(/[<>]/g, '');
@@ -349,7 +349,7 @@
           image: Catalog.imageFor(p, sel.type, sel.color),
           variantType: sel.type, typeLabel: t ? t.label : '',
           color: sel.color, colorLabel: p.colors && p.colors.length > 1 ? (c?.label || '') : '',
-          size: sel.size, personalName, namePlacement: personalName ? sel.namePlacement : '', printSide: p.backModels ? sel.printSide : '',
+          size: sel.size, personalName, namePlacement: personalName ? namePlaceFor() : '', printSide: p.backModels ? sel.printSide : '',
         });
         closeModal();
         setTimeout(() => Cart.open(), 250);

@@ -50,8 +50,10 @@ function priceLine(p, item) {
   const personalName = p.personalize ? clean(item.personalName, p.personalize.maxLength || 14) : '';
   let price = Number(type ? type.price : p.price);
   if (personalName) price += Number(p.personalize.price || 0);
+  // Ontwerp vooraan → naam groot op de rug; ontwerp op de rug → naam klein op de borst.
+  const designOnBack = p.category === 'Dieren' || (item.printSide === 'rug' && p.backModels && Object.keys(p.backModels).length > 0);
   const placement = personalName && Array.isArray(p.personalize.placements)
-    ? (p.personalize.placements.find(x => x.id === item.namePlacement) || p.personalize.placements[0]) : null;
+    ? p.personalize.placements.find(x => x.id === (designOnBack ? 'borst' : 'rug')) : null;
 
   const onBack = item.printSide === 'rug' && p.backModels && Object.keys(p.backModels).length > 0;
   const meta = [type?.label, p.colors && p.colors.length > 1 ? color?.label : '', sizes.length ? item.size : '', onBack ? 'Ontwerp op de rug' : '',
