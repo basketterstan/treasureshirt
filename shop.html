@@ -123,7 +123,7 @@
   <div class="cart-toast" id="cartToast"></div>
   <script src="js/main.js?v=20261104a"></script>
   <script src="js/catalog.js?v=20261103c"></script>
-  <script src="js/cart.js?v=20261104b"></script>
+  <script src="js/cart.js?v=20261104c"></script>
   <script>
   (async () => {
     const { esc, euro } = Catalog;
@@ -244,7 +244,7 @@
 
     function openProduct(p, startType) {
       if (!p) return;
-      const sel = { type: startType || p.types?.[0]?.id || '', color: p.colors?.[0]?.id || '', size: '', personalName: '', namePlacement: (p.personalize?.placements?.[0]?.id) || '' };
+      const sel = { type: startType || p.types?.[0]?.id || '', color: p.colors?.[0]?.id || '', size: '', personalName: '', namePlacement: (p.personalize?.placements?.[0]?.id) || '', printSide: 'voor' };
       const sizesFor = () => (p.types?.find(t => t.id === sel.type)?.sizes) || p.sizes || [];
       const hint = document.getElementById('pdetailHint');
       document.getElementById('pdetailCat').textContent = p.category === 'Kerst' ? '🎄 Kerstcollectie' : p.category === 'Dieren' ? '🐾 Dieren · rugprint' : p.category;
@@ -262,10 +262,11 @@
       }
       function refresh() {
         setPrice(Catalog.priceFor(p, { ...sel, personalName: sel.personalName.trim() }));
-        const modelMain = Catalog.modelFor(p, sel.type, sel.color);
+        const backMain = sel.printSide === 'rug' ? (p.backModels || {})[`${sel.type}|${sel.color}`] : '';
+        const modelMain = backMain || Catalog.modelFor(p, sel.type, sel.color);
         showImage(modelMain || Catalog.imageFor(p, sel.type, sel.color));
         const thumbs = (p.colors || []).map(c => ({ c, url: Catalog.imageFor(p, sel.type, c.id) })).filter(x => x.url);
-        const model = Catalog.modelFor(p, sel.type, sel.color);
+        const model = modelMain;
         const strip = thumbs.length > 1 ? thumbs.map(({ c, url }) =>
           `<img class="pdetail-thumb ${c.id === sel.color && !model ? 'active' : ''}" src="${esc(url)}" data-color="${esc(c.id)}" alt="${esc(c.label)}">`).join('') : '';
         document.getElementById('pdetailThumbs').innerHTML = strip + (model
@@ -292,6 +293,12 @@
           opts.push(`<div><p class="opt-label">Kleur <span>— ${esc(cur?.label || '')}</span></p><div class="opt-grid">${p.colors.map(c =>
             `<button class="color-btn ${c.id === sel.color ? 'active' : ''}" data-color="${esc(c.id)}" style="background:${c.hex}" aria-label="${esc(c.label)}" title="${esc(c.label)}"></button>`).join('')}</div></div>`);
         }
+        const hasBack = !!(p.backModels && p.backModels[`${sel.type}|${sel.color}`]);
+        if (!hasBack) sel.printSide = 'voor';
+        if (hasBack) {
+          opts.push(`<div><p class="opt-label">Ontwerp op</p><div class="opt-grid">${[['voor', 'Voorkant'], ['rug', 'Rug']].map(([id, l]) =>
+            `<button class="opt-btn ${sel.printSide === id ? 'active' : ''}" data-side="${id}">${l}</button>`).join('')}</div></div>`);
+        }
         const sizes = sizesFor();
         if (sizes.length) {
           opts.push(`<div><p class="opt-label">Maat</p><div class="opt-grid">${sizes.map(s => {
@@ -312,6 +319,7 @@
         box.querySelectorAll('[data-type]').forEach(b => b.addEventListener('click', () => { sel.type = b.dataset.type; if (!sizesFor().includes(sel.size)) sel.size = ''; draw(); }));
         box.querySelectorAll('[data-color]').forEach(b => b.addEventListener('click', () => { sel.color = b.dataset.color; draw(); }));
         box.querySelectorAll('[data-size]').forEach(b => b.addEventListener('click', () => { sel.size = b.dataset.size; hint.classList.remove('show'); draw(); }));
+        box.querySelectorAll('[data-side]').forEach(b => b.addEventListener('click', () => { sel.printSide = b.dataset.side; draw(); }));
         box.querySelectorAll('[data-place]').forEach(b => b.addEventListener('click', () => {
           sel.namePlacement = b.dataset.place;
           box.querySelectorAll('[data-place]').forEach(x => x.classList.toggle('active', x === b));
@@ -341,7 +349,7 @@
           image: Catalog.imageFor(p, sel.type, sel.color),
           variantType: sel.type, typeLabel: t ? t.label : '',
           color: sel.color, colorLabel: p.colors && p.colors.length > 1 ? (c?.label || '') : '',
-          size: sel.size, personalName, namePlacement: personalName ? sel.namePlacement : '',
+          size: sel.size, personalName, namePlacement: personalName ? sel.namePlacement : '', printSide: p.backModels ? sel.printSide : '',
         });
         closeModal();
         setTimeout(() => Cart.open(), 250);

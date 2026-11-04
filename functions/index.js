@@ -53,7 +53,8 @@ function priceLine(p, item) {
   const placement = personalName && Array.isArray(p.personalize.placements)
     ? (p.personalize.placements.find(x => x.id === item.namePlacement) || p.personalize.placements[0]) : null;
 
-  const meta = [type?.label, p.colors && p.colors.length > 1 ? color?.label : '', sizes.length ? item.size : '',
+  const onBack = item.printSide === 'rug' && p.backModels && Object.keys(p.backModels).length > 0;
+  const meta = [type?.label, p.colors && p.colors.length > 1 ? color?.label : '', sizes.length ? item.size : '', onBack ? 'Ontwerp op de rug' : '',
     personalName ? `Naam: “${personalName}”${placement ? ` (${placement.label})` : ''}` : ''].filter(Boolean).join(' · ');
   return {
     name: meta ? `${p.name} — ${meta}` : p.name,

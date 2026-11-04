@@ -150,6 +150,23 @@
    "kids|zwart": "images/kerst/hohoho-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/hohoho-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/hohoho-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/hohoho-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/hohoho-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/hohoho-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/hohoho-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/hohoho-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/hohoho-hoodie-zwart-rug.jpg",
+   "kids|groen": "images/kerst/hohoho-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/hohoho-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/hohoho-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/hohoho-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/hohoho-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/hohoho-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/hohoho-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/hohoho-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/hohoho-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -1207,6 +1224,26 @@
    "kids|zwart": "images/kerst/foutetrui-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/foutetrui-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/foutetrui-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/foutetrui-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/foutetrui-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/foutetrui-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/foutetrui-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/foutetrui-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/foutetrui-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/foutetrui-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/foutetrui-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/foutetrui-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/foutetrui-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/foutetrui-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/foutetrui-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/foutetrui-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/foutetrui-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/foutetrui-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/foutetrui-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/foutetrui-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/foutetrui-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -1379,6 +1416,26 @@
    "kids|zwart": "images/kerst/gluhwein-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/gluhwein-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/gluhwein-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/gluhwein-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/gluhwein-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/gluhwein-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/gluhwein-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/gluhwein-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/gluhwein-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/gluhwein-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/gluhwein-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/gluhwein-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/gluhwein-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/gluhwein-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/gluhwein-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/gluhwein-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/gluhwein-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/gluhwein-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/gluhwein-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/gluhwein-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/gluhwein-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -1551,6 +1608,26 @@
    "kids|zwart": "images/kerst/goede-smaak-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/goede-smaak-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/goede-smaak-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/goede-smaak-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/goede-smaak-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/goede-smaak-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/goede-smaak-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/goede-smaak-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/goede-smaak-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/goede-smaak-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/goede-smaak-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/goede-smaak-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/goede-smaak-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/goede-smaak-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/goede-smaak-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/goede-smaak-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/goede-smaak-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/goede-smaak-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/goede-smaak-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/goede-smaak-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/goede-smaak-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -1723,6 +1800,26 @@
    "kids|zwart": "images/kerst/ikpiek-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/ikpiek-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/ikpiek-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/ikpiek-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/ikpiek-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/ikpiek-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/ikpiek-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/ikpiek-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/ikpiek-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/ikpiek-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/ikpiek-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/ikpiek-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/ikpiek-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/ikpiek-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/ikpiek-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/ikpiek-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/ikpiek-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/ikpiek-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/ikpiek-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/ikpiek-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/ikpiek-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -1895,6 +1992,26 @@
    "kids|zwart": "images/kerst/kerstclub-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/kerstclub-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/kerstclub-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/kerstclub-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/kerstclub-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/kerstclub-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/kerstclub-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/kerstclub-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/kerstclub-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/kerstclub-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/kerstclub-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/kerstclub-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/kerstclub-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/kerstclub-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/kerstclub-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/kerstclub-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/kerstclub-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/kerstclub-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/kerstclub-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/kerstclub-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/kerstclub-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -2067,6 +2184,26 @@
    "kids|zwart": "images/kerst/kerstmodus-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/kerstmodus-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/kerstmodus-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/kerstmodus-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/kerstmodus-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/kerstmodus-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/kerstmodus-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/kerstmodus-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/kerstmodus-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/kerstmodus-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/kerstmodus-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/kerstmodus-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/kerstmodus-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/kerstmodus-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/kerstmodus-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/kerstmodus-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/kerstmodus-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/kerstmodus-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/kerstmodus-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/kerstmodus-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/kerstmodus-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -2220,6 +2357,23 @@
    "kids|zwart": "images/kerst/kerstwarmer-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/kerstwarmer-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/kerstwarmer-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/kerstwarmer-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/kerstwarmer-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/kerstwarmer-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/kerstwarmer-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/kerstwarmer-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/kerstwarmer-hoodie-zwart-rug.jpg",
+   "kids|groen": "images/kerst/kerstwarmer-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/kerstwarmer-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/kerstwarmer-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/kerstwarmer-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/kerstwarmer-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/kerstwarmer-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/kerstwarmer-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/kerstwarmer-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/kerstwarmer-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -2392,6 +2546,26 @@
    "kids|zwart": "images/kerst/kerstzin-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/kerstzin-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/kerstzin-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/kerstzin-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/kerstzin-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/kerstzin-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/kerstzin-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/kerstzin-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/kerstzin-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/kerstzin-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/kerstzin-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/kerstzin-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/kerstzin-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/kerstzin-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/kerstzin-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/kerstzin-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/kerstzin-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/kerstzin-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/kerstzin-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/kerstzin-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/kerstzin-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -2545,6 +2719,23 @@
    "kids|zwart": "images/kerst/koekje-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/koekje-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/koekje-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/koekje-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/koekje-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/koekje-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/koekje-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/koekje-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/koekje-hoodie-zwart-rug.jpg",
+   "kids|groen": "images/kerst/koekje-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/koekje-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/koekje-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/koekje-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/koekje-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/koekje-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/koekje-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/koekje-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/koekje-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -2717,6 +2908,26 @@
    "kids|zwart": "images/kerst/lieve-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/lieve-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/lieve-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/lieve-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/lieve-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/lieve-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/lieve-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/lieve-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/lieve-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/lieve-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/lieve-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/lieve-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/lieve-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/lieve-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/lieve-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/lieve-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/lieve-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/lieve-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/lieve-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/lieve-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/lieve-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -2889,6 +3100,26 @@
    "kids|zwart": "images/kerst/stillenacht-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/stillenacht-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/stillenacht-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/stillenacht-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/stillenacht-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/stillenacht-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/stillenacht-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/stillenacht-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/stillenacht-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/stillenacht-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/stillenacht-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/stillenacht-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/stillenacht-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/stillenacht-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/stillenacht-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/stillenacht-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/stillenacht-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/stillenacht-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/stillenacht-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/stillenacht-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/stillenacht-kidstrui-zwart-rug.jpg"
   }
  },
  {
@@ -3061,6 +3292,26 @@
    "kids|zwart": "images/kerst/warm-kids-zwart-model.jpg",
    "kidshoodie|zwart": "images/kerst/warm-kidshoodie-zwart-model.jpg",
    "kidstrui|zwart": "images/kerst/warm-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/warm-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/warm-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/warm-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/warm-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/warm-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/warm-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/warm-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/warm-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/warm-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/warm-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/warm-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/warm-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/warm-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/warm-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/warm-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/warm-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/warm-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/warm-kidstrui-zwart-rug.jpg"
   }
  },
  {
