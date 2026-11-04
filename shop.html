@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=20261103c" />
+  <link rel="stylesheet" href="css/style.css?v=20261104a" />
 </head>
 <body>
 
@@ -68,8 +68,9 @@
       <div>
         <p class="section-label" style="color:#ffd970">Kerstmarkt Landen</p>
         <h2>Bestel nu, haal af in onze chalet</h2>
-        <p>Bestel je kerstshirt of cadeau online en haal het gratis af op de kerstmarkt van Landen. Of laat het verzenden in heel België: bestel vóór 8 december, dan verzenden we ten laatste op 10 december.</p>
-        <div class="pill-row">
+        <p class="market-short">Gratis afhalen 11–13 dec · of verzending (BE € 7, NL € 14,99)</p>
+        <p class="market-long">Bestel je kerstshirt of cadeau online en haal het gratis af op de kerstmarkt van Landen. Of laat het verzenden in heel België: bestel vóór 8 december, dan verzenden we ten laatste op 10 december.</p>
+        <div class="pill-row market-long">
           <span class="pill">🎁 Gratis afhalen</span>
           <span class="pill">✏️ Naam erop mogelijk</span>
           <span class="pill">🚚 Verzending BE € 7 · NL € 14,99</span>
@@ -119,7 +120,7 @@
   </footer>
 
   <div class="cart-toast" id="cartToast"></div>
-  <script src="js/main.js?v=20261103c"></script>
+  <script src="js/main.js?v=20261104a"></script>
   <script src="js/catalog.js?v=20261103c"></script>
   <script src="js/cart.js?v=20261103c"></script>
   <script>
@@ -134,16 +135,20 @@
     try { stock = (await Promise.race([St.load(), new Promise(r => setTimeout(() => r({}), 1500))])) || {}; } catch {}
     St.load().then(x => { stock = x || {}; }).catch(() => {});
 
-    // One card per product *and* per soort (T-shirt, Hoodie, Trui), so hoodies and
-    // truien are visible in the grid. Gifts (beer, schort, tas) stay one card each.
+    // Eén kaart per ontwerp. Onder "Alles" toont de kaart welke soorten er zijn;
+    // de filters T-shirts / Hoodies / Truien / Kids tonen elk ontwerp één keer in die soort.
     const GARMENT = { tee: 'T-shirts', hoodie: 'Hoodies', trui: 'Truien', kids: 'Kids', kidshoodie: 'Kids', kidstrui: 'Kids' };
-    const cards = [];
-    all.forEach(p => {
-      const garments = (p.types || []).filter(t => GARMENT[t.id]);
-      if (garments.length) garments.forEach(t => cards.push({ p, type: t, group: GARMENT[t.id] }));
-      else cards.push({ p, type: null, group: p.group || 'Cadeaus' });
-    });
-    const groups = ['Alles', ...['T-shirts', 'Hoodies', 'Truien', 'Kids', 'Cadeaus'].filter(g => cards.some(c => c.group === g))];
+    const SHORT = { tee: 'T-shirt', hoodie: 'Hoodie', trui: 'Trui' };
+    const groupsOf = p => {
+      const g = new Set((p.types || []).map(t => GARMENT[t.id]).filter(Boolean));
+      if (!g.size) g.add(p.group || 'Cadeaus');
+      if (p.group === 'Kids') g.add('Kids');
+      return g;
+    };
+    const firstTypeIn = (p, group) => (p.types || []).find(t => GARMENT[t.id] === group) || null;
+    const cards = all.map(p => ({ p, groups: groupsOf(p) }));
+    const countIn = g => g === 'Alles' ? cards.length : cards.filter(c => c.groups.has(g)).length;
+    const groups = ['Alles', ...['T-shirts', 'Hoodies', 'Truien', 'Kids', 'Cadeaus'].filter(g => countIn(g))];
     const wanted = (params.get('c') || '').toLowerCase();
     let active = groups.find(g => g.toLowerCase() === wanted) || 'Alles';
 
@@ -160,7 +165,7 @@
 
     function renderFilters() {
       filterBar.innerHTML = groups.map(g =>
-        `<button class="filter-btn ${g === active ? 'active' : ''}" data-cat="${esc(g)}">${esc(g)} <small style="opacity:.6">${g === 'Alles' ? cards.length : cards.filter(c => c.group === g).length}</small></button>`).join('');
+        `<button class="filter-btn ${g === active ? 'active' : ''}" data-cat="${esc(g)}">${esc(g)} <small style="opacity:.6">${countIn(g)}</small></button>`).join('');
       filterBar.querySelectorAll('.filter-btn').forEach(b => b.addEventListener('click', () => {
         active = b.dataset.cat;
         const u = new URL(location.href);
@@ -176,9 +181,15 @@
       const color = p.colors?.[0]?.id;
       const img = Catalog.imageFor(p, type?.id, color);
       const model = Catalog.modelFor(p, type?.id, color);
-      const title = type ? `${p.name}` : p.name;
-      const price = type ? Number(type.price) : Catalog.fromPrice(p);
-      const multi = !type && p.types && p.types.length > 1;
+      const title = p.name;
+      const kids = type && GARMENT[type.id] === 'Kids';
+      const kidTypes = kids ? (p.types || []).filter(t => GARMENT[t.id] === 'Kids') : [];
+      const price = kids ? Math.min(...kidTypes.map(t => Number(t.price))) : type && active !== 'Alles' ? Number(type.price) : Catalog.fromPrice(p);
+      const multi = kids ? kidTypes.length > 1 : (active === 'Alles' && p.types && p.types.length > 1);
+      // Welke soorten zijn er (T-shirt · Hoodie · Trui · Kids)?
+      const kinds = [...new Set((p.types || []).map(t => SHORT[t.id] || (GARMENT[t.id] === 'Kids' ? 'Kids' : null)).filter(Boolean))];
+      const kindLine = kids ? kidTypes.map(t => t.label.replace('Kinder-', '').replace('Kinder', '')).map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' · ')
+        : active === 'Alles' ? kinds.join(' · ') : '';
       return `
         <article class="product-card" data-i="${i}" tabindex="0">
           <div class="product-image">
@@ -187,7 +198,7 @@
             ${model && img && img !== model ? `<img class="model-img" src="${esc(img)}" alt="" loading="lazy">` : ''}
           </div>
           <div class="product-info">
-            ${type ? `<p class="product-kind">${esc(type.label)}</p>` : ''}
+            ${type && active !== 'Alles' && !kids ? `<p class="product-kind">${esc(type.label)}</p>` : kindLine ? `<p class="product-kind">${esc(kindLine)}</p>` : ''}
             <h3 class="product-name">${esc(title)}</h3>
             <p class="product-desc">${esc(type ? p.description : (p.types ? p.types.map(t => t.label).join(' · ') : p.description))}</p>
             ${p.colors && p.colors.length > 1 ? `<div class="product-swatches">${p.colors.map(k => `<span class="swatch-dot" style="background:${k.hex}" title="${esc(k.label)}"></span>`).join('')}</div>` : ''}
@@ -201,7 +212,13 @@
 
     let shown = [];
     function renderGrid() {
-      shown = active === 'Alles' ? cards : cards.filter(c => c.group === active);
+      shown = (active === 'Alles' ? cards : cards.filter(c => c.groups.has(active))).map(c => ({
+        p: c.p,
+        // soort waarmee de kaart (en het venster) opent
+        type: active === 'Alles'
+          ? ((c.p.types || []).find(t => GARMENT[t.id] && GARMENT[t.id] !== 'Kids') || (c.p.types || []).find(t => GARMENT[t.id]) || null)
+          : firstTypeIn(c.p, active),
+      }));
       grid.innerHTML = shown.map(card).join('') || '<p style="color:var(--gray)">Geen producten gevonden.</p>';
       grid.querySelectorAll('.product-card').forEach(el => {
         const c = shown[+el.dataset.i];
@@ -230,11 +247,16 @@
       document.getElementById('pdetailDesc').textContent = p.description;
       document.getElementById('pdetailPickup').hidden = false;
 
+      // Prijs staat ook op de knop: op gsm blijft die knop onderaan in beeld.
+      function setPrice(v) {
+        document.getElementById('pdetailPrice').textContent = euro(v);
+        document.getElementById('pdetailAddBtn').innerHTML = `In winkelwagen <span class="pdetail-btn-price">· ${euro(v)}</span>`;
+      }
       function showImage(url) {
         document.getElementById('pdetailImage').innerHTML = url ? `<img src="${esc(url)}" alt="${esc(p.name)}">` : '👕';
       }
       function refresh() {
-        document.getElementById('pdetailPrice').textContent = euro(Catalog.priceFor(p, sel));
+        setPrice(Catalog.priceFor(p, { ...sel, personalName: sel.personalName.trim() }));
         const modelMain = Catalog.modelFor(p, sel.type, sel.color);
         showImage(modelMain || Catalog.imageFor(p, sel.type, sel.color));
         const thumbs = (p.colors || []).map(c => ({ c, url: Catalog.imageFor(p, sel.type, c.id) })).filter(x => x.url);
@@ -286,7 +308,7 @@
         const nameInput = document.getElementById('pdName');
         nameInput?.addEventListener('input', () => {
           sel.personalName = nameInput.value.replace(/[<>]/g, '');
-          document.getElementById('pdetailPrice').textContent = euro(Catalog.priceFor(p, { ...sel, personalName: sel.personalName.trim() }));
+          setPrice(Catalog.priceFor(p, { ...sel, personalName: sel.personalName.trim() }));
         });
         refresh();
       }

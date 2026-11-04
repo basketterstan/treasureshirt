@@ -143,6 +143,654 @@
   }
  },
  {
+  "id": "kerst-rendier",
+  "name": "Coole rendier",
+  "description": "Foute trui. Goede smaak. Een rendier met zonnebril en sjaal — cooler wordt kerst niet.",
+  "category": "Kerst",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "id": "groen",
+    "label": "Groen",
+    "hex": "#1e5b3a"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   },
+   {
+    "id": "zwart",
+    "label": "Zwart",
+    "hex": "#151515"
+   }
+  ],
+  "images": {
+   "tee|zwart": "images/kerst/rendier-tee-zwart.jpg",
+   "tee|navy": "images/kerst/rendier-tee-navy.jpg",
+   "tee|groen": "images/kerst/rendier-tee-groen.jpg",
+   "hoodie|zwart": "images/kerst/rendier-hoodie-zwart.jpg",
+   "hoodie|navy": "images/kerst/rendier-hoodie-navy.jpg",
+   "hoodie|groen": "images/kerst/rendier-hoodie-groen.jpg",
+   "trui|zwart": "images/kerst/rendier-trui-zwart.jpg",
+   "trui|navy": "images/kerst/rendier-trui-navy.jpg",
+   "trui|groen": "images/kerst/rendier-trui-groen.jpg",
+   "kids|zwart": "images/kerst/rendier-tee-zwart.jpg",
+   "kids|navy": "images/kerst/rendier-tee-navy.jpg",
+   "kids|groen": "images/kerst/rendier-tee-groen.jpg",
+   "kidshoodie|groen": "images/kerst/rendier-hoodie-groen.jpg",
+   "kidstrui|groen": "images/kerst/rendier-trui-groen.jpg",
+   "kidshoodie|navy": "images/kerst/rendier-hoodie-navy.jpg",
+   "kidstrui|navy": "images/kerst/rendier-trui-navy.jpg",
+   "kidshoodie|zwart": "images/kerst/rendier-hoodie-zwart.jpg",
+   "kidstrui|zwart": "images/kerst/rendier-trui-zwart.jpg"
+  },
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "personalize": {
+   "price": 5,
+   "label": "Naam erop (bv. op de mouw of achterkant)",
+   "maxLength": 14
+  },
+  "price": 19.99,
+  "models": {
+   "tee|zwart": "images/kerst/rendier-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/rendier-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/rendier-tee-groen-model.jpg",
+   "hoodie|zwart": "images/kerst/rendier-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/rendier-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/rendier-hoodie-groen-model.jpg",
+   "trui|zwart": "images/kerst/rendier-trui-zwart-model.jpg",
+   "trui|navy": "images/kerst/rendier-trui-navy-model.jpg",
+   "trui|groen": "images/kerst/rendier-trui-groen-model.jpg",
+   "kids|groen": "images/kerst/rendier-kids-groen-model.jpg",
+   "kidshoodie|groen": "images/kerst/rendier-kidshoodie-groen-model.jpg",
+   "kidstrui|groen": "images/kerst/rendier-kidstrui-groen-model.jpg",
+   "kids|navy": "images/kerst/rendier-kids-navy-model.jpg",
+   "kidshoodie|navy": "images/kerst/rendier-kidshoodie-navy-model.jpg",
+   "kidstrui|navy": "images/kerst/rendier-kidstrui-navy-model.jpg",
+   "kids|zwart": "images/kerst/rendier-kids-zwart-model.jpg",
+   "kidshoodie|zwart": "images/kerst/rendier-kidshoodie-zwart-model.jpg",
+   "kidstrui|zwart": "images/kerst/rendier-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "kerst-kerststress",
+  "name": "Kerststress? Ik doe een dutje",
+  "description": "Voor wie de kerstdrukte liever verslaapt: een knuffelbeer in winterslaap.",
+  "category": "Kerst",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "id": "groen",
+    "label": "Groen",
+    "hex": "#1e5b3a"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   },
+   {
+    "id": "zwart",
+    "label": "Zwart",
+    "hex": "#151515"
+   }
+  ],
+  "images": {
+   "tee|zwart": "images/kerst/kerststress-tee-zwart.jpg",
+   "tee|navy": "images/kerst/kerststress-tee-navy.jpg",
+   "tee|groen": "images/kerst/kerststress-tee-groen.jpg",
+   "hoodie|zwart": "images/kerst/kerststress-hoodie-zwart.jpg",
+   "hoodie|navy": "images/kerst/kerststress-hoodie-navy.jpg",
+   "hoodie|groen": "images/kerst/kerststress-hoodie-groen.jpg",
+   "trui|zwart": "images/kerst/kerststress-trui-zwart.jpg",
+   "trui|navy": "images/kerst/kerststress-trui-navy.jpg",
+   "trui|groen": "images/kerst/kerststress-trui-groen.jpg",
+   "kids|zwart": "images/kerst/kerststress-tee-zwart.jpg",
+   "kids|navy": "images/kerst/kerststress-tee-navy.jpg",
+   "kids|groen": "images/kerst/kerststress-tee-groen.jpg",
+   "kidshoodie|groen": "images/kerst/kerststress-hoodie-groen.jpg",
+   "kidstrui|groen": "images/kerst/kerststress-trui-groen.jpg",
+   "kidshoodie|navy": "images/kerst/kerststress-hoodie-navy.jpg",
+   "kidstrui|navy": "images/kerst/kerststress-trui-navy.jpg",
+   "kidshoodie|zwart": "images/kerst/kerststress-hoodie-zwart.jpg",
+   "kidstrui|zwart": "images/kerst/kerststress-trui-zwart.jpg"
+  },
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "personalize": {
+   "price": 5,
+   "label": "Naam erop (bv. op de mouw of achterkant)",
+   "maxLength": 14
+  },
+  "price": 19.99,
+  "models": {
+   "tee|zwart": "images/kerst/kerststress-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/kerststress-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/kerststress-tee-groen-model.jpg",
+   "hoodie|zwart": "images/kerst/kerststress-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/kerststress-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/kerststress-hoodie-groen-model.jpg",
+   "trui|zwart": "images/kerst/kerststress-trui-zwart-model.jpg",
+   "trui|navy": "images/kerst/kerststress-trui-navy-model.jpg",
+   "trui|groen": "images/kerst/kerststress-trui-groen-model.jpg",
+   "kids|groen": "images/kerst/kerststress-kids-groen-model.jpg",
+   "kidshoodie|groen": "images/kerst/kerststress-kidshoodie-groen-model.jpg",
+   "kidstrui|groen": "images/kerst/kerststress-kidstrui-groen-model.jpg",
+   "kids|navy": "images/kerst/kerststress-kids-navy-model.jpg",
+   "kidshoodie|navy": "images/kerst/kerststress-kidshoodie-navy-model.jpg",
+   "kidstrui|navy": "images/kerst/kerststress-kidstrui-navy-model.jpg",
+   "kids|zwart": "images/kerst/kerststress-kids-zwart-model.jpg",
+   "kidshoodie|zwart": "images/kerst/kerststress-kidshoodie-zwart-model.jpg",
+   "kidstrui|zwart": "images/kerst/kerststress-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "kerst-wanten",
+  "name": "Jij maakt kerst warmer (wanten)",
+  "description": "Gebreide wanten met een hart: het lieve cadeau voor iemand die jouw kerst warmer maakt.",
+  "category": "Kerst",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "id": "groen",
+    "label": "Groen",
+    "hex": "#1e5b3a"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   },
+   {
+    "id": "zwart",
+    "label": "Zwart",
+    "hex": "#151515"
+   }
+  ],
+  "images": {
+   "tee|zwart": "images/kerst/wanten-tee-zwart.jpg",
+   "tee|navy": "images/kerst/wanten-tee-navy.jpg",
+   "tee|groen": "images/kerst/wanten-tee-groen.jpg",
+   "hoodie|zwart": "images/kerst/wanten-hoodie-zwart.jpg",
+   "hoodie|navy": "images/kerst/wanten-hoodie-navy.jpg",
+   "hoodie|groen": "images/kerst/wanten-hoodie-groen.jpg",
+   "trui|zwart": "images/kerst/wanten-trui-zwart.jpg",
+   "trui|navy": "images/kerst/wanten-trui-navy.jpg",
+   "trui|groen": "images/kerst/wanten-trui-groen.jpg",
+   "kids|zwart": "images/kerst/wanten-tee-zwart.jpg",
+   "kids|navy": "images/kerst/wanten-tee-navy.jpg",
+   "kids|groen": "images/kerst/wanten-tee-groen.jpg",
+   "kidshoodie|groen": "images/kerst/wanten-hoodie-groen.jpg",
+   "kidstrui|groen": "images/kerst/wanten-trui-groen.jpg",
+   "kidshoodie|navy": "images/kerst/wanten-hoodie-navy.jpg",
+   "kidstrui|navy": "images/kerst/wanten-trui-navy.jpg",
+   "kidshoodie|zwart": "images/kerst/wanten-hoodie-zwart.jpg",
+   "kidstrui|zwart": "images/kerst/wanten-trui-zwart.jpg"
+  },
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "personalize": {
+   "price": 5,
+   "label": "Naam erop (bv. op de mouw of achterkant)",
+   "maxLength": 14
+  },
+  "price": 19.99,
+  "models": {
+   "tee|zwart": "images/kerst/wanten-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/wanten-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/wanten-tee-groen-model.jpg",
+   "hoodie|zwart": "images/kerst/wanten-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/wanten-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/wanten-hoodie-groen-model.jpg",
+   "trui|zwart": "images/kerst/wanten-trui-zwart-model.jpg",
+   "trui|navy": "images/kerst/wanten-trui-navy-model.jpg",
+   "trui|groen": "images/kerst/wanten-trui-groen-model.jpg",
+   "kids|groen": "images/kerst/wanten-kids-groen-model.jpg",
+   "kidshoodie|groen": "images/kerst/wanten-kidshoodie-groen-model.jpg",
+   "kidstrui|groen": "images/kerst/wanten-kidstrui-groen-model.jpg",
+   "kids|navy": "images/kerst/wanten-kids-navy-model.jpg",
+   "kidshoodie|navy": "images/kerst/wanten-kidshoodie-navy-model.jpg",
+   "kidstrui|navy": "images/kerst/wanten-kidstrui-navy-model.jpg",
+   "kids|zwart": "images/kerst/wanten-kids-zwart-model.jpg",
+   "kidshoodie|zwart": "images/kerst/wanten-kidshoodie-zwart-model.jpg",
+   "kidstrui|zwart": "images/kerst/wanten-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
+  "id": "winter-pinguin",
+  "name": "Koud buiten, cool vanbinnen",
+  "description": "Een pinguïn met muts en zonnebril. Winters, maar geen kerst: draag hem tot in februari.",
+  "category": "Winter",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "id": "groen",
+    "label": "Groen",
+    "hex": "#1e5b3a"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   },
+   {
+    "id": "zwart",
+    "label": "Zwart",
+    "hex": "#151515"
+   }
+  ],
+  "images": {
+   "tee|zwart": "images/kerst/pinguin-tee-zwart.jpg",
+   "tee|navy": "images/kerst/pinguin-tee-navy.jpg",
+   "tee|groen": "images/kerst/pinguin-tee-groen.jpg",
+   "hoodie|zwart": "images/kerst/pinguin-hoodie-zwart.jpg",
+   "hoodie|navy": "images/kerst/pinguin-hoodie-navy.jpg",
+   "hoodie|groen": "images/kerst/pinguin-hoodie-groen.jpg",
+   "trui|zwart": "images/kerst/pinguin-trui-zwart.jpg",
+   "trui|navy": "images/kerst/pinguin-trui-navy.jpg",
+   "trui|groen": "images/kerst/pinguin-trui-groen.jpg",
+   "kids|zwart": "images/kerst/pinguin-tee-zwart.jpg",
+   "kids|navy": "images/kerst/pinguin-tee-navy.jpg",
+   "kids|groen": "images/kerst/pinguin-tee-groen.jpg",
+   "kidshoodie|groen": "images/kerst/pinguin-hoodie-groen.jpg",
+   "kidstrui|groen": "images/kerst/pinguin-trui-groen.jpg",
+   "kidshoodie|navy": "images/kerst/pinguin-hoodie-navy.jpg",
+   "kidstrui|navy": "images/kerst/pinguin-trui-navy.jpg",
+   "kidshoodie|zwart": "images/kerst/pinguin-hoodie-zwart.jpg",
+   "kidstrui|zwart": "images/kerst/pinguin-trui-zwart.jpg"
+  },
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "personalize": {
+   "price": 5,
+   "label": "Naam erop (bv. op de mouw of achterkant)",
+   "maxLength": 14
+  },
+  "price": 19.99,
+  "models": {
+   "tee|zwart": "images/kerst/pinguin-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/pinguin-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/pinguin-tee-groen-model.jpg",
+   "hoodie|zwart": "images/kerst/pinguin-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/pinguin-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/pinguin-hoodie-groen-model.jpg",
+   "trui|zwart": "images/kerst/pinguin-trui-zwart-model.jpg",
+   "trui|navy": "images/kerst/pinguin-trui-navy-model.jpg",
+   "trui|groen": "images/kerst/pinguin-trui-groen-model.jpg",
+   "kids|groen": "images/kerst/pinguin-kids-groen-model.jpg",
+   "kidshoodie|groen": "images/kerst/pinguin-kidshoodie-groen-model.jpg",
+   "kidstrui|groen": "images/kerst/pinguin-kidstrui-groen-model.jpg",
+   "kids|navy": "images/kerst/pinguin-kids-navy-model.jpg",
+   "kidshoodie|navy": "images/kerst/pinguin-kidshoodie-navy-model.jpg",
+   "kidstrui|navy": "images/kerst/pinguin-kidstrui-navy-model.jpg",
+   "kids|zwart": "images/kerst/pinguin-kids-zwart-model.jpg",
+   "kidshoodie|zwart": "images/kerst/pinguin-kidshoodie-zwart-model.jpg",
+   "kidstrui|zwart": "images/kerst/pinguin-kidstrui-zwart-model.jpg"
+  }
+ },
+ {
   "id": "kerst-beer",
   "name": "Beer met bedrukt shirtje",
   "description": "Zachte knuffelbeer met een eigen shirtje. Laat er een naam of korte tekst op zetten — een cadeau dat ze nooit vergeten.",

@@ -517,3 +517,39 @@ footer {
 .filter-bar { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
 .filter-btn { flex-shrink: 0; }
 [hidden] { display: none !important; }
+
+/* ── Gsm: sneller naar de producten (compacte kerstmarkt-strook) ── */
+.market-short { display: none; }
+@media (max-width: 640px) {
+  .page-hero { padding-bottom: 1rem; }
+  #shopSub { display: none; }
+  .market-banner { grid-template-columns: 1fr auto; gap: .75rem; padding: .9rem 1rem; margin-bottom: 1.1rem; border-radius: 14px; }
+  .market-banner .section-label { display: none; }
+  .market-banner h2 { font-size: 1.02rem; margin-bottom: .2rem; }
+  .market-banner .market-long { display: none; }
+  .market-banner .market-short { display: block; font-size: .8rem; line-height: 1.4; }
+  .market-date { justify-self: end; min-width: 0; padding: .45rem .7rem; border-radius: 10px; }
+  .market-date b { font-size: 1.15rem; }
+  .market-date span { font-size: .62rem; }
+  .market-date span:last-child { display: none; }
+  .filter-bar { margin-bottom: 1rem; }
+}
+
+/* ── Gsm: knop + prijs blijven onderaan in beeld in het productvenster ── */
+.pdetail-btn-price { font-weight: 800; }
+@media (max-width: 640px) {
+  .pdetail-btn {
+    position: sticky; bottom: 0; z-index: 5; margin: .25rem -1.25rem 0; border-radius: 0;
+    padding: 1.05rem 1.25rem calc(1.05rem + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 -10px 24px rgba(0,0,0,.45);
+  }
+  .pdetail-info { padding-bottom: 0; }
+  .pdetail-pickup { order: 10; margin-bottom: 1.25rem; }
+  .pdetail-hint { position: sticky; bottom: 64px; z-index: 5; background: var(--dark-gray); padding: .4rem 0; }
+}
+@media (max-width: 640px) {
+  .page-hero { padding-top: 5.75rem; }
+  .page-hero .section-title { font-size: 2rem; margin-bottom: .25rem; }
+}
+/* Computer: geen leeg beige vlak onder de foto's in het productvenster */
+@media (min-width: 641px) { .pdetail-image-col { align-self: start; border-radius: 20px 0 20px 0; } }
