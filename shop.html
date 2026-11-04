@@ -242,9 +242,11 @@
     overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
 
-    function openProduct(p, startType) {
+    function openProduct(p, startType, startColor) {
       if (!p) return;
-      const sel = { type: startType || p.types?.[0]?.id || '', color: p.colors?.[0]?.id || '', size: '', personalName: '', namePlacement: (p.personalize?.placements?.[0]?.id) || '', printSide: 'voor' };
+      if (startType && !p.types?.some(t => t.id === startType)) startType = '';
+      if (startColor && !p.colors?.some(c => c.id === startColor)) startColor = '';
+      const sel = { type: startType || p.types?.[0]?.id || '', color: startColor || p.colors?.[0]?.id || '', size: '', personalName: '', namePlacement: (p.personalize?.placements?.[0]?.id) || '', printSide: 'voor' };
       // Ontwerp vooraan → naam op de rug; ontwerp op de rug (dieren, of gekozen) → naam op de borst.
       const designSide = () => p.category === 'Dieren' ? 'rug' : (p.backModels && sel.printSide === 'rug' ? 'rug' : 'voor');
       const namePlaceFor = () => designSide() === 'rug' ? 'borst' : 'rug';
@@ -362,7 +364,7 @@
 
     renderFilters(); setHeader(); renderGrid();
     const wantP = params.get('p') || decodeURIComponent(location.hash.slice(1));
-    if (wantP) openProduct(all.find(x => x.id === wantP));
+    if (wantP) openProduct(all.find(x => x.id === wantP), params.get('t'), params.get('c'));
   })();
   </script>
 </body>
