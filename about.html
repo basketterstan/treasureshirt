@@ -3,160 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Over Ons — Treasureshirt</title>
+  <title>Over ons — Treasureshirt</title>
+  <meta name="description" content="Treasureshirt is een klein kledingmerk uit Landen. Zelf ontworpen en zelf gedrukt." />
+  <meta property="og:title" content="Over ons — Treasureshirt" />
+  <meta property="og:description" content="Treasureshirt is een klein kledingmerk uit Landen. Zelf ontworpen en zelf gedrukt." />
+  <meta property="og:image" content="https://treasureshirt.com/images/kerst/kerstzin-tee-groen.jpg" />
+  <meta name="theme-color" content="#0d0d0f" />
+  <link rel="icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .about-hero {
-      padding: 12rem 5% 5rem;
-      text-align: center;
-      background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
-    }
-    .values {
-      background: var(--black);
-    }
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .value-card {
-      padding: 2.5rem;
-      border-left: 2px solid var(--gold);
-    }
-    .value-card h3 {
-      font-size: 1.1rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .value-card p {
-      color: var(--gray);
-      font-style: italic;
-      line-height: 1.9;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20261103c" />
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      
-      <li><a href="shop.html">Collectie</a></li>
-      <li><a href="op-maat.html">Op Maat</a></li>
-      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
+      <li><a href="shop.html?c=kids">Kids</a></li>
+      <li><a href="shop.html?c=dieren">Dieren</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
       <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
-      <button class="nav-cart" id="cartBtn">Winkelwagen <span class="cart-badge" id="cartCount">0</span></button>
+      <button class="nav-cart" id="cartBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span>
+      </button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
+  <!-- CART -->
   <div class="cart-overlay" id="cartOverlay">
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
         <h3>Winkelwagen</h3>
-        <button class="cart-close" id="cartClose">✕</button>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
         <div class="cart-total-row">
-          <span class="cart-total-label">Subtotaal</span>
+          <span class="cart-total-label">Totaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (België € 7, Nederland € 14,99). Verzenden: bestel vóór 8 december.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
   </div>
 
-  <div class="about-hero">
-    <p class="section-label">Ons Verhaal</p>
-    <h1 class="section-title">Over <em>Treasureshirt</em></h1>
-    <div class="divider" style="margin: 2rem auto;"></div>
-  </div>
 
-  <!-- VERHAAL -->
-  <section class="about">
-    <div class="about-grid">
-      <div class="about-visual" style="display:flex;align-items:center;justify-content:center;">
-        <img src="images/logo.png" alt="Treasureshirt logo" style="width:80%;max-width:320px;filter:invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(.85);" />
+  <header class="page-hero">
+    <p class="section-label">Over ons</p>
+    <h1 class="section-title">Klein merk, <em>grote ideeën</em></h1>
+    <p class="section-sub">Treasureshirt is een klein kledingmerk uit Landen. Elk design bedenken we zelf, en we drukken alles zelf, met onze eigen persen.</p>
+  </header>
+
+  <section style="padding-top:2rem">
+    <div class="about-grid" style="max-width:1150px;margin:0 auto">
+      <div class="about-visual" style="padding:0;overflow:hidden;background:none;border:none;display:grid;grid-template-columns:1fr 1fr;gap:.75rem;aspect-ratio:1">
+        <img src="images/kerst/gluhwein-hoodie-groen.jpg" alt="Team Glühwein hoodie" style="width:100%;height:100%;object-fit:cover;border-radius:14px" />
+        <img src="images/kerst/kerstzin-tee-navy.jpg" alt="Kerstzin T-shirt" style="width:100%;height:100%;object-fit:cover;border-radius:14px" />
+        <img src="images/kerst/foutetrui-trui-groen.jpg" alt="Foute trui? trui" style="width:100%;height:100%;object-fit:cover;border-radius:14px" />
+        <img src="images/kerst/beer-lisa.jpg" alt="Beer met bedrukt shirtje" style="width:100%;height:100%;object-fit:cover;border-radius:14px" />
       </div>
       <div class="about-text">
-        <p class="section-label">Het Begin</p>
-        <h2 class="section-title">Gebouwd op <em>Passie</em></h2>
-        <div class="divider"></div>
-        <p>Treasureshirt werd geboren vanuit een simpele overtuiging: kleding moet meer zijn dan stof en draad. Het moet een gevoel zijn. Een statement. Een sieraad voor het dagelijks leven.</p>
-        <p>Wat begon als een droom, groeide uit tot een merk dat staat voor kwaliteit zonder compromis. Elk stuk dat we maken draagt onze naam — en die naam staat voor iets.</p>
-        <p>Wij geloven dat jij het verdient om je elke dag bijzonder te voelen. Dat is onze belofte.</p>
-        <a href="shop.html" class="btn" style="margin-top: 1rem;">Ontdek de Collectie</a>
-        <div class="about-stats">
-          <div>
-            <div class="stat-number">100+</div>
-            <div class="stat-label">Unieke Stukken</div>
-          </div>
-          <div>
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Tevreden Klanten</div>
-          </div>
-          <div>
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Premium Kwaliteit</div>
-          </div>
+        <p class="section-label">Ons verhaal</p>
+        <h2 class="section-title">Shirts die je doen <em>lachen</em></h2>
+        <p>We maken kleding met een knipoog: designs die je aan je vrienden wil laten zien, cadeaus die echt persoonlijk zijn en shirts waar mensen je over aanspreken.</p>
+        <p>Omdat we alles zelf maken, kunnen we snel schakelen. Een naam op je hoodie of op het shirtje van een beer? Dat doen we voor je, gewoon hier in Landen.</p>
+        <p>Deze winter staan we met een eigen chalet op de kerstmarkt van Landen, van 11 tot 13 december. Kom gerust langs!</p>
+        <div class="hero-actions" style="justify-content:flex-start;margin-top:1.5rem">
+          <a href="shop.html" class="btn btn-filled">Bekijk de kerstcollectie →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WAARDEN -->
-  <section class="values">
-    <p class="section-label">Waar we voor staan</p>
-    <h2 class="section-title">Onze <em>Waarden</em></h2>
-    <div class="values-grid">
-      <div class="value-card">
-        <h3>Kwaliteit Boven Alles</h3>
-        <p>We kiezen nooit de goedkopere weg. Elk materiaal, elke naad, elk detail wordt bewust gekozen voor de beste uitkomst.</p>
-      </div>
-      <div class="value-card">
-        <h3>Authenticiteit</h3>
-        <p>Geen trends namaken. Geen snelle mode. Wij creëren stukken die echtheid uitstralen en decennia meegaan.</p>
-      </div>
-      <div class="value-card">
-        <h3>Exclusiviteit</h3>
-        <p>Beperkte oplagen. Bewust klein. Wij geloven dat het bijzondere ook echt bijzonder moet blijven.</p>
-      </div>
-      <div class="value-card">
-        <h3>Klant Eerst</h3>
-        <p>Jouw ervaring, van de eerste klik tot de laatste levering, is voor ons net zo belangrijk als het product zelf.</p>
-      </div>
+  <section style="background:var(--dark-gray)">
+    <div style="max-width:1150px;margin:0 auto">
+      <p class="section-label">Waar we voor staan</p>
+      <h2 class="section-title">Hoe we <em>werken</em></h2>
+    </div>
+    <div class="features-grid" style="margin-top:2rem">
+      <div class="feature-item"><div class="feature-icon">✏️</div><h3>Zelf ontworpen</h3><p>Elk design komt uit ons eigen hoofd. Geen kopieën van bestaande merken of logo's.</p></div>
+      <div class="feature-item"><div class="feature-icon">🖨️</div><h3>Zelf gedrukt</h3><p>We drukken alles zelf in Landen, op bestelling. Zo maken we geen overschot.</p></div>
+      <div class="feature-item"><div class="feature-icon">🎁</div><h3>Persoonlijk</h3><p>Een naam of tekst erbij is altijd mogelijk. Zo wordt elk stuk een echt cadeau.</p></div>
+      <div class="feature-item"><div class="feature-icon">🤝</div><h3>Dichtbij</h3><p>Vragen? Je spreekt rechtstreeks met de maker, via mail, Instagram of op de kerstmarkt.</p></div>
     </div>
   </section>
 
   <footer>
     <span class="footer-logo">Treasureshirt</span>
-    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
-    <div class="footer-socials">
-      <a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a>
-    </div>
+    <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-socials"><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a></div>
     <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
-      <a href="privacy.html" style="color:#555;font-size:.72rem;text-decoration:none">Privacybeleid</a>
-      <a href="voorwaarden.html" style="color:#555;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
-      <a href="retour.html" style="color:#555;font-size:.72rem;text-decoration:none">Retourbeleid</a>
+      <a href="privacy.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Retourbeleid</a>
     </div>
   </footer>
 
-  <div class="toast" id="toast"></div>
-  <script src="js/main.js"></script>
   <div class="cart-toast" id="cartToast"></div>
-  <script src="js/cart.js"></script>
+  <div class="toast" id="toast"></div>
+  <script src="js/main.js?v=20261103c"></script>
+  <script src="js/cart.js?v=20261104c"></script>
 </body>
 </html>

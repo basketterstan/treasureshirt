@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ontwerp Je Shirt — Treasureshirt</title>
+  <link rel="icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20261103c" />
   <style>
     .designer-hero {
       padding: 10rem 5% 3rem;
@@ -31,7 +32,7 @@
       gap: 1.4rem;
     }
     .d-panel h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: var(--font);
       font-size: .9rem;
       font-weight: 400;
       letter-spacing: .2em;
@@ -39,7 +40,7 @@
       color: var(--gold);
       margin: 0 0 .5rem;
       padding-bottom: .5rem;
-      border-bottom: 1px solid rgba(201,168,76,.2);
+      border-bottom: 1px solid rgba(255,200,61,.2);
     }
     .d-canvas-wrap {
       display: flex;
@@ -96,7 +97,7 @@
 
     .d-btn {
       background: transparent;
-      border: 1px solid rgba(201,168,76,.35);
+      border: 1px solid rgba(255,200,61,.35);
       color: var(--gold);
       padding: .55rem 1rem;
       font-family: inherit;
@@ -107,7 +108,7 @@
       transition: all .2s;
       width: 100%;
     }
-    .d-btn:hover { background: rgba(201,168,76,.08); border-color: var(--gold); }
+    .d-btn:hover { background: rgba(255,200,61,.08); border-color: var(--gold); }
     .d-btn.primary { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 700; }
     .d-btn.primary:hover { background: #d4aa3a; }
     .d-btn.danger { border-color: rgba(220,60,60,.5); color: #dc4444; }
@@ -148,7 +149,7 @@
       transition: all .2s;
     }
     .size-opt:hover { border-color: var(--gold); color: var(--gold); }
-    .size-opt.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,.1); }
+    .size-opt.active { border-color: var(--gold); color: var(--gold); background: rgba(255,200,61,.1); }
 
     .qty-row { display: flex; align-items: center; gap: .6rem; }
     .qty-ctrl {
@@ -171,14 +172,13 @@
     .design-price {
       font-size: 1.6rem;
       color: var(--gold);
-      font-family: 'Cormorant Garamond', serif;
+      font-family: var(--font);
       margin: 0;
     }
     .canvas-hint {
       font-size: .72rem;
       color: rgba(255,255,255,.3);
       text-align: center;
-      font-style: italic;
       margin: 0;
     }
     .selected-ctrl-bar {
@@ -200,15 +200,16 @@
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html">Collectie</a></li>
-      <li><a href="op-maat.html">Op Maat</a></li>
-      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
+      <li><a href="shop.html?c=kids">Kids</a></li>
+      <li><a href="shop.html?c=dieren">Dieren</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
       <button class="nav-cart" id="cartBtn">
-        Winkelwagen <span class="cart-badge" id="cartCount">0</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span>
       </button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
         <span></span><span></span><span></span>
@@ -221,7 +222,7 @@
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
         <h3>Winkelwagen</h3>
-        <button class="cart-close" id="cartClose">✕</button>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
@@ -229,6 +230,7 @@
           <span class="cart-total-label">Totaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (België € 7, Nederland € 14,99). Verzenden: bestel vóór 8 december.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
@@ -239,7 +241,7 @@
     <p class="section-label">Treasureshirt</p>
     <h1 class="section-title">Ontwerp Je <em>Shirt</em></h1>
     <div class="divider" style="margin:1.5rem auto"></div>
-    <p style="color:var(--gray);font-style:italic;max-width:500px;margin:0 auto">
+    <p style="color:var(--gray);max-width:500px;margin:0 auto">
       Maak je eigen unieke Treasureshirt. Kies een kleur, voeg tekst of een logo toe en bestel direct.
     </p>
   </div>
@@ -259,7 +261,7 @@
           <button class="color-swatch" data-color="#5a5a5a" style="background:#5a5a5a" title="Grijs"></button>
           <button class="color-swatch" data-color="#8b1a1a" style="background:#8b1a1a" title="Bordeaux"></button>
           <button class="color-swatch" data-color="#1a5c2e" style="background:#1a5c2e" title="Groen"></button>
-          <button class="color-swatch" data-color="#c9a84c" style="background:#c9a84c" title="Goud"></button>
+          <button class="color-swatch" data-color="#ffc83d" style="background:#ffc83d" title="Goud"></button>
           <button class="color-swatch" data-color="#2a2a6a" style="background:#2a2a6a" title="Paars"></button>
         </div>
       </div>
@@ -301,7 +303,7 @@
           <div class="d-btn" style="text-align:center;pointer-events:none">+ Afbeelding kiezen</div>
           <input type="file" id="imageInput" accept="image/*" style="display:none" />
         </label>
-        <p id="imageName" style="font-size:.72rem;color:var(--gray);margin:.4rem 0 0;font-style:italic"></p>
+        <p id="imageName" style="font-size:.72rem;color:var(--gray);margin:.4rem 0 0;"></p>
       </div>
 
     </div>
@@ -327,7 +329,7 @@
       <div>
         <h4>Elementen</h4>
         <div class="elements-list" id="elementsList">
-          <p style="font-size:.75rem;color:rgba(255,255,255,.28);font-style:italic;margin:0">
+          <p style="font-size:.75rem;color:rgba(255,255,255,.28);margin:0">
             Nog geen elementen toegevoegd
           </p>
         </div>
@@ -371,13 +373,13 @@
 
   <footer>
     <span class="footer-logo">Treasureshirt</span>
-    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
     <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a></div>
   </footer>
 
   <div class="cart-toast" id="cartToast"></div>
-  <script src="js/main.js"></script>
-  <script src="js/cart.js"></script>
+  <script src="js/main.js?v=20261103c"></script>
+  <script src="js/cart.js?v=20261104c"></script>
 
   <script>
   // ============================================================
@@ -473,15 +475,15 @@
       if (elements.length) return;
       ctx.save();
       ctx.setLineDash([4, 5]);
-      ctx.strokeStyle = 'rgba(201,168,76,0.25)';
+      ctx.strokeStyle = 'rgba(255,200,61,0.25)';
       ctx.lineWidth = 1;
       ctx.strokeRect(PA.x, PA.y, PA.w, PA.h);
-      ctx.fillStyle = 'rgba(201,168,76,0.07)';
+      ctx.fillStyle = 'rgba(255,200,61,0.07)';
       ctx.fillRect(PA.x, PA.y, PA.w, PA.h);
       ctx.restore();
 
       ctx.save();
-      ctx.fillStyle   = 'rgba(201,168,76,0.35)';
+      ctx.fillStyle   = 'rgba(255,200,61,0.35)';
       ctx.font        = '11px Arial, sans-serif';
       ctx.textAlign   = 'center';
       ctx.textBaseline = 'middle';
@@ -505,13 +507,13 @@
       if (el.id === selectedId) {
         const bb = getBB(el);
         ctx.save();
-        ctx.strokeStyle = '#c9a84c';
+        ctx.strokeStyle = '#ffc83d';
         ctx.lineWidth   = 1.5;
         ctx.setLineDash([]);
         ctx.strokeRect(bb.x - 5, bb.y - 5, bb.w + 10, bb.h + 10);
         [[bb.x - 5, bb.y - 5],[bb.x + bb.w + 5, bb.y - 5],
          [bb.x - 5, bb.y + bb.h + 5],[bb.x + bb.w + 5, bb.y + bb.h + 5]].forEach(([hx, hy]) => {
-          ctx.fillStyle = '#c9a84c';
+          ctx.fillStyle = '#ffc83d';
           ctx.fillRect(hx - 4, hy - 4, 8, 8);
         });
         ctx.restore();
@@ -708,7 +710,7 @@
     function refreshList() {
       const list = document.getElementById('elementsList');
       if (!elements.length) {
-        list.innerHTML = '<p style="font-size:.75rem;color:rgba(255,255,255,.28);font-style:italic;margin:0">Nog geen elementen toegevoegd</p>';
+        list.innerHTML = '<p style="font-size:.75rem;color:rgba(255,255,255,.28);margin:0">Nog geen elementen toegevoegd</p>';
         return;
       }
       list.innerHTML = elements.map((el, i) => {
@@ -771,7 +773,7 @@
       const colorNames = {
         '#ffffff': 'Wit', '#1a1a1a': 'Zwart', '#1f3a5f': 'Navy',
         '#5a5a5a': 'Grijs', '#8b1a1a': 'Bordeaux', '#1a5c2e': 'Groen',
-        '#c9a84c': 'Goud', '#2a2a6a': 'Paars',
+        '#ffc83d': 'Goud', '#2a2a6a': 'Paars',
       };
       const colorName = colorNames[shirtColor] || 'Shirt';
       const texts = elements.filter(e => e.type === 'text').map(e => `"${e.text}"`).join(', ');

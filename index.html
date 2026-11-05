@@ -3,28 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Treasureshirt — Premium Kledingmerk</title>
-  <meta name="description" content="Treasureshirt — luxe premium kleding voor de veeleisende klant." />
+  <title>Treasureshirt — grappige kersttruien, hoodies en shirts uit Landen</title>
+  <meta name="description" content="Grappige kersttruien, hoodies en T-shirts, zelf ontworpen en gedrukt in Landen. Met je naam erop. Gratis afhalen op de kerstmarkt van Landen (11–13 december)." />
+  <meta property="og:title" content="Treasureshirt — grappige kersttruien, hoodies en shirts uit Landen" />
+  <meta property="og:description" content="Grappige kersttruien, hoodies en T-shirts, zelf ontworpen en gedrukt in Landen. Met je naam erop. Gratis afhalen op de kerstmarkt van Landen (11–13 december)." />
+  <meta property="og:image" content="https://treasureshirt.com/images/kerst/kerstzin-tee-groen.jpg" />
+  <meta name="theme-color" content="#0d0d0f" />
+  <link rel="icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20261104a" />
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      
-      <li><a href="shop.html">Collectie</a></li>
-      <li><a href="op-maat.html">Op Maat</a></li>
-      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
+      <li><a href="shop.html?c=kids">Kids</a></li>
+      <li><a href="shop.html?c=dieren">Dieren</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
       <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
       <button class="nav-cart" id="cartBtn">
-        Winkelwagen <span class="cart-badge" id="cartCount">0</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span>
       </button>
       <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
         <span></span><span></span><span></span>
@@ -37,7 +43,7 @@
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-header">
         <h3>Winkelwagen</h3>
-        <button class="cart-close" id="cartClose">✕</button>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
@@ -45,187 +51,139 @@
           <span class="cart-total-label">Totaal</span>
           <span class="cart-total-amount" id="cartTotal">€ 0</span>
         </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (België € 7, Nederland € 14,99). Verzenden: bestel vóór 8 december.</p>
         <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
       </div>
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <p class="hero-eyebrow">Jouw Design — Jouw Shirt</p>
-      <h1>Treasure<br /><span>Shirt</span></h1>
-      <p class="hero-sub">Jij beschrijft. Wij maken. Jij ziet het pas als het klaar is.</p>
-      <a href="op-maat.html" class="btn">Maak Jouw Design</a>
-    </div>
-    <div class="scroll-indicator">Scroll</div>
-  </section>
-
-  <!-- HOE WERKT HET -->
-  <section class="features" style="padding-bottom:4rem">
-    <div style="text-align:center;margin-bottom:1rem">
-      <p class="section-label">Hoe het werkt</p>
-      <h2 class="section-title">Het <em>Concept</em></h2>
-    </div>
-    <div class="features-grid">
-      <div class="feature-item"><div class="feature-icon">✦</div><h3>Jij Beschrijft</h3><p>Vertel je thema, stijl, kleuren en extra wensen. Hoe meer detail, hoe persoonlijker het resultaat.</p></div>
-      <div class="feature-item"><div class="feature-icon">◈</div><h3>Wij Maken</h3><p>Ons team maakt een uniek design op basis van jouw brief — volledig origineel, nooit eerder gemaakt.</p></div>
-      <div class="feature-item"><div class="feature-icon">◇</div><h3>Geen Preview</h3><p>Je ziet jouw design pas als het shirt klaar is. Dat is de verrassing — en dat is Treasureshirt.</p></div>
-      <div class="feature-item"><div class="feature-icon">✧</div><h3>100% Uniek</h3><p>Geen enkel shirt is hetzelfde. Jouw stuk bestaat maar één keer — gemaakt voor jou, door ons.</p></div>
-    </div>
-  </section>
-
-  <!-- PRODUCT SHOWCASE -->
-  <section style="padding:5rem 5%;background:var(--dark-gray)">
-    <div style="text-align:center;margin-bottom:3rem">
-      <p class="section-label">Echt werk</p>
-      <h2 class="section-title">Zo ziet het <em>eruit</em></h2>
-      <div class="divider" style="margin:1.5rem auto"></div>
-      <p style="color:var(--gray);font-style:italic;font-size:.95rem;max-width:520px;margin:0 auto">Elk shirt is uniek — gemaakt op basis van wat de klant beschreef, zonder dat ze het op voorhand zagen.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:900px;margin:0 auto 3rem">
-      <div>
-        <img src="images/emma-basketball.png" alt="Op maat gemaakt basketbal shirt voor Emma" style="width:100%;display:block;border:1px solid rgba(201,168,76,.15)" />
-        <div style="padding:1.25rem 0 0">
-          <p style="font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem">Thema: basketbal</p>
-          <p style="color:#aaa;font-style:italic;font-size:.88rem;line-height:1.7">"Basketbal, retro-stijl, met mijn naam erin." — Emma zag het pas bij ontvangst.</p>
-        </div>
-      </div>
-      <div>
-        <img src="images/milo-muziek.png" alt="Op maat gemaakt muziek shirt voor Milo" style="width:100%;display:block;border:1px solid rgba(201,168,76,.15)" />
-        <div style="padding:1.25rem 0 0">
-          <p style="font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem">Thema: muziek</p>
-          <p style="color:#aaa;font-style:italic;font-size:.88rem;line-height:1.7">"Gitaar, bold design, rode kleur, mijn naam." — Milo zag het pas bij ontvangst.</p>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center">
-      <a href="op-maat.html" class="btn btn-filled">Maak jouw design →</a>
-    </div>
-  </section>
-
-  <!-- SOCIAL PROOF -->
-  <section style="padding:5rem 5%;background:var(--black)">
-    <div style="text-align:center;margin-bottom:3.5rem">
-      <p class="section-label">Wat klanten zeggen</p>
-      <h2 class="section-title">Reac<em>ties</em></h2>
-      <div class="divider" style="margin:1.5rem auto"></div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;max-width:900px;margin:0 auto 4rem">
-      <div style="border:1px solid rgba(201,168,76,.15);padding:2rem;position:relative">
-        <p style="color:var(--gold);font-size:2rem;line-height:1;margin-bottom:1rem;opacity:.4">"</p>
-        <p style="color:var(--white);font-style:italic;line-height:1.8;font-size:.95rem">Ik had geen idee wat het zou worden — en dat was precies het leuke. Het resultaat was beter dan ik zelf had kunnen bedenken.</p>
-        <p style="color:var(--gold);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;margin-top:1.25rem">— Lena, basketbal-shirt</p>
-      </div>
-      <div style="border:1px solid rgba(201,168,76,.15);padding:2rem;position:relative">
-        <p style="color:var(--gold);font-size:2rem;line-height:1;margin-bottom:1rem;opacity:.4">"</p>
-        <p style="color:var(--white);font-style:italic;line-height:1.8;font-size:.95rem">Gave hoodie, retro-stijl precies zoals ik gevraagd had. Iedereen vraagt waar ik hem gekocht heb — en ik kan eerlijk zeggen dat er geen tweede bestaat.</p>
-        <p style="color:var(--gold);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;margin-top:1.25rem">— Mathis, muziek-hoodie</p>
-      </div>
-      <div style="border:1px solid rgba(201,168,76,.15);padding:2rem;position:relative">
-        <p style="color:var(--gold);font-size:2rem;line-height:1;margin-bottom:1rem;opacity:.4">"</p>
-        <p style="color:var(--white);font-style:italic;line-height:1.8;font-size:.95rem">Superscherp geprint, strak design, snel klaar. Het concept is dope — je geeft de controle weg en krijgt iets unieks terug.</p>
-        <p style="color:var(--gold);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;margin-top:1.25rem">— Rayan, gaming-shirt</p>
-      </div>
-    </div>
-    <div style="text-align:center;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap">
-      <div>
-        <p style="font-size:2.5rem;color:var(--gold);font-style:italic;font-weight:300">100%</p>
-        <p style="font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);margin-top:.25rem">Origineel</p>
-      </div>
-      <div>
-        <p style="font-size:2.5rem;color:var(--gold);font-style:italic;font-weight:300">30 min</p>
-        <p style="font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);margin-top:.25rem">Gemiddelde doorlooptijd</p>
-      </div>
-      <div>
-        <p style="font-size:2.5rem;color:var(--gold);font-style:italic;font-weight:300">0×</p>
-        <p style="font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);margin-top:.25rem">Hetzelfde design twee keer</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section style="padding:5rem 5%;background:var(--dark-gray)">
-    <div style="text-align:center;margin-bottom:3rem">
-      <p class="section-label">Veelgestelde vragen</p>
-      <h2 class="section-title"><em>FAQ</em></h2>
-      <div class="divider" style="margin:1.5rem auto"></div>
-    </div>
-    <div style="max-width:680px;margin:0 auto" id="faqList">
-      <div class="faq-item">
-        <button class="faq-q">Wat als ik het design niet mooi vind?</button>
-        <div class="faq-a"><p>We doen er alles aan om jouw brief zo nauwkeurig mogelijk te vertalen. Toch niet tevreden? Neem contact op — we kijken altijd naar een oplossing. Lees ook ons <a href="retour.html" style="color:var(--gold)">retourbeleid</a>.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Hoe lang duurt het voor mijn shirt klaar is?</button>
-        <div class="faq-a"><p>Gemiddeld 30 minuten per stuk. Bij drukte of grote bestellingen kan dat oplopen tot enkele uren. Je krijgt een bevestiging zodra het klaar is.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Klopt de maatvoering?</button>
-        <div class="faq-a"><p>We werken met standaard Europese maattabellen. Bij twijfel raden we aan een maat groter te nemen. De t-shirts en hoodies zijn regular fit.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Kan ik een bestaand logo of merk opvragen?</button>
-        <div class="faq-a"><p>Nee — we maken uitsluitend originele designs. Beschrijf de stijl of sfeer die je wil (bv. "NBA-vibe", "vintage Adidas-gevoel") en we maken een eigen interpretatie.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Hoe wordt het betaald?</button>
-        <div class="faq-a"><p>Je betaalt het volledige bedrag veilig online via Stripe — creditcard of Bancontact. Na betaling starten we direct met jouw design.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Is er levering of enkel afhaling?</button>
-        <div class="faq-a"><p>Momenteel zijn beide mogelijk. Bij het plaatsen van je bestelling kan je je voorkeur aangeven in het opmerkingenveld.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section style="text-align:center;padding:5rem 5%">
-    <p class="section-label">Klaar om te beginnen?</p>
-    <h2 class="section-title">Maak jouw <em>Design</em></h2>
-    <div class="divider" style="margin:2rem auto"></div>
-    <p style="color:var(--gray);font-style:italic;max-width:480px;margin:0 auto 3rem">T-shirt vanaf € 35 — Hoodie vanaf € 65. Betaal online, ontvang je verrassing.</p>
-    <a href="op-maat.html" class="btn btn-filled">Maak Jouw Design →</a>
-  </section>
 
   <style>
-    .faq-item { border-bottom: 1px solid rgba(201,168,76,.15); }
-    .faq-q {
-      width: 100%; background: none; border: none; text-align: left;
-      color: var(--white); font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1rem; letter-spacing: .05em; padding: 1.25rem 0;
-      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-    }
-    .faq-q::after { content: '+'; color: var(--gold); font-size: 1.3rem; flex-shrink: 0; transition: transform .25s; }
+    .home-hero { min-height: 92vh; min-height: 92svh; padding: 7.5rem 5% 4rem; display: flex; align-items: center;
+      background: radial-gradient(55% 60% at 80% 30%, rgba(229,72,77,.22), transparent 60%), radial-gradient(45% 50% at 10% 85%, rgba(255,200,61,.12), transparent 60%), var(--black); }
+    .home-hero-inner { max-width: 1250px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1.05fr .95fr; gap: 3rem; align-items: center; }
+    .home-hero h1 { font-size: clamp(2.9rem, 7vw, 6rem); font-weight: 800; letter-spacing: -0.045em; line-height: .95; margin-bottom: 1.25rem; }
+    .home-hero h1 span { color: var(--gold); }
+    .home-hero p.lead { color: #d8d2c8; font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 540px; margin-bottom: 2rem; }
+    .hero-stack { position: relative; aspect-ratio: 1; max-width: 560px; justify-self: center; width: 100%; }
+    .hero-stack img { position: absolute; width: 62%; aspect-ratio: 1; object-fit: cover; border-radius: 22px; box-shadow: var(--shadow); background: #f3f1ec; }
+    .hero-stack img:nth-child(1) { left: 0; top: 8%; transform: rotate(-6deg); }
+    .hero-stack img:nth-child(2) { right: 0; top: 0; transform: rotate(5deg); }
+    .hero-stack img:nth-child(3) { left: 20%; bottom: 0; transform: rotate(-1deg); z-index: 2; }
+    .trust-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem; color: var(--gray); font-size: .9rem; }
+    .trust-row b { color: var(--white); }
+    .home-head { max-width: 1300px; margin: 0 auto 2rem; display: flex; justify-content: space-between; align-items: end; gap: 1rem; flex-wrap: wrap; }
+    .example-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; max-width: 900px; margin: 0 auto 2.5rem; }
+    .example-grid img { width: 100%; display: block; border-radius: var(--radius); }
+    .example-cap { padding-top: .9rem; }
+    .example-cap b { font-size: .8rem; color: var(--gold); text-transform: uppercase; letter-spacing: .06em; }
+    .example-cap p { color: var(--gray); font-size: .95rem; margin-top: .25rem; }
+    .quote-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; max-width: 1100px; margin: 0 auto; }
+    .quote { background: var(--dark-gray); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; }
+    .quote p { line-height: 1.7; }
+    .quote small { display: block; color: var(--gold); font-weight: 600; margin-top: 1rem; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q { width: 100%; background: none; border: none; text-align: left; color: var(--white); font-family: var(--font); font-size: 1.05rem; font-weight: 600; padding: 1.15rem 0; cursor: pointer; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+    .faq-q::after { content: '+'; color: var(--gold); font-size: 1.4rem; transition: transform .2s; }
     .faq-item.open .faq-q::after { transform: rotate(45deg); }
-    .faq-a { display: none; padding-bottom: 1.25rem; }
+    .faq-a { display: none; padding-bottom: 1.15rem; color: var(--gray); line-height: 1.7; }
+    .faq-a a { color: var(--gold); }
     .faq-item.open .faq-a { display: block; }
-    .faq-a p { color: var(--gray); font-style: italic; line-height: 1.8; font-size: .92rem; }
+    @media (max-width: 860px) { .home-hero-inner { grid-template-columns: 1fr; } .hero-stack { max-width: 380px; } }
   </style>
-  <script>
-    document.querySelectorAll('.faq-q').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!wasOpen) item.classList.add('open');
-      });
-    });
-  </script>
+
+  <header class="home-hero">
+    <div class="home-hero-inner">
+      <div>
+        <span class="hero-eyebrow">🎄 Nieuw: de kerstcollectie</span>
+        <h1>Kerst, maar dan <span>met humor.</span></h1>
+        <p class="lead">Grappige kersttruien, hoodies en T-shirts — zelf ontworpen en gedrukt in Landen. Met je naam erop als je wil.</p>
+        <div class="hero-actions" style="justify-content:flex-start">
+          <a href="shop.html?c=kerst" class="btn btn-filled">Bekijk de kerstcollectie →</a>
+          <a href="kerstmarkt.html" class="btn">Kerstmarkt 11–13 dec</a>
+        </div>
+        <div class="trust-row">
+          <span>🎁 <b>Gratis afhalen</b> op de kerstmarkt</span>
+          <span>✏️ <b>Naam erop</b> voor € 5</span>
+          <span>🔒 Betalen met <b>Bancontact</b></span>
+        </div>
+      </div>
+      <div class="hero-stack" aria-hidden="true">
+        <img src="images/kerst/gluhwein-hoodie-zwart.jpg" alt="" />
+        <img src="images/kerst/kerstmodus-tee-navy.jpg" alt="" />
+        <img src="images/kerst/foutetrui-trui-groen.jpg" alt="" />
+      </div>
+    </div>
+  </header>
+
+  <section style="padding-top:3rem">
+    <div class="home-head">
+      <div>
+        <p class="section-label">Kerstcollectie 2026</p>
+        <h2 class="section-title" style="margin-bottom:0">Klaar voor de <em>feestdagen</em></h2>
+      </div>
+      <a href="shop.html?c=kerst" class="btn">Alles bekijken →</a>
+    </div>
+    <div class="products-grid" id="homeGrid"></div>
+  </section>
+
+  <section style="padding-top:0">
+    <a class="market-banner" href="kerstmarkt.html" style="text-decoration:none;color:inherit">
+      <div>
+        <p class="section-label" style="color:#ffd970">Kom langs</p>
+        <h2>Treasureshirt op de kerstmarkt van Landen</h2>
+        <p>Pas ter plaatse, laat je naam erop drukken terwijl je wacht, of bestel vooraf en haal gratis af in onze chalet.</p>
+      </div>
+      <div class="market-date"><span>december</span><b>11–13</b><span>Meer info →</span></div>
+    </a>
+  </section>
+
+  <section>
+    <div style="max-width:760px;margin:0 auto">
+      <p class="section-label">Veelgestelde vragen</p>
+      <h2 class="section-title">Goed om te <em>weten</em></h2>
+      <div class="faq-item"><button class="faq-q">Kan ik afhalen of laten verzenden?</button><div class="faq-a">Allebei. Tijdens de kerstmarkt van Landen (11–13 december) haal je gratis af in onze chalet. Verzending in België kost € 7, naar Nederland € 14,99: bestel vóór 8 december, dan verzenden we je bestelling ten laatste op 10 december. Je kiest bij het afrekenen.</div></div>
+      <div class="faq-item"><button class="faq-q">Hoe betaal ik?</button><div class="faq-a">Veilig online via Stripe, met Bancontact of kaart.</div></div>
+      <div class="faq-item"><button class="faq-q">Kan ik er een naam op laten zetten?</button><div class="faq-a">Ja. Bij de kerstcollectie kies je “Naam erop” voor € 5 extra.</div></div>
+      <div class="faq-item"><button class="faq-q">Klopt de maatvoering?</button><div class="faq-a">We werken met standaard Europese maten in een normale pasvorm. Bij twijfel neem je best een maat groter.</div></div>
+      <div class="faq-item"><button class="faq-q">Kan ik een bestaand logo of merk laten drukken?</button><div class="faq-a">Nee, we maken alleen originele designs. Beschrijf de sfeer die je wil en we maken er onze eigen versie van.</div></div>
+    </div>
+  </section>
 
   <footer>
     <span class="footer-logo">Treasureshirt</span>
-    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
+    <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
     <div class="footer-socials"><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a></div>
     <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
-      <a href="privacy.html" style="color:#555;font-size:.72rem;text-decoration:none">Privacybeleid</a>
-      <a href="voorwaarden.html" style="color:#555;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
-      <a href="retour.html" style="color:#555;font-size:.72rem;text-decoration:none">Retourbeleid</a>
+      <a href="privacy.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Retourbeleid</a>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
   <div class="cart-toast" id="cartToast"></div>
-  <script src="js/cart.js"></script>
+  <script src="js/main.js?v=20261103c"></script>
+  <script src="js/catalog.js?v=20261103c"></script>
+  <script src="js/cart.js?v=20261104c"></script>
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item'); const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    }));
+    Catalog.load().then(all => {
+      const pick = ['kerst-hohoho','kerst-kerststress','kerst-rendier','kerst-beer','kerst-gluhwein','winter-pinguin','kerst-schort','kerst-wanten'];
+      const list = pick.map(id => all.find(p => p.id === id)).filter(Boolean);
+      const { esc, euro } = Catalog;
+      document.getElementById('homeGrid').innerHTML = list.map(p => `
+        <a class="product-card" href="shop.html#${encodeURIComponent(p.id)}" style="text-decoration:none;color:inherit">
+          <div class="product-image"><img src="${esc(Catalog.modelFor(p, null, p.colors?.[0]?.id) || Catalog.imageFor(p, null, p.colors?.[0]?.id))}" alt="${esc(p.name)}" loading="lazy"></div>
+          <div class="product-info">
+            <h3 class="product-name">${esc(p.name)}</h3>
+            <div class="product-footer"><p class="product-price">${p.types && p.types.length > 1 ? '<small>vanaf</small>' : ''}${euro(Catalog.fromPrice(p))}</p></div>
+          </div>
+        </a>`).join('');
+    }).catch(() => {});
+  </script>
 </body>
 </html>

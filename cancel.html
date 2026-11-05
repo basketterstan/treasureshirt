@@ -4,25 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Betaling geannuleerd — Treasureshirt</title>
+  <link rel="icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20261103c" />
   <style>
     .result-page { display:flex; align-items:center; justify-content:center; min-height:100vh; text-align:center; padding:2rem; }
     .result-box { max-width:480px; }
     .result-icon { font-size:4rem; margin-bottom:2rem; opacity:0.4; }
-    .result-box h1 { font-size:2.5rem; font-weight:300; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem; }
-    .result-box h1 span { color:var(--gold); font-style:italic; }
-    .result-box p { color:var(--gray); font-style:italic; line-height:1.9; margin-bottom:2rem; }
+    .result-box h1 { font-family:var(--font-display); font-size:clamp(2.2rem,6vw,3rem); font-weight:800; letter-spacing:-0.03em; line-height:1.05; margin-bottom:1rem; }
+    .result-box h1 span { color:var(--gold); }
+    .result-box p { color:var(--gray); line-height:1.9; margin-bottom:2rem; }
   </style>
 </head>
 <body>
   <div class="result-page">
     <div class="result-box">
-      <div class="result-icon">◇</div>
-      <h1>Betaling <span>Geannuleerd</span></h1>
+      <div class="result-icon">🛒</div>
+      <h1>Betaling <span>geannuleerd</span></h1>
       <p>Je betaling is geannuleerd. Je winkelwagen is bewaard — ga terug en probeer het opnieuw wanneer je klaar bent.</p>
-      <a href="shop.html" class="btn">Terug naar Winkel</a>
+      <a href="checkout.html" class="btn btn-filled">Opnieuw proberen</a> <a href="shop.html" class="btn">Terug naar de winkel</a>
     </div>
   </div>
 </body>

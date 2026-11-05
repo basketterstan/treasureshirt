@@ -4,76 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin — Treasureshirt</title>
+  <link rel="icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
   <style>
-    :root {
-      --black: #0a0a0a; --gold: #c9a84c; --gold-light: #e8c96a;
+    :root { --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --black: #0a0a0a; --gold: #ffc83d; --gold-light: #e8c96a;
       --white: #ffffff; --gray: #888888; --dark-gray: #1a1a1a;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { background:var(--black); color:var(--white); font-family:'Cormorant Garamond','Georgia',serif; min-height:100vh; }
+    body { background:var(--black); color:var(--white); font-family:var(--font); min-height:100vh; }
 
     /* LOGIN */
-    #loginScreen { display:flex; align-items:center; justify-content:center; min-height:100vh; background:radial-gradient(ellipse at center,rgba(201,168,76,.06) 0%,transparent 70%); }
-    .login-box { width:100%; max-width:380px; padding:3rem 2.5rem; border:1px solid rgba(201,168,76,.25); background:var(--dark-gray); }
+    #loginScreen { display:flex; align-items:center; justify-content:center; min-height:100vh; background:radial-gradient(ellipse at center,rgba(255,200,61,.06) 0%,transparent 70%); }
+    .login-box { width:100%; max-width:380px; padding:3rem 2.5rem; border:1px solid rgba(255,200,61,.25); background:var(--dark-gray); }
     .login-logo { text-align:center; font-size:1.2rem; letter-spacing:.35em; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; }
     .login-sub { text-align:center; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gray); margin-bottom:2.5rem; }
     .form-group { display:flex; flex-direction:column; gap:.4rem; margin-bottom:1.5rem; }
     .form-group label { font-size:.65rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gray); }
-    .form-group input { background:transparent; border:none; border-bottom:1px solid rgba(201,168,76,.3); padding:.6rem 0; color:var(--white); font-family:inherit; font-size:1rem; outline:none; transition:border-color .3s; }
+    .form-group input { background:transparent; border:none; border-bottom:1px solid rgba(255,200,61,.3); padding:.6rem 0; color:var(--white); font-family:inherit; font-size:1rem; outline:none; transition:border-color .3s; }
     .form-group input:focus { border-bottom-color:var(--gold); }
     .btn-login { width:100%; padding:.9rem; background:var(--gold); color:var(--black); border:none; font-family:inherit; font-size:.75rem; letter-spacing:.3em; text-transform:uppercase; cursor:pointer; transition:background .3s; }
     .btn-login:hover { background:var(--gold-light); }
-    .login-error { color:#e74c3c; font-size:.75rem; text-align:center; margin-top:1rem; font-style:italic; display:none; }
+    .login-error { color:#e74c3c; font-size:.75rem; text-align:center; margin-top:1rem; display:none; }
 
     /* DASHBOARD */
     #dashboard { display:none; }
-    .admin-nav { background:var(--dark-gray); border-bottom:1px solid rgba(201,168,76,.2); padding:0 2rem; height:60px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:50; }
+    .admin-nav { background:var(--dark-gray); border-bottom:1px solid rgba(255,200,61,.2); padding:0 2rem; height:60px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:50; }
     .admin-nav-logo { font-size:1rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); }
     .admin-nav-right { display:flex; align-items:center; gap:1.5rem; }
     .admin-nav-right a { color:var(--gray); text-decoration:none; font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; transition:color .3s; }
     .admin-nav-right a:hover { color:var(--gold); }
-    .btn-logout { background:transparent; border:1px solid rgba(201,168,76,.3); color:var(--gray); padding:.4rem 1rem; font-family:inherit; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; cursor:pointer; transition:all .3s; }
+    .btn-logout { background:transparent; border:1px solid rgba(255,200,61,.3); color:var(--gray); padding:.4rem 1rem; font-family:inherit; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; cursor:pointer; transition:all .3s; }
     .btn-logout:hover { border-color:var(--gold); color:var(--gold); }
     .admin-body { padding:2rem; max-width:1200px; margin:0 auto; }
 
     /* STATS */
     .stats-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1.5rem; margin-bottom:2.5rem; }
-    .stat-card { background:var(--dark-gray); border:1px solid rgba(201,168,76,.15); padding:1.5rem; border-left:3px solid var(--gold); }
+    .stat-card { background:var(--dark-gray); border:1px solid rgba(255,200,61,.15); padding:1.5rem; border-left:3px solid var(--gold); }
     .stat-card .num { font-size:2.2rem; color:var(--gold); font-weight:300; letter-spacing:.05em; }
     .stat-card .lbl { font-size:.65rem; color:var(--gray); letter-spacing:.25em; text-transform:uppercase; margin-top:.25rem; }
 
     /* SECTIONS */
-    .section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; padding-bottom:.75rem; border-bottom:1px solid rgba(201,168,76,.15); }
+    .section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; padding-bottom:.75rem; border-bottom:1px solid rgba(255,200,61,.15); }
     .section-header h2 { font-size:1rem; letter-spacing:.2em; text-transform:uppercase; font-weight:400; }
-    .section-header h2 span { color:var(--gold); font-style:italic; }
+    .section-header h2 span { color:var(--gold); }
 
     /* BUTTONS */
     .btn-primary { background:var(--gold); color:var(--black); border:none; padding:.6rem 1.4rem; font-family:inherit; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; cursor:pointer; transition:background .3s; }
     .btn-primary:hover { background:var(--gold-light); }
-    .btn-ghost { background:transparent; border:1px solid rgba(201,168,76,.3); color:var(--gray); padding:.5rem 1rem; font-family:inherit; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; cursor:pointer; transition:all .3s; }
+    .btn-ghost { background:transparent; border:1px solid rgba(255,200,61,.3); color:var(--gray); padding:.5rem 1rem; font-family:inherit; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; cursor:pointer; transition:all .3s; }
     .btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
     .btn-danger { background:transparent; border:1px solid rgba(192,57,43,.4); color:#e74c3c; padding:.4rem .8rem; font-family:inherit; font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; cursor:pointer; transition:all .3s; }
     .btn-danger:hover { background:rgba(192,57,43,.1); }
 
     /* TABLE */
     .product-table { width:100%; border-collapse:collapse; margin-bottom:3rem; }
-    .product-table th { text-align:left; font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gray); padding:.75rem 1rem; border-bottom:1px solid rgba(201,168,76,.15); font-weight:400; }
+    .product-table th { text-align:left; font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gray); padding:.75rem 1rem; border-bottom:1px solid rgba(255,200,61,.15); font-weight:400; }
     .product-table td { padding:1rem; border-bottom:1px solid rgba(255,255,255,.05); vertical-align:middle; }
-    .product-table tr:hover td { background:rgba(201,168,76,.03); }
+    .product-table tr:hover td { background:rgba(255,200,61,.03); }
     .product-name-cell { font-size:.95rem; letter-spacing:.1em; }
-    .product-desc-cell { font-size:.8rem; color:var(--gray); font-style:italic; }
+    .product-desc-cell { font-size:.8rem; color:var(--gray); }
     .price-cell { color:var(--gold); font-size:1rem; }
     .badge-pill { display:inline-block; padding:.2rem .6rem; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; font-weight:700; }
     .badge-new { background:var(--gold); color:var(--black); }
     .badge-sale { background:#e74c3c; color:#fff; }
     .badge-limited { background:#8e44ad; color:#fff; }
     .badge-bestseller { background:#27ae60; color:#fff; }
-    .badge-none { color:var(--gray); font-style:italic; font-size:.75rem; }
+    .badge-none { color:var(--gray); font-size:.75rem; }
     .stock-cell { display:flex; align-items:center; gap:.5rem; }
-    .stock-input { width:70px; background:transparent; border:1px solid rgba(201,168,76,.2); color:var(--white); font-family:inherit; font-size:.9rem; padding:.3rem .5rem; text-align:center; outline:none; transition:border-color .3s; }
+    .stock-input { width:70px; background:transparent; border:1px solid rgba(255,200,61,.2); color:var(--white); font-family:inherit; font-size:.9rem; padding:.3rem .5rem; text-align:center; outline:none; transition:border-color .3s; }
     .stock-input:focus { border-color:var(--gold); }
     .stock-low { color:#e74c3c; }
     .stock-ok { color:#27ae60; }
@@ -82,22 +83,22 @@
     /* MODAL */
     .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:200; display:flex; align-items:center; justify-content:center; padding:1rem; opacity:0; pointer-events:none; transition:opacity .3s; }
     .modal-overlay.open { opacity:1; pointer-events:all; }
-    .modal { background:var(--dark-gray); border:1px solid rgba(201,168,76,.25); width:100%; max-width:520px; padding:2.5rem; transform:translateY(20px); transition:transform .3s; }
+    .modal { background:var(--dark-gray); border:1px solid rgba(255,200,61,.25); width:100%; max-width:520px; padding:2.5rem; transform:translateY(20px); transition:transform .3s; }
     .modal-overlay.open .modal { transform:translateY(0); }
     .modal h3 { font-size:1rem; letter-spacing:.2em; text-transform:uppercase; margin-bottom:2rem; color:var(--gold); font-weight:400; }
     .modal-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
     .modal .form-group { margin-bottom:0; }
     .modal .form-group.full { grid-column:1/-1; }
-    .modal select { background:var(--black); border:1px solid rgba(201,168,76,.3); color:var(--white); font-family:inherit; font-size:.9rem; padding:.6rem .5rem; outline:none; width:100%; cursor:pointer; }
-    .modal-footer { display:flex; gap:1rem; justify-content:flex-end; margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,.1); }
+    .modal select { background:var(--black); border:1px solid rgba(255,200,61,.3); color:var(--white); font-family:inherit; font-size:.9rem; padding:.6rem .5rem; outline:none; width:100%; cursor:pointer; }
+    .modal-footer { display:flex; gap:1rem; justify-content:flex-end; margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,200,61,.1); }
 
     /* CAT FILTER */
     .cat-filter { display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:1.5rem; }
-    .cat-btn { background:transparent; border:1px solid rgba(201,168,76,.2); color:var(--gray); padding:.4rem 1rem; font-family:inherit; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; cursor:pointer; transition:all .3s; }
+    .cat-btn { background:transparent; border:1px solid rgba(255,200,61,.2); color:var(--gray); padding:.4rem 1rem; font-family:inherit; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; cursor:pointer; transition:all .3s; }
     .cat-btn.active, .cat-btn:hover { border-color:var(--gold); color:var(--gold); }
 
     /* SETTINGS */
-    .settings-box { background:var(--dark-gray); border:1px solid rgba(201,168,76,.15); padding:2rem; max-width:420px; }
+    .settings-box { background:var(--dark-gray); border:1px solid rgba(255,200,61,.15); padding:2rem; max-width:420px; }
     .settings-box h3 { font-size:.9rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; font-weight:400; }
 
     /* TOAST */
@@ -107,11 +108,11 @@
     .toast.show { opacity:1; transform:translateY(0); }
 
     /* LOADING */
-    .loading { text-align:center; padding:3rem; color:var(--gray); font-style:italic; }
+    .loading { text-align:center; padding:3rem; color:var(--gray); }
 
     /* ORDERS */
     .orders-filter { display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:1.5rem; }
-    .order-card { background:var(--dark-gray); border:1px solid rgba(201,168,76,.1); padding:1.5rem; margin-bottom:1rem; transition:border-color .3s; }
+    .order-card { background:var(--dark-gray); border:1px solid rgba(255,200,61,.1); padding:1.5rem; margin-bottom:1rem; transition:border-color .3s; }
     .order-card.status-nieuw { border-left:3px solid var(--gold); }
     .order-card.status-verwerkt { border-left:3px solid #3498db; }
     .order-card.status-verzonden { border-left:3px solid #8e44ad; }
@@ -122,18 +123,19 @@
     .order-customer { margin-bottom:.75rem; }
     .order-customer strong { font-size:.85rem; letter-spacing:.1em; }
     .order-customer span { font-size:.75rem; color:var(--gray); margin-left:.5rem; }
-    .order-items { font-size:.8rem; color:var(--gray); font-style:italic; margin-bottom:1rem; line-height:1.8; }
+    .order-items { font-size:.8rem; color:var(--gray); margin-bottom:1rem; line-height:1.8; }
     .order-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.75rem; }
     .order-total { color:var(--gold); font-size:1.1rem; }
-    .status-select { background:var(--black); border:1px solid rgba(201,168,76,.3); color:var(--white); font-family:inherit; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; padding:.4rem .75rem; cursor:pointer; outline:none; transition:border-color .3s; }
+    .status-select { background:var(--black); border:1px solid rgba(255,200,61,.3); color:var(--white); font-family:inherit; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; padding:.4rem .75rem; cursor:pointer; outline:none; transition:border-color .3s; }
     .status-select:focus { border-color:var(--gold); }
     .new-orders-badge { background:var(--gold); color:var(--black); font-size:.6rem; letter-spacing:.1em; padding:.2rem .6rem; font-weight:700; margin-left:.5rem; vertical-align:middle; }
+    .section-header h2 .new-orders-badge { color:var(--black); }
 
     /* SCANNER */
-    .scanner-box { background:var(--dark-gray); border:1px solid rgba(201,168,76,.2); padding:2rem; margin-bottom:3rem; }
-    #scannerReader { width:100%; max-width:400px; margin:0 auto; border:2px solid rgba(201,168,76,.25); }
+    .scanner-box { background:var(--dark-gray); border:1px solid rgba(255,200,61,.2); padding:2rem; margin-bottom:3rem; }
+    #scannerReader { width:100%; max-width:400px; margin:0 auto; border:2px solid rgba(255,200,61,.25); }
     #scannerReader video { border-radius:0 !important; }
-    .scanner-result { background:var(--black); border:1px solid rgba(201,168,76,.2); padding:1.5rem; margin-top:1.5rem; display:none; }
+    .scanner-result { background:var(--black); border:1px solid rgba(255,200,61,.2); padding:1.5rem; margin-top:1.5rem; display:none; }
     .scanner-product-name { font-size:1.05rem; letter-spacing:.1em; margin-bottom:.35rem; }
     .scanner-stock-val { color:var(--gold); font-size:1.5rem; font-weight:300; }
     .scanner-stock-label { color:var(--gray); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; margin-bottom:1.25rem; margin-top:.25rem; }
@@ -142,9 +144,9 @@
     .btn-stock-in:hover { opacity:.85; }
     .btn-stock-out { background:#e74c3c; color:#fff; border:none; padding:.7rem 1.5rem; font-family:inherit; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; cursor:pointer; transition:opacity .3s; }
     .btn-stock-out:hover { opacity:.85; }
-    .scanner-qty { width:56px; background:transparent; border:1px solid rgba(201,168,76,.3); color:var(--white); font-family:inherit; font-size:.95rem; padding:.4rem .5rem; text-align:center; outline:none; }
+    .scanner-qty { width:56px; background:transparent; border:1px solid rgba(255,200,61,.3); color:var(--white); font-family:inherit; font-size:.95rem; padding:.4rem .5rem; text-align:center; outline:none; }
     .scanner-barcode { font-size:.65rem; color:var(--gray); letter-spacing:.2em; margin-top:1rem; }
-    .scanner-not-found { color:#e74c3c; font-style:italic; font-size:.85rem; margin-top:1rem; display:none; }
+    .scanner-not-found { color:#e74c3c; font-size:.85rem; margin-top:1rem; display:none; }
 
     @media(max-width:700px) {
       .admin-body { padding:1rem; }
@@ -153,7 +155,18 @@
       .product-table th:nth-child(4), .product-table td:nth-child(4),
       .product-table th:nth-child(6), .product-table td:nth-child(6) { display:none; }
     }
-  </style>
+  
+  .stock-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1rem; }
+  .stock-card { background:var(--dark2, #17171b); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:1rem 1.1rem; }
+  .stock-card h3 { font-size:1rem; margin:0 0 .6rem; display:flex; justify-content:space-between; gap:.5rem; }
+  .stock-card h3 small { color:var(--gray); font-weight:500; }
+  .stock-card table { width:100%; border-collapse:collapse; font-size:.8rem; }
+  .stock-card th { color:var(--gray); font-weight:600; text-align:left; padding:.25rem .2rem; }
+  .stock-card td { padding:.2rem; }
+  .stock-card input { width:100%; min-width:0; background:#212127; border:1px solid rgba(255,255,255,.1); border-radius:8px; color:#fff; padding:.35rem .4rem; font:inherit; text-align:right; }
+  .stock-card input.zero { border-color:#e5484d; color:#ff8a8d; }
+  .stock-card input.low { border-color:#f5a524; }
+</style>
 </head>
 <body>
 
@@ -164,7 +177,7 @@
     <p class="login-sub">Admin Portaal</p>
     <div class="form-group">
       <label>E-mail</label>
-      <input type="email" id="loginEmail" placeholder="admin@treasureshirt.com" autocomplete="username" />
+      <input type="email" id="loginEmail" placeholder="jouw admin e-mailadres" autocomplete="username" />
     </div>
     <div class="form-group">
       <label>Wachtwoord</label>
@@ -172,6 +185,7 @@
     </div>
     <button class="btn-login" id="loginBtn">Inloggen</button>
     <p class="login-error" id="loginError">Verkeerd wachtwoord of e-mail.</p>
+    <button type="button" id="forgotBtn" style="display:block;margin:1.25rem auto 0;background:none;border:none;color:var(--gray);font-family:inherit;font-size:.8rem;cursor:pointer;text-decoration:underline">Wachtwoord vergeten?</button>
   </div>
 </div>
 
@@ -180,6 +194,7 @@
   <nav class="admin-nav">
     <span class="admin-nav-logo">Treasureshirt <span style="color:var(--gray);font-size:.7rem;letter-spacing:.2em">/ Admin</span></span>
     <div class="admin-nav-right">
+      <a href="kassa.html">🧾 Kassa</a>
       <a href="index.html" target="_blank">↗ Website</a>
       <button class="btn-logout" id="logoutBtn">Uitloggen</button>
     </div>
@@ -192,7 +207,23 @@
       <div class="stat-card"><div class="num">—</div><div class="lbl">Laden...</div></div>
     </div>
 
+    <!-- WEBSHOP BESTELLINGEN -->
+    <div class="section-header">
+      <h2>Webshop <span id="shopOrdersBadge">Bestellingen</span></h2>
+    </div>
+    <div class="orders-filter" id="shopOrdersFilter"></div>
+    <div id="shopOrdersContainer"><p class="loading">Bestellingen laden...</p></div>
+
+    <!-- VOORRAAD -->
+    <div style="height:2.5rem"></div>
+    <div class="section-header" id="voorraad" style="scroll-margin-top:80px">
+      <h2>Voorraad <span>webshop + kassa</span></h2>
+    </div>
+    <p style="color:var(--gray);font-size:.8rem;margin-bottom:1rem">Eén voorraad voor de webshop én de kassa op de kerstmarkt: wat je hier invult, zie je meteen in beide. Elke verkoop (online of aan de kassa) telt automatisch af. Leeg vakje = onbeperkt, 0 = uitverkocht.</p>
+    <div id="stockContainer"><p class="loading">Voorraad laden...</p></div>
+
     <!-- OP MAAT BESTELLINGEN -->
+    <div style="height:2.5rem"></div>
     <div class="section-header">
       <h2>Op Maat <span id="customOrdersBadge">Bestellingen</span></h2>
     </div>
@@ -207,7 +238,7 @@
         <button class="btn-primary" id="addBurenfeestBtn">+ Nieuw Product</button>
       </div>
     </div>
-    <p style="color:var(--gray);font-size:.75rem;font-style:italic;margin-bottom:1.5rem">
+    <p style="color:var(--gray);font-size:.75rem;margin-bottom:1.5rem">
       Geheime pagina via <strong style="color:var(--gold)">treasureshirt.com/burenfeest.html</strong> — enkel zichtbaar met de link.
     </p>
     <table class="product-table">
@@ -224,16 +255,9 @@
       <h2>Instellingen <span>& Beveiliging</span></h2>
     </div>
     <div class="settings-box">
-      <h3>Wachtwoord wijzigen</h3>
-      <div class="form-group" style="margin-bottom:1rem">
-        <label>Nieuw wachtwoord</label>
-        <input type="password" id="newPass" placeholder="Nieuw wachtwoord" />
-      </div>
-      <div class="form-group" style="margin-bottom:1.5rem">
-        <label>Bevestig wachtwoord</label>
-        <input type="password" id="confirmPass" placeholder="Herhaal wachtwoord" />
-      </div>
-      <button class="btn-primary" id="changePassBtn">Wachtwoord Opslaan</button>
+      <h3>Wachtwoord</h3>
+      <p style="color:var(--gray);font-size:.85rem;margin-bottom:1rem">Je logt in met je Firebase-account. Klik hieronder om een mail te krijgen waarmee je een nieuw wachtwoord kiest.</p>
+      <button class="btn-primary" id="changePassBtn">Stuur reset-mail</button>
     </div>
   </div>
 </div>
@@ -279,12 +303,12 @@
       </div>
       <div class="form-group full" style="margin-top:.5rem">
         <label>Foto</label>
-        <div id="bfImageUploadArea" style="border:1px dashed rgba(201,168,76,.3);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .3s;position:relative;margin-top:.5rem">
+        <div id="bfImageUploadArea" style="border:1px dashed rgba(255,200,61,.3);padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .3s;position:relative;margin-top:.5rem">
           <img id="bfImagePreview" src="" style="display:none;max-height:160px;max-width:100%;object-fit:contain;margin-bottom:.75rem" />
-          <p id="bfImageUploadLabel" style="color:var(--gray);font-size:.8rem;font-style:italic">Klik om een foto te kiezen</p>
+          <p id="bfImageUploadLabel" style="color:var(--gray);font-size:.8rem;">Klik om een foto te kiezen</p>
           <input type="file" id="bfImage" accept="image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer" />
         </div>
-        <p id="bfImageUploading" style="display:none;color:var(--gold);font-size:.75rem;font-style:italic;margin-top:.5rem">Foto uploaden...</p>
+        <p id="bfImageUploading" style="display:none;color:var(--gold);font-size:.75rem;margin-top:.5rem">Foto uploaden...</p>
       </div>
     </div>
     <div class="modal-footer">
@@ -297,34 +321,77 @@
 <div class="toast" id="toast"></div>
 
 <script type="module">
-import { db, storage } from './js/firebase-config.js';
+import { db, storage, auth } from './js/firebase-config.js?v=20261103c';
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 import {
   collection, doc, addDoc, updateDoc, deleteDoc,
-  onSnapshot, query, orderBy, getDocs, writeBatch, where, getDoc, setDoc
+  onSnapshot, query, orderBy, getDocs, writeBatch, where, getDoc, setDoc, runTransaction
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 import {
   ref, uploadBytes, getDownloadURL
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js';
 
 // ── AUTH ──────────────────────────────────────────
-const ADMIN_EMAIL  = 'admin@treasureshirt.com'; // login email
-const DEFAULT_HASH = '97f9503e5aed00dc2b170f76db62efff05e0e52b5ce5ae9d299e1966080eb286';
-const SESSION_KEY  = 'ts_admin_session';
-const SETTINGS_DOC = doc(db, 'settings', 'admin');
+// Keep in sync with isAdmin() in firestore.rules and storage.rules.
+const ADMIN_EMAILS = ['daenen.stan@gmail.com', 'contact@treasureshirt.com'];
+const isAdminUser = u => !!u && ADMIN_EMAILS.includes((u.email || '').toLowerCase());
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+// ── VOORRAAD (gedeeld met webshop en kassa) ─────────
+// Bron: kassa_shop/catalog (products[].stock "maat|kleur" → aantal). public/stock is de kopie die de webshop leest.
+const catRef = doc(db, 'kassa_shop', 'catalog');
+let stockCat = null;
+const publicStock = cat => {
+  const out = {};
+  (cat.products || []).forEach(p => { if (p.stock && Object.keys(p.stock).length) out[p.id] = p.stock; });
+  return { json: JSON.stringify(out), updatedAt: Date.now() };
+};
+function startStockListener() {
+  onSnapshot(catRef, async snap => {
+    if (!snap.exists()) {
+      try { const seed = await (await fetch('data/kassa-catalog.json', { cache: 'no-cache' })).json(); await setDoc(catRef, seed); } catch (e) { console.error(e); }
+      return;
+    }
+    stockCat = snap.data();
+    const box = document.getElementById('stockContainer');
+    if (box.contains(document.activeElement) && document.activeElement.tagName === 'INPUT') return;
+    renderStock();
+    if (location.hash === '#voorraad' && !window.__stockScrolled) { window.__stockScrolled = true; document.getElementById('voorraad').scrollIntoView(); }
+  }, e => { document.getElementById('stockContainer').innerHTML = `<p class="loading">Voorraad kon niet laden: ${esc(e.message)}</p>`; });
 }
-
-async function getPassHash() {
+function renderStock() {
+  const box = document.getElementById('stockContainer');
+  const prods = (stockCat && stockCat.products) || [];
+  if (!prods.length) { box.innerHTML = '<p class="loading">Nog geen producten.</p>'; return; }
+  box.innerHTML = '<div class="stock-grid">' + prods.map(p => {
+    const st = p.stock || {}, sizes = p.sizes || ['One size'], colors = p.colors || [];
+    const total = Object.values(st).reduce((a, b) => a + (Number(b) || 0), 0);
+    return `<div class="stock-card"><h3>${esc(p.name)} <small>${total} stuks</small></h3><table>
+      <thead><tr><th>Maat</th>${colors.map(c => `<th>${esc(c)}</th>`).join('')}</tr></thead>
+      <tbody>${sizes.map(sz => `<tr><th>${esc(sz)}</th>${colors.map(c => {
+        const k = sz + '|' + c, v = st[k];
+        const cls = v === undefined || v === null ? '' : (Number(v) <= 0 ? 'zero' : Number(v) <= 2 ? 'low' : '');
+        return `<td><input type="number" min="0" inputmode="numeric" class="${cls}" data-p="${esc(p.id)}" data-k="${esc(k)}" value="${v === undefined || v === null ? '' : esc(v)}" placeholder="∞" aria-label="${esc(p.name + ' ' + sz + ' ' + c)}"></td>`;
+      }).join('')}</tr>`).join('')}</tbody></table></div>`;
+  }).join('') + '</div>';
+}
+document.getElementById('stockContainer').addEventListener('change', async e => {
+  const inp = e.target; if (!inp.dataset || !inp.dataset.p) return;
+  const raw = inp.value.trim();
+  const n = raw === '' ? null : Math.max(0, Math.round(Number(raw) || 0));
   try {
-    const snap = await getDoc(SETTINGS_DOC);
-    return snap.exists() ? (snap.data().passHash || DEFAULT_HASH) : DEFAULT_HASH;
-  } catch { return DEFAULT_HASH; }
-}
-
-function isLoggedIn() { return sessionStorage.getItem(SESSION_KEY) === 'ok'; }
+    await runTransaction(db, async tx => {
+      const snap = await tx.get(catRef); if (!snap.exists()) throw new Error('Geen catalogus');
+      const cat = snap.data(); const p = (cat.products || []).find(x => x.id === inp.dataset.p); if (!p) return;
+      p.stock = p.stock || {};
+      if (n === null) delete p.stock[inp.dataset.k]; else p.stock[inp.dataset.k] = n;
+      tx.set(catRef, cat);
+      tx.set(doc(db, 'public', 'stock'), publicStock(cat));
+    });
+    inp.className = n === null ? '' : (n <= 0 ? 'zero' : n <= 2 ? 'low' : '');
+    toast('Voorraad opgeslagen');
+  } catch (err) { toast('Opslaan mislukt: ' + err.message, 'error'); }
+});
 
 // ── DASHBOARD ──────────────────────────────────────
 let allCustomOrders      = [];
@@ -334,8 +401,74 @@ let unsubCustomOrders    = null;
 function showDashboard() {
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('dashboard').style.display   = 'block';
+  startShopOrdersListener();
+  startStockListener();
   startCustomOrdersListener();
   startBurenfeestListener();
+}
+
+// ── WEBSHOP ORDERS (Stripe) ────────────────────────
+const SHOP_STATUSES = ['nieuw', 'in_productie', 'klaar', 'afgehaald', 'verzonden'];
+const SHOP_LABELS = { nieuw: 'Nieuw', in_productie: 'In productie', klaar: 'Klaar', afgehaald: 'Afgehaald', verzonden: 'Verzonden' };
+const SHOP_COLORS = { nieuw: 'var(--gold)', in_productie: '#3498db', klaar: '#27ae60', afgehaald: '#8e44ad', verzonden: '#8e44ad' };
+let allShopOrders = [];
+let shopFilter = 'open';
+let unsubShopOrders = null;
+
+function startShopOrdersListener() {
+  unsubShopOrders = onSnapshot(query(collection(db, 'orders'), orderBy('createdAt', 'desc')), snap => {
+    allShopOrders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderShopOrders();
+  }, err => {
+    document.getElementById('shopOrdersContainer').innerHTML = `<p style="color:#e74c3c;padding:1rem">Fout: ${esc(err.message)}</p>`;
+  });
+}
+
+function renderShopOrders() {
+  const filters = {
+    open: ['Nog te doen', o => !['afgehaald', 'verzonden'].includes(o.status)],
+    afhalen: ['🎄 Afhalen', o => o.levering === 'afhalen-kerstmarkt'],
+    verzending: ['📦 Verzenden', o => o.levering !== 'afhalen-kerstmarkt'],
+    alles: ['Alles', () => true],
+  };
+  const open = allShopOrders.filter(filters.open[1]).length;
+  document.getElementById('shopOrdersBadge').innerHTML = open ? `<span class="new-orders-badge">${open} te doen</span>` : '<span style="color:var(--gold)">Bestellingen</span>';
+  document.getElementById('shopOrdersFilter').innerHTML = Object.entries(filters).map(([k, [label, fn]]) =>
+    `<button class="cat-btn ${shopFilter === k ? 'active' : ''}" data-f="${k}">${label} (${allShopOrders.filter(fn).length})</button>`).join('');
+  document.querySelectorAll('#shopOrdersFilter .cat-btn').forEach(b => b.addEventListener('click', () => { shopFilter = b.dataset.f; renderShopOrders(); }));
+
+  const list = allShopOrders.filter(filters[shopFilter][1]);
+  const box = document.getElementById('shopOrdersContainer');
+  if (!list.length) { box.innerHTML = '<p class="loading">Geen bestellingen.</p>'; return; }
+  box.innerHTML = list.map(o => {
+    const date = o.createdAt?.toDate ? o.createdAt.toDate().toLocaleString('nl-BE', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '—';
+    const pickup = o.levering === 'afhalen-kerstmarkt';
+    const color = SHOP_COLORS[o.status] || 'var(--gray)';
+    return `
+      <div class="order-card" style="border-left:3px solid ${color}">
+        <div class="order-header">
+          <span class="order-number">#${esc(o.orderNumber)}</span>
+          <span class="order-date">${date}</span>
+        </div>
+        <p style="margin-bottom:.5rem"><strong>${pickup ? '🎄 Afhalen op de kerstmarkt' : '📦 Verzenden'}</strong></p>
+        <p style="font-size:.9rem;margin-bottom:.75rem">${esc(o.customerName)} — <a href="mailto:${esc(o.customerEmail)}" style="color:var(--gold)">${esc(o.customerEmail)}</a>${o.telefoon ? ` — ${esc(o.telefoon)}` : ''}</p>
+        ${o.adres ? `<p style="font-size:.9rem;margin-bottom:.75rem;color:var(--gray)">${esc(o.adres)}</p>` : ''}
+        <ul style="list-style:none;font-size:.9rem;margin-bottom:.75rem">
+          ${(o.items || []).map(i => `<li style="padding:.25rem 0;border-bottom:1px solid rgba(255,255,255,.05)">${esc(i.quantity)}× ${esc(i.name)} <span style="color:var(--gray)">€ ${esc(i.subtotal)}</span></li>`).join('')}
+        </ul>
+        ${o.opmerking ? `<p style="font-size:.85rem;color:var(--gold);margin-bottom:.75rem">Opmerking: ${esc(o.opmerking)}</p>` : ''}
+        <div class="order-footer">
+          <strong>€ ${Number(o.total || 0).toFixed(2).replace('.', ',')}</strong>
+          <select class="status-select shop-status" data-order="${esc(o.id)}">
+            ${SHOP_STATUSES.map(st => `<option value="${st}" ${o.status === st ? 'selected' : ''}>${SHOP_LABELS[st]}</option>`).join('')}
+          </select>
+        </div>
+      </div>`;
+  }).join('');
+  box.querySelectorAll('.shop-status').forEach(sel => sel.addEventListener('change', async () => {
+    try { await updateDoc(doc(db, 'orders', sel.dataset.order), { status: sel.value }); toast(`Status → ${SHOP_LABELS[sel.value]}`, 'success'); }
+    catch (e) { toast('Fout: ' + e.message, 'error'); }
+  }));
 }
 
 // ── CUSTOM ORDERS ──────────────────────────────────
@@ -365,7 +498,7 @@ function startCustomOrdersListener() {
     renderCustomOrders();
   }, err => {
     document.getElementById('customOrdersContainer').innerHTML =
-      `<p style="color:#e74c3c;font-style:italic;padding:1rem">Fout: ${err.message}<br><small style="color:var(--gray)">Deploy de Firestore rules via: firebase deploy --only firestore:rules</small></p>`;
+      `<p style="color:#e74c3c;padding:1rem">Fout: ${err.message}<br><small style="color:var(--gray)">Deploy de Firestore rules via: firebase deploy --only firestore:rules</small></p>`;
     document.getElementById('statsRow').innerHTML =
       `<div class="stat-card"><div class="num" style="color:#e74c3c">!</div><div class="lbl">Firestore rules niet gedeployeerd</div></div>`;
   });
@@ -392,7 +525,7 @@ function renderCustomOrdersBadge() {
   const badge = document.getElementById('customOrdersBadge');
   badge.innerHTML = nieuw > 0
     ? `<span class="new-orders-badge">${nieuw} te starten</span>`
-    : '<span style="color:var(--gold);font-style:italic">Bestellingen</span>';
+    : '<span style="color:var(--gold);">Bestellingen</span>';
 }
 
 function renderCustomOrdersFilter() {
@@ -430,7 +563,7 @@ function renderCustomOrders() {
       ? o.createdAt.toDate().toLocaleDateString('nl-BE', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' })
       : '—';
     const kleurDots = (o.kleuren || []).map(k => {
-      const hex = { Zwart:'#111', Wit:'#f0f0f0', Navy:'#1b2a4a', Rood:'#c0392b', Goud:'#c9a84c', Groen:'#27643a', Paars:'#6c3483', Oranje:'#d35400', Roze:'#c0457a', Grijs:'#707070' }[k] || '#888';
+      const hex = { Zwart:'#111', Wit:'#f0f0f0', Navy:'#1b2a4a', Rood:'#c0392b', Goud:'#ffc83d', Groen:'#27643a', Paars:'#6c3483', Oranje:'#d35400', Roze:'#c0457a', Grijs:'#707070' }[k] || '#888';
       return `<span title="${k}" style="display:inline-block;width:14px;height:14px;border-radius:50%;background:${hex};border:1px solid rgba(255,255,255,.2);margin-right:3px"></span>`;
     }).join('');
     const borderColor = CUSTOM_COLORS[o.status] || 'var(--gray)';
@@ -445,31 +578,31 @@ function renderCustomOrders() {
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem 2rem;margin-bottom:1rem;font-size:.82rem">
           <div>
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Klant</span><br>
-            <strong style="font-size:.95rem">${o.naam || '—'}</strong>
+            <strong style="font-size:.95rem">${esc(o.naam || '—')}</strong>
           </div>
           <div>
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Product</span><br>
-            <span style="color:var(--gold)">${o.typeKleding === 'tshirt' ? 'T-Shirt' : 'Hoodie'} — ${o.maat} — € ${o.totaalprijs}</span>
+            <span style="color:var(--gold)">${o.typeKleding === 'tshirt' ? 'T-Shirt' : 'Hoodie'} — ${esc(o.maat)} — € ${o.totaalprijs}</span>
           </div>
           <div style="grid-column:1/-1">
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Thema / Brief</span><br>
-            <span style="font-style:italic;line-height:1.6">${o.thema || '—'}</span>
+            <span style="line-height:1.6">${esc(o.thema || '—')}</span>
           </div>
           <div>
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Stijl</span><br>
-            ${o.stijl || '—'}
+            ${esc(o.stijl || '—')}
           </div>
           <div>
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Plaatsing</span><br>
-            ${o.plaatsing || '—'}
+            ${esc(o.plaatsing || '—')}
           </div>
           <div>
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Kleuren</span><br>
-            ${kleurDots} <span style="font-size:.8rem;color:var(--gray)">${(o.kleuren || []).join(', ')}</span>
+            ${kleurDots} <span style="font-size:.8rem;color:var(--gray)">${esc((o.kleuren || []).join(', '))}</span>
           </div>
           ${o.opmerkingen ? `<div style="grid-column:1/-1">
             <span style="color:var(--gray);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase">Extra opmerkingen</span><br>
-            <span style="font-style:italic;color:var(--gold)">${o.opmerkingen}</span>
+            <span style="color:var(--gold)">${esc(o.opmerkingen)}</span>
           </div>` : ''}
         </div>
 
@@ -484,7 +617,7 @@ function renderCustomOrders() {
       </div>`;
   }).join('');
 
-  document.querySelectorAll('.status-select').forEach(sel =>
+  document.querySelectorAll('#customOrdersContainer .status-select').forEach(sel =>
     sel.addEventListener('change', async () => {
       await updateDoc(doc(db, 'custom-orders', sel.dataset.order), { status: sel.value });
       toast(`Status → ${CUSTOM_LABELS[sel.value]}`, 'success');
@@ -494,15 +627,10 @@ function renderCustomOrders() {
 
 // ── WACHTWOORD ─────────────────────────────────────
 document.getElementById('changePassBtn').addEventListener('click', async () => {
-  const np = document.getElementById('newPass').value;
-  const cp = document.getElementById('confirmPass').value;
-  if (!np) { toast('Vul een nieuw wachtwoord in', 'error'); return; }
-  if (np !== cp) { toast('Wachtwoorden komen niet overeen', 'error'); return; }
-  if (np.length < 8) { toast('Minimaal 8 tekens vereist', 'error'); return; }
-  await setDoc(SETTINGS_DOC, { passHash: await sha256(np) }, { merge: true });
-  document.getElementById('newPass').value = '';
-  document.getElementById('confirmPass').value = '';
-  toast('Wachtwoord gewijzigd — werkt nu op alle apparaten', 'success');
+  try {
+    await sendPasswordResetEmail(auth, auth.currentUser.email);
+    toast('Reset-mail verstuurd naar ' + auth.currentUser.email, 'success');
+  } catch (e) { toast('Fout: ' + e.message, 'error'); }
 });
 
 // ── TOAST ──────────────────────────────────────────
@@ -515,17 +643,24 @@ function toast(msg, type = 'success') {
 
 // ── LOGIN ──────────────────────────────────────────
 document.getElementById('loginBtn').addEventListener('click', async () => {
-  const email   = document.getElementById('loginEmail').value.trim();
-  const pass    = document.getElementById('loginPass').value;
-  const hash    = await sha256(pass);
-  const stored  = await getPassHash();
-  if (email === ADMIN_EMAIL && hash === stored) {
-    sessionStorage.setItem(SESSION_KEY, 'ok');
-    document.getElementById('loginError').style.display = 'none';
-    showDashboard();
-  } else {
-    document.getElementById('loginError').style.display = 'block';
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pass  = document.getElementById('loginPass').value;
+  const errEl = document.getElementById('loginError');
+  errEl.style.display = 'none';
+  if (!ADMIN_EMAILS.includes(email)) { errEl.textContent = 'Dit e-mailadres heeft geen admin-toegang.'; errEl.style.display = 'block'; return; }
+  try {
+    await signInWithEmailAndPassword(auth, email, pass);
+  } catch (e) {
+    errEl.textContent = 'Verkeerd wachtwoord of e-mail.'; errEl.style.display = 'block';
   }
+});
+
+document.getElementById('forgotBtn').addEventListener('click', async () => {
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const errEl = document.getElementById('loginError');
+  if (!ADMIN_EMAILS.includes(email)) { errEl.textContent = 'Vul eerst je admin e-mailadres in.'; errEl.style.display = 'block'; return; }
+  try { await sendPasswordResetEmail(auth, email); toast('Reset-mail verstuurd', 'success'); }
+  catch (e) { errEl.textContent = 'Fout: ' + e.message; errEl.style.display = 'block'; }
 });
 
 document.getElementById('loginPass').addEventListener('keydown', e => {
@@ -535,8 +670,8 @@ document.getElementById('loginPass').addEventListener('keydown', e => {
 document.getElementById('logoutBtn').addEventListener('click', () => {
   if (unsubCustomOrders) unsubCustomOrders();
   if (unsubBurenfeest) unsubBurenfeest();
-  sessionStorage.removeItem(SESSION_KEY);
-  location.reload();
+  if (unsubShopOrders) unsubShopOrders();
+  signOut(auth).then(() => location.reload());
 });
 
 // ── BURENFEEST STATE ───────────────────────────────
@@ -546,7 +681,16 @@ let bfImageUrl      = '';
 let unsubBurenfeest = null;
 
 // ── INIT ───────────────────────────────────────────
-if (isLoggedIn()) showDashboard();
+let dashboardShown = false;
+onAuthStateChanged(auth, user => {
+  if (isAdminUser(user)) {
+    if (!dashboardShown) { dashboardShown = true; showDashboard(); }
+  } else if (user) {
+    const errEl = document.getElementById('loginError');
+    errEl.textContent = 'Dit account heeft geen admin-toegang.'; errEl.style.display = 'block';
+    signOut(auth);
+  }
+});
 
 function startBurenfeestListener() {
   unsubBurenfeest = onSnapshot(collection(db, 'burenfeest'), snap => {
@@ -555,7 +699,7 @@ function startBurenfeestListener() {
     renderBurenfeestTable();
   }, err => {
     document.getElementById('burenfeestTableBody').innerHTML =
-      `<tr><td colspan="6" style="color:#e74c3c;padding:1rem;font-style:italic">Fout: ${err.message}</td></tr>`;
+      `<tr><td colspan="6" style="color:#e74c3c;padding:1rem;">Fout: ${err.message}</td></tr>`;
   });
 }
 
@@ -570,7 +714,7 @@ function renderBurenfeestTable() {
       <td>
         <div style="display:flex;align-items:center;gap:.75rem">
           ${p.imageUrl
-            ? `<img src="${p.imageUrl}" style="width:40px;height:40px;object-fit:cover;border:1px solid rgba(201,168,76,.2)" />`
+            ? `<img src="${p.imageUrl}" style="width:40px;height:40px;object-fit:cover;border:1px solid rgba(255,200,61,.2)" />`
             : `<span style="font-size:1.5rem">${p.emoji || '👕'}</span>`}
           <div>
             <div class="product-name-cell">${p.name}</div>

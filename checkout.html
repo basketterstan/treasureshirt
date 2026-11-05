@@ -4,285 +4,370 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Afrekenen — Treasureshirt</title>
+  <meta name="description" content="Rond je bestelling af: gratis afhalen op de kerstmarkt van Landen of verzending in België." />
+  <meta property="og:title" content="Afrekenen — Treasureshirt" />
+  <meta property="og:description" content="Rond je bestelling af: gratis afhalen op de kerstmarkt van Landen of verzending in België." />
+  <meta property="og:image" content="https://treasureshirt.com/images/kerst/kerstzin-tee-groen.jpg" />
+  <meta name="theme-color" content="#0d0d0f" />
+  <link rel="icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .checkout-hero { padding: 10rem 5% 3rem; text-align: center; background: linear-gradient(to bottom, #1a1a1a, #0a0a0a); }
-    .checkout-body { max-width: 680px; margin: 0 auto; padding: 4rem 5% 6rem; }
-    .checkout-section { margin-bottom: 3rem; }
-    .checkout-label {
-      font-size: .65rem; letter-spacing: .4em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.25rem; display: block;
-    }
-    .checkout-input {
-      width: 100%; background: transparent; border: none;
-      border-bottom: 1px solid rgba(201,168,76,.4);
-      color: var(--white); font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.05rem; padding: .7rem 0; outline: none;
-      transition: border-color .3s; margin-bottom: 1.25rem; box-sizing: border-box;
-    }
-    .checkout-input:focus { border-bottom-color: var(--gold); }
-    .checkout-input.err { border-color: #c0392b; }
-    .checkout-input::placeholder { color: var(--gray); font-style: italic; }
-    .checkout-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; }
-    .order-items { border: 1px solid rgba(201,168,76,.15); }
-    .order-item {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      padding: 1rem 1.25rem; border-bottom: 1px solid rgba(201,168,76,.08);
-    }
-    .order-item:last-child { border-bottom: none; }
-    .order-item-name { font-size: .9rem; color: var(--white); margin-bottom: .2rem; }
-    .order-item-brief { font-size: .75rem; color: #555; font-style: italic; }
-    .order-item-price { font-size: .9rem; color: var(--gold); white-space: nowrap; margin-left: 1rem; }
-    .order-totals { margin-top: 1rem; }
-    .totals-row { display: flex; justify-content: space-between; padding: .5rem 0; border-bottom: 1px solid rgba(201,168,76,.08); font-size: .88rem; color: #aaa; }
-    .totals-row.grand { font-size: 1rem; color: var(--white); border-bottom: none; padding-top: .75rem; font-weight: 300; }
-    .totals-row.grand span:last-child { color: var(--gold); font-size: 1.15rem; font-style: italic; }
-    .checkout-btn {
-      width: 100%; padding: 1.1rem; background: var(--gold); color: var(--black);
-      border: none; font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1rem; letter-spacing: .2em; text-transform: uppercase;
-      cursor: pointer; margin-top: 2rem; transition: opacity .2s;
-    }
-    .checkout-btn:hover { opacity: .85; }
-    .checkout-btn:disabled { opacity: .4; cursor: not-allowed; }
-    .checkout-err { color: #c0392b; font-size: .85rem; font-style: italic; margin-top: .75rem; display: none; }
-    .checkout-err.show { display: block; }
-    .account-bar {
-      border: 1px solid rgba(201,168,76,.15); padding: 1.25rem;
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 2rem; flex-wrap: wrap; gap: .75rem;
-    }
-    .account-bar p { color: #888; font-size: .85rem; font-style: italic; }
-    .account-bar a { color: var(--gold); font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; text-decoration: none; }
-    .empty-cart { text-align: center; padding: 4rem 0; color: #555; font-style: italic; }
-    .empty-cart a { color: var(--gold); }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20261103c" />
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="nav-logo">Treasureshirt</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="shop.html">Collectie</a></li>
-      <li><a href="op-maat.html">Op Maat</a></li>
-      <li><a href="about.html">Over Ons</a></li>
+      <li><a href="shop.html" class="nav-kerst">🎄 Kerstcollectie</a></li>
+      <li><a href="shop.html?c=kids">Kids</a></li>
+      <li><a href="shop.html?c=dieren">Dieren</a></li>
+      <li><a href="kerstmarkt.html">Kerstmarkt</a></li>
+      <li><a href="about.html">Over ons</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div style="display:flex;gap:1rem;align-items:center">
-      <button class="nav-toggle" id="navToggle" aria-label="Menu openen"><span></span><span></span><span></span></button>
+      <a href="account.html" class="nav-account" id="navAccountLink" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s">Account</a>
+      <button class="nav-cart" id="cartBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cart-label">Winkelwagen</span> <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <div class="checkout-hero">
-    <p class="section-label">Bijna klaar</p>
-    <h1 class="section-title">Af<em>rekenen</em></h1>
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Winkelwagen</h3>
+        <button class="cart-close" id="cartClose" aria-label="Sluiten">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Totaal</span>
+          <span class="cart-total-amount" id="cartTotal">€ 0</span>
+        </div>
+        <p class="cart-note">🎄 Gratis afhalen op de kerstmarkt van Landen of verzending (België € 7, Nederland € 14,99). Verzenden: bestel vóór 8 december.</p>
+        <button class="btn-checkout" id="checkoutBtn" disabled>Afrekenen →</button>
+      </div>
+    </div>
   </div>
 
-  <div class="checkout-body" id="checkoutBody">
 
-    <div id="emptyState" class="empty-cart" style="display:none">
-      <p>Je winkelwagen is leeg.</p>
-      <a href="op-maat.html">← Maak een design</a>
-    </div>
+  <style>
+    .co-wrap { max-width: 1100px; margin: 0 auto; padding: 8rem 5% 5rem; display: grid; grid-template-columns: 1.15fr .85fr; gap: 2.5rem; align-items: start; }
+    .co-card { background: var(--dark-gray); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.25rem; }
+    .co-card h2 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: .6rem; }
+    .co-step { width: 26px; height: 26px; border-radius: 50%; background: var(--gold); color: var(--black); font-size: .85rem; display: grid; place-items: center; font-family: var(--font); }
+    .co-field { display: flex; flex-direction: column; gap: .35rem; margin-bottom: .9rem; }
+    .co-field label { font-size: .85rem; font-weight: 600; }
+    .co-field label span { color: var(--gray); font-weight: 400; }
+    .co-input { background: var(--surface-2); border: 1.5px solid var(--line); border-radius: 10px; color: var(--white); font-family: inherit; font-size: 1rem; padding: .8rem .9rem; outline: none; width: 100%; }
+    .co-input:focus { border-color: var(--gold); }
+    .co-input.err { border-color: var(--red); }
+    .co-row { display: grid; grid-template-columns: 1fr 2fr; gap: .75rem; }
+    .co-option { display: flex; gap: .9rem; align-items: flex-start; padding: 1rem; border: 1.5px solid var(--line); border-radius: 12px; cursor: pointer; margin-bottom: .6rem; transition: border-color .15s, background .15s; }
+    .co-option:hover { border-color: rgba(255,200,61,.5); }
+    .co-option.active { border-color: var(--gold); background: rgba(255,200,61,.07); }
+    .co-option input { margin-top: .3rem; accent-color: var(--gold); width: 18px; height: 18px; flex-shrink: 0; }
+    .co-option-body { flex: 1; }
+    .co-option-title { font-weight: 700; display: flex; justify-content: space-between; gap: 1rem; }
+    .co-option-title b { color: var(--gold); white-space: nowrap; }
+    .co-option-sub { font-size: .87rem; color: var(--gray); margin-top: .2rem; line-height: 1.5; }
+    .co-summary { position: sticky; top: 90px; }
+    .co-item { display: grid; grid-template-columns: 56px 1fr auto; gap: .8rem; align-items: center; padding: .7rem 0; border-bottom: 1px solid var(--line); }
+    .co-item:last-child { border-bottom: none; }
+    .co-thumb { width: 56px; height: 56px; border-radius: 10px; background: #f3f1ec; overflow: hidden; display: grid; place-items: center; font-size: 1.5rem; position: relative; }
+    .co-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .co-qty { position: absolute; top: -6px; right: -6px; background: var(--white); color: var(--black); font-size: .7rem; font-weight: 800; min-width: 20px; height: 20px; border-radius: 999px; display: grid; place-items: center; }
+    .co-item-name { font-size: .9rem; font-weight: 600; line-height: 1.3; }
+    .co-item-meta { font-size: .78rem; color: var(--gray); }
+    .co-item-price { font-weight: 700; font-size: .92rem; white-space: nowrap; }
+    .co-totals { margin-top: 1rem; border-top: 1px solid var(--line); padding-top: .75rem; }
+    .co-tot { display: flex; justify-content: space-between; padding: .3rem 0; color: var(--gray); font-size: .92rem; }
+    .co-tot.grand { color: var(--white); font-size: 1.2rem; font-weight: 800; padding-top: .6rem; }
+    .co-pay { width: 100%; padding: 1.05rem; background: var(--gold); color: var(--black); border: none; border-radius: 999px; font-family: inherit; font-size: 1.05rem; font-weight: 700; cursor: pointer; margin-top: 1rem; }
+    .co-pay:hover:not(:disabled) { background: var(--gold-light); }
+    .co-pay:disabled { opacity: .5; cursor: not-allowed; }
+    .co-secure { text-align: center; font-size: .8rem; color: var(--gray); margin-top: .6rem; }
+    .req { color: var(--red); font-weight: 700; }
+    .co-hint { font-size: .8rem; color: var(--gray); margin-top: -.25rem; }
+    .co-err { color: var(--red); font-size: .9rem; margin-top: .75rem; display: none; }
+    .co-err.show { display: block; }
+    .co-account { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: .9rem; color: var(--gray); }
+    .co-account a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .co-empty { max-width: 600px; margin: 0 auto; padding: 10rem 5% 6rem; text-align: center; }
+    @media (max-width: 860px) { .co-wrap { grid-template-columns: 1fr; padding-top: 6.5rem; } .co-summary { position: static; } }
+  </style>
 
-    <div id="checkoutContent">
+  <div class="co-empty" id="emptyState" hidden>
+    <h1 class="section-title">Je winkelwagen is <em>leeg</em></h1>
+    <p class="section-sub" style="margin:0 auto 2rem">Kies eerst iets uit de collectie.</p>
+    <a href="shop.html?c=kerst" class="btn btn-filled">Naar de kerstcollectie →</a>
+  </div>
 
-      <!-- Account balk (alleen zichtbaar als niet ingelogd) -->
-      <div class="account-bar" id="accountBar">
-        <p>Heb je al een account? Log in om je adres automatisch in te vullen.</p>
-        <a href="account.html">Inloggen / Registreren →</a>
-      </div>
+  <main class="co-wrap" id="checkoutContent">
+    <div>
+      <h1 class="section-title" style="font-size:clamp(2rem,4vw,2.8rem)">Af<em>rekenen</em></h1>
 
-      <!-- Bestelling overzicht -->
-      <div class="checkout-section">
-        <span class="checkout-label">Jouw bestelling</span>
-        <div class="order-items" id="orderItems"></div>
-        <div class="order-totals">
-          <div class="totals-row"><span>Subtotaal</span><span id="totSubtotaal">—</span></div>
-          <div class="totals-row"><span>Verzending België</span><span>€ 7</span></div>
-          <div class="totals-row grand"><span>Totaal</span><span id="totGrand">—</span></div>
+      <div class="co-card" id="accountBar">
+        <div class="co-account">
+          <span>Heb je een account? Log in om je gegevens automatisch in te vullen.</span>
+          <a href="account.html">Inloggen →</a>
         </div>
       </div>
 
-      <!-- Leveringsadres -->
-      <div class="checkout-section">
-        <span class="checkout-label">Leveringsadres</span>
-        <input type="text" id="chkNaam" class="checkout-input" placeholder="Naam ontvanger" maxlength="80" />
-        <input type="text" id="chkStraat" class="checkout-input" placeholder="Straat en huisnummer" maxlength="100" />
-        <div class="checkout-grid">
-          <input type="text" id="chkPostcode" class="checkout-input" placeholder="Postcode" maxlength="10" />
-          <input type="text" id="chkGemeente" class="checkout-input" placeholder="Gemeente" maxlength="60" />
-        </div>
-        <input type="text" id="chkLand" class="checkout-input" placeholder="Land" value="België" maxlength="60" />
+      <div class="co-card">
+        <h2><span class="co-step">1</span> Afhalen of verzenden?</h2>
+        <label class="co-option" id="optPickup">
+          <input type="radio" name="levering" value="afhalen-kerstmarkt" />
+          <div class="co-option-body">
+            <div class="co-option-title">Afhalen op de kerstmarkt van Landen <b>Gratis</b></div>
+            <div class="co-option-sub">11, 12 en 13 december in onze chalet. Je krijgt een mail zodra je bestelling klaarligt — vermeld je bestelnummer bij het afhalen.</div>
+          </div>
+        </label>
+        <label class="co-option" id="optShip">
+          <input type="radio" name="levering" value="verzending" />
+          <div class="co-option-body">
+            <div class="co-option-title">Verzending in België <b>€ 7</b></div>
+            <div class="co-option-sub">We maken je bestelling en sturen ze op met de post. <strong style="color:var(--white)">Bestel vóór 8 december, dan verzenden we je bestelling ten laatste op 10 december.</strong></div>
+          </div>
+        </label>
+        <label class="co-option" id="optShipNL">
+          <input type="radio" name="levering" value="verzending-nl" />
+          <div class="co-option-body">
+            <div class="co-option-title">Verzending naar Nederland <b>€ 14,99</b></div>
+            <div class="co-option-sub">We sturen je bestelling op met de post naar je adres in Nederland. <strong style="color:var(--white)">Bestel vóór 8 december, dan verzenden we je bestelling ten laatste op 10 december.</strong></div>
+          </div>
+        </label>
       </div>
 
-      <div class="checkout-err" id="checkoutErr">Vul alle velden in om verder te gaan.</div>
+      <div class="co-card">
+        <h2><span class="co-step">2</span> Jouw gegevens</h2>
+        <div class="co-field"><label for="chkNaam">Naam <b class="req">*</b></label><input id="chkNaam" class="co-input" autocomplete="name" maxlength="80" required /></div>
+        <div class="co-field"><label for="chkEmail">E-mail <b class="req">*</b> <span>— voor je bevestiging</span></label><input id="chkEmail" type="email" class="co-input" autocomplete="email" maxlength="120" required /></div>
+        <div class="co-field"><label for="chkTel">Telefoon <b class="req">*</b> <span>— als we je moeten bereiken</span></label><input id="chkTel" type="tel" class="co-input" autocomplete="tel" maxlength="30" required /></div>
 
-      <button class="checkout-btn" id="payBtn" disabled>Betalen via Stripe</button>
+        <div id="addressBlock" hidden>
+          <div class="co-field"><label for="chkStraat">Straat en huisnummer <b class="req">*</b></label><input id="chkStraat" class="co-input" autocomplete="street-address" maxlength="100" /></div>
+          <div class="co-row">
+            <div class="co-field"><label for="chkPostcode">Postcode <b class="req">*</b></label><input id="chkPostcode" class="co-input" autocomplete="postal-code" maxlength="10" /></div>
+            <div class="co-field"><label for="chkGemeente"><span id="lblGemeente">Gemeente</span> <b class="req">*</b></label><input id="chkGemeente" class="co-input" autocomplete="address-level2" maxlength="60" /></div>
+          </div>
+          <div class="co-field"><label for="chkLand">Land</label><input id="chkLand" class="co-input" value="België" readonly /></div>
+        </div>
 
+        <p class="co-hint"><b class="req">*</b> verplicht in te vullen</p>
+        <div class="co-field" style="margin-bottom:0;margin-top:.9rem"><label for="chkNote">Opmerking <span>— optioneel</span></label><input id="chkNote" class="co-input" maxlength="300" placeholder="Bv. wanneer je komt afhalen" /></div>
+      </div>
     </div>
-  </div>
+
+    <aside class="co-summary">
+      <div class="co-card">
+        <h2>Jouw bestelling</h2>
+        <div id="orderItems"></div>
+        <div class="co-totals">
+          <div class="co-tot"><span>Subtotaal</span><span id="totSubtotaal">—</span></div>
+          <div class="co-tot"><span id="totLevLabel">Levering</span><span id="totLev">—</span></div>
+          <div class="co-tot grand"><span>Totaal</span><span id="totGrand">—</span></div>
+        </div>
+        <button class="co-pay" id="payBtn" disabled>Kies afhalen of verzenden</button>
+        <p class="co-err" id="checkoutErr"></p>
+        <p class="co-secure">🔒 Veilig betalen met Bancontact of kaart via Stripe</p>
+      </div>
+    </aside>
+  </main>
 
   <footer>
     <span class="footer-logo">Treasureshirt</span>
-    <p class="footer-copy">© 2025 Treasureshirt. Alle rechten voorbehouden.</p>
-    <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.5rem">
-      <a href="privacy.html" style="color:#666;font-size:.75rem;text-decoration:none">Privacybeleid</a>
-      <a href="voorwaarden.html" style="color:#666;font-size:.75rem;text-decoration:none">Algemene Voorwaarden</a>
-      <a href="retour.html" style="color:#666;font-size:.75rem;text-decoration:none">Retourbeleid</a>
+    <p class="footer-copy">© 2026 Treasureshirt. Alle rechten voorbehouden.</p>
+    <div class="footer-socials"><a href="https://www.instagram.com/treasure.shirt" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@treasureshirt" target="_blank" rel="noopener">TikTok</a></div>
+    <div class="footer-links" style="display:flex;gap:1.5rem;justify-content:center;margin-top:.75rem">
+      <a href="privacy.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Privacybeleid</a>
+      <a href="voorwaarden.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Algemene Voorwaarden</a>
+      <a href="retour.html" style="color:#8f8b83;font-size:.72rem;text-decoration:none">Retourbeleid</a>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <div class="cart-toast" id="cartToast"></div>
+  <script src="js/main.js?v=20261103c"></script>
+  <script src="js/cart.js?v=20261104c"></script>
   <script type="module">
-    import { db, auth } from './js/firebase-config.js';
+    import { db, auth } from './js/firebase-config.js?v=20261103c';
     import { doc, updateDoc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
     import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
-    const VERZENDKOST = 7;
-    const CART_KEY = 'ts_cart';
+    const CHECKOUT_URL = 'https://createcheckout-kelvdlqp7a-uc.a.run.app';
+    const VERZENDKOST = { 'verzending': 7, 'verzending-nl': 14.99 };
+    const LAND = { 'verzending': 'België', 'verzending-nl': 'Nederland' };
+    const isShip = () => levering in VERZENDKOST;
+    const pcOk = v => levering === 'verzending-nl' ? /^\d{4}\s?[A-Za-z]{2}$/.test(v) : /^\d{4}$/.test(v);
+    // Pickup at the Landen Christmas market is offered until the last market day.
+    const PICKUP_UNTIL = new Date('2026-12-13T18:00:00+01:00');
+    const $ = id => document.getElementById(id);
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const euro = n => '€ ' + Number(n).toFixed(2).replace('.', ',').replace(',00', '');
 
-    function getCart() {
-      try { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch { return []; }
-    }
-
-    const cart = getCart();
+    const cart = Cart.get();
+    let levering = '';
 
     if (!cart.length) {
-      document.getElementById('checkoutContent').style.display = 'none';
-      document.getElementById('emptyState').style.display = 'block';
-    } else {
-      const subtotaal = cart.reduce((s, i) => s + i.price * (i.quantity || 1), 0);
-      const grand = subtotaal + VERZENDKOST;
-
-      document.getElementById('totSubtotaal').textContent = `€ ${subtotaal}`;
-      document.getElementById('totGrand').textContent = `€ ${grand}`;
-
-      document.getElementById('orderItems').innerHTML = cart.map(i => `
-        <div class="order-item">
-          <div>
-            <p class="order-item-name">${i.name}</p>
-            ${i.brief ? `<p class="order-item-brief">${i.brief}</p>` : ''}
-          </div>
-          <span class="order-item-price">€ ${i.price}</span>
-        </div>
-      `).join('');
+      $('checkoutContent').hidden = true;
+      $('emptyState').hidden = false;
     }
 
-    // Auth: verberg balk als ingelogd, laad opgeslagen adres
-    let uid = null;
-    onAuthStateChanged(auth, async user => {
-      if (user) {
-        uid = user.uid;
-        document.getElementById('accountBar').style.display = 'none';
-        if (user.displayName) document.getElementById('chkNaam').value = user.displayName;
+    const pickupOpen = new Date() < PICKUP_UNTIL;
+    if (!pickupOpen) { $('optPickup').hidden = true; setLevering('verzending'); }
 
-        try {
-          const snap = await getDoc(doc(db, 'users', user.uid));
-          if (snap.exists()) {
-            const d = snap.data();
-            if (d.straat)    document.getElementById('chkStraat').value    = d.straat;
-            if (d.postcode)  document.getElementById('chkPostcode').value  = d.postcode;
-            if (d.gemeente)  document.getElementById('chkGemeente').value  = d.gemeente;
-            if (d.land)      document.getElementById('chkLand').value      = d.land;
-          }
-        } catch {}
-        updatePayBtn();
-      }
-    });
+    const subtotaal = cart.reduce((s, i) => s + i.price * (i.quantity || 1), 0);
+    $('orderItems').innerHTML = cart.map(i => `
+      <div class="co-item">
+        <div class="co-thumb">${i.image ? `<img src="${esc(i.image)}" alt="">` : '👕'}${(i.quantity || 1) > 1 ? `<span class="co-qty">${i.quantity}</span>` : ''}</div>
+        <div>
+          <p class="co-item-name">${esc(i.name)}</p>
+          <p class="co-item-meta">${esc(i.type === 'custom' ? (i.brief || '') : Cart.metaLine(i))}</p>
+        </div>
+        <span class="co-item-price">${euro(i.price * (i.quantity || 1))}</span>
+      </div>`).join('');
 
-    function validate() {
-      const fields = ['chkNaam', 'chkStraat', 'chkPostcode', 'chkGemeente', 'chkLand'];
-      let ok = true;
-      fields.forEach(id => {
-        const el = document.getElementById(id);
-        const empty = !el.value.trim();
-        el.classList.toggle('err', empty);
-        if (empty) ok = false;
+    function setLevering(v) {
+      levering = v;
+      document.querySelectorAll('input[name="levering"]').forEach(r => { r.checked = r.value === v; r.closest('.co-option').classList.toggle('active', r.checked); });
+      $('addressBlock').hidden = !(v in VERZENDKOST);
+      $('lblGemeente').textContent = v === 'verzending-nl' ? 'Plaats' : 'Gemeente';
+      $('chkPostcode').placeholder = v === 'verzending-nl' ? '1234 AB' : '3400';
+      updateTotals(); updatePayBtn();
+    }
+    document.querySelectorAll('input[name="levering"]').forEach(r => r.addEventListener('change', () => setLevering(r.value)));
+
+    function shipping() { return VERZENDKOST[levering] || 0; }
+    function updateTotals() {
+      $('totSubtotaal').textContent = euro(subtotaal);
+      $('totLevLabel').textContent = levering === 'afhalen-kerstmarkt' ? 'Afhalen kerstmarkt' : isShip() ? 'Verzending ' + LAND[levering] : 'Levering';
+      $('totLev').textContent = levering ? (shipping() ? euro(shipping()) : 'Gratis') : '—';
+      $('totGrand').textContent = euro(subtotaal + shipping());
+    }
+    updateTotals();
+
+    function required() {
+      const f = ['chkNaam', 'chkEmail', 'chkTel'];
+      if (isShip()) f.push('chkStraat', 'chkPostcode', 'chkGemeente');
+      return f;
+    }
+    const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    const telOk = v => v.replace(/[^0-9]/g, '').length >= 8;
+    function valid(mark) {
+      let ok = !!levering;
+      required().forEach(id => {
+        const el = $(id); const v = el.value.trim();
+        const bad = !v || (id === 'chkEmail' && !emailOk(v)) || (id === 'chkTel' && !telOk(v)) || (id === 'chkPostcode' && !pcOk(v));
+        if (mark) el.classList.toggle('err', bad);
+        if (bad) ok = false;
       });
       return ok;
     }
-
-    const REQUIRED_FIELDS = ['chkNaam','chkStraat','chkPostcode','chkGemeente','chkLand'];
-
     function updatePayBtn() {
-      const allFilled = REQUIRED_FIELDS.every(id => document.getElementById(id).value.trim());
-      document.getElementById('payBtn').disabled = !allFilled;
+      const btn = $('payBtn');
+      if (!levering) { btn.disabled = true; btn.textContent = 'Kies afhalen of verzenden'; return; }
+      if (!valid(false)) { btn.disabled = true; btn.textContent = 'Vul je gegevens in'; return; }
+      btn.disabled = false;
+      btn.textContent = `Betalen — ${euro(subtotaal + shipping())}`;
     }
-
-    REQUIRED_FIELDS.forEach(id => {
-      document.getElementById(id).addEventListener('input', () => {
-        document.getElementById(id).classList.remove('err');
-        updatePayBtn();
-      });
+    ['chkNaam', 'chkEmail', 'chkTel', 'chkStraat', 'chkPostcode', 'chkGemeente'].forEach(id => {
+      ['input', 'change'].forEach(ev => $(id).addEventListener(ev, () => { $(id).classList.remove('err'); updatePayBtn(); }));
+      $(id).addEventListener('blur', () => { const v = $(id).value.trim(); if (v && required().includes(id)) valid(false) || $(id).classList.toggle('err', (id === 'chkEmail' && !emailOk(v)) || (id === 'chkTel' && !telOk(v)) || (id === 'chkPostcode' && !pcOk(v))); });
     });
 
-    updatePayBtn();
+    let uid = null;
+    onAuthStateChanged(auth, async user => {
+      if (!user) return;
+      uid = user.uid;
+      $('accountBar').hidden = true;
+      if (user.displayName && !$('chkNaam').value) $('chkNaam').value = user.displayName;
+      if (user.email && !$('chkEmail').value) $('chkEmail').value = user.email;
+      try {
+        const snap = await getDoc(doc(db, 'users', user.uid));
+        if (snap.exists()) {
+          const d = snap.data();
+          if (d.straat) $('chkStraat').value = d.straat;
+          if (d.postcode) $('chkPostcode').value = d.postcode;
+          if (d.gemeente) $('chkGemeente').value = d.gemeente;
+          if (d.telefoon) $('chkTel').value = d.telefoon;
+        }
+      } catch {}
+      updatePayBtn();
+    });
 
-    document.getElementById('payBtn').addEventListener('click', async () => {
-      if (!validate()) {
-        document.getElementById('checkoutErr').classList.add('show');
+    $('payBtn').addEventListener('click', async () => {
+      const err = $('checkoutErr');
+      if (!valid(true)) {
+        err.textContent = levering ? 'Vul alle verplichte velden in: naam, een geldig e-mailadres en telefoonnummer' + (isShip() ? ', en je volledige adres (' + (levering === 'verzending-nl' ? 'postcode zoals 1234 AB' : 'postcode met 4 cijfers') + ').' : '.') : 'Kies eerst afhalen of verzenden.';
+        err.classList.add('show');
+        document.querySelector('.co-input.err')?.focus();
         return;
       }
-      document.getElementById('checkoutErr').classList.remove('show');
+      err.classList.remove('show');
+      const btn = $('payBtn');
+      btn.disabled = true; btn.textContent = 'Even geduld…';
 
-      const btn = document.getElementById('payBtn');
-      btn.disabled = true;
-      btn.textContent = 'Laden...';
-
-      const naam     = document.getElementById('chkNaam').value.trim();
-      const straat   = document.getElementById('chkStraat').value.trim();
-      const postcode = document.getElementById('chkPostcode').value.trim();
-      const gemeente = document.getElementById('chkGemeente').value.trim();
-      const land     = document.getElementById('chkLand').value.trim();
-      const adres    = `${straat}, ${postcode} ${gemeente}, ${land}`;
+      const naam = $('chkNaam').value.trim();
+      const email = $('chkEmail').value.trim();
+      const telefoon = $('chkTel').value.trim();
+      const straat = $('chkStraat').value.trim();
+      const postcode = $('chkPostcode').value.trim();
+      const gemeente = $('chkGemeente').value.trim();
+      const opmerking = $('chkNote').value.trim();
+      const adres = isShip() ? `${straat}, ${postcode.toUpperCase()} ${gemeente}, ${LAND[levering]}` : '';
 
       try {
-        // Sla adres op in gebruikersprofiel voor volgende keer
         if (uid) {
-          await setDoc(doc(db, 'users', uid), { straat, postcode, gemeente, land }, { merge: true });
+          const profile = { telefoon };
+          if (isShip()) Object.assign(profile, { straat, postcode, gemeente, land: LAND[levering] });
+          await setDoc(doc(db, 'users', uid), profile, { merge: true }).catch(() => {});
         }
 
-        // Update address on each custom order in Firestore
         const customItems = cart.filter(i => i.type === 'custom');
-        await Promise.all(customItems.map(i =>
-          updateDoc(doc(db, 'custom-orders', i.cartKey), {
-            leveringsNaam: naam,
-            adres,
-            verzendkost: VERZENDKOST,
-            levering: 'levering',
-          })
-        ));
+        await Promise.all(customItems.map(i => updateDoc(doc(db, 'custom-orders', i.cartKey), {
+          leveringsNaam: naam, adres, verzendkost: shipping(), levering,
+        }).catch(() => {})));
 
-        // Build Stripe items
-        const stripeItems = cart.map(i => {
-          const item = { name: i.name, price: i.price, quantity: i.quantity || 1 };
-          if (i.description) item.description = i.description;
-          return item;
+        // id/variant fields let the server look up the real price; name/price stay
+        // for backwards compatibility with the previous checkout function.
+        const items = cart.map(i => {
+          const meta = i.type === 'custom' ? '' : Cart.metaLine(i);
+          return {
+            id: i.type === 'custom' ? '' : i.id,
+            customOrderId: i.type === 'custom' ? i.cartKey : '',
+            variantType: i.type === 'custom' ? '' : (i.type || ''),
+            color: i.color || '', size: i.size || '', personalName: i.personalName || '', namePlacement: i.namePlacement || '', printSide: i.printSide || '',
+            name: meta ? `${i.name} — ${meta}` : i.name,
+            price: i.price, quantity: i.quantity || 1,
+            ...(i.description ? { description: String(i.description).slice(0, 300) } : {}),
+          };
         });
-        stripeItems.push({ name: 'Verzending België', price: VERZENDKOST, quantity: 1 });
+        if (shipping()) items.push({ id: 'shipping-be', name: 'Verzending België', price: VERZENDKOST, quantity: 1 });
 
-        const userId = uid || '';
-        const userEmail = auth.currentUser?.email || '';
-        const customOrderIds = cart.filter(i => i.type === 'custom').map(i => i.cartKey).join(',');
-        const res = await fetch('https://createcheckout-kelvdlqp7a-uc.a.run.app', {
+        const res = await fetch(CHECKOUT_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ userId, userEmail, customOrderIds, items: stripeItems }),
+          body: JSON.stringify({
+            userId: uid || '', userEmail: email,
+            customOrderIds: customItems.map(i => i.cartKey).join(','),
+            levering, contact: { naam, email, telefoon }, adres, opmerking,
+            items,
+          }),
         });
-
-        const { url, error } = await res.json();
-        if (error) throw new Error(error);
-        window.location.href = url;
-
-      } catch (err) {
-        document.getElementById('checkoutErr').textContent = 'Er ging iets mis: ' + err.message;
-        document.getElementById('checkoutErr').classList.add('show');
-        btn.disabled = false;
-        btn.textContent = 'Betalen via Stripe';
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.error || !data.url) throw new Error(data.error || 'Betaling kon niet gestart worden.');
+        window.location.href = data.url;
+      } catch (e) {
+        err.textContent = 'Er ging iets mis: ' + e.message + ' Probeer opnieuw of mail contact@treasureshirt.com.';
+        err.classList.add('show');
+        updatePayBtn();
       }
     });
   </script>
