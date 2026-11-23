@@ -3892,7 +3892,7 @@
  {
   "id": "kerst-beer",
   "name": "Beer met bedrukt shirtje",
-  "description": "Zachte knuffelbeer met een eigen shirtje. Laat er een naam of korte tekst op zetten — een cadeau dat ze nooit vergeten.",
+  "description": "Zachte knuffelbeer met een eigen shirtje, in bruin of crème. Laat er een naam op zetten (+ € 5): een cadeau dat ze nooit vergeten.",
   "category": "Kerst",
   "badge": "Cadeau",
   "types": [
@@ -3927,7 +3927,7 @@
   "personalize": {
    "label": "Naam erop",
    "maxLength": 14,
-   "price": 0,
+   "price": 5,
    "placements": [
     {
      "id": "borst",
