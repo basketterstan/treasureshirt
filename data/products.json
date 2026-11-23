@@ -1,5 +1,367 @@
 [
  {
+  "id": "kerst-gluhwein",
+  "name": "Team Glühwein",
+  "description": "Voor iedereen die naar de kerstmarkt komt voor één ding: een warme beker glühwein.",
+  "category": "Kerst",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt · Warme Choco",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie · Warme Choco",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui · Warme Choco",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "id": "groen",
+    "label": "Groen",
+    "hex": "#1e5b3a"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   },
+   {
+    "id": "zwart",
+    "label": "Zwart",
+    "hex": "#151515"
+   }
+  ],
+  "images": {
+   "tee|zwart": "images/kerst/gluhwein-tee-zwart.jpg",
+   "tee|navy": "images/kerst/gluhwein-tee-navy.jpg",
+   "tee|groen": "images/kerst/gluhwein-tee-groen.jpg",
+   "hoodie|zwart": "images/kerst/gluhwein-hoodie-zwart.jpg",
+   "hoodie|navy": "images/kerst/gluhwein-hoodie-navy.jpg",
+   "hoodie|groen": "images/kerst/gluhwein-hoodie-groen.jpg",
+   "trui|zwart": "images/kerst/gluhwein-trui-zwart.jpg",
+   "trui|navy": "images/kerst/gluhwein-trui-navy.jpg",
+   "trui|groen": "images/kerst/gluhwein-trui-groen.jpg",
+   "kids|zwart": "images/kerst/gluhwein-tee-zwart.jpg",
+   "kids|navy": "images/kerst/gluhwein-tee-navy.jpg",
+   "kids|groen": "images/kerst/gluhwein-tee-groen.jpg",
+   "kidshoodie|groen": "images/kerst/gluhwein-hoodie-groen.jpg",
+   "kidstrui|groen": "images/kerst/gluhwein-trui-groen.jpg",
+   "kidshoodie|navy": "images/kerst/gluhwein-hoodie-navy.jpg",
+   "kidstrui|navy": "images/kerst/gluhwein-trui-navy.jpg",
+   "kidshoodie|zwart": "images/kerst/gluhwein-hoodie-zwart.jpg",
+   "kidstrui|zwart": "images/kerst/gluhwein-trui-zwart.jpg"
+  },
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
+  },
+  "price": 19.99,
+  "models": {
+   "tee|zwart": "images/kerst/gluhwein-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/gluhwein-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/gluhwein-tee-groen-model.jpg",
+   "hoodie|zwart": "images/kerst/gluhwein-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/gluhwein-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/gluhwein-hoodie-groen-model.jpg",
+   "trui|zwart": "images/kerst/gluhwein-trui-zwart-model.jpg",
+   "trui|navy": "images/kerst/gluhwein-trui-navy-model.jpg",
+   "trui|groen": "images/kerst/gluhwein-trui-groen-model.jpg",
+   "kids|groen": "images/kerst/gluhwein-kids-groen-model.jpg",
+   "kidshoodie|groen": "images/kerst/gluhwein-kidshoodie-groen-model.jpg",
+   "kidstrui|groen": "images/kerst/gluhwein-kidstrui-groen-model.jpg",
+   "kids|navy": "images/kerst/gluhwein-kids-navy-model.jpg",
+   "kidshoodie|navy": "images/kerst/gluhwein-kidshoodie-navy-model.jpg",
+   "kidstrui|navy": "images/kerst/gluhwein-kidstrui-navy-model.jpg",
+   "kids|zwart": "images/kerst/gluhwein-kids-zwart-model.jpg",
+   "kidshoodie|zwart": "images/kerst/gluhwein-kidshoodie-zwart-model.jpg",
+   "kidstrui|zwart": "images/kerst/gluhwein-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/gluhwein-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/gluhwein-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/gluhwein-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/gluhwein-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/gluhwein-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/gluhwein-hoodie-zwart-rug.jpg",
+   "trui|groen": "images/kerst/gluhwein-trui-groen-rug.jpg",
+   "trui|navy": "images/kerst/gluhwein-trui-navy-rug.jpg",
+   "trui|zwart": "images/kerst/gluhwein-trui-zwart-rug.jpg",
+   "kids|groen": "images/kerst/gluhwein-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/gluhwein-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/gluhwein-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/gluhwein-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/gluhwein-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/gluhwein-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/gluhwein-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/gluhwein-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/gluhwein-kidstrui-zwart-rug.jpg"
+  }
+ },
+ {
+  "id": "kerst-koekje",
+  "name": "Koekje erbij?",
+  "description": "Voor de koekjesbakkers en de koekjeseters.",
+  "category": "Kerst",
+  "badge": "",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "id": "groen",
+    "label": "Groen",
+    "hex": "#1e5b3a"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   },
+   {
+    "id": "zwart",
+    "label": "Zwart",
+    "hex": "#151515"
+   }
+  ],
+  "images": {
+   "tee|zwart": "images/kerst/koekje-tee-zwart.jpg",
+   "tee|navy": "images/kerst/koekje-tee-navy.jpg",
+   "tee|groen": "images/kerst/koekje-tee-groen.jpg",
+   "hoodie|zwart": "images/kerst/koekje-hoodie-zwart.jpg",
+   "hoodie|navy": "images/kerst/koekje-hoodie-navy.jpg",
+   "hoodie|groen": "images/kerst/koekje-hoodie-groen.jpg",
+   "kids|zwart": "images/kerst/koekje-tee-zwart.jpg",
+   "kids|navy": "images/kerst/koekje-tee-navy.jpg",
+   "kids|groen": "images/kerst/koekje-tee-groen.jpg",
+   "kidshoodie|groen": "images/kerst/koekje-hoodie-groen.jpg",
+   "kidstrui|groen": "images/kerst/koekje-kidstrui-groen-model.jpg",
+   "kidshoodie|navy": "images/kerst/koekje-hoodie-navy.jpg",
+   "kidstrui|navy": "images/kerst/koekje-kidstrui-navy-model.jpg",
+   "kidshoodie|zwart": "images/kerst/koekje-hoodie-zwart.jpg",
+   "kidstrui|zwart": "images/kerst/koekje-kidstrui-zwart-model.jpg"
+  },
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
+  },
+  "price": 19.99,
+  "models": {
+   "tee|zwart": "images/kerst/koekje-tee-zwart-model.jpg",
+   "tee|navy": "images/kerst/koekje-tee-navy-model.jpg",
+   "tee|groen": "images/kerst/koekje-tee-groen-model.jpg",
+   "hoodie|zwart": "images/kerst/koekje-hoodie-zwart-model.jpg",
+   "hoodie|navy": "images/kerst/koekje-hoodie-navy-model.jpg",
+   "hoodie|groen": "images/kerst/koekje-hoodie-groen-model.jpg",
+   "kids|groen": "images/kerst/koekje-kids-groen-model.jpg",
+   "kidshoodie|groen": "images/kerst/koekje-kidshoodie-groen-model.jpg",
+   "kidstrui|groen": "images/kerst/koekje-kidstrui-groen-model.jpg",
+   "kids|navy": "images/kerst/koekje-kids-navy-model.jpg",
+   "kidshoodie|navy": "images/kerst/koekje-kidshoodie-navy-model.jpg",
+   "kidstrui|navy": "images/kerst/koekje-kidstrui-navy-model.jpg",
+   "kids|zwart": "images/kerst/koekje-kids-zwart-model.jpg",
+   "kidshoodie|zwart": "images/kerst/koekje-kidshoodie-zwart-model.jpg",
+   "kidstrui|zwart": "images/kerst/koekje-kidstrui-zwart-model.jpg"
+  },
+  "backModels": {
+   "tee|groen": "images/kerst/koekje-tee-groen-rug.jpg",
+   "tee|navy": "images/kerst/koekje-tee-navy-rug.jpg",
+   "tee|zwart": "images/kerst/koekje-tee-zwart-rug.jpg",
+   "hoodie|groen": "images/kerst/koekje-hoodie-groen-rug.jpg",
+   "hoodie|navy": "images/kerst/koekje-hoodie-navy-rug.jpg",
+   "hoodie|zwart": "images/kerst/koekje-hoodie-zwart-rug.jpg",
+   "kids|groen": "images/kerst/koekje-kids-groen-rug.jpg",
+   "kids|navy": "images/kerst/koekje-kids-navy-rug.jpg",
+   "kids|zwart": "images/kerst/koekje-kids-zwart-rug.jpg",
+   "kidshoodie|groen": "images/kerst/koekje-kidshoodie-groen-rug.jpg",
+   "kidshoodie|navy": "images/kerst/koekje-kidshoodie-navy-rug.jpg",
+   "kidshoodie|zwart": "images/kerst/koekje-kidshoodie-zwart-rug.jpg",
+   "kidstrui|groen": "images/kerst/koekje-kidstrui-groen-rug.jpg",
+   "kidstrui|navy": "images/kerst/koekje-kidstrui-navy-rug.jpg",
+   "kidstrui|zwart": "images/kerst/koekje-kidstrui-zwart-rug.jpg"
+  }
+ },
+ {
   "id": "kerst-hohoho",
   "name": "Ho ho ho maar",
   "description": "Ho ho ho… maar dan op jouw manier.",
@@ -167,350 +529,6 @@
    "kidstrui|groen": "images/kerst/hohoho-kidstrui-groen-rug.jpg",
    "kidstrui|navy": "images/kerst/hohoho-kidstrui-navy-rug.jpg",
    "kidstrui|zwart": "images/kerst/hohoho-kidstrui-zwart-rug.jpg"
-  }
- },
- {
-  "id": "kerst-rendier",
-  "name": "Coole rendier",
-  "description": "Foute trui. Goede smaak. Een rendier met zonnebril en sjaal — cooler wordt kerst niet.",
-  "category": "Kerst",
-  "badge": "Nieuw",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/rendier-tee-zwart.jpg",
-   "tee|navy": "images/kerst/rendier-tee-navy.jpg",
-   "tee|groen": "images/kerst/rendier-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/rendier-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/rendier-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/rendier-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/rendier-trui-zwart.jpg",
-   "trui|navy": "images/kerst/rendier-trui-navy.jpg",
-   "trui|groen": "images/kerst/rendier-trui-groen.jpg",
-   "kids|zwart": "images/kerst/rendier-tee-zwart.jpg",
-   "kids|navy": "images/kerst/rendier-tee-navy.jpg",
-   "kids|groen": "images/kerst/rendier-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/rendier-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/rendier-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/rendier-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/rendier-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/rendier-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/rendier-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/rendier-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/rendier-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/rendier-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/rendier-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/rendier-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/rendier-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/rendier-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/rendier-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/rendier-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/rendier-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/rendier-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/rendier-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/rendier-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/rendier-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/rendier-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/rendier-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/rendier-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/rendier-kidstrui-zwart-model.jpg"
-  }
- },
- {
-  "id": "kerst-kerststress",
-  "name": "Kerststress? Ik doe een dutje",
-  "description": "Voor wie de kerstdrukte liever verslaapt: een knuffelbeer in winterslaap.",
-  "category": "Kerst",
-  "badge": "Nieuw",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/kerststress-tee-zwart.jpg",
-   "tee|navy": "images/kerst/kerststress-tee-navy.jpg",
-   "tee|groen": "images/kerst/kerststress-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/kerststress-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/kerststress-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/kerststress-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/kerststress-trui-zwart.jpg",
-   "trui|navy": "images/kerst/kerststress-trui-navy.jpg",
-   "trui|groen": "images/kerst/kerststress-trui-groen.jpg",
-   "kids|zwart": "images/kerst/kerststress-tee-zwart.jpg",
-   "kids|navy": "images/kerst/kerststress-tee-navy.jpg",
-   "kids|groen": "images/kerst/kerststress-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/kerststress-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/kerststress-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/kerststress-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/kerststress-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/kerststress-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/kerststress-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/kerststress-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/kerststress-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/kerststress-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/kerststress-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/kerststress-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/kerststress-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/kerststress-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/kerststress-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/kerststress-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/kerststress-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/kerststress-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/kerststress-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/kerststress-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/kerststress-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/kerststress-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/kerststress-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/kerststress-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/kerststress-kidstrui-zwart-model.jpg"
   }
  },
  {
@@ -858,779 +876,6 @@
   }
  },
  {
-  "id": "kerst-beer",
-  "name": "Beer met bedrukt shirtje",
-  "description": "Zachte knuffelbeer met een eigen shirtje. Laat er een naam of korte tekst op zetten — een cadeau dat ze nooit vergeten.",
-  "category": "Kerst",
-  "badge": "Cadeau",
-  "types": [
-   {
-    "id": "M",
-    "label": "Medium",
-    "price": 19.99
-   },
-   {
-    "id": "L",
-    "label": "Large",
-    "price": 24.99
-   }
-  ],
-  "colors": [
-   {
-    "id": "creme",
-    "label": "Crème",
-    "hex": "#efe3c8"
-   },
-   {
-    "id": "bruin",
-    "label": "Bruin",
-    "hex": "#8a5a3b"
-   }
-  ],
-  "images": {
-   "|creme": "images/kerst/beer-lisa.jpg"
-  },
-  "sizes": [],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 0,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "stockId": "beer"
- },
- {
-  "id": "kerst-schort",
-  "name": "Keukenschort “Koekje erbij?”",
-  "description": "Keukenschort voor de kerstbakker. Met je naam erop wordt het een top-cadeau.",
-  "category": "Kerst",
-  "badge": "Cadeau",
-  "colors": [
-   {
-    "id": "bordeaux",
-    "label": "Bordeaux",
-    "hex": "#6b1f2a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "taupe",
-    "label": "Taupe",
-    "hex": "#a39684"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "|bordeaux": "images/kerst/koekje-schort-bordeaux.jpg",
-   "|navy": "images/kerst/koekje-schort-navy.jpg",
-   "|taupe": "images/kerst/koekje-schort-taupe.jpg",
-   "|zwart": "images/kerst/koekje-schort-zwart.jpg"
-  },
-  "sizes": [],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 17.99,
-  "models": {
-   "|bordeaux": "images/kerst/koekje-schort-bordeaux-model.jpg",
-   "|navy": "images/kerst/koekje-schort-navy-model.jpg",
-   "|taupe": "images/kerst/koekje-schort-taupe-model.jpg",
-   "|zwart": "images/kerst/koekje-schort-zwart-model.jpg"
-  },
-  "stockId": "schort"
- },
- {
-  "id": "kerst-kinderschort",
-  "name": "Kinderschort “Koekje erbij?”",
-  "description": "Keukenschort op kindermaat voor de kleine kerstbakker. Met hun naam erop extra leuk.",
-  "category": "Kerst",
-  "badge": "Nieuw",
-  "group": "Kids",
-  "colors": [
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   },
-   {
-    "id": "wit",
-    "label": "Wit",
-    "hex": "#f3f3ef"
-   },
-   {
-    "id": "lime",
-    "label": "Lime",
-    "hex": "#a9c66b"
-   },
-   {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   }
-  ],
-  "sizes": [],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 14.99,
-  "images": {
-   "|zwart": "images/kerst/koekje-kinderschort-zwart-model.jpg"
-  },
-  "models": {
-   "|zwart": "images/kerst/koekje-kinderschort-zwart-model.jpg"
-  },
-  "stockId": "kinderschort"
- },
- {
-  "id": "kerst-tas",
-  "name": "Kersttas met koord",
-  "description": "Katoenen tas met rendier — ideaal om cadeaus in te verpakken of onder de boom te leggen.",
-  "category": "Kerst",
-  "badge": "Cadeau",
-  "colors": [
-   {
-    "id": "naturel",
-    "label": "Naturel",
-    "hex": "#e8dcc4"
-   },
-   {
-    "id": "rood",
-    "label": "Rood",
-    "hex": "#b3242c"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   }
-  ],
-  "images": {
-   "|naturel": "images/kerst/kersttas-naturel.jpg",
-   "|navy": "images/kerst/kersttas-navy.jpg",
-   "|rood": "images/kerst/kersttas-rood.jpg"
-  },
-  "sizes": [],
-  "price": 6.99,
-  "stockId": "kersttas"
- },
- {
-  "id": "kerst-foutetrui",
-  "name": "Foute trui?",
-  "description": "“Foute trui? Ik heb een shirt.” Voor wie het kersttruien-gedoe net iets te ver vindt gaan.",
-  "category": "Kerst",
-  "badge": "Nieuw",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/foutetrui-tee-zwart.jpg",
-   "tee|navy": "images/kerst/foutetrui-tee-navy.jpg",
-   "tee|groen": "images/kerst/foutetrui-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/foutetrui-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/foutetrui-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/foutetrui-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/foutetrui-trui-zwart.jpg",
-   "trui|navy": "images/kerst/foutetrui-trui-navy.jpg",
-   "trui|groen": "images/kerst/foutetrui-trui-groen.jpg",
-   "kids|zwart": "images/kerst/foutetrui-tee-zwart.jpg",
-   "kids|navy": "images/kerst/foutetrui-tee-navy.jpg",
-   "kids|groen": "images/kerst/foutetrui-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/foutetrui-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/foutetrui-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/foutetrui-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/foutetrui-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/foutetrui-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/foutetrui-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/foutetrui-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/foutetrui-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/foutetrui-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/foutetrui-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/foutetrui-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/foutetrui-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/foutetrui-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/foutetrui-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/foutetrui-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/foutetrui-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/foutetrui-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/foutetrui-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/foutetrui-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/foutetrui-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/foutetrui-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/foutetrui-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/foutetrui-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/foutetrui-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/foutetrui-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/foutetrui-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/foutetrui-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/foutetrui-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/foutetrui-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/foutetrui-hoodie-zwart-rug.jpg",
-   "trui|groen": "images/kerst/foutetrui-trui-groen-rug.jpg",
-   "trui|navy": "images/kerst/foutetrui-trui-navy-rug.jpg",
-   "trui|zwart": "images/kerst/foutetrui-trui-zwart-rug.jpg",
-   "kids|groen": "images/kerst/foutetrui-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/foutetrui-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/foutetrui-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/foutetrui-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/foutetrui-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/foutetrui-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/foutetrui-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/foutetrui-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/foutetrui-kidstrui-zwart-rug.jpg"
-  }
- },
- {
-  "id": "kerst-gluhwein",
-  "name": "Team Glühwein",
-  "description": "Voor iedereen die naar de kerstmarkt komt voor één ding: een warme beker glühwein.",
-  "category": "Kerst",
-  "badge": "Nieuw",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt · Warme Choco",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie · Warme Choco",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui · Warme Choco",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/gluhwein-tee-zwart.jpg",
-   "tee|navy": "images/kerst/gluhwein-tee-navy.jpg",
-   "tee|groen": "images/kerst/gluhwein-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/gluhwein-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/gluhwein-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/gluhwein-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/gluhwein-trui-zwart.jpg",
-   "trui|navy": "images/kerst/gluhwein-trui-navy.jpg",
-   "trui|groen": "images/kerst/gluhwein-trui-groen.jpg",
-   "kids|zwart": "images/kerst/gluhwein-tee-zwart.jpg",
-   "kids|navy": "images/kerst/gluhwein-tee-navy.jpg",
-   "kids|groen": "images/kerst/gluhwein-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/gluhwein-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/gluhwein-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/gluhwein-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/gluhwein-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/gluhwein-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/gluhwein-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/gluhwein-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/gluhwein-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/gluhwein-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/gluhwein-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/gluhwein-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/gluhwein-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/gluhwein-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/gluhwein-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/gluhwein-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/gluhwein-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/gluhwein-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/gluhwein-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/gluhwein-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/gluhwein-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/gluhwein-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/gluhwein-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/gluhwein-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/gluhwein-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/gluhwein-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/gluhwein-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/gluhwein-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/gluhwein-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/gluhwein-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/gluhwein-hoodie-zwart-rug.jpg",
-   "trui|groen": "images/kerst/gluhwein-trui-groen-rug.jpg",
-   "trui|navy": "images/kerst/gluhwein-trui-navy-rug.jpg",
-   "trui|zwart": "images/kerst/gluhwein-trui-zwart-rug.jpg",
-   "kids|groen": "images/kerst/gluhwein-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/gluhwein-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/gluhwein-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/gluhwein-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/gluhwein-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/gluhwein-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/gluhwein-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/gluhwein-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/gluhwein-kidstrui-zwart-rug.jpg"
-  }
- },
- {
-  "id": "kerst-goede-smaak",
-  "name": "Goede smaak",
-  "description": "Kerstsfeer met goede smaak — en een knipoog.",
-  "category": "Kerst",
-  "badge": "Nieuw",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/goede-smaak-tee-zwart.jpg",
-   "tee|navy": "images/kerst/goede-smaak-tee-navy.jpg",
-   "tee|groen": "images/kerst/goede-smaak-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/goede-smaak-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/goede-smaak-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/goede-smaak-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/goede-smaak-trui-zwart.jpg",
-   "trui|navy": "images/kerst/goede-smaak-trui-navy.jpg",
-   "trui|groen": "images/kerst/goede-smaak-trui-groen.jpg",
-   "kids|zwart": "images/kerst/goede-smaak-tee-zwart.jpg",
-   "kids|navy": "images/kerst/goede-smaak-tee-navy.jpg",
-   "kids|groen": "images/kerst/goede-smaak-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/goede-smaak-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/goede-smaak-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/goede-smaak-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/goede-smaak-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/goede-smaak-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/goede-smaak-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/goede-smaak-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/goede-smaak-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/goede-smaak-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/goede-smaak-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/goede-smaak-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/goede-smaak-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/goede-smaak-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/goede-smaak-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/goede-smaak-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/goede-smaak-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/goede-smaak-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/goede-smaak-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/goede-smaak-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/goede-smaak-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/goede-smaak-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/goede-smaak-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/goede-smaak-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/goede-smaak-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/goede-smaak-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/goede-smaak-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/goede-smaak-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/goede-smaak-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/goede-smaak-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/goede-smaak-hoodie-zwart-rug.jpg",
-   "trui|groen": "images/kerst/goede-smaak-trui-groen-rug.jpg",
-   "trui|navy": "images/kerst/goede-smaak-trui-navy-rug.jpg",
-   "trui|zwart": "images/kerst/goede-smaak-trui-zwart-rug.jpg",
-   "kids|groen": "images/kerst/goede-smaak-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/goede-smaak-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/goede-smaak-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/goede-smaak-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/goede-smaak-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/goede-smaak-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/goede-smaak-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/goede-smaak-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/goede-smaak-kidstrui-zwart-rug.jpg"
-  }
- },
- {
   "id": "kerst-ikpiek",
   "name": "Ik piek met kerst",
   "description": "Altijd op je best rond de feestdagen? Dan is dit jouw shirt.",
@@ -1823,1501 +1068,9 @@
   }
  },
  {
-  "id": "kerst-kerstclub",
-  "name": "Kerstclub",
-  "description": "Lid van de officiële kerstclub. Geen inschrijving nodig.",
-  "category": "Kerst",
-  "badge": "",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/kerstclub-tee-zwart.jpg",
-   "tee|navy": "images/kerst/kerstclub-tee-navy.jpg",
-   "tee|groen": "images/kerst/kerstclub-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/kerstclub-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/kerstclub-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/kerstclub-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/kerstclub-trui-zwart.jpg",
-   "trui|navy": "images/kerst/kerstclub-trui-navy.jpg",
-   "trui|groen": "images/kerst/kerstclub-trui-groen.jpg",
-   "kids|zwart": "images/kerst/kerstclub-tee-zwart.jpg",
-   "kids|navy": "images/kerst/kerstclub-tee-navy.jpg",
-   "kids|groen": "images/kerst/kerstclub-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/kerstclub-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/kerstclub-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/kerstclub-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/kerstclub-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstclub-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/kerstclub-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/kerstclub-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/kerstclub-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/kerstclub-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/kerstclub-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/kerstclub-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/kerstclub-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/kerstclub-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/kerstclub-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/kerstclub-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/kerstclub-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/kerstclub-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/kerstclub-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/kerstclub-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/kerstclub-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/kerstclub-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/kerstclub-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstclub-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/kerstclub-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/kerstclub-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/kerstclub-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/kerstclub-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/kerstclub-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/kerstclub-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/kerstclub-hoodie-zwart-rug.jpg",
-   "trui|groen": "images/kerst/kerstclub-trui-groen-rug.jpg",
-   "trui|navy": "images/kerst/kerstclub-trui-navy-rug.jpg",
-   "trui|zwart": "images/kerst/kerstclub-trui-zwart-rug.jpg",
-   "kids|groen": "images/kerst/kerstclub-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/kerstclub-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/kerstclub-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/kerstclub-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/kerstclub-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstclub-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/kerstclub-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/kerstclub-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/kerstclub-kidstrui-zwart-rug.jpg"
-  }
- },
- {
-  "id": "kerst-kerstmodus",
-  "name": "Kerstmodus aan",
-  "description": "Schakel over: de kerstmodus staat aan.",
-  "category": "Kerst",
-  "badge": "",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/kerstmodus-tee-zwart.jpg",
-   "tee|navy": "images/kerst/kerstmodus-tee-navy.jpg",
-   "tee|groen": "images/kerst/kerstmodus-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/kerstmodus-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/kerstmodus-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/kerstmodus-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/kerstmodus-trui-zwart.jpg",
-   "trui|navy": "images/kerst/kerstmodus-trui-navy.jpg",
-   "trui|groen": "images/kerst/kerstmodus-trui-groen.jpg",
-   "kids|zwart": "images/kerst/kerstmodus-tee-zwart.jpg",
-   "kids|navy": "images/kerst/kerstmodus-tee-navy.jpg",
-   "kids|groen": "images/kerst/kerstmodus-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/kerstmodus-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/kerstmodus-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/kerstmodus-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/kerstmodus-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstmodus-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/kerstmodus-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/kerstmodus-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/kerstmodus-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/kerstmodus-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/kerstmodus-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/kerstmodus-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/kerstmodus-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/kerstmodus-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/kerstmodus-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/kerstmodus-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/kerstmodus-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/kerstmodus-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/kerstmodus-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/kerstmodus-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/kerstmodus-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/kerstmodus-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/kerstmodus-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstmodus-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/kerstmodus-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/kerstmodus-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/kerstmodus-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/kerstmodus-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/kerstmodus-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/kerstmodus-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/kerstmodus-hoodie-zwart-rug.jpg",
-   "trui|groen": "images/kerst/kerstmodus-trui-groen-rug.jpg",
-   "trui|navy": "images/kerst/kerstmodus-trui-navy-rug.jpg",
-   "trui|zwart": "images/kerst/kerstmodus-trui-zwart-rug.jpg",
-   "kids|groen": "images/kerst/kerstmodus-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/kerstmodus-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/kerstmodus-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/kerstmodus-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/kerstmodus-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstmodus-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/kerstmodus-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/kerstmodus-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/kerstmodus-kidstrui-zwart-rug.jpg"
-  }
- },
- {
-  "id": "kerst-kerstwarmer",
-  "name": "Jij maakt kerst warmer",
-  "description": "Het perfecte cadeau voor die ene persoon die kerst warmer maakt.",
-  "category": "Kerst",
-  "badge": "",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/kerstwarmer-tee-zwart.jpg",
-   "tee|navy": "images/kerst/kerstwarmer-tee-navy.jpg",
-   "tee|groen": "images/kerst/kerstwarmer-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/kerstwarmer-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/kerstwarmer-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/kerstwarmer-hoodie-groen.jpg",
-   "kids|zwart": "images/kerst/kerstwarmer-tee-zwart.jpg",
-   "kids|navy": "images/kerst/kerstwarmer-tee-navy.jpg",
-   "kids|groen": "images/kerst/kerstwarmer-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/kerstwarmer-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/kerstwarmer-kidstrui-groen-model.jpg",
-   "kidshoodie|navy": "images/kerst/kerstwarmer-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/kerstwarmer-kidstrui-navy-model.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstwarmer-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/kerstwarmer-kidstrui-zwart-model.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/kerstwarmer-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/kerstwarmer-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/kerstwarmer-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/kerstwarmer-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/kerstwarmer-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/kerstwarmer-hoodie-groen-model.jpg",
-   "kids|groen": "images/kerst/kerstwarmer-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/kerstwarmer-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/kerstwarmer-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/kerstwarmer-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/kerstwarmer-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/kerstwarmer-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/kerstwarmer-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstwarmer-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/kerstwarmer-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/kerstwarmer-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/kerstwarmer-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/kerstwarmer-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/kerstwarmer-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/kerstwarmer-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/kerstwarmer-hoodie-zwart-rug.jpg",
-   "kids|groen": "images/kerst/kerstwarmer-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/kerstwarmer-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/kerstwarmer-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/kerstwarmer-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/kerstwarmer-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstwarmer-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/kerstwarmer-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/kerstwarmer-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/kerstwarmer-kidstrui-zwart-rug.jpg"
-  }
- },
- {
-  "id": "kerst-kerstzin",
-  "name": "Kerstzin",
-  "description": "“Dit shirt heeft kerstzin.” Jij ook?",
-  "category": "Kerst",
-  "badge": "",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/kerstzin-tee-zwart.jpg",
-   "tee|navy": "images/kerst/kerstzin-tee-navy.jpg",
-   "tee|groen": "images/kerst/kerstzin-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/kerstzin-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/kerstzin-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/kerstzin-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/kerstzin-trui-zwart.jpg",
-   "trui|navy": "images/kerst/kerstzin-trui-navy.jpg",
-   "trui|groen": "images/kerst/kerstzin-trui-groen.jpg",
-   "kids|zwart": "images/kerst/kerstzin-tee-zwart.jpg",
-   "kids|navy": "images/kerst/kerstzin-tee-navy.jpg",
-   "kids|groen": "images/kerst/kerstzin-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/kerstzin-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/kerstzin-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/kerstzin-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/kerstzin-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstzin-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/kerstzin-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/kerstzin-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/kerstzin-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/kerstzin-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/kerstzin-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/kerstzin-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/kerstzin-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/kerstzin-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/kerstzin-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/kerstzin-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/kerstzin-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/kerstzin-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/kerstzin-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/kerstzin-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/kerstzin-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/kerstzin-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/kerstzin-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstzin-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/kerstzin-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/kerstzin-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/kerstzin-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/kerstzin-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/kerstzin-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/kerstzin-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/kerstzin-hoodie-zwart-rug.jpg",
-   "trui|groen": "images/kerst/kerstzin-trui-groen-rug.jpg",
-   "trui|navy": "images/kerst/kerstzin-trui-navy-rug.jpg",
-   "trui|zwart": "images/kerst/kerstzin-trui-zwart-rug.jpg",
-   "kids|groen": "images/kerst/kerstzin-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/kerstzin-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/kerstzin-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/kerstzin-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/kerstzin-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/kerstzin-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/kerstzin-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/kerstzin-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/kerstzin-kidstrui-zwart-rug.jpg"
-  }
- },
- {
-  "id": "kerst-koekje",
-  "name": "Koekje erbij?",
-  "description": "Voor de koekjesbakkers en de koekjeseters.",
-  "category": "Kerst",
-  "badge": "",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/koekje-tee-zwart.jpg",
-   "tee|navy": "images/kerst/koekje-tee-navy.jpg",
-   "tee|groen": "images/kerst/koekje-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/koekje-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/koekje-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/koekje-hoodie-groen.jpg",
-   "kids|zwart": "images/kerst/koekje-tee-zwart.jpg",
-   "kids|navy": "images/kerst/koekje-tee-navy.jpg",
-   "kids|groen": "images/kerst/koekje-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/koekje-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/koekje-kidstrui-groen-model.jpg",
-   "kidshoodie|navy": "images/kerst/koekje-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/koekje-kidstrui-navy-model.jpg",
-   "kidshoodie|zwart": "images/kerst/koekje-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/koekje-kidstrui-zwart-model.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/koekje-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/koekje-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/koekje-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/koekje-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/koekje-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/koekje-hoodie-groen-model.jpg",
-   "kids|groen": "images/kerst/koekje-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/koekje-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/koekje-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/koekje-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/koekje-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/koekje-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/koekje-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/koekje-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/koekje-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/koekje-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/koekje-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/koekje-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/koekje-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/koekje-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/koekje-hoodie-zwart-rug.jpg",
-   "kids|groen": "images/kerst/koekje-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/koekje-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/koekje-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/koekje-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/koekje-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/koekje-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/koekje-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/koekje-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/koekje-kidstrui-zwart-rug.jpg"
-  }
- },
- {
-  "id": "kerst-lieve",
-  "name": "Lieve kerstman",
-  "description": "Een briefje aan de kerstman, maar dan op je borst.",
-  "category": "Kerst",
-  "badge": "",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/lieve-tee-zwart.jpg",
-   "tee|navy": "images/kerst/lieve-tee-navy.jpg",
-   "tee|groen": "images/kerst/lieve-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/lieve-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/lieve-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/lieve-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/lieve-trui-zwart.jpg",
-   "trui|navy": "images/kerst/lieve-trui-navy.jpg",
-   "trui|groen": "images/kerst/lieve-trui-groen.jpg",
-   "kids|zwart": "images/kerst/lieve-tee-zwart.jpg",
-   "kids|navy": "images/kerst/lieve-tee-navy.jpg",
-   "kids|groen": "images/kerst/lieve-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/lieve-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/lieve-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/lieve-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/lieve-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/lieve-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/lieve-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/lieve-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/lieve-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/lieve-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/lieve-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/lieve-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/lieve-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/lieve-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/lieve-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/lieve-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/lieve-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/lieve-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/lieve-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/lieve-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/lieve-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/lieve-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/lieve-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/lieve-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/lieve-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/lieve-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/lieve-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/lieve-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/lieve-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/lieve-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/lieve-hoodie-zwart-rug.jpg",
-   "trui|groen": "images/kerst/lieve-trui-groen-rug.jpg",
-   "trui|navy": "images/kerst/lieve-trui-navy-rug.jpg",
-   "trui|zwart": "images/kerst/lieve-trui-zwart-rug.jpg",
-   "kids|groen": "images/kerst/lieve-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/lieve-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/lieve-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/lieve-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/lieve-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/lieve-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/lieve-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/lieve-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/lieve-kidstrui-zwart-rug.jpg"
-  }
- },
- {
-  "id": "kerst-stillenacht",
-  "name": "Stille nacht?",
-  "description": "Stille nacht? Niet bij ons thuis.",
-  "category": "Kerst",
-  "badge": "",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/stillenacht-tee-zwart.jpg",
-   "tee|navy": "images/kerst/stillenacht-tee-navy.jpg",
-   "tee|groen": "images/kerst/stillenacht-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/stillenacht-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/stillenacht-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/stillenacht-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/stillenacht-trui-zwart.jpg",
-   "trui|navy": "images/kerst/stillenacht-trui-navy.jpg",
-   "trui|groen": "images/kerst/stillenacht-trui-groen.jpg",
-   "kids|zwart": "images/kerst/stillenacht-tee-zwart.jpg",
-   "kids|navy": "images/kerst/stillenacht-tee-navy.jpg",
-   "kids|groen": "images/kerst/stillenacht-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/stillenacht-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/stillenacht-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/stillenacht-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/stillenacht-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/stillenacht-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/stillenacht-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/stillenacht-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/stillenacht-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/stillenacht-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/stillenacht-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/stillenacht-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/stillenacht-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/stillenacht-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/stillenacht-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/stillenacht-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/stillenacht-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/stillenacht-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/stillenacht-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/stillenacht-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/stillenacht-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/stillenacht-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/stillenacht-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/stillenacht-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/stillenacht-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/stillenacht-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/stillenacht-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/stillenacht-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/stillenacht-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/stillenacht-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/stillenacht-hoodie-zwart-rug.jpg",
-   "trui|groen": "images/kerst/stillenacht-trui-groen-rug.jpg",
-   "trui|navy": "images/kerst/stillenacht-trui-navy-rug.jpg",
-   "trui|zwart": "images/kerst/stillenacht-trui-zwart-rug.jpg",
-   "kids|groen": "images/kerst/stillenacht-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/stillenacht-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/stillenacht-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/stillenacht-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/stillenacht-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/stillenacht-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/stillenacht-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/stillenacht-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/stillenacht-kidstrui-zwart-rug.jpg"
-  }
- },
- {
-  "id": "kerst-warm",
-  "name": "Koud weer",
-  "description": "Koud buiten, warm in deze trui.",
-  "category": "Kerst",
-  "badge": "",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "id": "groen",
-    "label": "Groen",
-    "hex": "#1e5b3a"
-   },
-   {
-    "id": "navy",
-    "label": "Navy",
-    "hex": "#1f2a44"
-   },
-   {
-    "id": "zwart",
-    "label": "Zwart",
-    "hex": "#151515"
-   }
-  ],
-  "images": {
-   "tee|zwart": "images/kerst/warm-tee-zwart.jpg",
-   "tee|navy": "images/kerst/warm-tee-navy.jpg",
-   "tee|groen": "images/kerst/warm-tee-groen.jpg",
-   "hoodie|zwart": "images/kerst/warm-hoodie-zwart.jpg",
-   "hoodie|navy": "images/kerst/warm-hoodie-navy.jpg",
-   "hoodie|groen": "images/kerst/warm-hoodie-groen.jpg",
-   "trui|zwart": "images/kerst/warm-trui-zwart.jpg",
-   "trui|navy": "images/kerst/warm-trui-navy.jpg",
-   "trui|groen": "images/kerst/warm-trui-groen.jpg",
-   "kids|zwart": "images/kerst/warm-tee-zwart.jpg",
-   "kids|navy": "images/kerst/warm-tee-navy.jpg",
-   "kids|groen": "images/kerst/warm-tee-groen.jpg",
-   "kidshoodie|groen": "images/kerst/warm-hoodie-groen.jpg",
-   "kidstrui|groen": "images/kerst/warm-trui-groen.jpg",
-   "kidshoodie|navy": "images/kerst/warm-hoodie-navy.jpg",
-   "kidstrui|navy": "images/kerst/warm-trui-navy.jpg",
-   "kidshoodie|zwart": "images/kerst/warm-hoodie-zwart.jpg",
-   "kidstrui|zwart": "images/kerst/warm-trui-zwart.jpg"
-  },
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "price": 19.99,
-  "models": {
-   "tee|zwart": "images/kerst/warm-tee-zwart-model.jpg",
-   "tee|navy": "images/kerst/warm-tee-navy-model.jpg",
-   "tee|groen": "images/kerst/warm-tee-groen-model.jpg",
-   "hoodie|zwart": "images/kerst/warm-hoodie-zwart-model.jpg",
-   "hoodie|navy": "images/kerst/warm-hoodie-navy-model.jpg",
-   "hoodie|groen": "images/kerst/warm-hoodie-groen-model.jpg",
-   "trui|zwart": "images/kerst/warm-trui-zwart-model.jpg",
-   "trui|navy": "images/kerst/warm-trui-navy-model.jpg",
-   "trui|groen": "images/kerst/warm-trui-groen-model.jpg",
-   "kids|groen": "images/kerst/warm-kids-groen-model.jpg",
-   "kidshoodie|groen": "images/kerst/warm-kidshoodie-groen-model.jpg",
-   "kidstrui|groen": "images/kerst/warm-kidstrui-groen-model.jpg",
-   "kids|navy": "images/kerst/warm-kids-navy-model.jpg",
-   "kidshoodie|navy": "images/kerst/warm-kidshoodie-navy-model.jpg",
-   "kidstrui|navy": "images/kerst/warm-kidstrui-navy-model.jpg",
-   "kids|zwart": "images/kerst/warm-kids-zwart-model.jpg",
-   "kidshoodie|zwart": "images/kerst/warm-kidshoodie-zwart-model.jpg",
-   "kidstrui|zwart": "images/kerst/warm-kidstrui-zwart-model.jpg"
-  },
-  "backModels": {
-   "tee|groen": "images/kerst/warm-tee-groen-rug.jpg",
-   "tee|navy": "images/kerst/warm-tee-navy-rug.jpg",
-   "tee|zwart": "images/kerst/warm-tee-zwart-rug.jpg",
-   "hoodie|groen": "images/kerst/warm-hoodie-groen-rug.jpg",
-   "hoodie|navy": "images/kerst/warm-hoodie-navy-rug.jpg",
-   "hoodie|zwart": "images/kerst/warm-hoodie-zwart-rug.jpg",
-   "trui|groen": "images/kerst/warm-trui-groen-rug.jpg",
-   "trui|navy": "images/kerst/warm-trui-navy-rug.jpg",
-   "trui|zwart": "images/kerst/warm-trui-zwart-rug.jpg",
-   "kids|groen": "images/kerst/warm-kids-groen-rug.jpg",
-   "kids|navy": "images/kerst/warm-kids-navy-rug.jpg",
-   "kids|zwart": "images/kerst/warm-kids-zwart-rug.jpg",
-   "kidshoodie|groen": "images/kerst/warm-kidshoodie-groen-rug.jpg",
-   "kidshoodie|navy": "images/kerst/warm-kidshoodie-navy-rug.jpg",
-   "kidshoodie|zwart": "images/kerst/warm-kidshoodie-zwart-rug.jpg",
-   "kidstrui|groen": "images/kerst/warm-kidstrui-groen-rug.jpg",
-   "kidstrui|navy": "images/kerst/warm-kidstrui-navy-rug.jpg",
-   "kidstrui|zwart": "images/kerst/warm-kidstrui-zwart-rug.jpg"
-  }
- },
- {
   "id": "dier-luiaard",
   "name": "Ik ben niet traag. Ik spaar energie.",
-  "description": "Rugprint met een luiaard: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "description": "Met een luiaard: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -3484,12 +1237,32 @@
    "kidstrui|groen": "images/dieren/dier-luiaard-kidstrui-groen-model.jpg",
    "kidstrui|navy": "images/dieren/dier-luiaard-kidstrui-navy-model.jpg",
    "kidstrui|zwart": "images/dieren/dier-luiaard-kidstrui-zwart-model.jpg"
+  },
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-luiaard-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-luiaard-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-luiaard-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-luiaard-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-luiaard-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-luiaard-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-luiaard-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-luiaard-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-luiaard-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-luiaard-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-luiaard-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-luiaard-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-luiaard-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-luiaard-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-luiaard-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-luiaard-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-luiaard-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-luiaard-kidstrui-zwart-voor.jpg"
   }
  },
  {
   "id": "dier-egel",
   "name": "Sociale batterij bijna leeg.",
-  "description": "Rugprint met een egel: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "description": "Met een egel: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -3656,12 +1429,32 @@
    "kidstrui|groen": "images/dieren/dier-egel-kidstrui-groen-model.jpg",
    "kidstrui|navy": "images/dieren/dier-egel-kidstrui-navy-model.jpg",
    "kidstrui|zwart": "images/dieren/dier-egel-kidstrui-zwart-model.jpg"
+  },
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-egel-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-egel-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-egel-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-egel-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-egel-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-egel-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-egel-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-egel-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-egel-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-egel-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-egel-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-egel-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-egel-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-egel-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-egel-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-egel-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-egel-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-egel-kidstrui-zwart-voor.jpg"
   }
  },
  {
   "id": "dier-hamster",
   "name": "Hoofd vol plannen. Handen vol snacks.",
-  "description": "Rugprint met een hamster: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "description": "Met een hamster: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -3828,12 +1621,32 @@
    "kidstrui|groen": "images/dieren/dier-hamster-kidstrui-groen-model.jpg",
    "kidstrui|navy": "images/dieren/dier-hamster-kidstrui-navy-model.jpg",
    "kidstrui|zwart": "images/dieren/dier-hamster-kidstrui-zwart-model.jpg"
+  },
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-hamster-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-hamster-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-hamster-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-hamster-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-hamster-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-hamster-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-hamster-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-hamster-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-hamster-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-hamster-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-hamster-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-hamster-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-hamster-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-hamster-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-hamster-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-hamster-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-hamster-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-hamster-kidstrui-zwart-voor.jpg"
   }
  },
  {
   "id": "dier-kat",
   "name": "Druk bezig met niks.",
-  "description": "Rugprint met een kat: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "description": "Met een kat: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4000,12 +1813,32 @@
    "kidstrui|groen": "images/dieren/dier-kat-kidstrui-groen-model.jpg",
    "kidstrui|navy": "images/dieren/dier-kat-kidstrui-navy-model.jpg",
    "kidstrui|zwart": "images/dieren/dier-kat-kidstrui-zwart-model.jpg"
+  },
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-kat-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-kat-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-kat-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-kat-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-kat-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-kat-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-kat-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-kat-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-kat-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-kat-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-kat-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-kat-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-kat-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-kat-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-kat-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-kat-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-kat-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-kat-kidstrui-zwart-voor.jpg"
   }
  },
  {
   "id": "dier-panda",
   "name": "Vandaag is een morgenprobleem.",
-  "description": "Rugprint met een panda: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "description": "Met een panda: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4172,184 +2005,32 @@
    "kidstrui|groen": "images/dieren/dier-panda-kidstrui-groen-model.jpg",
    "kidstrui|navy": "images/dieren/dier-panda-kidstrui-navy-model.jpg",
    "kidstrui|zwart": "images/dieren/dier-panda-kidstrui-zwart-model.jpg"
-  }
- },
- {
-  "id": "dier-otter",
-  "name": "Gewoon lekker meedrijven.",
-  "description": "Rugprint met een otter: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
-  "category": "Dieren",
-  "badge": "Nieuw",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "hex": "#1e5b3a",
-    "id": "groen",
-    "label": "Groen"
-   },
-   {
-    "hex": "#1f2a44",
-    "id": "navy",
-    "label": "Navy"
-   },
-   {
-    "hex": "#151515",
-    "id": "zwart",
-    "label": "Zwart"
-   }
-  ],
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "price": 19.99,
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
   },
-  "images": {
-   "tee|groen": "images/dieren/dier-otter-groen.jpg",
-   "tee|navy": "images/dieren/dier-otter-navy.jpg",
-   "tee|zwart": "images/dieren/dier-otter-zwart.jpg",
-   "hoodie|groen": "images/dieren/dier-otter-groen.jpg",
-   "hoodie|navy": "images/dieren/dier-otter-navy.jpg",
-   "hoodie|zwart": "images/dieren/dier-otter-zwart.jpg",
-   "trui|groen": "images/dieren/dier-otter-groen.jpg",
-   "trui|navy": "images/dieren/dier-otter-navy.jpg",
-   "trui|zwart": "images/dieren/dier-otter-zwart.jpg",
-   "kids|groen": "images/dieren/dier-otter-groen.jpg",
-   "kids|navy": "images/dieren/dier-otter-navy.jpg",
-   "kids|zwart": "images/dieren/dier-otter-zwart.jpg",
-   "kidshoodie|groen": "images/dieren/dier-otter-groen.jpg",
-   "kidshoodie|navy": "images/dieren/dier-otter-navy.jpg",
-   "kidshoodie|zwart": "images/dieren/dier-otter-zwart.jpg",
-   "kidstrui|groen": "images/dieren/dier-otter-groen.jpg",
-   "kidstrui|navy": "images/dieren/dier-otter-navy.jpg",
-   "kidstrui|zwart": "images/dieren/dier-otter-zwart.jpg"
-  },
-  "models": {
-   "tee|groen": "images/dieren/dier-otter-tee-groen-model.jpg",
-   "tee|navy": "images/dieren/dier-otter-tee-navy-model.jpg",
-   "tee|zwart": "images/dieren/dier-otter-tee-zwart-model.jpg",
-   "hoodie|groen": "images/dieren/dier-otter-hoodie-groen-model.jpg",
-   "hoodie|navy": "images/dieren/dier-otter-hoodie-navy-model.jpg",
-   "hoodie|zwart": "images/dieren/dier-otter-hoodie-zwart-model.jpg",
-   "trui|groen": "images/dieren/dier-otter-trui-groen-model.jpg",
-   "trui|navy": "images/dieren/dier-otter-trui-navy-model.jpg",
-   "trui|zwart": "images/dieren/dier-otter-trui-zwart-model.jpg",
-   "kids|groen": "images/dieren/dier-otter-kids-groen-model.jpg",
-   "kids|navy": "images/dieren/dier-otter-kids-navy-model.jpg",
-   "kids|zwart": "images/dieren/dier-otter-kids-zwart-model.jpg",
-   "kidshoodie|groen": "images/dieren/dier-otter-kidshoodie-groen-model.jpg",
-   "kidshoodie|navy": "images/dieren/dier-otter-kidshoodie-navy-model.jpg",
-   "kidshoodie|zwart": "images/dieren/dier-otter-kidshoodie-zwart-model.jpg",
-   "kidstrui|groen": "images/dieren/dier-otter-kidstrui-groen-model.jpg",
-   "kidstrui|navy": "images/dieren/dier-otter-kidstrui-navy-model.jpg",
-   "kidstrui|zwart": "images/dieren/dier-otter-kidstrui-zwart-model.jpg"
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-panda-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-panda-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-panda-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-panda-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-panda-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-panda-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-panda-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-panda-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-panda-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-panda-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-panda-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-panda-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-panda-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-panda-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-panda-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-panda-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-panda-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-panda-kidstrui-zwart-voor.jpg"
   }
  },
  {
   "id": "dier-konijn",
   "name": "Kleine stapjes. Grootse plannen.",
-  "description": "Rugprint met een konijn: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "description": "Met een konijn: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4516,12 +2197,32 @@
    "kidstrui|groen": "images/dieren/dier-konijn-kidstrui-groen-model.jpg",
    "kidstrui|navy": "images/dieren/dier-konijn-kidstrui-navy-model.jpg",
    "kidstrui|zwart": "images/dieren/dier-konijn-kidstrui-zwart-model.jpg"
+  },
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-konijn-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-konijn-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-konijn-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-konijn-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-konijn-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-konijn-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-konijn-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-konijn-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-konijn-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-konijn-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-konijn-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-konijn-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-konijn-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-konijn-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-konijn-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-konijn-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-konijn-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-konijn-kidstrui-zwart-voor.jpg"
   }
  },
  {
   "id": "dier-vos",
   "name": "Beetje eigenwijs. Helemaal mezelf.",
-  "description": "Rugprint met een vos: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "description": "Met een vos: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4688,12 +2389,32 @@
    "kidstrui|groen": "images/dieren/dier-vos-kidstrui-groen-model.jpg",
    "kidstrui|navy": "images/dieren/dier-vos-kidstrui-navy-model.jpg",
    "kidstrui|zwart": "images/dieren/dier-vos-kidstrui-zwart-model.jpg"
+  },
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-vos-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-vos-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-vos-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-vos-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-vos-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-vos-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-vos-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-vos-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-vos-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-vos-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-vos-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-vos-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-vos-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-vos-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-vos-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-vos-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-vos-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-vos-kidstrui-zwart-voor.jpg"
   }
  },
  {
   "id": "dier-schildpad",
   "name": "Rustig aan. Ik kom er wel.",
-  "description": "Rugprint met een schildpad: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "description": "Met een schildpad: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -4860,12 +2581,32 @@
    "kidstrui|groen": "images/dieren/dier-schildpad-kidstrui-groen-model.jpg",
    "kidstrui|navy": "images/dieren/dier-schildpad-kidstrui-navy-model.jpg",
    "kidstrui|zwart": "images/dieren/dier-schildpad-kidstrui-zwart-model.jpg"
+  },
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-schildpad-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-schildpad-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-schildpad-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-schildpad-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-schildpad-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-schildpad-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-schildpad-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-schildpad-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-schildpad-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-schildpad-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-schildpad-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-schildpad-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-schildpad-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-schildpad-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-schildpad-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-schildpad-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-schildpad-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-schildpad-kidstrui-zwart-voor.jpg"
   }
  },
  {
   "id": "dier-uil",
   "name": "Ik ben wakker. Dat is al heel wat.",
-  "description": "Rugprint met een uil: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "description": "Met een uil: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -5032,356 +2773,32 @@
    "kidstrui|groen": "images/dieren/dier-uil-kidstrui-groen-model.jpg",
    "kidstrui|navy": "images/dieren/dier-uil-kidstrui-navy-model.jpg",
    "kidstrui|zwart": "images/dieren/dier-uil-kidstrui-zwart-model.jpg"
-  }
- },
- {
-  "id": "dier-alpaca",
-  "name": "Geen drama. Wel een mening.",
-  "description": "Rugprint met een alpaca: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
-  "category": "Dieren",
-  "badge": "Nieuw",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "hex": "#1e5b3a",
-    "id": "groen",
-    "label": "Groen"
-   },
-   {
-    "hex": "#1f2a44",
-    "id": "navy",
-    "label": "Navy"
-   },
-   {
-    "hex": "#151515",
-    "id": "zwart",
-    "label": "Zwart"
-   }
-  ],
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "price": 19.99,
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
   },
-  "images": {
-   "tee|groen": "images/dieren/dier-alpaca-groen.jpg",
-   "tee|navy": "images/dieren/dier-alpaca-navy.jpg",
-   "tee|zwart": "images/dieren/dier-alpaca-zwart.jpg",
-   "hoodie|groen": "images/dieren/dier-alpaca-groen.jpg",
-   "hoodie|navy": "images/dieren/dier-alpaca-navy.jpg",
-   "hoodie|zwart": "images/dieren/dier-alpaca-zwart.jpg",
-   "trui|groen": "images/dieren/dier-alpaca-groen.jpg",
-   "trui|navy": "images/dieren/dier-alpaca-navy.jpg",
-   "trui|zwart": "images/dieren/dier-alpaca-zwart.jpg",
-   "kids|groen": "images/dieren/dier-alpaca-groen.jpg",
-   "kids|navy": "images/dieren/dier-alpaca-navy.jpg",
-   "kids|zwart": "images/dieren/dier-alpaca-zwart.jpg",
-   "kidshoodie|groen": "images/dieren/dier-alpaca-groen.jpg",
-   "kidshoodie|navy": "images/dieren/dier-alpaca-navy.jpg",
-   "kidshoodie|zwart": "images/dieren/dier-alpaca-zwart.jpg",
-   "kidstrui|groen": "images/dieren/dier-alpaca-groen.jpg",
-   "kidstrui|navy": "images/dieren/dier-alpaca-navy.jpg",
-   "kidstrui|zwart": "images/dieren/dier-alpaca-zwart.jpg"
-  },
-  "models": {
-   "tee|groen": "images/dieren/dier-alpaca-tee-groen-model.jpg",
-   "tee|navy": "images/dieren/dier-alpaca-tee-navy-model.jpg",
-   "tee|zwart": "images/dieren/dier-alpaca-tee-zwart-model.jpg",
-   "hoodie|groen": "images/dieren/dier-alpaca-hoodie-groen-model.jpg",
-   "hoodie|navy": "images/dieren/dier-alpaca-hoodie-navy-model.jpg",
-   "hoodie|zwart": "images/dieren/dier-alpaca-hoodie-zwart-model.jpg",
-   "trui|groen": "images/dieren/dier-alpaca-trui-groen-model.jpg",
-   "trui|navy": "images/dieren/dier-alpaca-trui-navy-model.jpg",
-   "trui|zwart": "images/dieren/dier-alpaca-trui-zwart-model.jpg",
-   "kids|groen": "images/dieren/dier-alpaca-kids-groen-model.jpg",
-   "kids|navy": "images/dieren/dier-alpaca-kids-navy-model.jpg",
-   "kids|zwart": "images/dieren/dier-alpaca-kids-zwart-model.jpg",
-   "kidshoodie|groen": "images/dieren/dier-alpaca-kidshoodie-groen-model.jpg",
-   "kidshoodie|navy": "images/dieren/dier-alpaca-kidshoodie-navy-model.jpg",
-   "kidshoodie|zwart": "images/dieren/dier-alpaca-kidshoodie-zwart-model.jpg",
-   "kidstrui|groen": "images/dieren/dier-alpaca-kidstrui-groen-model.jpg",
-   "kidstrui|navy": "images/dieren/dier-alpaca-kidstrui-navy-model.jpg",
-   "kidstrui|zwart": "images/dieren/dier-alpaca-kidstrui-zwart-model.jpg"
-  }
- },
- {
-  "id": "dier-muis",
-  "name": "Grootse dromen. Kleine pootjes.",
-  "description": "Rugprint met een muis: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
-  "category": "Dieren",
-  "badge": "Nieuw",
-  "types": [
-   {
-    "id": "tee",
-    "label": "T-shirt",
-    "price": 24.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "tee"
-   },
-   {
-    "id": "hoodie",
-    "label": "Hoodie",
-    "price": 38.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "hoodie"
-   },
-   {
-    "id": "trui",
-    "label": "Trui",
-    "price": 34.99,
-    "sizes": [
-     "S",
-     "M",
-     "L",
-     "XL",
-     "XXL"
-    ],
-    "stockId": "trui"
-   },
-   {
-    "id": "kids",
-    "label": "Kinder-T-shirt",
-    "price": 19.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidtee"
-   },
-   {
-    "id": "kidshoodie",
-    "label": "Kinderhoodie",
-    "price": 29.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidshoodie"
-   },
-   {
-    "id": "kidstrui",
-    "label": "Kindertrui",
-    "price": 27.99,
-    "sizes": [
-     "4/6 jaar",
-     "6/8 jaar",
-     "8/10 jaar",
-     "10/12 jaar",
-     "12/14 jaar"
-    ],
-    "stockId": "kidstrui"
-   }
-  ],
-  "colors": [
-   {
-    "hex": "#1e5b3a",
-    "id": "groen",
-    "label": "Groen"
-   },
-   {
-    "hex": "#1f2a44",
-    "id": "navy",
-    "label": "Navy"
-   },
-   {
-    "hex": "#151515",
-    "id": "zwart",
-    "label": "Zwart"
-   }
-  ],
-  "sizes": [
-   "S",
-   "M",
-   "L",
-   "XL",
-   "XXL",
-   "4/6 jaar",
-   "6/8 jaar",
-   "8/10 jaar",
-   "10/12 jaar",
-   "12/14 jaar"
-  ],
-  "price": 19.99,
-  "personalize": {
-   "label": "Naam erop",
-   "maxLength": 14,
-   "price": 5,
-   "placements": [
-    {
-     "id": "borst",
-     "label": "Klein op de borst (voorkant)"
-    },
-    {
-     "id": "rug",
-     "label": "Groot op de rug"
-    }
-   ]
-  },
-  "images": {
-   "tee|groen": "images/dieren/dier-muis-groen.jpg",
-   "tee|navy": "images/dieren/dier-muis-navy.jpg",
-   "tee|zwart": "images/dieren/dier-muis-zwart.jpg",
-   "hoodie|groen": "images/dieren/dier-muis-groen.jpg",
-   "hoodie|navy": "images/dieren/dier-muis-navy.jpg",
-   "hoodie|zwart": "images/dieren/dier-muis-zwart.jpg",
-   "trui|groen": "images/dieren/dier-muis-groen.jpg",
-   "trui|navy": "images/dieren/dier-muis-navy.jpg",
-   "trui|zwart": "images/dieren/dier-muis-zwart.jpg",
-   "kids|groen": "images/dieren/dier-muis-groen.jpg",
-   "kids|navy": "images/dieren/dier-muis-navy.jpg",
-   "kids|zwart": "images/dieren/dier-muis-zwart.jpg",
-   "kidshoodie|groen": "images/dieren/dier-muis-groen.jpg",
-   "kidshoodie|navy": "images/dieren/dier-muis-navy.jpg",
-   "kidshoodie|zwart": "images/dieren/dier-muis-zwart.jpg",
-   "kidstrui|groen": "images/dieren/dier-muis-groen.jpg",
-   "kidstrui|navy": "images/dieren/dier-muis-navy.jpg",
-   "kidstrui|zwart": "images/dieren/dier-muis-zwart.jpg"
-  },
-  "models": {
-   "tee|groen": "images/dieren/dier-muis-tee-groen-model.jpg",
-   "tee|navy": "images/dieren/dier-muis-tee-navy-model.jpg",
-   "tee|zwart": "images/dieren/dier-muis-tee-zwart-model.jpg",
-   "hoodie|groen": "images/dieren/dier-muis-hoodie-groen-model.jpg",
-   "hoodie|navy": "images/dieren/dier-muis-hoodie-navy-model.jpg",
-   "hoodie|zwart": "images/dieren/dier-muis-hoodie-zwart-model.jpg",
-   "trui|groen": "images/dieren/dier-muis-trui-groen-model.jpg",
-   "trui|navy": "images/dieren/dier-muis-trui-navy-model.jpg",
-   "trui|zwart": "images/dieren/dier-muis-trui-zwart-model.jpg",
-   "kids|groen": "images/dieren/dier-muis-kids-groen-model.jpg",
-   "kids|navy": "images/dieren/dier-muis-kids-navy-model.jpg",
-   "kids|zwart": "images/dieren/dier-muis-kids-zwart-model.jpg",
-   "kidshoodie|groen": "images/dieren/dier-muis-kidshoodie-groen-model.jpg",
-   "kidshoodie|navy": "images/dieren/dier-muis-kidshoodie-navy-model.jpg",
-   "kidshoodie|zwart": "images/dieren/dier-muis-kidshoodie-zwart-model.jpg",
-   "kidstrui|groen": "images/dieren/dier-muis-kidstrui-groen-model.jpg",
-   "kidstrui|navy": "images/dieren/dier-muis-kidstrui-navy-model.jpg",
-   "kidstrui|zwart": "images/dieren/dier-muis-kidstrui-zwart-model.jpg"
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-uil-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-uil-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-uil-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-uil-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-uil-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-uil-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-uil-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-uil-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-uil-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-uil-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-uil-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-uil-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-uil-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-uil-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-uil-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-uil-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-uil-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-uil-kidstrui-zwart-voor.jpg"
   }
  },
  {
   "id": "dier-pinguin",
   "name": "Netjes gekleed. Totaal geen plan.",
-  "description": "Rugprint met een pinguin: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "description": "Met een pinguin: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -5548,12 +2965,32 @@
    "kidstrui|groen": "images/dieren/dier-pinguin-kidstrui-groen-model.jpg",
    "kidstrui|navy": "images/dieren/dier-pinguin-kidstrui-navy-model.jpg",
    "kidstrui|zwart": "images/dieren/dier-pinguin-kidstrui-zwart-model.jpg"
+  },
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-pinguin-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-pinguin-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-pinguin-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-pinguin-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-pinguin-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-pinguin-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-pinguin-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-pinguin-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-pinguin-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-pinguin-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-pinguin-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-pinguin-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-pinguin-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-pinguin-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-pinguin-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-pinguin-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-pinguin-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-pinguin-kidstrui-zwart-voor.jpg"
   }
  },
  {
-  "id": "dier-krokodil",
-  "name": "Zacht vanbinnen. Grote mond.",
-  "description": "Rugprint met een krokodil: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): klein op de borst of groot op de rug.",
+  "id": "dier-capibara",
+  "name": "Geen stress. Ik doe mijn best.",
+  "description": "Een relaxte capibara met zonnebril: voor wie het rustig houdt. Kies het ontwerp vooraan of op de rug, en zet er je naam op (+ € 5).",
   "category": "Dieren",
   "badge": "Nieuw",
   "types": [
@@ -5682,44 +3119,827 @@
    ]
   },
   "images": {
-   "tee|groen": "images/dieren/dier-krokodil-groen.jpg",
-   "tee|navy": "images/dieren/dier-krokodil-navy.jpg",
-   "tee|zwart": "images/dieren/dier-krokodil-zwart.jpg",
-   "hoodie|groen": "images/dieren/dier-krokodil-groen.jpg",
-   "hoodie|navy": "images/dieren/dier-krokodil-navy.jpg",
-   "hoodie|zwart": "images/dieren/dier-krokodil-zwart.jpg",
-   "trui|groen": "images/dieren/dier-krokodil-groen.jpg",
-   "trui|navy": "images/dieren/dier-krokodil-navy.jpg",
-   "trui|zwart": "images/dieren/dier-krokodil-zwart.jpg",
-   "kids|groen": "images/dieren/dier-krokodil-groen.jpg",
-   "kids|navy": "images/dieren/dier-krokodil-navy.jpg",
-   "kids|zwart": "images/dieren/dier-krokodil-zwart.jpg",
-   "kidshoodie|groen": "images/dieren/dier-krokodil-groen.jpg",
-   "kidshoodie|navy": "images/dieren/dier-krokodil-navy.jpg",
-   "kidshoodie|zwart": "images/dieren/dier-krokodil-zwart.jpg",
-   "kidstrui|groen": "images/dieren/dier-krokodil-groen.jpg",
-   "kidstrui|navy": "images/dieren/dier-krokodil-navy.jpg",
-   "kidstrui|zwart": "images/dieren/dier-krokodil-zwart.jpg"
+   "tee|groen": "images/dieren/dier-capibara-groen.jpg",
+   "tee|navy": "images/dieren/dier-capibara-navy.jpg",
+   "tee|zwart": "images/dieren/dier-capibara-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-capibara-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-capibara-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-capibara-zwart.jpg",
+   "trui|groen": "images/dieren/dier-capibara-groen.jpg",
+   "trui|navy": "images/dieren/dier-capibara-navy.jpg",
+   "trui|zwart": "images/dieren/dier-capibara-zwart.jpg",
+   "kids|groen": "images/dieren/dier-capibara-groen.jpg",
+   "kids|navy": "images/dieren/dier-capibara-navy.jpg",
+   "kids|zwart": "images/dieren/dier-capibara-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-capibara-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-capibara-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-capibara-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-capibara-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-capibara-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-capibara-zwart.jpg"
+  },
+  "models": {},
+  "backModels": {},
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-capibara-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-capibara-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-capibara-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-capibara-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-capibara-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-capibara-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-capibara-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-capibara-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-capibara-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-capibara-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-capibara-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-capibara-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-capibara-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-capibara-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-capibara-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-capibara-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-capibara-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-capibara-kidstrui-zwart-voor.jpg"
+  }
+ },
+ {
+  "id": "dier-koffiebeer",
+  "name": "Eerst koffie. Dan de rest.",
+  "description": "Een slaperige beer met een mok koffie: voor elke ochtendmens (of net niet). Kies het ontwerp vooraan of op de rug, en zet er je naam op (+ € 5).",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-koffiebeer-groen.jpg",
+   "tee|navy": "images/dieren/dier-koffiebeer-navy.jpg",
+   "tee|zwart": "images/dieren/dier-koffiebeer-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-koffiebeer-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-koffiebeer-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-koffiebeer-zwart.jpg",
+   "trui|groen": "images/dieren/dier-koffiebeer-groen.jpg",
+   "trui|navy": "images/dieren/dier-koffiebeer-navy.jpg",
+   "trui|zwart": "images/dieren/dier-koffiebeer-zwart.jpg",
+   "kids|groen": "images/dieren/dier-koffiebeer-groen.jpg",
+   "kids|navy": "images/dieren/dier-koffiebeer-navy.jpg",
+   "kids|zwart": "images/dieren/dier-koffiebeer-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-koffiebeer-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-koffiebeer-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-koffiebeer-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-koffiebeer-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-koffiebeer-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-koffiebeer-zwart.jpg"
+  },
+  "models": {},
+  "backModels": {},
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-koffiebeer-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-koffiebeer-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-koffiebeer-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-koffiebeer-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-koffiebeer-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-koffiebeer-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-koffiebeer-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-koffiebeer-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-koffiebeer-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-koffiebeer-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-koffiebeer-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-koffiebeer-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-koffiebeer-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-koffiebeer-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-koffiebeer-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-koffiebeer-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-koffiebeer-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-koffiebeer-kidstrui-zwart-voor.jpg"
+  }
+ },
+ {
+  "id": "dier-luiekat",
+  "name": "Vandaag even helemaal niks.",
+  "description": "Een luie kat die vandaag nergens aan begint. Kies het ontwerp vooraan of op de rug, en zet er je naam op (+ € 5).",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-luiekat-groen.jpg",
+   "tee|navy": "images/dieren/dier-luiekat-navy.jpg",
+   "tee|zwart": "images/dieren/dier-luiekat-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-luiekat-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-luiekat-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-luiekat-zwart.jpg",
+   "trui|groen": "images/dieren/dier-luiekat-groen.jpg",
+   "trui|navy": "images/dieren/dier-luiekat-navy.jpg",
+   "trui|zwart": "images/dieren/dier-luiekat-zwart.jpg",
+   "kids|groen": "images/dieren/dier-luiekat-groen.jpg",
+   "kids|navy": "images/dieren/dier-luiekat-navy.jpg",
+   "kids|zwart": "images/dieren/dier-luiekat-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-luiekat-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-luiekat-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-luiekat-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-luiekat-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-luiekat-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-luiekat-zwart.jpg"
+  },
+  "models": {},
+  "backModels": {},
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-luiekat-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-luiekat-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-luiekat-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-luiekat-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-luiekat-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-luiekat-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-luiekat-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-luiekat-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-luiekat-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-luiekat-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-luiekat-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-luiekat-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-luiekat-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-luiekat-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-luiekat-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-luiekat-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-luiekat-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-luiekat-kidstrui-zwart-voor.jpg"
+  }
+ },
+ {
+  "id": "dier-muis",
+  "name": "Grootse dromen. Kleine pootjes.",
+  "description": "Met een muis: grappig voor elke dag, niet alleen met kerst. Zet er je naam op (+ € 5): aan de andere kant dan het ontwerp.",
+  "category": "Dieren",
+  "badge": "Nieuw",
+  "types": [
+   {
+    "id": "tee",
+    "label": "T-shirt",
+    "price": 24.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "tee"
+   },
+   {
+    "id": "hoodie",
+    "label": "Hoodie",
+    "price": 38.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "hoodie"
+   },
+   {
+    "id": "trui",
+    "label": "Trui",
+    "price": 34.99,
+    "sizes": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "stockId": "trui"
+   },
+   {
+    "id": "kids",
+    "label": "Kinder-T-shirt",
+    "price": 19.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidtee"
+   },
+   {
+    "id": "kidshoodie",
+    "label": "Kinderhoodie",
+    "price": 29.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidshoodie"
+   },
+   {
+    "id": "kidstrui",
+    "label": "Kindertrui",
+    "price": 27.99,
+    "sizes": [
+     "4/6 jaar",
+     "6/8 jaar",
+     "8/10 jaar",
+     "10/12 jaar",
+     "12/14 jaar"
+    ],
+    "stockId": "kidstrui"
+   }
+  ],
+  "colors": [
+   {
+    "hex": "#1e5b3a",
+    "id": "groen",
+    "label": "Groen"
+   },
+   {
+    "hex": "#1f2a44",
+    "id": "navy",
+    "label": "Navy"
+   },
+   {
+    "hex": "#151515",
+    "id": "zwart",
+    "label": "Zwart"
+   }
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "4/6 jaar",
+   "6/8 jaar",
+   "8/10 jaar",
+   "10/12 jaar",
+   "12/14 jaar"
+  ],
+  "price": 19.99,
+  "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
+  },
+  "images": {
+   "tee|groen": "images/dieren/dier-muis-groen.jpg",
+   "tee|navy": "images/dieren/dier-muis-navy.jpg",
+   "tee|zwart": "images/dieren/dier-muis-zwart.jpg",
+   "hoodie|groen": "images/dieren/dier-muis-groen.jpg",
+   "hoodie|navy": "images/dieren/dier-muis-navy.jpg",
+   "hoodie|zwart": "images/dieren/dier-muis-zwart.jpg",
+   "trui|groen": "images/dieren/dier-muis-groen.jpg",
+   "trui|navy": "images/dieren/dier-muis-navy.jpg",
+   "trui|zwart": "images/dieren/dier-muis-zwart.jpg",
+   "kids|groen": "images/dieren/dier-muis-groen.jpg",
+   "kids|navy": "images/dieren/dier-muis-navy.jpg",
+   "kids|zwart": "images/dieren/dier-muis-zwart.jpg",
+   "kidshoodie|groen": "images/dieren/dier-muis-groen.jpg",
+   "kidshoodie|navy": "images/dieren/dier-muis-navy.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-muis-zwart.jpg",
+   "kidstrui|groen": "images/dieren/dier-muis-groen.jpg",
+   "kidstrui|navy": "images/dieren/dier-muis-navy.jpg",
+   "kidstrui|zwart": "images/dieren/dier-muis-zwart.jpg"
   },
   "models": {
-   "tee|groen": "images/dieren/dier-krokodil-tee-groen-model.jpg",
-   "tee|navy": "images/dieren/dier-krokodil-tee-navy-model.jpg",
-   "tee|zwart": "images/dieren/dier-krokodil-tee-zwart-model.jpg",
-   "hoodie|groen": "images/dieren/dier-krokodil-hoodie-groen-model.jpg",
-   "hoodie|navy": "images/dieren/dier-krokodil-hoodie-navy-model.jpg",
-   "hoodie|zwart": "images/dieren/dier-krokodil-hoodie-zwart-model.jpg",
-   "trui|groen": "images/dieren/dier-krokodil-trui-groen-model.jpg",
-   "trui|navy": "images/dieren/dier-krokodil-trui-navy-model.jpg",
-   "trui|zwart": "images/dieren/dier-krokodil-trui-zwart-model.jpg",
-   "kids|groen": "images/dieren/dier-krokodil-kids-groen-model.jpg",
-   "kids|navy": "images/dieren/dier-krokodil-kids-navy-model.jpg",
-   "kids|zwart": "images/dieren/dier-krokodil-kids-zwart-model.jpg",
-   "kidshoodie|groen": "images/dieren/dier-krokodil-kidshoodie-groen-model.jpg",
-   "kidshoodie|navy": "images/dieren/dier-krokodil-kidshoodie-navy-model.jpg",
-   "kidshoodie|zwart": "images/dieren/dier-krokodil-kidshoodie-zwart-model.jpg",
-   "kidstrui|groen": "images/dieren/dier-krokodil-kidstrui-groen-model.jpg",
-   "kidstrui|navy": "images/dieren/dier-krokodil-kidstrui-navy-model.jpg",
-   "kidstrui|zwart": "images/dieren/dier-krokodil-kidstrui-zwart-model.jpg"
+   "tee|groen": "images/dieren/dier-muis-tee-groen-model.jpg",
+   "tee|navy": "images/dieren/dier-muis-tee-navy-model.jpg",
+   "tee|zwart": "images/dieren/dier-muis-tee-zwart-model.jpg",
+   "hoodie|groen": "images/dieren/dier-muis-hoodie-groen-model.jpg",
+   "hoodie|navy": "images/dieren/dier-muis-hoodie-navy-model.jpg",
+   "hoodie|zwart": "images/dieren/dier-muis-hoodie-zwart-model.jpg",
+   "trui|groen": "images/dieren/dier-muis-trui-groen-model.jpg",
+   "trui|navy": "images/dieren/dier-muis-trui-navy-model.jpg",
+   "trui|zwart": "images/dieren/dier-muis-trui-zwart-model.jpg",
+   "kids|groen": "images/dieren/dier-muis-kids-groen-model.jpg",
+   "kids|navy": "images/dieren/dier-muis-kids-navy-model.jpg",
+   "kids|zwart": "images/dieren/dier-muis-kids-zwart-model.jpg",
+   "kidshoodie|groen": "images/dieren/dier-muis-kidshoodie-groen-model.jpg",
+   "kidshoodie|navy": "images/dieren/dier-muis-kidshoodie-navy-model.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-muis-kidshoodie-zwart-model.jpg",
+   "kidstrui|groen": "images/dieren/dier-muis-kidstrui-groen-model.jpg",
+   "kidstrui|navy": "images/dieren/dier-muis-kidstrui-navy-model.jpg",
+   "kidstrui|zwart": "images/dieren/dier-muis-kidstrui-zwart-model.jpg"
+  },
+  "frontModels": {
+   "tee|groen": "images/dieren/dier-muis-tee-groen-voor.jpg",
+   "tee|navy": "images/dieren/dier-muis-tee-navy-voor.jpg",
+   "tee|zwart": "images/dieren/dier-muis-tee-zwart-voor.jpg",
+   "hoodie|groen": "images/dieren/dier-muis-hoodie-groen-voor.jpg",
+   "hoodie|navy": "images/dieren/dier-muis-hoodie-navy-voor.jpg",
+   "hoodie|zwart": "images/dieren/dier-muis-hoodie-zwart-voor.jpg",
+   "trui|groen": "images/dieren/dier-muis-trui-groen-voor.jpg",
+   "trui|navy": "images/dieren/dier-muis-trui-navy-voor.jpg",
+   "trui|zwart": "images/dieren/dier-muis-trui-zwart-voor.jpg",
+   "kids|groen": "images/dieren/dier-muis-kids-groen-voor.jpg",
+   "kids|navy": "images/dieren/dier-muis-kids-navy-voor.jpg",
+   "kids|zwart": "images/dieren/dier-muis-kids-zwart-voor.jpg",
+   "kidshoodie|groen": "images/dieren/dier-muis-kidshoodie-groen-voor.jpg",
+   "kidshoodie|navy": "images/dieren/dier-muis-kidshoodie-navy-voor.jpg",
+   "kidshoodie|zwart": "images/dieren/dier-muis-kidshoodie-zwart-voor.jpg",
+   "kidstrui|groen": "images/dieren/dier-muis-kidstrui-groen-voor.jpg",
+   "kidstrui|navy": "images/dieren/dier-muis-kidstrui-navy-voor.jpg",
+   "kidstrui|zwart": "images/dieren/dier-muis-kidstrui-zwart-voor.jpg"
   }
+ },
+ {
+  "id": "kerst-tas",
+  "name": "Kersttas met koord",
+  "description": "Katoenen tas met rendier — ideaal om cadeaus in te verpakken of onder de boom te leggen.",
+  "category": "Kerst",
+  "badge": "Cadeau",
+  "colors": [
+   {
+    "id": "naturel",
+    "label": "Naturel",
+    "hex": "#e8dcc4"
+   },
+   {
+    "id": "rood",
+    "label": "Rood",
+    "hex": "#b3242c"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   }
+  ],
+  "images": {
+   "|naturel": "images/kerst/kersttas-naturel.jpg",
+   "|navy": "images/kerst/kersttas-navy.jpg",
+   "|rood": "images/kerst/kersttas-rood.jpg"
+  },
+  "sizes": [],
+  "price": 6.99,
+  "stockId": "kersttas"
+ },
+ {
+  "id": "kerst-shopper",
+  "name": "Shopper met naam",
+  "description": "Katoenen shopper met je naam erop, in sierlijke letters met een sterretje. De naam zit in de prijs.",
+  "category": "Kerst",
+  "badge": "Cadeau",
+  "group": "Cadeaus",
+  "colors": [
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   },
+   {
+    "id": "naturel",
+    "label": "Naturel",
+    "hex": "#e8dcc4"
+   }
+  ],
+  "images": {
+   "|navy": "images/kerst/shopper-navy.jpg",
+   "|naturel": "images/kerst/shopper-naturel.jpg"
+  },
+  "sizes": [],
+  "price": 7.99,
+  "stockId": "shopper",
+  "types": [],
+  "models": {},
+  "backModels": {},
+  "personalize": {
+   "label": "Naam erop (inbegrepen)",
+   "maxLength": 14,
+   "price": 0,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Op de voorkant"
+    }
+   ]
+  }
+ },
+ {
+  "id": "kerst-kinderschort",
+  "name": "Kinderkoksset “Koekje erbij?”",
+  "description": "Schort en koksmuts op kindermaat voor de kleine kerstbakker. Met hun naam op de muts extra leuk (+ € 5).",
+  "category": "Kerst",
+  "badge": "Nieuw",
+  "group": "Kids",
+  "colors": [
+   {
+    "id": "wit",
+    "label": "Wit",
+    "hex": "#f3f3ef"
+   },
+   {
+    "id": "zwart",
+    "label": "Zwart",
+    "hex": "#151515"
+   },
+   {
+    "id": "lime",
+    "label": "Lime",
+    "hex": "#a9c66b"
+   },
+   {
+    "id": "rood",
+    "label": "Rood",
+    "hex": "#b3242c"
+   }
+  ],
+  "sizes": [],
+  "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
+  },
+  "price": 14.99,
+  "images": {
+   "|zwart": "images/kerst/koekje-kinderschort-zwart-model.jpg",
+   "|wit": "images/kerst/koekje-kinderkoksset-wit-model.jpg"
+  },
+  "models": {
+   "|zwart": "images/kerst/koekje-kinderschort-zwart-model.jpg",
+   "|wit": "images/kerst/koekje-kinderkoksset-wit-model.jpg"
+  },
+  "stockId": "kinderschort"
+ },
+ {
+  "id": "kerst-schort",
+  "name": "Keukenschort “Koekje erbij?”",
+  "description": "Keukenschort voor de kerstbakker. Met je naam erop wordt het een top-cadeau.",
+  "category": "Kerst",
+  "badge": "Cadeau",
+  "colors": [
+   {
+    "id": "bordeaux",
+    "label": "Bordeaux",
+    "hex": "#6b1f2a"
+   },
+   {
+    "id": "navy",
+    "label": "Navy",
+    "hex": "#1f2a44"
+   },
+   {
+    "id": "taupe",
+    "label": "Taupe",
+    "hex": "#a39684"
+   },
+   {
+    "id": "zwart",
+    "label": "Zwart",
+    "hex": "#151515"
+   }
+  ],
+  "images": {
+   "|bordeaux": "images/kerst/koekje-schort-bordeaux.jpg",
+   "|navy": "images/kerst/koekje-schort-navy.jpg",
+   "|taupe": "images/kerst/koekje-schort-taupe.jpg",
+   "|zwart": "images/kerst/koekje-schort-zwart.jpg"
+  },
+  "sizes": [],
+  "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
+   "price": 5,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
+  },
+  "price": 17.99,
+  "models": {
+   "|bordeaux": "images/kerst/koekje-schort-bordeaux-model.jpg",
+   "|navy": "images/kerst/koekje-schort-navy-model.jpg",
+   "|taupe": "images/kerst/koekje-schort-taupe-model.jpg",
+   "|zwart": "images/kerst/koekje-schort-zwart-emma-model.jpg"
+  },
+  "stockId": "schort"
+ },
+ {
+  "id": "kerst-beer",
+  "name": "Beer met bedrukt shirtje",
+  "description": "Zachte knuffelbeer met een eigen shirtje. Laat er een naam of korte tekst op zetten — een cadeau dat ze nooit vergeten.",
+  "category": "Kerst",
+  "badge": "Cadeau",
+  "types": [
+   {
+    "id": "M",
+    "label": "Medium",
+    "price": 19.99
+   },
+   {
+    "id": "L",
+    "label": "Large",
+    "price": 24.99
+   }
+  ],
+  "colors": [
+   {
+    "id": "bruin",
+    "label": "Bruin",
+    "hex": "#8a5a3b"
+   },
+   {
+    "id": "creme",
+    "label": "Crème",
+    "hex": "#efe3c8"
+   }
+  ],
+  "images": {
+   "|bruin": "images/kerst/beer-bruin-emma.jpg",
+   "|creme": "images/kerst/beer-creme-noah.jpg"
+  },
+  "sizes": [],
+  "personalize": {
+   "label": "Naam erop",
+   "maxLength": 14,
+   "price": 0,
+   "placements": [
+    {
+     "id": "borst",
+     "label": "Klein op de borst (voorkant)"
+    },
+    {
+     "id": "rug",
+     "label": "Groot op de rug"
+    }
+   ]
+  },
+  "price": 19.99,
+  "stockId": "beer"
  }
 ]

@@ -37,18 +37,8 @@
    },
    "designs": [
     {
-     "id": "foutetrui",
-     "name": "Foute trui?",
-     "img": "images/kerst/foutetrui-tee-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/foutetrui-tee-groen.jpg",
-      "navy": "images/kerst/foutetrui-tee-navy.jpg",
-      "zwart": "images/kerst/foutetrui-tee-zwart.jpg"
-     }
-    },
-    {
      "id": "gluhwein",
-     "name": "Team Glühwein",
+     "name": "1 · Team Glühwein",
      "img": "images/kerst/gluhwein-tee-zwart.jpg",
      "imgs": {
       "groen": "images/kerst/gluhwein-tee-groen.jpg",
@@ -57,68 +47,8 @@
      }
     },
     {
-     "id": "goede-smaak",
-     "name": "Goede smaak",
-     "img": "images/kerst/goede-smaak-tee-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/goede-smaak-tee-groen.jpg",
-      "navy": "images/kerst/goede-smaak-tee-navy.jpg",
-      "zwart": "images/kerst/goede-smaak-tee-zwart.jpg"
-     }
-    },
-    {
-     "id": "ikpiek",
-     "name": "Ik piek met kerst",
-     "img": "images/kerst/ikpiek-tee-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/ikpiek-tee-groen.jpg",
-      "navy": "images/kerst/ikpiek-tee-navy.jpg",
-      "zwart": "images/kerst/ikpiek-tee-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstclub",
-     "name": "Kerstclub",
-     "img": "images/kerst/kerstclub-tee-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstclub-tee-groen.jpg",
-      "navy": "images/kerst/kerstclub-tee-navy.jpg",
-      "zwart": "images/kerst/kerstclub-tee-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstmodus",
-     "name": "Kerstmodus aan",
-     "img": "images/kerst/kerstmodus-tee-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstmodus-tee-groen.jpg",
-      "navy": "images/kerst/kerstmodus-tee-navy.jpg",
-      "zwart": "images/kerst/kerstmodus-tee-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstwarmer",
-     "name": "Jij maakt kerst warmer",
-     "img": "images/kerst/kerstwarmer-tee-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstwarmer-tee-groen.jpg",
-      "navy": "images/kerst/kerstwarmer-tee-navy.jpg",
-      "zwart": "images/kerst/kerstwarmer-tee-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstzin",
-     "name": "Kerstzin",
-     "img": "images/kerst/kerstzin-tee-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstzin-tee-groen.jpg",
-      "navy": "images/kerst/kerstzin-tee-navy.jpg",
-      "zwart": "images/kerst/kerstzin-tee-zwart.jpg"
-     }
-    },
-    {
      "id": "koekje",
-     "name": "Koekje erbij?",
+     "name": "3 · Koekje erbij?",
      "img": "images/kerst/koekje-tee-zwart.jpg",
      "imgs": {
       "groen": "images/kerst/koekje-tee-groen.jpg",
@@ -127,38 +57,8 @@
      }
     },
     {
-     "id": "lieve",
-     "name": "Lieve kerstman",
-     "img": "images/kerst/lieve-tee-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/lieve-tee-groen.jpg",
-      "navy": "images/kerst/lieve-tee-navy.jpg",
-      "zwart": "images/kerst/lieve-tee-zwart.jpg"
-     }
-    },
-    {
-     "id": "stillenacht",
-     "name": "Stille nacht?",
-     "img": "images/kerst/stillenacht-tee-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/stillenacht-tee-groen.jpg",
-      "navy": "images/kerst/stillenacht-tee-navy.jpg",
-      "zwart": "images/kerst/stillenacht-tee-zwart.jpg"
-     }
-    },
-    {
-     "id": "warm",
-     "name": "Koud weer",
-     "img": "images/kerst/warm-tee-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/warm-tee-groen.jpg",
-      "navy": "images/kerst/warm-tee-navy.jpg",
-      "zwart": "images/kerst/warm-tee-zwart.jpg"
-     }
-    },
-    {
      "id": "hohoho",
-     "name": "Ho ho ho maar",
+     "name": "4 · Ho ho ho maar",
      "img": "images/kerst/hohoho-tee-zwart.jpg",
      "imgs": {
       "groen": "images/kerst/hohoho-tee-groen.jpg",
@@ -167,28 +67,8 @@
      }
     },
     {
-     "id": "rendier",
-     "name": "Coole rendier",
-     "img": "images/kerst/rendier-tee-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/rendier-tee-zwart.jpg",
-      "navy": "images/kerst/rendier-tee-navy.jpg",
-      "groen": "images/kerst/rendier-tee-groen.jpg"
-     }
-    },
-    {
-     "id": "kerststress",
-     "name": "Kerststress? Ik doe een dutje",
-     "img": "images/kerst/kerststress-tee-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerststress-tee-zwart.jpg",
-      "navy": "images/kerst/kerststress-tee-navy.jpg",
-      "groen": "images/kerst/kerststress-tee-groen.jpg"
-     }
-    },
-    {
      "id": "wanten",
-     "name": "Jij maakt kerst warmer (wanten)",
+     "name": "5 · Jij maakt kerst warmer (wanten)",
      "img": "images/kerst/wanten-tee-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/wanten-tee-zwart.jpg",
@@ -198,7 +78,7 @@
     },
     {
      "id": "winter-pinguin",
-     "name": "Koud buiten, cool vanbinnen",
+     "name": "6 · Koud buiten, cool vanbinnen",
      "img": "images/kerst/pinguin-tee-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/pinguin-tee-zwart.jpg",
@@ -207,143 +87,153 @@
      }
     },
     {
-     "id": "dier-luiaard",
-     "name": "Ik ben niet traag. Ik spaar energie.",
-     "img": "images/dieren/dier-luiaard-zwart.jpg",
+     "id": "ikpiek",
+     "name": "7 · Ik piek met kerst",
+     "img": "images/kerst/ikpiek-tee-zwart.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-luiaard-zwart.jpg",
-      "navy": "images/dieren/dier-luiaard-navy.jpg",
-      "groen": "images/dieren/dier-luiaard-groen.jpg"
+      "groen": "images/kerst/ikpiek-tee-groen.jpg",
+      "navy": "images/kerst/ikpiek-tee-navy.jpg",
+      "zwart": "images/kerst/ikpiek-tee-zwart.jpg"
+     }
+    },
+    {
+     "id": "dier-luiaard",
+     "name": "8 · Ik ben niet traag. Ik spaar energie.",
+     "img": "images/dieren/dier-luiaard-tee-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiaard-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiaard-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiaard-tee-groen-voor.jpg"
      }
     },
     {
      "id": "dier-egel",
-     "name": "Sociale batterij bijna leeg.",
-     "img": "images/dieren/dier-egel-zwart.jpg",
+     "name": "9 · Sociale batterij bijna leeg.",
+     "img": "images/dieren/dier-egel-tee-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-egel-zwart.jpg",
-      "navy": "images/dieren/dier-egel-navy.jpg",
-      "groen": "images/dieren/dier-egel-groen.jpg"
+      "zwart": "images/dieren/dier-egel-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-egel-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-egel-tee-groen-voor.jpg"
      }
     },
     {
      "id": "dier-hamster",
-     "name": "Hoofd vol plannen. Handen vol snacks.",
-     "img": "images/dieren/dier-hamster-zwart.jpg",
+     "name": "10 · Hoofd vol plannen. Handen vol snacks.",
+     "img": "images/dieren/dier-hamster-tee-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-hamster-zwart.jpg",
-      "navy": "images/dieren/dier-hamster-navy.jpg",
-      "groen": "images/dieren/dier-hamster-groen.jpg"
+      "zwart": "images/dieren/dier-hamster-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-hamster-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-hamster-tee-groen-voor.jpg"
      }
     },
     {
      "id": "dier-kat",
-     "name": "Druk bezig met niks.",
-     "img": "images/dieren/dier-kat-zwart.jpg",
+     "name": "11 · Druk bezig met niks.",
+     "img": "images/dieren/dier-kat-tee-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-kat-zwart.jpg",
-      "navy": "images/dieren/dier-kat-navy.jpg",
-      "groen": "images/dieren/dier-kat-groen.jpg"
+      "zwart": "images/dieren/dier-kat-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-kat-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-kat-tee-groen-voor.jpg"
      }
     },
     {
      "id": "dier-panda",
-     "name": "Vandaag is een morgenprobleem.",
-     "img": "images/dieren/dier-panda-zwart.jpg",
+     "name": "12 · Vandaag is een morgenprobleem.",
+     "img": "images/dieren/dier-panda-tee-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-panda-zwart.jpg",
-      "navy": "images/dieren/dier-panda-navy.jpg",
-      "groen": "images/dieren/dier-panda-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-otter",
-     "name": "Gewoon lekker meedrijven.",
-     "img": "images/dieren/dier-otter-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-otter-zwart.jpg",
-      "navy": "images/dieren/dier-otter-navy.jpg",
-      "groen": "images/dieren/dier-otter-groen.jpg"
+      "zwart": "images/dieren/dier-panda-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-panda-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-panda-tee-groen-voor.jpg"
      }
     },
     {
      "id": "dier-konijn",
-     "name": "Kleine stapjes. Grootse plannen.",
-     "img": "images/dieren/dier-konijn-zwart.jpg",
+     "name": "13 · Kleine stapjes. Grootse plannen.",
+     "img": "images/dieren/dier-konijn-tee-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-konijn-zwart.jpg",
-      "navy": "images/dieren/dier-konijn-navy.jpg",
-      "groen": "images/dieren/dier-konijn-groen.jpg"
+      "zwart": "images/dieren/dier-konijn-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-konijn-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-konijn-tee-groen-voor.jpg"
      }
     },
     {
      "id": "dier-vos",
-     "name": "Beetje eigenwijs. Helemaal mezelf.",
-     "img": "images/dieren/dier-vos-zwart.jpg",
+     "name": "14 · Beetje eigenwijs. Helemaal mezelf.",
+     "img": "images/dieren/dier-vos-tee-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-vos-zwart.jpg",
-      "navy": "images/dieren/dier-vos-navy.jpg",
-      "groen": "images/dieren/dier-vos-groen.jpg"
+      "zwart": "images/dieren/dier-vos-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-vos-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-vos-tee-groen-voor.jpg"
      }
     },
     {
      "id": "dier-schildpad",
-     "name": "Rustig aan. Ik kom er wel.",
-     "img": "images/dieren/dier-schildpad-zwart.jpg",
+     "name": "15 · Rustig aan. Ik kom er wel.",
+     "img": "images/dieren/dier-schildpad-tee-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-schildpad-zwart.jpg",
-      "navy": "images/dieren/dier-schildpad-navy.jpg",
-      "groen": "images/dieren/dier-schildpad-groen.jpg"
+      "zwart": "images/dieren/dier-schildpad-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-schildpad-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-schildpad-tee-groen-voor.jpg"
      }
     },
     {
      "id": "dier-uil",
-     "name": "Ik ben wakker. Dat is al heel wat.",
-     "img": "images/dieren/dier-uil-zwart.jpg",
+     "name": "16 · Ik ben wakker. Dat is al heel wat.",
+     "img": "images/dieren/dier-uil-tee-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-uil-zwart.jpg",
-      "navy": "images/dieren/dier-uil-navy.jpg",
-      "groen": "images/dieren/dier-uil-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-alpaca",
-     "name": "Geen drama. Wel een mening.",
-     "img": "images/dieren/dier-alpaca-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-alpaca-zwart.jpg",
-      "navy": "images/dieren/dier-alpaca-navy.jpg",
-      "groen": "images/dieren/dier-alpaca-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-muis",
-     "name": "Grootse dromen. Kleine pootjes.",
-     "img": "images/dieren/dier-muis-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-muis-zwart.jpg",
-      "navy": "images/dieren/dier-muis-navy.jpg",
-      "groen": "images/dieren/dier-muis-groen.jpg"
+      "zwart": "images/dieren/dier-uil-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-uil-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-uil-tee-groen-voor.jpg"
      }
     },
     {
      "id": "dier-pinguin",
-     "name": "Netjes gekleed. Totaal geen plan.",
-     "img": "images/dieren/dier-pinguin-zwart.jpg",
+     "name": "17 · Netjes gekleed. Totaal geen plan.",
+     "img": "images/dieren/dier-pinguin-tee-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-pinguin-zwart.jpg",
-      "navy": "images/dieren/dier-pinguin-navy.jpg",
-      "groen": "images/dieren/dier-pinguin-groen.jpg"
+      "zwart": "images/dieren/dier-pinguin-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-pinguin-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-pinguin-tee-groen-voor.jpg"
      }
     },
     {
-     "id": "dier-krokodil",
-     "name": "Zacht vanbinnen. Grote mond.",
-     "img": "images/dieren/dier-krokodil-zwart.jpg",
+     "id": "dier-capibara",
+     "name": "18 · Geen stress. Ik doe mijn best.",
      "imgs": {
-      "zwart": "images/dieren/dier-krokodil-zwart.jpg",
-      "navy": "images/dieren/dier-krokodil-navy.jpg",
-      "groen": "images/dieren/dier-krokodil-groen.jpg"
+      "zwart": "images/dieren/dier-capibara-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-capibara-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-capibara-tee-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-capibara-tee-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-koffiebeer",
+     "name": "19 · Eerst koffie. Dan de rest.",
+     "imgs": {
+      "zwart": "images/dieren/dier-koffiebeer-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-koffiebeer-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-koffiebeer-tee-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-koffiebeer-tee-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-luiekat",
+     "name": "20 · Vandaag even helemaal niks.",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiekat-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiekat-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiekat-tee-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-luiekat-tee-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-muis",
+     "name": "21 · Grootse dromen. Kleine pootjes.",
+     "img": "images/dieren/dier-muis-tee-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-muis-tee-zwart-voor.jpg",
+      "navy": "images/dieren/dier-muis-tee-navy-voor.jpg",
+      "groen": "images/dieren/dier-muis-tee-groen-voor.jpg"
      }
     }
    ]
@@ -368,18 +258,8 @@
    ],
    "designs": [
     {
-     "id": "foutetrui",
-     "name": "Foute trui?",
-     "img": "images/kerst/foutetrui-kids-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/foutetrui-kids-zwart-model.jpg",
-      "navy": "images/kerst/foutetrui-kids-navy-model.jpg",
-      "groen": "images/kerst/foutetrui-kids-groen-model.jpg"
-     }
-    },
-    {
      "id": "gluhwein",
-     "name": "Team Glühwein",
+     "name": "2 · Team Warme Choco",
      "img": "images/kerst/gluhwein-kids-zwart-model.jpg",
      "imgs": {
       "zwart": "images/kerst/gluhwein-kids-zwart-model.jpg",
@@ -388,68 +268,8 @@
      }
     },
     {
-     "id": "goede-smaak",
-     "name": "Goede smaak",
-     "img": "images/kerst/goede-smaak-kids-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/goede-smaak-kids-zwart-model.jpg",
-      "navy": "images/kerst/goede-smaak-kids-navy-model.jpg",
-      "groen": "images/kerst/goede-smaak-kids-groen-model.jpg"
-     }
-    },
-    {
-     "id": "ikpiek",
-     "name": "Ik piek met kerst",
-     "img": "images/kerst/ikpiek-kids-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/ikpiek-kids-zwart-model.jpg",
-      "navy": "images/kerst/ikpiek-kids-navy-model.jpg",
-      "groen": "images/kerst/ikpiek-kids-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstclub",
-     "name": "Kerstclub",
-     "img": "images/kerst/kerstclub-kids-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstclub-kids-zwart-model.jpg",
-      "navy": "images/kerst/kerstclub-kids-navy-model.jpg",
-      "groen": "images/kerst/kerstclub-kids-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstmodus",
-     "name": "Kerstmodus aan",
-     "img": "images/kerst/kerstmodus-kids-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstmodus-kids-zwart-model.jpg",
-      "navy": "images/kerst/kerstmodus-kids-navy-model.jpg",
-      "groen": "images/kerst/kerstmodus-kids-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstwarmer",
-     "name": "Jij maakt kerst warmer",
-     "img": "images/kerst/kerstwarmer-kids-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstwarmer-kids-zwart-model.jpg",
-      "navy": "images/kerst/kerstwarmer-kids-navy-model.jpg",
-      "groen": "images/kerst/kerstwarmer-kids-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstzin",
-     "name": "Kerstzin",
-     "img": "images/kerst/kerstzin-kids-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstzin-kids-zwart-model.jpg",
-      "navy": "images/kerst/kerstzin-kids-navy-model.jpg",
-      "groen": "images/kerst/kerstzin-kids-groen-model.jpg"
-     }
-    },
-    {
      "id": "koekje",
-     "name": "Koekje erbij?",
+     "name": "3 · Koekje erbij?",
      "img": "images/kerst/koekje-kids-zwart-model.jpg",
      "imgs": {
       "zwart": "images/kerst/koekje-kids-zwart-model.jpg",
@@ -458,38 +278,8 @@
      }
     },
     {
-     "id": "lieve",
-     "name": "Lieve kerstman",
-     "img": "images/kerst/lieve-kids-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/lieve-kids-zwart-model.jpg",
-      "navy": "images/kerst/lieve-kids-navy-model.jpg",
-      "groen": "images/kerst/lieve-kids-groen-model.jpg"
-     }
-    },
-    {
-     "id": "stillenacht",
-     "name": "Stille nacht?",
-     "img": "images/kerst/stillenacht-kids-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/stillenacht-kids-zwart-model.jpg",
-      "navy": "images/kerst/stillenacht-kids-navy-model.jpg",
-      "groen": "images/kerst/stillenacht-kids-groen-model.jpg"
-     }
-    },
-    {
-     "id": "warm",
-     "name": "Koud weer",
-     "img": "images/kerst/warm-kids-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/warm-kids-zwart-model.jpg",
-      "navy": "images/kerst/warm-kids-navy-model.jpg",
-      "groen": "images/kerst/warm-kids-groen-model.jpg"
-     }
-    },
-    {
      "id": "hohoho",
-     "name": "Ho ho ho maar",
+     "name": "4 · Ho ho ho maar",
      "img": "images/kerst/hohoho-kids-zwart-model.jpg",
      "imgs": {
       "zwart": "images/kerst/hohoho-kids-zwart-model.jpg",
@@ -498,28 +288,8 @@
      }
     },
     {
-     "id": "rendier",
-     "name": "Coole rendier",
-     "img": "images/kerst/rendier-tee-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/rendier-tee-zwart.jpg",
-      "navy": "images/kerst/rendier-tee-navy.jpg",
-      "groen": "images/kerst/rendier-tee-groen.jpg"
-     }
-    },
-    {
-     "id": "kerststress",
-     "name": "Kerststress? Ik doe een dutje",
-     "img": "images/kerst/kerststress-tee-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerststress-tee-zwart.jpg",
-      "navy": "images/kerst/kerststress-tee-navy.jpg",
-      "groen": "images/kerst/kerststress-tee-groen.jpg"
-     }
-    },
-    {
      "id": "wanten",
-     "name": "Jij maakt kerst warmer (wanten)",
+     "name": "5 · Jij maakt kerst warmer (wanten)",
      "img": "images/kerst/wanten-tee-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/wanten-tee-zwart.jpg",
@@ -529,7 +299,7 @@
     },
     {
      "id": "winter-pinguin",
-     "name": "Koud buiten, cool vanbinnen",
+     "name": "6 · Koud buiten, cool vanbinnen",
      "img": "images/kerst/pinguin-tee-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/pinguin-tee-zwart.jpg",
@@ -538,143 +308,153 @@
      }
     },
     {
-     "id": "dier-luiaard",
-     "name": "Ik ben niet traag. Ik spaar energie.",
-     "img": "images/dieren/dier-luiaard-zwart.jpg",
+     "id": "ikpiek",
+     "name": "7 · Ik piek met kerst",
+     "img": "images/kerst/ikpiek-kids-zwart-model.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-luiaard-zwart.jpg",
-      "navy": "images/dieren/dier-luiaard-navy.jpg",
-      "groen": "images/dieren/dier-luiaard-groen.jpg"
+      "zwart": "images/kerst/ikpiek-kids-zwart-model.jpg",
+      "navy": "images/kerst/ikpiek-kids-navy-model.jpg",
+      "groen": "images/kerst/ikpiek-kids-groen-model.jpg"
+     }
+    },
+    {
+     "id": "dier-luiaard",
+     "name": "8 · Ik ben niet traag. Ik spaar energie.",
+     "img": "images/dieren/dier-luiaard-kids-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiaard-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiaard-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiaard-kids-groen-voor.jpg"
      }
     },
     {
      "id": "dier-egel",
-     "name": "Sociale batterij bijna leeg.",
-     "img": "images/dieren/dier-egel-zwart.jpg",
+     "name": "9 · Sociale batterij bijna leeg.",
+     "img": "images/dieren/dier-egel-kids-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-egel-zwart.jpg",
-      "navy": "images/dieren/dier-egel-navy.jpg",
-      "groen": "images/dieren/dier-egel-groen.jpg"
+      "zwart": "images/dieren/dier-egel-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-egel-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-egel-kids-groen-voor.jpg"
      }
     },
     {
      "id": "dier-hamster",
-     "name": "Hoofd vol plannen. Handen vol snacks.",
-     "img": "images/dieren/dier-hamster-zwart.jpg",
+     "name": "10 · Hoofd vol plannen. Handen vol snacks.",
+     "img": "images/dieren/dier-hamster-kids-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-hamster-zwart.jpg",
-      "navy": "images/dieren/dier-hamster-navy.jpg",
-      "groen": "images/dieren/dier-hamster-groen.jpg"
+      "zwart": "images/dieren/dier-hamster-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-hamster-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-hamster-kids-groen-voor.jpg"
      }
     },
     {
      "id": "dier-kat",
-     "name": "Druk bezig met niks.",
-     "img": "images/dieren/dier-kat-zwart.jpg",
+     "name": "11 · Druk bezig met niks.",
+     "img": "images/dieren/dier-kat-kids-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-kat-zwart.jpg",
-      "navy": "images/dieren/dier-kat-navy.jpg",
-      "groen": "images/dieren/dier-kat-groen.jpg"
+      "zwart": "images/dieren/dier-kat-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-kat-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-kat-kids-groen-voor.jpg"
      }
     },
     {
      "id": "dier-panda",
-     "name": "Vandaag is een morgenprobleem.",
-     "img": "images/dieren/dier-panda-zwart.jpg",
+     "name": "12 · Vandaag is een morgenprobleem.",
+     "img": "images/dieren/dier-panda-kids-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-panda-zwart.jpg",
-      "navy": "images/dieren/dier-panda-navy.jpg",
-      "groen": "images/dieren/dier-panda-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-otter",
-     "name": "Gewoon lekker meedrijven.",
-     "img": "images/dieren/dier-otter-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-otter-zwart.jpg",
-      "navy": "images/dieren/dier-otter-navy.jpg",
-      "groen": "images/dieren/dier-otter-groen.jpg"
+      "zwart": "images/dieren/dier-panda-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-panda-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-panda-kids-groen-voor.jpg"
      }
     },
     {
      "id": "dier-konijn",
-     "name": "Kleine stapjes. Grootse plannen.",
-     "img": "images/dieren/dier-konijn-zwart.jpg",
+     "name": "13 · Kleine stapjes. Grootse plannen.",
+     "img": "images/dieren/dier-konijn-kids-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-konijn-zwart.jpg",
-      "navy": "images/dieren/dier-konijn-navy.jpg",
-      "groen": "images/dieren/dier-konijn-groen.jpg"
+      "zwart": "images/dieren/dier-konijn-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-konijn-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-konijn-kids-groen-voor.jpg"
      }
     },
     {
      "id": "dier-vos",
-     "name": "Beetje eigenwijs. Helemaal mezelf.",
-     "img": "images/dieren/dier-vos-zwart.jpg",
+     "name": "14 · Beetje eigenwijs. Helemaal mezelf.",
+     "img": "images/dieren/dier-vos-kids-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-vos-zwart.jpg",
-      "navy": "images/dieren/dier-vos-navy.jpg",
-      "groen": "images/dieren/dier-vos-groen.jpg"
+      "zwart": "images/dieren/dier-vos-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-vos-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-vos-kids-groen-voor.jpg"
      }
     },
     {
      "id": "dier-schildpad",
-     "name": "Rustig aan. Ik kom er wel.",
-     "img": "images/dieren/dier-schildpad-zwart.jpg",
+     "name": "15 · Rustig aan. Ik kom er wel.",
+     "img": "images/dieren/dier-schildpad-kids-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-schildpad-zwart.jpg",
-      "navy": "images/dieren/dier-schildpad-navy.jpg",
-      "groen": "images/dieren/dier-schildpad-groen.jpg"
+      "zwart": "images/dieren/dier-schildpad-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-schildpad-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-schildpad-kids-groen-voor.jpg"
      }
     },
     {
      "id": "dier-uil",
-     "name": "Ik ben wakker. Dat is al heel wat.",
-     "img": "images/dieren/dier-uil-zwart.jpg",
+     "name": "16 · Ik ben wakker. Dat is al heel wat.",
+     "img": "images/dieren/dier-uil-kids-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-uil-zwart.jpg",
-      "navy": "images/dieren/dier-uil-navy.jpg",
-      "groen": "images/dieren/dier-uil-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-alpaca",
-     "name": "Geen drama. Wel een mening.",
-     "img": "images/dieren/dier-alpaca-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-alpaca-zwart.jpg",
-      "navy": "images/dieren/dier-alpaca-navy.jpg",
-      "groen": "images/dieren/dier-alpaca-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-muis",
-     "name": "Grootse dromen. Kleine pootjes.",
-     "img": "images/dieren/dier-muis-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-muis-zwart.jpg",
-      "navy": "images/dieren/dier-muis-navy.jpg",
-      "groen": "images/dieren/dier-muis-groen.jpg"
+      "zwart": "images/dieren/dier-uil-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-uil-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-uil-kids-groen-voor.jpg"
      }
     },
     {
      "id": "dier-pinguin",
-     "name": "Netjes gekleed. Totaal geen plan.",
-     "img": "images/dieren/dier-pinguin-zwart.jpg",
+     "name": "17 · Netjes gekleed. Totaal geen plan.",
+     "img": "images/dieren/dier-pinguin-kids-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-pinguin-zwart.jpg",
-      "navy": "images/dieren/dier-pinguin-navy.jpg",
-      "groen": "images/dieren/dier-pinguin-groen.jpg"
+      "zwart": "images/dieren/dier-pinguin-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-pinguin-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-pinguin-kids-groen-voor.jpg"
      }
     },
     {
-     "id": "dier-krokodil",
-     "name": "Zacht vanbinnen. Grote mond.",
-     "img": "images/dieren/dier-krokodil-zwart.jpg",
+     "id": "dier-capibara",
+     "name": "18 · Geen stress. Ik doe mijn best.",
      "imgs": {
-      "zwart": "images/dieren/dier-krokodil-zwart.jpg",
-      "navy": "images/dieren/dier-krokodil-navy.jpg",
-      "groen": "images/dieren/dier-krokodil-groen.jpg"
+      "zwart": "images/dieren/dier-capibara-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-capibara-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-capibara-kids-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-capibara-kids-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-koffiebeer",
+     "name": "19 · Eerst koffie. Dan de rest.",
+     "imgs": {
+      "zwart": "images/dieren/dier-koffiebeer-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-koffiebeer-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-koffiebeer-kids-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-koffiebeer-kids-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-luiekat",
+     "name": "20 · Vandaag even helemaal niks.",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiekat-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiekat-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiekat-kids-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-luiekat-kids-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-muis",
+     "name": "21 · Grootse dromen. Kleine pootjes.",
+     "img": "images/dieren/dier-muis-kids-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-muis-kids-zwart-voor.jpg",
+      "navy": "images/dieren/dier-muis-kids-navy-voor.jpg",
+      "groen": "images/dieren/dier-muis-kids-groen-voor.jpg"
      }
     }
    ],
@@ -716,18 +496,8 @@
    ],
    "designs": [
     {
-     "id": "foutetrui",
-     "name": "Foute trui?",
-     "img": "images/kerst/foutetrui-kidshoodie-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/foutetrui-kidshoodie-zwart-model.jpg",
-      "navy": "images/kerst/foutetrui-kidshoodie-navy-model.jpg",
-      "groen": "images/kerst/foutetrui-kidshoodie-groen-model.jpg"
-     }
-    },
-    {
      "id": "gluhwein",
-     "name": "Team Glühwein",
+     "name": "2 · Team Warme Choco",
      "img": "images/kerst/gluhwein-kidshoodie-zwart-model.jpg",
      "imgs": {
       "zwart": "images/kerst/gluhwein-kidshoodie-zwart-model.jpg",
@@ -736,68 +506,8 @@
      }
     },
     {
-     "id": "goede-smaak",
-     "name": "Goede smaak",
-     "img": "images/kerst/goede-smaak-kidshoodie-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/goede-smaak-kidshoodie-zwart-model.jpg",
-      "navy": "images/kerst/goede-smaak-kidshoodie-navy-model.jpg",
-      "groen": "images/kerst/goede-smaak-kidshoodie-groen-model.jpg"
-     }
-    },
-    {
-     "id": "ikpiek",
-     "name": "Ik piek met kerst",
-     "img": "images/kerst/ikpiek-kidshoodie-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/ikpiek-kidshoodie-zwart-model.jpg",
-      "navy": "images/kerst/ikpiek-kidshoodie-navy-model.jpg",
-      "groen": "images/kerst/ikpiek-kidshoodie-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstclub",
-     "name": "Kerstclub",
-     "img": "images/kerst/kerstclub-kidshoodie-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstclub-kidshoodie-zwart-model.jpg",
-      "navy": "images/kerst/kerstclub-kidshoodie-navy-model.jpg",
-      "groen": "images/kerst/kerstclub-kidshoodie-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstmodus",
-     "name": "Kerstmodus aan",
-     "img": "images/kerst/kerstmodus-kidshoodie-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstmodus-kidshoodie-zwart-model.jpg",
-      "navy": "images/kerst/kerstmodus-kidshoodie-navy-model.jpg",
-      "groen": "images/kerst/kerstmodus-kidshoodie-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstwarmer",
-     "name": "Jij maakt kerst warmer",
-     "img": "images/kerst/kerstwarmer-kidshoodie-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstwarmer-kidshoodie-zwart-model.jpg",
-      "navy": "images/kerst/kerstwarmer-kidshoodie-navy-model.jpg",
-      "groen": "images/kerst/kerstwarmer-kidshoodie-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstzin",
-     "name": "Kerstzin",
-     "img": "images/kerst/kerstzin-kidshoodie-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstzin-kidshoodie-zwart-model.jpg",
-      "navy": "images/kerst/kerstzin-kidshoodie-navy-model.jpg",
-      "groen": "images/kerst/kerstzin-kidshoodie-groen-model.jpg"
-     }
-    },
-    {
      "id": "koekje",
-     "name": "Koekje erbij?",
+     "name": "3 · Koekje erbij?",
      "img": "images/kerst/koekje-kidshoodie-zwart-model.jpg",
      "imgs": {
       "zwart": "images/kerst/koekje-kidshoodie-zwart-model.jpg",
@@ -806,38 +516,8 @@
      }
     },
     {
-     "id": "lieve",
-     "name": "Lieve kerstman",
-     "img": "images/kerst/lieve-kidshoodie-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/lieve-kidshoodie-zwart-model.jpg",
-      "navy": "images/kerst/lieve-kidshoodie-navy-model.jpg",
-      "groen": "images/kerst/lieve-kidshoodie-groen-model.jpg"
-     }
-    },
-    {
-     "id": "stillenacht",
-     "name": "Stille nacht?",
-     "img": "images/kerst/stillenacht-kidshoodie-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/stillenacht-kidshoodie-zwart-model.jpg",
-      "navy": "images/kerst/stillenacht-kidshoodie-navy-model.jpg",
-      "groen": "images/kerst/stillenacht-kidshoodie-groen-model.jpg"
-     }
-    },
-    {
-     "id": "warm",
-     "name": "Koud weer",
-     "img": "images/kerst/warm-kidshoodie-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/warm-kidshoodie-zwart-model.jpg",
-      "navy": "images/kerst/warm-kidshoodie-navy-model.jpg",
-      "groen": "images/kerst/warm-kidshoodie-groen-model.jpg"
-     }
-    },
-    {
      "id": "hohoho",
-     "name": "Ho ho ho maar",
+     "name": "4 · Ho ho ho maar",
      "img": "images/kerst/hohoho-kidshoodie-zwart-model.jpg",
      "imgs": {
       "zwart": "images/kerst/hohoho-kidshoodie-zwart-model.jpg",
@@ -846,28 +526,8 @@
      }
     },
     {
-     "id": "rendier",
-     "name": "Coole rendier",
-     "img": "images/kerst/rendier-hoodie-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/rendier-hoodie-zwart.jpg",
-      "navy": "images/kerst/rendier-hoodie-navy.jpg",
-      "groen": "images/kerst/rendier-hoodie-groen.jpg"
-     }
-    },
-    {
-     "id": "kerststress",
-     "name": "Kerststress? Ik doe een dutje",
-     "img": "images/kerst/kerststress-hoodie-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerststress-hoodie-zwart.jpg",
-      "navy": "images/kerst/kerststress-hoodie-navy.jpg",
-      "groen": "images/kerst/kerststress-hoodie-groen.jpg"
-     }
-    },
-    {
      "id": "wanten",
-     "name": "Jij maakt kerst warmer (wanten)",
+     "name": "5 · Jij maakt kerst warmer (wanten)",
      "img": "images/kerst/wanten-hoodie-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/wanten-hoodie-zwart.jpg",
@@ -877,7 +537,7 @@
     },
     {
      "id": "winter-pinguin",
-     "name": "Koud buiten, cool vanbinnen",
+     "name": "6 · Koud buiten, cool vanbinnen",
      "img": "images/kerst/pinguin-hoodie-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/pinguin-hoodie-zwart.jpg",
@@ -886,143 +546,153 @@
      }
     },
     {
-     "id": "dier-luiaard",
-     "name": "Ik ben niet traag. Ik spaar energie.",
-     "img": "images/dieren/dier-luiaard-zwart.jpg",
+     "id": "ikpiek",
+     "name": "7 · Ik piek met kerst",
+     "img": "images/kerst/ikpiek-kidshoodie-zwart-model.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-luiaard-zwart.jpg",
-      "navy": "images/dieren/dier-luiaard-navy.jpg",
-      "groen": "images/dieren/dier-luiaard-groen.jpg"
+      "zwart": "images/kerst/ikpiek-kidshoodie-zwart-model.jpg",
+      "navy": "images/kerst/ikpiek-kidshoodie-navy-model.jpg",
+      "groen": "images/kerst/ikpiek-kidshoodie-groen-model.jpg"
+     }
+    },
+    {
+     "id": "dier-luiaard",
+     "name": "8 · Ik ben niet traag. Ik spaar energie.",
+     "img": "images/dieren/dier-luiaard-kidshoodie-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiaard-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiaard-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiaard-kidshoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-egel",
-     "name": "Sociale batterij bijna leeg.",
-     "img": "images/dieren/dier-egel-zwart.jpg",
+     "name": "9 · Sociale batterij bijna leeg.",
+     "img": "images/dieren/dier-egel-kidshoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-egel-zwart.jpg",
-      "navy": "images/dieren/dier-egel-navy.jpg",
-      "groen": "images/dieren/dier-egel-groen.jpg"
+      "zwart": "images/dieren/dier-egel-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-egel-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-egel-kidshoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-hamster",
-     "name": "Hoofd vol plannen. Handen vol snacks.",
-     "img": "images/dieren/dier-hamster-zwart.jpg",
+     "name": "10 · Hoofd vol plannen. Handen vol snacks.",
+     "img": "images/dieren/dier-hamster-kidshoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-hamster-zwart.jpg",
-      "navy": "images/dieren/dier-hamster-navy.jpg",
-      "groen": "images/dieren/dier-hamster-groen.jpg"
+      "zwart": "images/dieren/dier-hamster-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-hamster-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-hamster-kidshoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-kat",
-     "name": "Druk bezig met niks.",
-     "img": "images/dieren/dier-kat-zwart.jpg",
+     "name": "11 · Druk bezig met niks.",
+     "img": "images/dieren/dier-kat-kidshoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-kat-zwart.jpg",
-      "navy": "images/dieren/dier-kat-navy.jpg",
-      "groen": "images/dieren/dier-kat-groen.jpg"
+      "zwart": "images/dieren/dier-kat-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-kat-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-kat-kidshoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-panda",
-     "name": "Vandaag is een morgenprobleem.",
-     "img": "images/dieren/dier-panda-zwart.jpg",
+     "name": "12 · Vandaag is een morgenprobleem.",
+     "img": "images/dieren/dier-panda-kidshoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-panda-zwart.jpg",
-      "navy": "images/dieren/dier-panda-navy.jpg",
-      "groen": "images/dieren/dier-panda-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-otter",
-     "name": "Gewoon lekker meedrijven.",
-     "img": "images/dieren/dier-otter-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-otter-zwart.jpg",
-      "navy": "images/dieren/dier-otter-navy.jpg",
-      "groen": "images/dieren/dier-otter-groen.jpg"
+      "zwart": "images/dieren/dier-panda-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-panda-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-panda-kidshoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-konijn",
-     "name": "Kleine stapjes. Grootse plannen.",
-     "img": "images/dieren/dier-konijn-zwart.jpg",
+     "name": "13 · Kleine stapjes. Grootse plannen.",
+     "img": "images/dieren/dier-konijn-kidshoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-konijn-zwart.jpg",
-      "navy": "images/dieren/dier-konijn-navy.jpg",
-      "groen": "images/dieren/dier-konijn-groen.jpg"
+      "zwart": "images/dieren/dier-konijn-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-konijn-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-konijn-kidshoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-vos",
-     "name": "Beetje eigenwijs. Helemaal mezelf.",
-     "img": "images/dieren/dier-vos-zwart.jpg",
+     "name": "14 · Beetje eigenwijs. Helemaal mezelf.",
+     "img": "images/dieren/dier-vos-kidshoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-vos-zwart.jpg",
-      "navy": "images/dieren/dier-vos-navy.jpg",
-      "groen": "images/dieren/dier-vos-groen.jpg"
+      "zwart": "images/dieren/dier-vos-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-vos-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-vos-kidshoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-schildpad",
-     "name": "Rustig aan. Ik kom er wel.",
-     "img": "images/dieren/dier-schildpad-zwart.jpg",
+     "name": "15 · Rustig aan. Ik kom er wel.",
+     "img": "images/dieren/dier-schildpad-kidshoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-schildpad-zwart.jpg",
-      "navy": "images/dieren/dier-schildpad-navy.jpg",
-      "groen": "images/dieren/dier-schildpad-groen.jpg"
+      "zwart": "images/dieren/dier-schildpad-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-schildpad-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-schildpad-kidshoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-uil",
-     "name": "Ik ben wakker. Dat is al heel wat.",
-     "img": "images/dieren/dier-uil-zwart.jpg",
+     "name": "16 · Ik ben wakker. Dat is al heel wat.",
+     "img": "images/dieren/dier-uil-kidshoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-uil-zwart.jpg",
-      "navy": "images/dieren/dier-uil-navy.jpg",
-      "groen": "images/dieren/dier-uil-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-alpaca",
-     "name": "Geen drama. Wel een mening.",
-     "img": "images/dieren/dier-alpaca-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-alpaca-zwart.jpg",
-      "navy": "images/dieren/dier-alpaca-navy.jpg",
-      "groen": "images/dieren/dier-alpaca-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-muis",
-     "name": "Grootse dromen. Kleine pootjes.",
-     "img": "images/dieren/dier-muis-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-muis-zwart.jpg",
-      "navy": "images/dieren/dier-muis-navy.jpg",
-      "groen": "images/dieren/dier-muis-groen.jpg"
+      "zwart": "images/dieren/dier-uil-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-uil-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-uil-kidshoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-pinguin",
-     "name": "Netjes gekleed. Totaal geen plan.",
-     "img": "images/dieren/dier-pinguin-zwart.jpg",
+     "name": "17 · Netjes gekleed. Totaal geen plan.",
+     "img": "images/dieren/dier-pinguin-kidshoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-pinguin-zwart.jpg",
-      "navy": "images/dieren/dier-pinguin-navy.jpg",
-      "groen": "images/dieren/dier-pinguin-groen.jpg"
+      "zwart": "images/dieren/dier-pinguin-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-pinguin-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-pinguin-kidshoodie-groen-voor.jpg"
      }
     },
     {
-     "id": "dier-krokodil",
-     "name": "Zacht vanbinnen. Grote mond.",
-     "img": "images/dieren/dier-krokodil-zwart.jpg",
+     "id": "dier-capibara",
+     "name": "18 · Geen stress. Ik doe mijn best.",
      "imgs": {
-      "zwart": "images/dieren/dier-krokodil-zwart.jpg",
-      "navy": "images/dieren/dier-krokodil-navy.jpg",
-      "groen": "images/dieren/dier-krokodil-groen.jpg"
+      "zwart": "images/dieren/dier-capibara-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-capibara-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-capibara-kidshoodie-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-capibara-kidshoodie-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-koffiebeer",
+     "name": "19 · Eerst koffie. Dan de rest.",
+     "imgs": {
+      "zwart": "images/dieren/dier-koffiebeer-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-koffiebeer-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-koffiebeer-kidshoodie-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-koffiebeer-kidshoodie-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-luiekat",
+     "name": "20 · Vandaag even helemaal niks.",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiekat-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiekat-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiekat-kidshoodie-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-luiekat-kidshoodie-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-muis",
+     "name": "21 · Grootse dromen. Kleine pootjes.",
+     "img": "images/dieren/dier-muis-kidshoodie-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-muis-kidshoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-muis-kidshoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-muis-kidshoodie-groen-voor.jpg"
      }
     }
    ],
@@ -1064,18 +734,8 @@
    ],
    "designs": [
     {
-     "id": "foutetrui",
-     "name": "Foute trui?",
-     "img": "images/kerst/foutetrui-kidstrui-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/foutetrui-kidstrui-zwart-model.jpg",
-      "navy": "images/kerst/foutetrui-kidstrui-navy-model.jpg",
-      "groen": "images/kerst/foutetrui-kidstrui-groen-model.jpg"
-     }
-    },
-    {
      "id": "gluhwein",
-     "name": "Team Glühwein",
+     "name": "2 · Team Warme Choco",
      "img": "images/kerst/gluhwein-kidstrui-zwart-model.jpg",
      "imgs": {
       "zwart": "images/kerst/gluhwein-kidstrui-zwart-model.jpg",
@@ -1084,68 +744,8 @@
      }
     },
     {
-     "id": "goede-smaak",
-     "name": "Goede smaak",
-     "img": "images/kerst/goede-smaak-kidstrui-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/goede-smaak-kidstrui-zwart-model.jpg",
-      "navy": "images/kerst/goede-smaak-kidstrui-navy-model.jpg",
-      "groen": "images/kerst/goede-smaak-kidstrui-groen-model.jpg"
-     }
-    },
-    {
-     "id": "ikpiek",
-     "name": "Ik piek met kerst",
-     "img": "images/kerst/ikpiek-kidstrui-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/ikpiek-kidstrui-zwart-model.jpg",
-      "navy": "images/kerst/ikpiek-kidstrui-navy-model.jpg",
-      "groen": "images/kerst/ikpiek-kidstrui-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstclub",
-     "name": "Kerstclub",
-     "img": "images/kerst/kerstclub-kidstrui-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstclub-kidstrui-zwart-model.jpg",
-      "navy": "images/kerst/kerstclub-kidstrui-navy-model.jpg",
-      "groen": "images/kerst/kerstclub-kidstrui-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstmodus",
-     "name": "Kerstmodus aan",
-     "img": "images/kerst/kerstmodus-kidstrui-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstmodus-kidstrui-zwart-model.jpg",
-      "navy": "images/kerst/kerstmodus-kidstrui-navy-model.jpg",
-      "groen": "images/kerst/kerstmodus-kidstrui-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstwarmer",
-     "name": "Jij maakt kerst warmer",
-     "img": "images/kerst/kerstwarmer-kidstrui-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstwarmer-kidstrui-zwart-model.jpg",
-      "navy": "images/kerst/kerstwarmer-kidstrui-navy-model.jpg",
-      "groen": "images/kerst/kerstwarmer-kidstrui-groen-model.jpg"
-     }
-    },
-    {
-     "id": "kerstzin",
-     "name": "Kerstzin",
-     "img": "images/kerst/kerstzin-kidstrui-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerstzin-kidstrui-zwart-model.jpg",
-      "navy": "images/kerst/kerstzin-kidstrui-navy-model.jpg",
-      "groen": "images/kerst/kerstzin-kidstrui-groen-model.jpg"
-     }
-    },
-    {
      "id": "koekje",
-     "name": "Koekje erbij?",
+     "name": "3 · Koekje erbij?",
      "img": "images/kerst/koekje-kidstrui-zwart-model.jpg",
      "imgs": {
       "zwart": "images/kerst/koekje-kidstrui-zwart-model.jpg",
@@ -1154,38 +754,8 @@
      }
     },
     {
-     "id": "lieve",
-     "name": "Lieve kerstman",
-     "img": "images/kerst/lieve-kidstrui-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/lieve-kidstrui-zwart-model.jpg",
-      "navy": "images/kerst/lieve-kidstrui-navy-model.jpg",
-      "groen": "images/kerst/lieve-kidstrui-groen-model.jpg"
-     }
-    },
-    {
-     "id": "stillenacht",
-     "name": "Stille nacht?",
-     "img": "images/kerst/stillenacht-kidstrui-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/stillenacht-kidstrui-zwart-model.jpg",
-      "navy": "images/kerst/stillenacht-kidstrui-navy-model.jpg",
-      "groen": "images/kerst/stillenacht-kidstrui-groen-model.jpg"
-     }
-    },
-    {
-     "id": "warm",
-     "name": "Koud weer",
-     "img": "images/kerst/warm-kidstrui-zwart-model.jpg",
-     "imgs": {
-      "zwart": "images/kerst/warm-kidstrui-zwart-model.jpg",
-      "navy": "images/kerst/warm-kidstrui-navy-model.jpg",
-      "groen": "images/kerst/warm-kidstrui-groen-model.jpg"
-     }
-    },
-    {
      "id": "hohoho",
-     "name": "Ho ho ho maar",
+     "name": "4 · Ho ho ho maar",
      "img": "images/kerst/hohoho-kidstrui-zwart-model.jpg",
      "imgs": {
       "zwart": "images/kerst/hohoho-kidstrui-zwart-model.jpg",
@@ -1194,28 +764,8 @@
      }
     },
     {
-     "id": "rendier",
-     "name": "Coole rendier",
-     "img": "images/kerst/rendier-trui-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/rendier-trui-zwart.jpg",
-      "navy": "images/kerst/rendier-trui-navy.jpg",
-      "groen": "images/kerst/rendier-trui-groen.jpg"
-     }
-    },
-    {
-     "id": "kerststress",
-     "name": "Kerststress? Ik doe een dutje",
-     "img": "images/kerst/kerststress-trui-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerststress-trui-zwart.jpg",
-      "navy": "images/kerst/kerststress-trui-navy.jpg",
-      "groen": "images/kerst/kerststress-trui-groen.jpg"
-     }
-    },
-    {
      "id": "wanten",
-     "name": "Jij maakt kerst warmer (wanten)",
+     "name": "5 · Jij maakt kerst warmer (wanten)",
      "img": "images/kerst/wanten-trui-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/wanten-trui-zwart.jpg",
@@ -1225,7 +775,7 @@
     },
     {
      "id": "winter-pinguin",
-     "name": "Koud buiten, cool vanbinnen",
+     "name": "6 · Koud buiten, cool vanbinnen",
      "img": "images/kerst/pinguin-trui-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/pinguin-trui-zwart.jpg",
@@ -1234,143 +784,153 @@
      }
     },
     {
-     "id": "dier-luiaard",
-     "name": "Ik ben niet traag. Ik spaar energie.",
-     "img": "images/dieren/dier-luiaard-zwart.jpg",
+     "id": "ikpiek",
+     "name": "7 · Ik piek met kerst",
+     "img": "images/kerst/ikpiek-kidstrui-zwart-model.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-luiaard-zwart.jpg",
-      "navy": "images/dieren/dier-luiaard-navy.jpg",
-      "groen": "images/dieren/dier-luiaard-groen.jpg"
+      "zwart": "images/kerst/ikpiek-kidstrui-zwart-model.jpg",
+      "navy": "images/kerst/ikpiek-kidstrui-navy-model.jpg",
+      "groen": "images/kerst/ikpiek-kidstrui-groen-model.jpg"
+     }
+    },
+    {
+     "id": "dier-luiaard",
+     "name": "8 · Ik ben niet traag. Ik spaar energie.",
+     "img": "images/dieren/dier-luiaard-kidstrui-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiaard-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiaard-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiaard-kidstrui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-egel",
-     "name": "Sociale batterij bijna leeg.",
-     "img": "images/dieren/dier-egel-zwart.jpg",
+     "name": "9 · Sociale batterij bijna leeg.",
+     "img": "images/dieren/dier-egel-kidstrui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-egel-zwart.jpg",
-      "navy": "images/dieren/dier-egel-navy.jpg",
-      "groen": "images/dieren/dier-egel-groen.jpg"
+      "zwart": "images/dieren/dier-egel-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-egel-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-egel-kidstrui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-hamster",
-     "name": "Hoofd vol plannen. Handen vol snacks.",
-     "img": "images/dieren/dier-hamster-zwart.jpg",
+     "name": "10 · Hoofd vol plannen. Handen vol snacks.",
+     "img": "images/dieren/dier-hamster-kidstrui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-hamster-zwart.jpg",
-      "navy": "images/dieren/dier-hamster-navy.jpg",
-      "groen": "images/dieren/dier-hamster-groen.jpg"
+      "zwart": "images/dieren/dier-hamster-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-hamster-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-hamster-kidstrui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-kat",
-     "name": "Druk bezig met niks.",
-     "img": "images/dieren/dier-kat-zwart.jpg",
+     "name": "11 · Druk bezig met niks.",
+     "img": "images/dieren/dier-kat-kidstrui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-kat-zwart.jpg",
-      "navy": "images/dieren/dier-kat-navy.jpg",
-      "groen": "images/dieren/dier-kat-groen.jpg"
+      "zwart": "images/dieren/dier-kat-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-kat-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-kat-kidstrui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-panda",
-     "name": "Vandaag is een morgenprobleem.",
-     "img": "images/dieren/dier-panda-zwart.jpg",
+     "name": "12 · Vandaag is een morgenprobleem.",
+     "img": "images/dieren/dier-panda-kidstrui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-panda-zwart.jpg",
-      "navy": "images/dieren/dier-panda-navy.jpg",
-      "groen": "images/dieren/dier-panda-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-otter",
-     "name": "Gewoon lekker meedrijven.",
-     "img": "images/dieren/dier-otter-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-otter-zwart.jpg",
-      "navy": "images/dieren/dier-otter-navy.jpg",
-      "groen": "images/dieren/dier-otter-groen.jpg"
+      "zwart": "images/dieren/dier-panda-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-panda-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-panda-kidstrui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-konijn",
-     "name": "Kleine stapjes. Grootse plannen.",
-     "img": "images/dieren/dier-konijn-zwart.jpg",
+     "name": "13 · Kleine stapjes. Grootse plannen.",
+     "img": "images/dieren/dier-konijn-kidstrui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-konijn-zwart.jpg",
-      "navy": "images/dieren/dier-konijn-navy.jpg",
-      "groen": "images/dieren/dier-konijn-groen.jpg"
+      "zwart": "images/dieren/dier-konijn-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-konijn-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-konijn-kidstrui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-vos",
-     "name": "Beetje eigenwijs. Helemaal mezelf.",
-     "img": "images/dieren/dier-vos-zwart.jpg",
+     "name": "14 · Beetje eigenwijs. Helemaal mezelf.",
+     "img": "images/dieren/dier-vos-kidstrui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-vos-zwart.jpg",
-      "navy": "images/dieren/dier-vos-navy.jpg",
-      "groen": "images/dieren/dier-vos-groen.jpg"
+      "zwart": "images/dieren/dier-vos-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-vos-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-vos-kidstrui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-schildpad",
-     "name": "Rustig aan. Ik kom er wel.",
-     "img": "images/dieren/dier-schildpad-zwart.jpg",
+     "name": "15 · Rustig aan. Ik kom er wel.",
+     "img": "images/dieren/dier-schildpad-kidstrui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-schildpad-zwart.jpg",
-      "navy": "images/dieren/dier-schildpad-navy.jpg",
-      "groen": "images/dieren/dier-schildpad-groen.jpg"
+      "zwart": "images/dieren/dier-schildpad-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-schildpad-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-schildpad-kidstrui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-uil",
-     "name": "Ik ben wakker. Dat is al heel wat.",
-     "img": "images/dieren/dier-uil-zwart.jpg",
+     "name": "16 · Ik ben wakker. Dat is al heel wat.",
+     "img": "images/dieren/dier-uil-kidstrui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-uil-zwart.jpg",
-      "navy": "images/dieren/dier-uil-navy.jpg",
-      "groen": "images/dieren/dier-uil-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-alpaca",
-     "name": "Geen drama. Wel een mening.",
-     "img": "images/dieren/dier-alpaca-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-alpaca-zwart.jpg",
-      "navy": "images/dieren/dier-alpaca-navy.jpg",
-      "groen": "images/dieren/dier-alpaca-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-muis",
-     "name": "Grootse dromen. Kleine pootjes.",
-     "img": "images/dieren/dier-muis-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-muis-zwart.jpg",
-      "navy": "images/dieren/dier-muis-navy.jpg",
-      "groen": "images/dieren/dier-muis-groen.jpg"
+      "zwart": "images/dieren/dier-uil-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-uil-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-uil-kidstrui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-pinguin",
-     "name": "Netjes gekleed. Totaal geen plan.",
-     "img": "images/dieren/dier-pinguin-zwart.jpg",
+     "name": "17 · Netjes gekleed. Totaal geen plan.",
+     "img": "images/dieren/dier-pinguin-kidstrui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-pinguin-zwart.jpg",
-      "navy": "images/dieren/dier-pinguin-navy.jpg",
-      "groen": "images/dieren/dier-pinguin-groen.jpg"
+      "zwart": "images/dieren/dier-pinguin-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-pinguin-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-pinguin-kidstrui-groen-voor.jpg"
      }
     },
     {
-     "id": "dier-krokodil",
-     "name": "Zacht vanbinnen. Grote mond.",
-     "img": "images/dieren/dier-krokodil-zwart.jpg",
+     "id": "dier-capibara",
+     "name": "18 · Geen stress. Ik doe mijn best.",
      "imgs": {
-      "zwart": "images/dieren/dier-krokodil-zwart.jpg",
-      "navy": "images/dieren/dier-krokodil-navy.jpg",
-      "groen": "images/dieren/dier-krokodil-groen.jpg"
+      "zwart": "images/dieren/dier-capibara-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-capibara-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-capibara-kidstrui-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-capibara-kidstrui-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-koffiebeer",
+     "name": "19 · Eerst koffie. Dan de rest.",
+     "imgs": {
+      "zwart": "images/dieren/dier-koffiebeer-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-koffiebeer-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-koffiebeer-kidstrui-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-koffiebeer-kidstrui-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-luiekat",
+     "name": "20 · Vandaag even helemaal niks.",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiekat-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiekat-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiekat-kidstrui-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-luiekat-kidstrui-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-muis",
+     "name": "21 · Grootse dromen. Kleine pootjes.",
+     "img": "images/dieren/dier-muis-kidstrui-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-muis-kidstrui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-muis-kidstrui-navy-voor.jpg",
+      "groen": "images/dieren/dier-muis-kidstrui-groen-voor.jpg"
      }
     }
    ],
@@ -1429,18 +989,8 @@
    },
    "designs": [
     {
-     "id": "foutetrui",
-     "name": "Foute trui?",
-     "img": "images/kerst/foutetrui-hoodie-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/foutetrui-hoodie-groen.jpg",
-      "navy": "images/kerst/foutetrui-hoodie-navy.jpg",
-      "zwart": "images/kerst/foutetrui-hoodie-zwart.jpg"
-     }
-    },
-    {
      "id": "gluhwein",
-     "name": "Team Glühwein",
+     "name": "1 · Team Glühwein",
      "img": "images/kerst/gluhwein-hoodie-zwart.jpg",
      "imgs": {
       "groen": "images/kerst/gluhwein-hoodie-groen.jpg",
@@ -1449,68 +999,8 @@
      }
     },
     {
-     "id": "goede-smaak",
-     "name": "Goede smaak",
-     "img": "images/kerst/goede-smaak-hoodie-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/goede-smaak-hoodie-groen.jpg",
-      "navy": "images/kerst/goede-smaak-hoodie-navy.jpg",
-      "zwart": "images/kerst/goede-smaak-hoodie-zwart.jpg"
-     }
-    },
-    {
-     "id": "ikpiek",
-     "name": "Ik piek met kerst",
-     "img": "images/kerst/ikpiek-hoodie-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/ikpiek-hoodie-groen.jpg",
-      "navy": "images/kerst/ikpiek-hoodie-navy.jpg",
-      "zwart": "images/kerst/ikpiek-hoodie-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstclub",
-     "name": "Kerstclub",
-     "img": "images/kerst/kerstclub-hoodie-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstclub-hoodie-groen.jpg",
-      "navy": "images/kerst/kerstclub-hoodie-navy.jpg",
-      "zwart": "images/kerst/kerstclub-hoodie-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstmodus",
-     "name": "Kerstmodus aan",
-     "img": "images/kerst/kerstmodus-hoodie-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstmodus-hoodie-groen.jpg",
-      "navy": "images/kerst/kerstmodus-hoodie-navy.jpg",
-      "zwart": "images/kerst/kerstmodus-hoodie-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstwarmer",
-     "name": "Jij maakt kerst warmer",
-     "img": "images/kerst/kerstwarmer-hoodie-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstwarmer-hoodie-groen.jpg",
-      "navy": "images/kerst/kerstwarmer-hoodie-navy.jpg",
-      "zwart": "images/kerst/kerstwarmer-hoodie-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstzin",
-     "name": "Kerstzin",
-     "img": "images/kerst/kerstzin-hoodie-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstzin-hoodie-groen.jpg",
-      "navy": "images/kerst/kerstzin-hoodie-navy.jpg",
-      "zwart": "images/kerst/kerstzin-hoodie-zwart.jpg"
-     }
-    },
-    {
      "id": "koekje",
-     "name": "Koekje erbij?",
+     "name": "3 · Koekje erbij?",
      "img": "images/kerst/koekje-hoodie-zwart.jpg",
      "imgs": {
       "groen": "images/kerst/koekje-hoodie-groen.jpg",
@@ -1519,38 +1009,8 @@
      }
     },
     {
-     "id": "lieve",
-     "name": "Lieve kerstman",
-     "img": "images/kerst/lieve-hoodie-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/lieve-hoodie-groen.jpg",
-      "navy": "images/kerst/lieve-hoodie-navy.jpg",
-      "zwart": "images/kerst/lieve-hoodie-zwart.jpg"
-     }
-    },
-    {
-     "id": "stillenacht",
-     "name": "Stille nacht?",
-     "img": "images/kerst/stillenacht-hoodie-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/stillenacht-hoodie-groen.jpg",
-      "navy": "images/kerst/stillenacht-hoodie-navy.jpg",
-      "zwart": "images/kerst/stillenacht-hoodie-zwart.jpg"
-     }
-    },
-    {
-     "id": "warm",
-     "name": "Koud weer",
-     "img": "images/kerst/warm-hoodie-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/warm-hoodie-groen.jpg",
-      "navy": "images/kerst/warm-hoodie-navy.jpg",
-      "zwart": "images/kerst/warm-hoodie-zwart.jpg"
-     }
-    },
-    {
      "id": "hohoho",
-     "name": "Ho ho ho maar",
+     "name": "4 · Ho ho ho maar",
      "img": "images/kerst/hohoho-hoodie-zwart.jpg",
      "imgs": {
       "groen": "images/kerst/hohoho-hoodie-groen.jpg",
@@ -1559,28 +1019,8 @@
      }
     },
     {
-     "id": "rendier",
-     "name": "Coole rendier",
-     "img": "images/kerst/rendier-hoodie-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/rendier-hoodie-zwart.jpg",
-      "navy": "images/kerst/rendier-hoodie-navy.jpg",
-      "groen": "images/kerst/rendier-hoodie-groen.jpg"
-     }
-    },
-    {
-     "id": "kerststress",
-     "name": "Kerststress? Ik doe een dutje",
-     "img": "images/kerst/kerststress-hoodie-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerststress-hoodie-zwart.jpg",
-      "navy": "images/kerst/kerststress-hoodie-navy.jpg",
-      "groen": "images/kerst/kerststress-hoodie-groen.jpg"
-     }
-    },
-    {
      "id": "wanten",
-     "name": "Jij maakt kerst warmer (wanten)",
+     "name": "5 · Jij maakt kerst warmer (wanten)",
      "img": "images/kerst/wanten-hoodie-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/wanten-hoodie-zwart.jpg",
@@ -1590,7 +1030,7 @@
     },
     {
      "id": "winter-pinguin",
-     "name": "Koud buiten, cool vanbinnen",
+     "name": "6 · Koud buiten, cool vanbinnen",
      "img": "images/kerst/pinguin-hoodie-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/pinguin-hoodie-zwart.jpg",
@@ -1599,143 +1039,153 @@
      }
     },
     {
-     "id": "dier-luiaard",
-     "name": "Ik ben niet traag. Ik spaar energie.",
-     "img": "images/dieren/dier-luiaard-zwart.jpg",
+     "id": "ikpiek",
+     "name": "7 · Ik piek met kerst",
+     "img": "images/kerst/ikpiek-hoodie-zwart.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-luiaard-zwart.jpg",
-      "navy": "images/dieren/dier-luiaard-navy.jpg",
-      "groen": "images/dieren/dier-luiaard-groen.jpg"
+      "groen": "images/kerst/ikpiek-hoodie-groen.jpg",
+      "navy": "images/kerst/ikpiek-hoodie-navy.jpg",
+      "zwart": "images/kerst/ikpiek-hoodie-zwart.jpg"
+     }
+    },
+    {
+     "id": "dier-luiaard",
+     "name": "8 · Ik ben niet traag. Ik spaar energie.",
+     "img": "images/dieren/dier-luiaard-hoodie-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiaard-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiaard-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiaard-hoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-egel",
-     "name": "Sociale batterij bijna leeg.",
-     "img": "images/dieren/dier-egel-zwart.jpg",
+     "name": "9 · Sociale batterij bijna leeg.",
+     "img": "images/dieren/dier-egel-hoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-egel-zwart.jpg",
-      "navy": "images/dieren/dier-egel-navy.jpg",
-      "groen": "images/dieren/dier-egel-groen.jpg"
+      "zwart": "images/dieren/dier-egel-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-egel-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-egel-hoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-hamster",
-     "name": "Hoofd vol plannen. Handen vol snacks.",
-     "img": "images/dieren/dier-hamster-zwart.jpg",
+     "name": "10 · Hoofd vol plannen. Handen vol snacks.",
+     "img": "images/dieren/dier-hamster-hoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-hamster-zwart.jpg",
-      "navy": "images/dieren/dier-hamster-navy.jpg",
-      "groen": "images/dieren/dier-hamster-groen.jpg"
+      "zwart": "images/dieren/dier-hamster-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-hamster-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-hamster-hoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-kat",
-     "name": "Druk bezig met niks.",
-     "img": "images/dieren/dier-kat-zwart.jpg",
+     "name": "11 · Druk bezig met niks.",
+     "img": "images/dieren/dier-kat-hoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-kat-zwart.jpg",
-      "navy": "images/dieren/dier-kat-navy.jpg",
-      "groen": "images/dieren/dier-kat-groen.jpg"
+      "zwart": "images/dieren/dier-kat-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-kat-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-kat-hoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-panda",
-     "name": "Vandaag is een morgenprobleem.",
-     "img": "images/dieren/dier-panda-zwart.jpg",
+     "name": "12 · Vandaag is een morgenprobleem.",
+     "img": "images/dieren/dier-panda-hoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-panda-zwart.jpg",
-      "navy": "images/dieren/dier-panda-navy.jpg",
-      "groen": "images/dieren/dier-panda-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-otter",
-     "name": "Gewoon lekker meedrijven.",
-     "img": "images/dieren/dier-otter-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-otter-zwart.jpg",
-      "navy": "images/dieren/dier-otter-navy.jpg",
-      "groen": "images/dieren/dier-otter-groen.jpg"
+      "zwart": "images/dieren/dier-panda-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-panda-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-panda-hoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-konijn",
-     "name": "Kleine stapjes. Grootse plannen.",
-     "img": "images/dieren/dier-konijn-zwart.jpg",
+     "name": "13 · Kleine stapjes. Grootse plannen.",
+     "img": "images/dieren/dier-konijn-hoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-konijn-zwart.jpg",
-      "navy": "images/dieren/dier-konijn-navy.jpg",
-      "groen": "images/dieren/dier-konijn-groen.jpg"
+      "zwart": "images/dieren/dier-konijn-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-konijn-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-konijn-hoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-vos",
-     "name": "Beetje eigenwijs. Helemaal mezelf.",
-     "img": "images/dieren/dier-vos-zwart.jpg",
+     "name": "14 · Beetje eigenwijs. Helemaal mezelf.",
+     "img": "images/dieren/dier-vos-hoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-vos-zwart.jpg",
-      "navy": "images/dieren/dier-vos-navy.jpg",
-      "groen": "images/dieren/dier-vos-groen.jpg"
+      "zwart": "images/dieren/dier-vos-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-vos-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-vos-hoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-schildpad",
-     "name": "Rustig aan. Ik kom er wel.",
-     "img": "images/dieren/dier-schildpad-zwart.jpg",
+     "name": "15 · Rustig aan. Ik kom er wel.",
+     "img": "images/dieren/dier-schildpad-hoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-schildpad-zwart.jpg",
-      "navy": "images/dieren/dier-schildpad-navy.jpg",
-      "groen": "images/dieren/dier-schildpad-groen.jpg"
+      "zwart": "images/dieren/dier-schildpad-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-schildpad-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-schildpad-hoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-uil",
-     "name": "Ik ben wakker. Dat is al heel wat.",
-     "img": "images/dieren/dier-uil-zwart.jpg",
+     "name": "16 · Ik ben wakker. Dat is al heel wat.",
+     "img": "images/dieren/dier-uil-hoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-uil-zwart.jpg",
-      "navy": "images/dieren/dier-uil-navy.jpg",
-      "groen": "images/dieren/dier-uil-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-alpaca",
-     "name": "Geen drama. Wel een mening.",
-     "img": "images/dieren/dier-alpaca-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-alpaca-zwart.jpg",
-      "navy": "images/dieren/dier-alpaca-navy.jpg",
-      "groen": "images/dieren/dier-alpaca-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-muis",
-     "name": "Grootse dromen. Kleine pootjes.",
-     "img": "images/dieren/dier-muis-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-muis-zwart.jpg",
-      "navy": "images/dieren/dier-muis-navy.jpg",
-      "groen": "images/dieren/dier-muis-groen.jpg"
+      "zwart": "images/dieren/dier-uil-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-uil-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-uil-hoodie-groen-voor.jpg"
      }
     },
     {
      "id": "dier-pinguin",
-     "name": "Netjes gekleed. Totaal geen plan.",
-     "img": "images/dieren/dier-pinguin-zwart.jpg",
+     "name": "17 · Netjes gekleed. Totaal geen plan.",
+     "img": "images/dieren/dier-pinguin-hoodie-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-pinguin-zwart.jpg",
-      "navy": "images/dieren/dier-pinguin-navy.jpg",
-      "groen": "images/dieren/dier-pinguin-groen.jpg"
+      "zwart": "images/dieren/dier-pinguin-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-pinguin-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-pinguin-hoodie-groen-voor.jpg"
      }
     },
     {
-     "id": "dier-krokodil",
-     "name": "Zacht vanbinnen. Grote mond.",
-     "img": "images/dieren/dier-krokodil-zwart.jpg",
+     "id": "dier-capibara",
+     "name": "18 · Geen stress. Ik doe mijn best.",
      "imgs": {
-      "zwart": "images/dieren/dier-krokodil-zwart.jpg",
-      "navy": "images/dieren/dier-krokodil-navy.jpg",
-      "groen": "images/dieren/dier-krokodil-groen.jpg"
+      "zwart": "images/dieren/dier-capibara-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-capibara-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-capibara-hoodie-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-capibara-hoodie-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-koffiebeer",
+     "name": "19 · Eerst koffie. Dan de rest.",
+     "imgs": {
+      "zwart": "images/dieren/dier-koffiebeer-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-koffiebeer-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-koffiebeer-hoodie-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-koffiebeer-hoodie-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-luiekat",
+     "name": "20 · Vandaag even helemaal niks.",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiekat-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiekat-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiekat-hoodie-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-luiekat-hoodie-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-muis",
+     "name": "21 · Grootse dromen. Kleine pootjes.",
+     "img": "images/dieren/dier-muis-hoodie-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-muis-hoodie-zwart-voor.jpg",
+      "navy": "images/dieren/dier-muis-hoodie-navy-voor.jpg",
+      "groen": "images/dieren/dier-muis-hoodie-groen-voor.jpg"
      }
     }
    ]
@@ -1777,18 +1227,8 @@
    },
    "designs": [
     {
-     "id": "foutetrui",
-     "name": "Foute trui?",
-     "img": "images/kerst/foutetrui-trui-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/foutetrui-trui-groen.jpg",
-      "navy": "images/kerst/foutetrui-trui-navy.jpg",
-      "zwart": "images/kerst/foutetrui-trui-zwart.jpg"
-     }
-    },
-    {
      "id": "gluhwein",
-     "name": "Team Glühwein",
+     "name": "1 · Team Glühwein",
      "img": "images/kerst/gluhwein-trui-zwart.jpg",
      "imgs": {
       "groen": "images/kerst/gluhwein-trui-groen.jpg",
@@ -1797,108 +1237,8 @@
      }
     },
     {
-     "id": "goede-smaak",
-     "name": "Goede smaak",
-     "img": "images/kerst/goede-smaak-trui-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/goede-smaak-trui-groen.jpg",
-      "navy": "images/kerst/goede-smaak-trui-navy.jpg",
-      "zwart": "images/kerst/goede-smaak-trui-zwart.jpg"
-     }
-    },
-    {
-     "id": "ikpiek",
-     "name": "Ik piek met kerst",
-     "img": "images/kerst/ikpiek-trui-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/ikpiek-trui-groen.jpg",
-      "navy": "images/kerst/ikpiek-trui-navy.jpg",
-      "zwart": "images/kerst/ikpiek-trui-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstclub",
-     "name": "Kerstclub",
-     "img": "images/kerst/kerstclub-trui-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstclub-trui-groen.jpg",
-      "navy": "images/kerst/kerstclub-trui-navy.jpg",
-      "zwart": "images/kerst/kerstclub-trui-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstmodus",
-     "name": "Kerstmodus aan",
-     "img": "images/kerst/kerstmodus-trui-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstmodus-trui-groen.jpg",
-      "navy": "images/kerst/kerstmodus-trui-navy.jpg",
-      "zwart": "images/kerst/kerstmodus-trui-zwart.jpg"
-     }
-    },
-    {
-     "id": "kerstzin",
-     "name": "Kerstzin",
-     "img": "images/kerst/kerstzin-trui-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/kerstzin-trui-groen.jpg",
-      "navy": "images/kerst/kerstzin-trui-navy.jpg",
-      "zwart": "images/kerst/kerstzin-trui-zwart.jpg"
-     }
-    },
-    {
-     "id": "lieve",
-     "name": "Lieve kerstman",
-     "img": "images/kerst/lieve-trui-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/lieve-trui-groen.jpg",
-      "navy": "images/kerst/lieve-trui-navy.jpg",
-      "zwart": "images/kerst/lieve-trui-zwart.jpg"
-     }
-    },
-    {
-     "id": "stillenacht",
-     "name": "Stille nacht?",
-     "img": "images/kerst/stillenacht-trui-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/stillenacht-trui-groen.jpg",
-      "navy": "images/kerst/stillenacht-trui-navy.jpg",
-      "zwart": "images/kerst/stillenacht-trui-zwart.jpg"
-     }
-    },
-    {
-     "id": "warm",
-     "name": "Koud weer",
-     "img": "images/kerst/warm-trui-zwart.jpg",
-     "imgs": {
-      "groen": "images/kerst/warm-trui-groen.jpg",
-      "navy": "images/kerst/warm-trui-navy.jpg",
-      "zwart": "images/kerst/warm-trui-zwart.jpg"
-     }
-    },
-    {
-     "id": "rendier",
-     "name": "Coole rendier",
-     "img": "images/kerst/rendier-trui-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/rendier-trui-zwart.jpg",
-      "navy": "images/kerst/rendier-trui-navy.jpg",
-      "groen": "images/kerst/rendier-trui-groen.jpg"
-     }
-    },
-    {
-     "id": "kerststress",
-     "name": "Kerststress? Ik doe een dutje",
-     "img": "images/kerst/kerststress-trui-zwart.jpg",
-     "imgs": {
-      "zwart": "images/kerst/kerststress-trui-zwart.jpg",
-      "navy": "images/kerst/kerststress-trui-navy.jpg",
-      "groen": "images/kerst/kerststress-trui-groen.jpg"
-     }
-    },
-    {
      "id": "wanten",
-     "name": "Jij maakt kerst warmer (wanten)",
+     "name": "5 · Jij maakt kerst warmer (wanten)",
      "img": "images/kerst/wanten-trui-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/wanten-trui-zwart.jpg",
@@ -1908,7 +1248,7 @@
     },
     {
      "id": "winter-pinguin",
-     "name": "Koud buiten, cool vanbinnen",
+     "name": "6 · Koud buiten, cool vanbinnen",
      "img": "images/kerst/pinguin-trui-zwart.jpg",
      "imgs": {
       "zwart": "images/kerst/pinguin-trui-zwart.jpg",
@@ -1917,150 +1257,160 @@
      }
     },
     {
-     "id": "dier-luiaard",
-     "name": "Ik ben niet traag. Ik spaar energie.",
-     "img": "images/dieren/dier-luiaard-zwart.jpg",
+     "id": "ikpiek",
+     "name": "7 · Ik piek met kerst",
+     "img": "images/kerst/ikpiek-trui-zwart.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-luiaard-zwart.jpg",
-      "navy": "images/dieren/dier-luiaard-navy.jpg",
-      "groen": "images/dieren/dier-luiaard-groen.jpg"
+      "groen": "images/kerst/ikpiek-trui-groen.jpg",
+      "navy": "images/kerst/ikpiek-trui-navy.jpg",
+      "zwart": "images/kerst/ikpiek-trui-zwart.jpg"
+     }
+    },
+    {
+     "id": "dier-luiaard",
+     "name": "8 · Ik ben niet traag. Ik spaar energie.",
+     "img": "images/dieren/dier-luiaard-trui-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiaard-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiaard-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiaard-trui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-egel",
-     "name": "Sociale batterij bijna leeg.",
-     "img": "images/dieren/dier-egel-zwart.jpg",
+     "name": "9 · Sociale batterij bijna leeg.",
+     "img": "images/dieren/dier-egel-trui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-egel-zwart.jpg",
-      "navy": "images/dieren/dier-egel-navy.jpg",
-      "groen": "images/dieren/dier-egel-groen.jpg"
+      "zwart": "images/dieren/dier-egel-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-egel-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-egel-trui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-hamster",
-     "name": "Hoofd vol plannen. Handen vol snacks.",
-     "img": "images/dieren/dier-hamster-zwart.jpg",
+     "name": "10 · Hoofd vol plannen. Handen vol snacks.",
+     "img": "images/dieren/dier-hamster-trui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-hamster-zwart.jpg",
-      "navy": "images/dieren/dier-hamster-navy.jpg",
-      "groen": "images/dieren/dier-hamster-groen.jpg"
+      "zwart": "images/dieren/dier-hamster-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-hamster-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-hamster-trui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-kat",
-     "name": "Druk bezig met niks.",
-     "img": "images/dieren/dier-kat-zwart.jpg",
+     "name": "11 · Druk bezig met niks.",
+     "img": "images/dieren/dier-kat-trui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-kat-zwart.jpg",
-      "navy": "images/dieren/dier-kat-navy.jpg",
-      "groen": "images/dieren/dier-kat-groen.jpg"
+      "zwart": "images/dieren/dier-kat-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-kat-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-kat-trui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-panda",
-     "name": "Vandaag is een morgenprobleem.",
-     "img": "images/dieren/dier-panda-zwart.jpg",
+     "name": "12 · Vandaag is een morgenprobleem.",
+     "img": "images/dieren/dier-panda-trui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-panda-zwart.jpg",
-      "navy": "images/dieren/dier-panda-navy.jpg",
-      "groen": "images/dieren/dier-panda-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-otter",
-     "name": "Gewoon lekker meedrijven.",
-     "img": "images/dieren/dier-otter-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-otter-zwart.jpg",
-      "navy": "images/dieren/dier-otter-navy.jpg",
-      "groen": "images/dieren/dier-otter-groen.jpg"
+      "zwart": "images/dieren/dier-panda-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-panda-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-panda-trui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-konijn",
-     "name": "Kleine stapjes. Grootse plannen.",
-     "img": "images/dieren/dier-konijn-zwart.jpg",
+     "name": "13 · Kleine stapjes. Grootse plannen.",
+     "img": "images/dieren/dier-konijn-trui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-konijn-zwart.jpg",
-      "navy": "images/dieren/dier-konijn-navy.jpg",
-      "groen": "images/dieren/dier-konijn-groen.jpg"
+      "zwart": "images/dieren/dier-konijn-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-konijn-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-konijn-trui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-vos",
-     "name": "Beetje eigenwijs. Helemaal mezelf.",
-     "img": "images/dieren/dier-vos-zwart.jpg",
+     "name": "14 · Beetje eigenwijs. Helemaal mezelf.",
+     "img": "images/dieren/dier-vos-trui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-vos-zwart.jpg",
-      "navy": "images/dieren/dier-vos-navy.jpg",
-      "groen": "images/dieren/dier-vos-groen.jpg"
+      "zwart": "images/dieren/dier-vos-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-vos-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-vos-trui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-schildpad",
-     "name": "Rustig aan. Ik kom er wel.",
-     "img": "images/dieren/dier-schildpad-zwart.jpg",
+     "name": "15 · Rustig aan. Ik kom er wel.",
+     "img": "images/dieren/dier-schildpad-trui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-schildpad-zwart.jpg",
-      "navy": "images/dieren/dier-schildpad-navy.jpg",
-      "groen": "images/dieren/dier-schildpad-groen.jpg"
+      "zwart": "images/dieren/dier-schildpad-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-schildpad-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-schildpad-trui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-uil",
-     "name": "Ik ben wakker. Dat is al heel wat.",
-     "img": "images/dieren/dier-uil-zwart.jpg",
+     "name": "16 · Ik ben wakker. Dat is al heel wat.",
+     "img": "images/dieren/dier-uil-trui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-uil-zwart.jpg",
-      "navy": "images/dieren/dier-uil-navy.jpg",
-      "groen": "images/dieren/dier-uil-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-alpaca",
-     "name": "Geen drama. Wel een mening.",
-     "img": "images/dieren/dier-alpaca-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-alpaca-zwart.jpg",
-      "navy": "images/dieren/dier-alpaca-navy.jpg",
-      "groen": "images/dieren/dier-alpaca-groen.jpg"
-     }
-    },
-    {
-     "id": "dier-muis",
-     "name": "Grootse dromen. Kleine pootjes.",
-     "img": "images/dieren/dier-muis-zwart.jpg",
-     "imgs": {
-      "zwart": "images/dieren/dier-muis-zwart.jpg",
-      "navy": "images/dieren/dier-muis-navy.jpg",
-      "groen": "images/dieren/dier-muis-groen.jpg"
+      "zwart": "images/dieren/dier-uil-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-uil-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-uil-trui-groen-voor.jpg"
      }
     },
     {
      "id": "dier-pinguin",
-     "name": "Netjes gekleed. Totaal geen plan.",
-     "img": "images/dieren/dier-pinguin-zwart.jpg",
+     "name": "17 · Netjes gekleed. Totaal geen plan.",
+     "img": "images/dieren/dier-pinguin-trui-zwart-voor.jpg",
      "imgs": {
-      "zwart": "images/dieren/dier-pinguin-zwart.jpg",
-      "navy": "images/dieren/dier-pinguin-navy.jpg",
-      "groen": "images/dieren/dier-pinguin-groen.jpg"
+      "zwart": "images/dieren/dier-pinguin-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-pinguin-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-pinguin-trui-groen-voor.jpg"
      }
     },
     {
-     "id": "dier-krokodil",
-     "name": "Zacht vanbinnen. Grote mond.",
-     "img": "images/dieren/dier-krokodil-zwart.jpg",
+     "id": "dier-capibara",
+     "name": "18 · Geen stress. Ik doe mijn best.",
      "imgs": {
-      "zwart": "images/dieren/dier-krokodil-zwart.jpg",
-      "navy": "images/dieren/dier-krokodil-navy.jpg",
-      "groen": "images/dieren/dier-krokodil-groen.jpg"
+      "zwart": "images/dieren/dier-capibara-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-capibara-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-capibara-trui-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-capibara-trui-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-koffiebeer",
+     "name": "19 · Eerst koffie. Dan de rest.",
+     "imgs": {
+      "zwart": "images/dieren/dier-koffiebeer-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-koffiebeer-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-koffiebeer-trui-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-koffiebeer-trui-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-luiekat",
+     "name": "20 · Vandaag even helemaal niks.",
+     "imgs": {
+      "zwart": "images/dieren/dier-luiekat-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-luiekat-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-luiekat-trui-groen-voor.jpg"
+     },
+     "img": "images/dieren/dier-luiekat-trui-zwart-voor.jpg"
+    },
+    {
+     "id": "dier-muis",
+     "name": "21 · Grootse dromen. Kleine pootjes.",
+     "img": "images/dieren/dier-muis-trui-zwart-voor.jpg",
+     "imgs": {
+      "zwart": "images/dieren/dier-muis-trui-zwart-voor.jpg",
+      "navy": "images/dieren/dier-muis-trui-navy-voor.jpg",
+      "groen": "images/dieren/dier-muis-trui-groen-voor.jpg"
      }
     }
    ]
   },
   {
    "id": "schort",
-   "name": "Keukenschort",
+   "name": "25 · Keukenschort",
    "kind": "apron",
    "price": 17.99,
    "cost": 6.1,
@@ -2095,7 +1445,7 @@
   },
   {
    "id": "kinderschort",
-   "name": "Kinderschort",
+   "name": "24 · Kinderkoksset",
    "kind": "apron",
    "price": 14.99,
    "cost": 5.89,
@@ -2130,9 +1480,9 @@
   },
   {
    "id": "shopper",
-   "name": "Shopper (tasje)",
+   "name": "23 · Shopper met naam",
    "kind": "tote",
-   "price": 4.99,
+   "price": 7.99,
    "cost": 3.2,
    "sizes": [
     "One size"
@@ -2148,11 +1498,12 @@
     "One size|zwart": 1,
     "One size|navy": 1,
     "One size|wit": 1
-   }
+   },
+   "namePrice": 0
   },
   {
    "id": "kersttas",
-   "name": "Kersttas met koord",
+   "name": "22 · Kersttas met koord",
    "kind": "tote",
    "price": 6.99,
    "cost": 3.96,
@@ -2187,7 +1538,7 @@
   },
   {
    "id": "beer",
-   "name": "Beer met bedrukt shirtje",
+   "name": "26 · Beer met shirtje",
    "kind": "bear",
    "price": 0,
    "cost": 8.12,
@@ -2228,8 +1579,10 @@
  "mailFrom": "Treasureshirt <bestelling@treasureshirt.com>",
  "namePrice": 5,
  "nameCost": 1,
- "version": 7,
- "priceUpdates": {},
+ "version": 8,
+ "priceUpdates": {
+  "shopper": 7.99
+ },
  "sizeUpdates": {},
  "removeColors": [],
  "designUpdates": [
@@ -2242,5 +1595,23 @@
  ],
  "colorUpdates": {},
  "costUpdates": {},
- "stockSet": {}
+ "stockSet": {},
+ "fieldUpdates": {
+  "kersttas": {
+   "name": "22 · Kersttas met koord"
+  },
+  "shopper": {
+   "name": "23 · Shopper met naam",
+   "namePrice": 0
+  },
+  "kinderschort": {
+   "name": "24 · Kinderkoksset"
+  },
+  "schort": {
+   "name": "25 · Keukenschort"
+  },
+  "beer": {
+   "name": "26 · Beer met shirtje"
+  }
+ }
 }

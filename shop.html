@@ -183,7 +183,7 @@
       const { p, type } = c;
       const color = p.colors?.[0]?.id;
       const img = Catalog.imageFor(p, type?.id, color);
-      const model = Catalog.modelFor(p, type?.id, color);
+      const model = (p.frontModels && p.frontModels[`${type?.id || ''}|${color}`]) || Catalog.modelFor(p, type?.id, color);
       const OVERVIEW = active === 'Alles' || active === 'Dieren';
       const title = p.name;
       const kids = type && GARMENT[type.id] === 'Kids';
@@ -248,11 +248,11 @@
       if (startColor && !p.colors?.some(c => c.id === startColor)) startColor = '';
       const sel = { type: startType || p.types?.[0]?.id || '', color: startColor || p.colors?.[0]?.id || '', size: '', personalName: '', namePlacement: (p.personalize?.placements?.[0]?.id) || '', printSide: 'voor' };
       // Ontwerp vooraan → naam op de rug; ontwerp op de rug (dieren, of gekozen) → naam op de borst.
-      const designSide = () => p.category === 'Dieren' ? 'rug' : (p.backModels && sel.printSide === 'rug' ? 'rug' : 'voor');
+      const designSide = () => p.category === 'Dieren' ? (sel.printSide === 'rug' ? 'rug' : 'voor') : (p.backModels && sel.printSide === 'rug' ? 'rug' : 'voor');
       const namePlaceFor = () => designSide() === 'rug' ? 'borst' : 'rug';
       const sizesFor = () => (p.types?.find(t => t.id === sel.type)?.sizes) || p.sizes || [];
       const hint = document.getElementById('pdetailHint');
-      document.getElementById('pdetailCat').textContent = p.category === 'Kerst' ? '🎄 Kerstcollectie' : p.category === 'Dieren' ? '🐾 Dieren · rugprint' : p.category;
+      document.getElementById('pdetailCat').textContent = p.category === 'Kerst' ? '🎄 Kerstcollectie' : p.category === 'Dieren' ? '🐾 Dieren' : p.category;
       document.getElementById('pdetailName').textContent = p.name;
       document.getElementById('pdetailDesc').textContent = p.description;
       document.getElementById('pdetailPickup').hidden = false;
@@ -267,8 +267,10 @@
       }
       function refresh() {
         setPrice(Catalog.priceFor(p, { ...sel, personalName: sel.personalName.trim() }));
-        const backMain = sel.printSide === 'rug' ? (p.backModels || {})[`${sel.type}|${sel.color}`] : '';
-        const modelMain = backMain || Catalog.modelFor(p, sel.type, sel.color);
+        // Dieren: vooraan = frontModels, op de rug = models (rugfoto's). Kerst: models vooraan, backModels op de rug.
+        const vk = `${sel.type}|${sel.color}`, dier = p.category === 'Dieren';
+        const backMain = sel.printSide === 'rug' ? (dier ? (p.models || {})[vk] : (p.backModels || {})[vk]) : '';
+        const modelMain = backMain || (dier ? (sel.printSide === 'rug' ? '' : (p.frontModels || {})[vk]) : Catalog.modelFor(p, sel.type, sel.color));
         showImage(modelMain || Catalog.imageFor(p, sel.type, sel.color));
         const thumbs = (p.colors || []).map(c => ({ c, url: Catalog.imageFor(p, sel.type, c.id) })).filter(x => x.url);
         const model = modelMain;
@@ -298,7 +300,7 @@
           opts.push(`<div><p class="opt-label">Kleur <span>— ${esc(cur?.label || '')}</span></p><div class="opt-grid">${p.colors.map(c =>
             `<button class="color-btn ${c.id === sel.color ? 'active' : ''}" data-color="${esc(c.id)}" style="background:${c.hex}" aria-label="${esc(c.label)}" title="${esc(c.label)}"></button>`).join('')}</div></div>`);
         }
-        const hasBack = !!(p.backModels && p.backModels[`${sel.type}|${sel.color}`]);
+        const hasBack = p.category === 'Dieren' || !!(p.backModels && p.backModels[`${sel.type}|${sel.color}`]);
         if (!hasBack) sel.printSide = 'voor';
         if (hasBack) {
           opts.push(`<div><p class="opt-label">Ontwerp op</p><div class="opt-grid">${[['voor', 'Voorkant'], ['rug', 'Rug']].map(([id, l]) =>
@@ -351,7 +353,7 @@
           image: Catalog.imageFor(p, sel.type, sel.color),
           variantType: sel.type, typeLabel: t ? t.label : '',
           color: sel.color, colorLabel: p.colors && p.colors.length > 1 ? (c?.label || '') : '',
-          size: sel.size, personalName, namePlacement: personalName ? namePlaceFor() : '', printSide: p.backModels ? sel.printSide : '',
+          size: sel.size, personalName, namePlacement: personalName ? namePlaceFor() : '', printSide: (p.backModels || p.category === 'Dieren') ? sel.printSide : '',
         });
         closeModal();
         setTimeout(() => Cart.open(), 250);

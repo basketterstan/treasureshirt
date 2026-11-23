@@ -51,12 +51,14 @@ function priceLine(p, item) {
   let price = Number(type ? type.price : p.price);
   if (personalName) price += Number(p.personalize.price || 0);
   // Ontwerp vooraan → naam groot op de rug; ontwerp op de rug → naam klein op de borst.
-  const designOnBack = p.category === 'Dieren' || (item.printSide === 'rug' && p.backModels && Object.keys(p.backModels).length > 0);
+  // Dieren: ontwerp vooraan of op de rug (oude bestellingen zonder keuze = rug).
+  const isDier = p.category === 'Dieren';
+  const designOnBack = isDier ? item.printSide !== 'voor' : (item.printSide === 'rug' && p.backModels && Object.keys(p.backModels).length > 0);
   const placement = personalName && Array.isArray(p.personalize.placements)
     ? p.personalize.placements.find(x => x.id === (designOnBack ? 'borst' : 'rug')) : null;
 
-  const onBack = item.printSide === 'rug' && p.backModels && Object.keys(p.backModels).length > 0;
-  const meta = [type?.label, p.colors && p.colors.length > 1 ? color?.label : '', sizes.length ? item.size : '', onBack ? 'Ontwerp op de rug' : '',
+  const onBack = isDier ? designOnBack : (item.printSide === 'rug' && p.backModels && Object.keys(p.backModels).length > 0);
+  const meta = [type?.label, p.colors && p.colors.length > 1 ? color?.label : '', sizes.length ? item.size : '', onBack ? 'Ontwerp op de rug' : (isDier ? 'Ontwerp vooraan' : ''),
     personalName ? `Naam: “${personalName}”${placement ? ` (${placement.label})` : ''}` : ''].filter(Boolean).join(' · ');
   return {
     name: meta ? `${p.name} — ${meta}` : p.name,

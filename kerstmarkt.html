@@ -7,7 +7,7 @@
   <meta name="description" content="Treasureshirt staat met een chalet op de kerstmarkt van Landen (11–13 december). Bestel je kersttrui of cadeau vooraf en haal gratis af." />
   <meta property="og:title" content="Kerstmarkt Landen 11–13 december — Treasureshirt" />
   <meta property="og:description" content="Treasureshirt staat met een chalet op de kerstmarkt van Landen (11–13 december). Bestel je kersttrui of cadeau vooraf en haal gratis af." />
-  <meta property="og:image" content="https://treasureshirt.com/images/kerst/kerstzin-tee-groen.jpg" />
+  <meta property="og:image" content="https://treasureshirt.com/images/kerst/gluhwein-tee-groen.jpg" />
   <meta name="theme-color" content="#0d0d0f" />
   <link rel="icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -106,9 +106,9 @@
       </div>
       <div class="km-collage" aria-hidden="true">
         <img src="images/kerst/gluhwein-hoodie-zwart.jpg" alt="" />
-        <img src="images/kerst/kerstzin-tee-navy.jpg" alt="" />
+        <img src="images/kerst/koekje-tee-navy.jpg" alt="" />
         <img src="images/kerst/beer-lisa.jpg" alt="" />
-        <img src="images/kerst/foutetrui-trui-groen.jpg" alt="" />
+        <img src="images/kerst/wanten-trui-groen.jpg" alt="" />
       </div>
     </div>
   </header>
@@ -176,7 +176,7 @@
       if (!open) item.classList.add('open');
     }));
     Catalog.load().then(all => {
-      const pick = ['kerst-hohoho','kerst-beer','kerst-schort','kerst-tas','kerst-gluhwein','kerst-kerstzin','kerst-foutetrui','kerst-kerstmodus'];
+      const pick = ['kerst-gluhwein','kerst-beer','kerst-schort','kerst-tas','kerst-hohoho','kerst-shopper','kerst-ikpiek','kerst-koekje'];
       const list = pick.map(id => all.find(p => p.id === id)).filter(Boolean);
       const { esc, euro } = Catalog;
       document.getElementById('kmGrid').innerHTML = list.map(p => `

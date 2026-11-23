@@ -7,7 +7,7 @@
   <meta name="description" content="Grappige kersttruien, hoodies en T-shirts, zelf ontworpen en gedrukt in Landen. Met je naam erop. Gratis afhalen op de kerstmarkt van Landen (11–13 december)." />
   <meta property="og:title" content="Treasureshirt — grappige kersttruien, hoodies en shirts uit Landen" />
   <meta property="og:description" content="Grappige kersttruien, hoodies en T-shirts, zelf ontworpen en gedrukt in Landen. Met je naam erop. Gratis afhalen op de kerstmarkt van Landen (11–13 december)." />
-  <meta property="og:image" content="https://treasureshirt.com/images/kerst/kerstzin-tee-groen.jpg" />
+  <meta property="og:image" content="https://treasureshirt.com/images/kerst/gluhwein-tee-groen.jpg" />
   <meta name="theme-color" content="#0d0d0f" />
   <link rel="icon" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -111,7 +111,7 @@
       <div class="hero-stack" aria-hidden="true">
         <img src="images/kerst/gluhwein-hoodie-zwart.jpg" alt="" />
         <img src="images/kerst/kerstmodus-tee-navy.jpg" alt="" />
-        <img src="images/kerst/foutetrui-trui-groen.jpg" alt="" />
+        <img src="images/kerst/ikpiek-trui-groen.jpg" alt="" />
       </div>
     </div>
   </header>
@@ -172,12 +172,12 @@
       if (!open) item.classList.add('open');
     }));
     Catalog.load().then(all => {
-      const pick = ['kerst-hohoho','kerst-kerststress','kerst-rendier','kerst-beer','kerst-gluhwein','winter-pinguin','kerst-schort','kerst-wanten'];
+      const pick = ['kerst-gluhwein','kerst-hohoho','dier-luiaard','kerst-beer','kerst-koekje','winter-pinguin','kerst-schort','kerst-wanten'];
       const list = pick.map(id => all.find(p => p.id === id)).filter(Boolean);
       const { esc, euro } = Catalog;
       document.getElementById('homeGrid').innerHTML = list.map(p => `
         <a class="product-card" href="shop.html#${encodeURIComponent(p.id)}" style="text-decoration:none;color:inherit">
-          <div class="product-image"><img src="${esc(Catalog.modelFor(p, null, p.colors?.[0]?.id) || Catalog.imageFor(p, null, p.colors?.[0]?.id))}" alt="${esc(p.name)}" loading="lazy"></div>
+          <div class="product-image"><img src="${esc((p.frontModels && p.frontModels[`${p.types?.[0]?.id || ''}|${p.colors?.[0]?.id}`]) || Catalog.modelFor(p, null, p.colors?.[0]?.id) || Catalog.imageFor(p, null, p.colors?.[0]?.id))}" alt="${esc(p.name)}" loading="lazy"></div>
           <div class="product-info">
             <h3 class="product-name">${esc(p.name)}</h3>
             <div class="product-footer"><p class="product-price">${p.types && p.types.length > 1 ? '<small>vanaf</small>' : ''}${euro(Catalog.fromPrice(p))}</p></div>
