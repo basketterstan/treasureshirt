@@ -1861,7 +1861,7 @@ const FONTS = {block:{label:"Blok", css:"'Bebas Neue', Impact, sans-serif", k:.5
 const KINDS = {bear:"Knuffelbeer", tee:"T-shirt", kidtee:"Kinder-t-shirt", hoodie:"Hoodie", sweater:"Trui", apron:"Keukenschort", tote:"Tasje"};
 
 const S = {db:null, dl:null, canWrite:true, catalog:null, catLoaded:false, current:null, sales:[], salesLoaded:false, orders:[], cust:{name:"",email:"",make:null},
-  view:"kassa", cart:[], status:"idle", cfg:null, live:false, restored:false, confirmUndo:null, rev:0, wid:Math.random().toString(36).slice(2)};
+  view:"kassa", cart:[], disc:{mode:"pct",v:0}, status:"idle", cfg:null, live:false, restored:false, confirmUndo:null, rev:0, wid:Math.random().toString(36).slice(2)};
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -1958,14 +1958,29 @@ function costOf(p,color,size){ if(has(p.costs,color)) return Number(p.costs[colo
 function priceLabel(p){ const ps=(p.sizes||[]).map(z=>priceOf(p,z)); const lo=Math.min(...ps), hi=Math.max(...ps); return lo===hi?eur(lo):"vanaf "+eur(lo); }
 function itemPrice(i){ return Number(i.price) + (i.personal ? Number(i.namePrice) : 0); }
 function itemCost(i){ return Number(i.cost) + (i.personal ? Number(i.nameCost) : 0); }
-const cartTotal = () => S.cart.reduce((a,i)=>a+itemPrice(i),0);
+const subTotal = () => S.cart.reduce((a,i)=>a+itemPrice(i),0);
+// Korting op de hele bon: procent of vast bedrag (nooit meer dan het subtotaal).
+const discAmount = () => { const d=S.disc||{}, v=Math.max(0,Number(d.v)||0), sub=subTotal(); if(!v||!S.cart.length) return 0;
+  return Math.round(Math.min(sub, d.mode==="eur" ? v : sub*Math.min(v,100)/100)*100)/100; };
+const cartTotal = () => Math.round((subTotal()-discAmount())*100)/100;
+const noDisc = () => ({mode:"pct", v:0});
+function discLinesHTML(){ const k=discAmount(); if(!k) return "";
+  return `<div class="total" style="font-size:15px;opacity:.8"><span>Subtotaal</span><span class="num">${eur(subTotal())}</span></div>
+    <div class="total" style="font-size:15px;color:var(--ok)"><span>Korting${S.disc.mode==="pct"?` ${Number(S.disc.v)}%`:""}</span><span class="num">−${eur(k)}</span></div>`; }
+function discEditHTML(){
+  const d=S.disc, on=(m,v)=>d.mode===m&&Number(d.v)===v;
+  return `<div class="field" style="gap:8px"><span class="eyebrow">Korting</span>
+    <div class="chips">${[0,10,15,20].map(v=>`<button class="chip" data-act="disc" data-m="pct" data-v="${v}" aria-pressed="${on("pct",v)}">${v?"−"+v+"%":"Geen"}</button>`).join("")}
+    ${[5,10].map(v=>`<button class="chip" data-act="disc" data-m="eur" data-v="${v}" aria-pressed="${on("eur",v)}">−${eur(v)}</button>`).join("")}</div>
+    <div class="cust"><input type="number" id="discV" min="0" step="0.5" inputmode="decimal" placeholder="Ander bedrag" value="${Number(d.v)&&(d.mode==="eur"?![5,10].includes(Number(d.v)):![10,15,20].includes(Number(d.v)))?esc(d.v):""}">
+    <div class="chips"><button class="chip" data-act="discmode" data-m="pct" aria-pressed="${d.mode==="pct"}">%</button><button class="chip" data-act="discmode" data-m="eur" aria-pressed="${d.mode==="eur"}">€</button></div></div></div>`; }
 
 /* ---------- current order sync ---------- */
 let curTimer;
 function buildCurrent(extra){
   let draft = null;
   if(S.cfg){ const p = prodById(S.cfg.pid); if(p) draft = {kind:p.kind, name:p.name, color:S.cfg.color, size:S.cfg.size, text:S.cfg.text||"", vinyl:S.cfg.vinyl, font:S.cfg.font, design:designOf(p,S.cfg.design)}; }
-  return Object.assign({status:S.status, items:S.cart, total:cartTotal(), draft, cust:S.cust, updatedAt:Date.now()}, extra||{});
+  return Object.assign({status:S.status, items:S.cart, disc:S.disc, total:cartTotal(), draft, cust:S.cust, updatedAt:Date.now()}, extra||{});
 }
 function pushCurrent(extra, now){
   if(!S.db || !S.canWrite) return;
@@ -2064,7 +2079,9 @@ function bonHTML(){
   const pay = S.status==="pay";
   return `<div class="row"><h2 class="grow">Bon</h2><span class="eyebrow">${S.cart.length} stuk${S.cart.length===1?"":"s"}</span></div>
     ${S.cart.length?linesHTML(S.cart,!pay):`<div class="empty">Nog niets op de bon.</div>`}
+    ${discLinesHTML()}
     <div class="total"><span>Totaal</span><span class="num">${eur(cartTotal())}</span></div>
+    ${S.cart.length&&!pay?discEditHTML():""}
     ${S.cart.length?custHTML():""}
     ${S.current&&S.current.by==="klant"&&S.current.draft&&!pay?`<div class="note" style="margin:0">De klant kiest nu op de iPad: <b>${esc(S.current.draft.name)}</b> · ${esc(S.current.draft.size)} · ${esc(cap(S.current.draft.color))}${S.current.draft.design?" · "+esc(S.current.draft.design.name):""}${S.current.draft.text?" · “"+esc(S.current.draft.text)+"”":""}</div>`:""}
     ${pay?`<div class="paybanner">Klant betaalt nu ${eur(cartTotal())}. ${(window.__tsPayBanner&&window.__tsPayBanner(cartTotal()))||(S.qr?"De klant ziet je Bancontact-QR op de iPad. Kijk in het Bancontact Pro-portaal of de betaling binnen is, of tik het bedrag in Revolut voor een kaart.":"Tik dit bedrag in Revolut op je iPhone.")}</div>`:""}
@@ -2108,6 +2125,7 @@ function klantHTML(){
   else left = `<div class="panel"><h2>Nog iets kiezen?</h2>${prodBtns}</div>`;
   const right = `<aside class="panel k-order"><div class="row"><h2 class="grow">Je mandje</h2><span class="eyebrow">${items.length} stuk${items.length===1?"":"s"}</span></div>
       ${items.length?linesHTML(items,S.status!=="pay"):`<div class="empty">Nog leeg. Kies links je product.</div>`}
+      ${discLinesHTML()}
       <div class="total"><span>Totaal</span><span class="num">${eur(cartTotal())}</span></div>
       ${items.length && S.status!=="pay" ? `<div class="field" style="gap:8px;margin-top:6px"><span class="eyebrow">Laat je gegevens achter</span>
         <input type="text" id="kName" placeholder="Je voornaam" value="${esc(S.cust.name)}" autocomplete="off" style="font-size:17px;padding:12px">
@@ -2293,7 +2311,9 @@ document.addEventListener("click", async ev => {
       personal: t?{text:t, vinyl:S.cfg.vinyl, font:S.cfg.font}:null, namePrice:namePriceFor(p), nameCost:nameCost()});
     S.cfg=null; S.status="order"; render(); pushCurrent(null,true); return; }
   if(a==="rm"){ S.cart.splice(Number(b.dataset.ix),1); if(!S.cart.length) S.status="idle"; render(); pushCurrent(null,true); return; }
-  if(a==="clear"){ S.cart=[]; S.cfg=null; S.status="idle"; render(); pushCurrent(null,true); return; }
+  if(a==="disc"){ S.disc={mode:b.dataset.m, v:Number(b.dataset.v)||0}; render(); pushCurrent(null,true); return; }
+  if(a==="discmode"){ S.disc={mode:b.dataset.m, v:0}; render(); pushCurrent(null,true); const i=$("#discV"); if(i) i.focus(); return; }
+  if(a==="clear"){ S.disc=noDisc(); S.cart=[]; S.cfg=null; S.status="idle"; render(); pushCurrent(null,true); return; }
   if(a==="pay"){ S.cfg=null; S.status="pay"; render(); pushCurrent(null,true); return; }
   if(a==="unpay"){ S.status="order"; render(); pushCurrent(null,true); return; }
   if(a==="paid"){ await completeSale(b.dataset.m); return; }
@@ -2323,6 +2343,7 @@ document.addEventListener("input", ev => {
 document.addEventListener("change", async ev => {
   const t = ev.target;
   if(t.id==="needMake"){ S.cust.make = t.checked; pushCurrent(); return; }
+  if(t.id==="discV"){ S.disc={mode:S.disc.mode, v:Math.max(0,Number(String(t.value).replace(",","."))||0)}; render(); pushCurrent(null,true); return; }
   if(t.id==="qrUpload" && t.files && t.files[0]){ await saveQR(t.files[0]); t.value=""; return; }
   const a = t.dataset.act; if(!a) return;
   if(a==="stock"){ const cat=clone(S.catalog), p=cat.products.find(x=>x.id===t.dataset.id); p.stock=p.stock||{}; p.stock[t.dataset.k]=Math.max(0,Math.round(Number(t.value)||0)); await saveCatalog(cat); }
@@ -2356,14 +2377,14 @@ async function saveQR(file){
 }
 async function completeSale(method){
   if(!S.cart.length) return;
-  const items = clone(S.cart), total = cartTotal(), cost = S.cart.reduce((a,i)=>a+itemCost(i),0), ts=Date.now();
+  const items = clone(S.cart), total = cartTotal(), subtotal = Math.round(subTotal()*100)/100, discount = discAmount(), cost = S.cart.reduce((a,i)=>a+itemCost(i),0), ts=Date.now();
   const cat = clone(S.catalog);
   items.forEach(i=>{ const p=cat.products.find(x=>x.id===i.pid); const k=i.size+"|"+i.color; if(p&&p.stock&&k in p.stock) p.stock[k]=Math.max(0,Number(p.stock[k])-1); });
   let saleRef;
   const nr = [...S.sales, ...S.orders].reduce((m,o)=>Math.max(m,Number(o.nr)||0),0) + 1;
   const make = wantsMake();
   try{
-    saleRef = await S.db.collection("sales").add({ts, day:today(ts), items, total, cost, method, nr});
+    saleRef = await S.db.collection("sales").add({ts, day:today(ts), items, total, subtotal, discount, cost, method, nr});
   }catch(e){ toast(errMsg(e)); return; }
   await saveCatalog(cat);
   const email = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(S.cust.email) ? S.cust.email : "";
@@ -2372,7 +2393,7 @@ async function completeSale(method){
     try{ await S.db.collection("orders").add({nr, ts, items, name:S.cust.name.trim(), email, status:"todo", saleId:(saleRef&&saleRef.id)||null}); madeOrder = true; }
     catch(e){ toast("Verkoop opgeslagen, maar de bestelling niet: "+errMsg(e)); }
   }
-  S.cust={name:"",email:"",make:null};
+  S.cust={name:"",email:"",make:null}; S.disc=noDisc();
   S.cart=[]; S.cfg=null; S.status="paid"; render();
   pushCurrent({lastCount:items.length, lastNr:nr, lastMake:madeOrder, lastMail:!!(madeOrder&&email)}, true);
   toast(madeOrder?`Verkoop opgeslagen · bestelling #${nr} staat bij Nog te maken`:`Verkoop #${nr} van ${eur(total)} opgeslagen`);
@@ -2394,7 +2415,7 @@ async function resetAll(){
   }
   for(const o of S.orders.slice()){ try{ await S.db.doc("orders/"+o._id).delete(); }catch(e){} }
   await saveCatalog(cat);
-  S.cart=[]; S.cfg=null; S.status="idle"; pushCurrent(null,true);
+  S.disc=noDisc(); S.cart=[]; S.cfg=null; S.status="idle"; pushCurrent(null,true);
   toast("Testverkopen gewist, voorraad teruggezet");
 }
 async function exportCSV(){
@@ -2431,6 +2452,7 @@ setView();
       S.restored = true; S.rev = Math.max(S.rev, rv);
       const before = S.cart.length, wasStatus = S.status;
       S.cart = Array.isArray(d.items) ? clone(d.items) : []; S.status = d.status || "idle";
+      S.disc = d.disc ? clone(d.disc) : noDisc();
       if(d.cust) S.cust = Object.assign({name:"",email:"",make:null}, clone(d.cust));
       if(S.view!=="klant" && d.by==="klant"){
         if(S.status==="pay" && wasStatus!=="pay") toast("De klant wil betalen");
